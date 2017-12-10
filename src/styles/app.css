@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 100%;
+}
+
+.header {
+    width: 100%;
+    background-color: #eee;
+}
+
+/* Clearfix */
+.header::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.logo {
+    color: black;
+    float: left;
+    padding-left: 2em;
+}
+
+.logo * {
+    display: inline-block;
+    padding-right: 1em;
+}
+
+.nav {
+    float: right;
+}
+
+.nav .fa {
+    padding: .5em;
+    color: black;
+    font-size: 1.4em;
+    float: left;
+    margin: 8px;
+}
+
+.nav .fa:hover {
+    color: #ff8500;
+}
+
+.nav .search-field {
+    float: left;
+    position: relative;
+}
+
+.nav .search-field ul {
+    list-style-type: none;
+    margin: 8px;
+    border: 0 1px 1px 1px solid #ccc;
+    padding: 0;
+    position: absolute;
+    top: 41px;
+    left: 0;
+    right: 0;
+    background: #e5e5e5;
+}
+
+.nav .search-field ul li {
+    padding: 8px;
+}
+
+.nav .search-field ul li:hover {
+    background-color: #aaa;
+}
+
+input[type=text] {
+    margin: 8px;
+    border: 1px solid #ccc;
+    padding: 12px 20px;
+    background-color: #ddd;
+    color: black;
+    float: left;
+    outline: none;
+    min-width: 300px;
+}
+
+input[type=text]:focus {
+    border: 1px solid #999;
+}
