@@ -8,13 +8,14 @@ interface WeatherCardProps {
     weather: string
 }
 
-export class WeatherCard extends React.Component<WeatherCardProps, any> {
+export class WeatherCard extends React.Component<any, any> {
     render() {
         return (
-            <div>
-                <h3>{this.props.weather}</h3>
-                <h3>{this.props.temperature}</h3>
-                <h3>{this.props.day}</h3>
+            <div className="weather-card">
+                <p className="day">Dom</p>
+                <img src="" />
+                <p className="temperature-max">10°</p>
+                <p className="temperature-min">3°</p>
             </div>
         );
     }
