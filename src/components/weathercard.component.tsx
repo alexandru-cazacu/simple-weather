@@ -5,17 +5,20 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 interface WeatherCardProps {
     day: string,
     temperature: number,
-    weather: string
+    temperatureMax: number,
+    temperatureMin: number
 }
 
-export class WeatherCard extends React.Component<any, any> {
+export class WeatherCard extends React.Component<WeatherCardProps, any> {
     render() {
         return (
             <div className="weather-card">
-                <p className="day">Dom</p>
-                <img src="" />
-                <p className="temperature-max">10°</p>
-                <p className="temperature-min">3°</p>
+                <p className="day">{this.props.day}</p>
+                <img src="https://ssl.gstatic.com/onebox/weather/128/rain.png" />
+
+                <p className="temperature-max">{this.props.temperatureMax}°</p>
+                <p className="temperature">{this.props.temperature}°</p>
+                <p className="temperature-min">{this.props.temperatureMin}°</p>
             </div>
         );
     }

@@ -4,8 +4,13 @@ import { GOOGLE_PLACES_KEY, GOOGLE_MAPS_KEY, OPEN_WEATHER_KEY } from '../keys';
 import * as Moment from 'moment';
 import * as Request from 'request';
 import { currentId } from 'async_hooks';
+import { SearchLocation } from './searchlocation.component';
 
-export class InputField extends React.Component<any, any> {
+interface InputFieldProps {
+    onSearch(searchQuery: string): any;
+}
+
+export class InputField extends React.Component<InputFieldProps, any> {
 
     // ----------------------------------------------------------------------------------------------------
     constructor(props: any) {
@@ -13,7 +18,7 @@ export class InputField extends React.Component<any, any> {
         this.state = { currentInputValue: '', suggestions: [] };
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleKeyDown = this.handleKeyDown.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
     }
 
     // ----------------------------------------------------------------------------------------------------
@@ -25,6 +30,8 @@ export class InputField extends React.Component<any, any> {
 
         Request(reqString + "?input=" + event.target.value + "&type=geocode&key=" + GOOGLE_PLACES_KEY, { json: true }, (err: any, res: any, body: any) => {
             if (err) { return console.log(err); }
+
+            console.log("Segguestions: ");
             console.log(body);
 
             let tempSuggestion = [];
@@ -38,26 +45,21 @@ export class InputField extends React.Component<any, any> {
     }
 
     // ----------------------------------------------------------------------------------------------------
-    handleKeyDown(event: any) {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            console.log('Get Weather');
-        }
-    }
+    handleSearch(searchQuery: string) {
+        this.setState({ currentInputValue: '', suggestions: [] });
 
-    // ----------------------------------------------------------------------------------------------------
-    handleSearch() {
-
+        console.log("Search query sent to Maps: " + searchQuery);
+        this.props.onSearch(searchQuery);
     }
 
     // ----------------------------------------------------------------------------------------------------
     render() {
         return (
-            <div className="search-field">
-                <input type="text" placeholder="Cerca..." value={this.state.currentInputValue} onChange={this.handleChange} onKeyDown={this.handleKeyDown} />
+            <div className="search-field" >
+                <input type="text" placeholder="Cerca..." value={this.state.currentInputValue} onChange={this.handleChange} />
                 <ul>
-                    {this.state.suggestions.map((number: any) =>
-                        <li key={number} onClick={this.handleSearch}>{number}</li>
+                    {this.state.suggestions.map((value: any) =>
+                        <li key={value} onClick={(e) => this.handleSearch(value)}>{value}</li>
                     )}
                 </ul>
             </div>

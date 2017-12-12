@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-html, body {
+html, body, #root {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
@@ -89,20 +89,56 @@ input[type=text]:focus {
     border: 1px solid #999;
 }
 
+.wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+
 .weather-card {
-    border: 1px solid black;
-    width: 200px;
+    width: 150px;
+    margin: 8px;
+    padding: 8px;
     display: inline-block;
-    padding: 10px;
-    margin: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-sizing: border-box;
+}
+
+.weather-card .day {
+    color: #bbb;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.weather-card img {
+    margin: 10px auto;
+    display: block;
+    width: 60px;
+    height: 60px;
 }
 
 .temperature-max {
+    color: #bbb;
     display: inline-block;
-    margin: 2px;
+    text-align: right;
+    width: 33.3%;
+    margin: 0;
+    font-size: 0.8em;
+}
+
+.temperature {
+    color: #000;
+    display: inline-block;
+    text-align: center;
+    width: 33.3%;
+    margin: 0;
 }
 
 .temperature-min {
+    color: #bbb;
     display: inline-block;
-    margin: 2px;
+    text-align: left;
+    width: 33.3%;
+    margin: 0;
+    font-size: 0.8em;
 }
