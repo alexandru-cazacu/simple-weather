@@ -1,0 +1,29 @@
+[33mcommit a3d35d22b6a2c8de458185953af91447dd2bbf42[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Alexandru Cazacu <alexandru.cazacu.9889@gmail.com>
+Date:   Tue Dec 12 14:11:03 2017 +0100
+
+    Split code into Input, WeatherApp & WeatherCard
+
+[33mcommit d5a39cde4cd623cc1e19730e6b051b9327454714[m
+Author: Alexandru Cazacu <alexandru.cazacu.9889@gmail.com>
+Date:   Mon Dec 11 12:52:47 2017 +0100
+
+    Added weather card
+
+[33mcommit 2775fdb91fb6fbc3c519a1712fa2d12d3e250400[m
+Author: Alexandru Cazacu <alexandru.cazacu.9889@gmail.com>
+Date:   Sun Dec 10 22:34:01 2017 +0100
+
+    Chart.js test
+
+[33mcommit 04877e962ccfc35c6280e94da0b9166bc0e24f73[m
+Author: Alexandru Cazacu <alexandru.cazacu.9889@gmail.com>
+Date:   Sun Dec 10 18:27:25 2017 +0100
+
+    Add files via upload
+
+[33mcommit eacac7825642e0e7e499963787ae9713ac4acf6d[m
+Author: Alexandru Cazacu <alexandru.cazacu.9889@gmail.com>
+Date:   Sun Dec 10 18:16:15 2017 +0100
+
+    Initial commit

@@ -8,7 +8,7 @@ import * as Request from 'request';
 import { currentId } from 'async_hooks';
 
 import { InputField } from './inputField.component';
-import { WeatherCard } from './weathercard.component';
+import { WeatherCard } from './weatherCard.component';
 
 export class WeatherApp extends React.Component<any, any> {
 
@@ -37,6 +37,7 @@ export class WeatherApp extends React.Component<any, any> {
         });
     }
 
+    // ----------------------------------------------------------------------------------------------------
     getWeather(lat: number, lng: number) {
         let reqString = 'http://api.openweathermap.org/data/2.5/forecast';
 
@@ -46,7 +47,7 @@ export class WeatherApp extends React.Component<any, any> {
             console.log("Weather API predistions: ");
             console.log(body);
 
-            this.setState({ weather: body });
+            this.setState({ weather: body.list });
 
             let tempWeather = [];
 
@@ -65,13 +66,18 @@ export class WeatherApp extends React.Component<any, any> {
                     </div>
                 </div>
                 <div className="wrapper">
-                    <WeatherCard day='Dom' temperature={10} temperatureMin={20} temperatureMax={20} />
-                    <WeatherCard day='Lun' temperature={10} temperatureMin={20} temperatureMax={20} />
-                    <WeatherCard day='Mar' temperature={10} temperatureMin={20} temperatureMax={20} />
-                    <WeatherCard day='Mer' temperature={10} temperatureMin={20} temperatureMax={20} />
-                    <WeatherCard day='Gio' temperature={10} temperatureMin={20} temperatureMax={20} />
-                    <WeatherCard day='Ven' temperature={10} temperatureMin={20} temperatureMax={20} />
-                    <WeatherCard day='Sab' temperature={10} temperatureMin={20} temperatureMax={20} />
+                    {this.state.weather.map(
+                        (value: any) => {
+                            let day = Moment.unix(value.dt).format("dd");
+                            return <WeatherCard
+                                key={value.dt}
+                                day={day}
+                                temperature={Math.round(value.main.temp - 273.15)}
+                                temperatureMin={Math.round(value.main.temp_min - 273.15)}
+                                temperatureMax={Math.round(value.main.temp_max - 273.15)}
+                                imageName={value.weather[0].icon} />;
+                        }
+                    )}
                     <canvas id="myChart"></canvas>
                 </div>
             </div >

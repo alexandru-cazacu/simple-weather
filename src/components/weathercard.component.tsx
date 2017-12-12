@@ -7,6 +7,7 @@ interface WeatherCardProps {
     temperature: number,
     temperatureMax: number,
     temperatureMin: number
+    imageName: string
 }
 
 export class WeatherCard extends React.Component<WeatherCardProps, any> {
@@ -14,7 +15,7 @@ export class WeatherCard extends React.Component<WeatherCardProps, any> {
         return (
             <div className="weather-card">
                 <p className="day">{this.props.day}</p>
-                <img src="https://ssl.gstatic.com/onebox/weather/128/rain.png" />
+                <img src={"./images/" + this.props.imageName + ".png"} />
 
                 <p className="temperature-max">{this.props.temperatureMax}°</p>
                 <p className="temperature">{this.props.temperature}°</p>
