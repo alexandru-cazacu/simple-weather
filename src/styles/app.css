@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
 
 html, body, #root {
     margin: 0;
@@ -94,6 +94,8 @@ input[type=text]:focus {
     margin: 0 auto;
 }
 
+/* ============================== WEATHER CARD ============================== */
+
 .weather-card {
     width: 150px;
     margin: 8px;
@@ -123,7 +125,6 @@ input[type=text]:focus {
     text-align: right;
     width: 33.3%;
     margin: 0;
-    font-size: 0.8em;
 }
 
 .temperature {
@@ -140,5 +141,58 @@ input[type=text]:focus {
     text-align: left;
     width: 33.3%;
     margin: 0;
-    font-size: 0.8em;
+}
+
+/* ============================== NEXT WEATHER ============================== */
+
+.next-weather {
+    margin: 0 auto;
+    text-align: center;
+    padding: 1em;
+    margin: 1em;
+}
+
+
+.next-weather .city {
+    font-size: 2em;
+    color: #bbb;
+    text-align: center;
+    margin: 0;
+}
+
+.next-weather .time {
+    color: #bbb;
+    padding: 0;
+    margin: 0;
+}
+
+
+.next-weather .weather {
+    color: #bbb;
+    padding: 0;
+    margin: 0;
+}
+
+.next-weather img {
+    width: 60px;
+    height: 60px;
+    text-align: right;
+}
+
+.next-weather .temperature {
+    font-size: 6em;
+    font-weight: lighter;
+    width: 2.5em;
+    color: #222;
+}
+
+.next-weather .rain,
+.next-weather .humidity,
+.next-weather .wind {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #eee;
+    border: 2px solid #ddd;
+    margin: 20px 10px 0 10px;
+    color: #222;
 }

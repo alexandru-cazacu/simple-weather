@@ -23,7 +23,7 @@ export class InputField extends React.Component<InputFieldProps, any> {
 
     // ----------------------------------------------------------------------------------------------------
     handleChange(event: any) {
-        this.setState({ currentInputValue: event.target.value });
+        this.setState({ currentInputValue: event.target.value, suggestions: [] });
         console.log("Search query changed to: " + event.target.value);
 
         let reqString = 'https://maps.googleapis.com/maps/api/place/autocomplete/json';
@@ -31,16 +31,7 @@ export class InputField extends React.Component<InputFieldProps, any> {
         Request(reqString + "?input=" + event.target.value + "&type=geocode&key=" + GOOGLE_PLACES_KEY, { json: true }, (err: any, res: any, body: any) => {
             if (err) { return console.log(err); }
 
-            console.log("Segguestions: ");
-            console.log(body);
-
-            let tempSuggestion = [];
-
-            for (let i = 0; i < body.predictions.length; i++) {
-                tempSuggestion.push(body.predictions[i].description);
-            }
-
-            this.setState({ suggestions: tempSuggestion });
+            this.setState({ suggestions: body.predictions });
         });
     }
 
@@ -59,7 +50,7 @@ export class InputField extends React.Component<InputFieldProps, any> {
                 <input type="text" placeholder="Cerca..." value={this.state.currentInputValue} onChange={this.handleChange} />
                 <ul>
                     {this.state.suggestions.map((value: any) =>
-                        <li key={value} onClick={(e) => this.handleSearch(value)}>{value}</li>
+                        <li key={value.id} onClick={(e) => this.handleSearch(value.description)}>{value.description}</li>
                     )}
                 </ul>
             </div>

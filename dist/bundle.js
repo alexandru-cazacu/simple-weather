@@ -10922,7 +10922,7 @@ process.umask = function() { return 0; };
 
 
 exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = __webpack_require__(30)
-exports.createHash = exports.Hash = __webpack_require__(34)
+exports.createHash = exports.Hash = __webpack_require__(35)
 exports.createHmac = exports.Hmac = __webpack_require__(216)
 
 var algos = __webpack_require__(298)
@@ -11351,7 +11351,7 @@ module.exports = Key;
 var assert = __webpack_require__(4);
 var algs = __webpack_require__(12);
 var crypto = __webpack_require__(8);
-var Fingerprint = __webpack_require__(43);
+var Fingerprint = __webpack_require__(44);
 var Signature = __webpack_require__(20);
 var DiffieHellman = __webpack_require__(245).DiffieHellman;
 var errs = __webpack_require__(19);
@@ -11372,7 +11372,7 @@ var formats = {};
 formats['auto'] = __webpack_require__(248);
 formats['pem'] = __webpack_require__(22);
 formats['pkcs1'] = __webpack_require__(77);
-formats['pkcs8'] = __webpack_require__(45);
+formats['pkcs8'] = __webpack_require__(46);
 formats['rfc4253'] = __webpack_require__(28);
 formats['ssh'] = __webpack_require__(250);
 formats['ssh-private'] = __webpack_require__(58);
@@ -11807,7 +11807,7 @@ module.exports = PrivateKey;
 var assert = __webpack_require__(4);
 var algs = __webpack_require__(12);
 var crypto = __webpack_require__(8);
-var Fingerprint = __webpack_require__(43);
+var Fingerprint = __webpack_require__(44);
 var Signature = __webpack_require__(20);
 var errs = __webpack_require__(19);
 var util = __webpack_require__(5);
@@ -11834,7 +11834,7 @@ var formats = {};
 formats['auto'] = __webpack_require__(248);
 formats['pem'] = __webpack_require__(22);
 formats['pkcs1'] = __webpack_require__(77);
-formats['pkcs8'] = __webpack_require__(45);
+formats['pkcs8'] = __webpack_require__(46);
 formats['rfc4253'] = __webpack_require__(28);
 formats['ssh-private'] = __webpack_require__(58);
 formats['openssh'] = formats['ssh-private'];
@@ -12108,7 +12108,7 @@ var EE = __webpack_require__(48).EventEmitter;
 var inherits = __webpack_require__(2);
 
 inherits(Stream, EE);
-Stream.Readable = __webpack_require__(35);
+Stream.Readable = __webpack_require__(36);
 Stream.Writable = __webpack_require__(289);
 Stream.Duplex = __webpack_require__(290);
 Stream.Transform = __webpack_require__(291);
@@ -12331,7 +12331,7 @@ var protocolPattern = /^([a-z0-9.+-]+:)/i,
       'gopher:': true,
       'file:': true
     },
-    querystring = __webpack_require__(33);
+    querystring = __webpack_require__(34);
 
 function urlParse(url, parseQueryString, slashesDenoteHost) {
   if (url && util.isObject(url) && url instanceof Url) return url;
@@ -13761,7 +13761,7 @@ var Key = __webpack_require__(11);
 var PrivateKey = __webpack_require__(13);
 
 var pkcs1 = __webpack_require__(77);
-var pkcs8 = __webpack_require__(45);
+var pkcs8 = __webpack_require__(46);
 var sshpriv = __webpack_require__(58);
 var rfc4253 = __webpack_require__(28);
 
@@ -14010,7 +14010,7 @@ var objectKeys = Object.keys || function (obj) {
 module.exports = Duplex;
 
 /*<replacement>*/
-var util = __webpack_require__(36);
+var util = __webpack_require__(37);
 util.inherits = __webpack_require__(2);
 /*</replacement>*/
 
@@ -18913,6 +18913,12 @@ function unescapeJsonPointer(str) {
 
 /***/ }),
 /* 33 */
+/***/ (function(module, exports) {
+
+module.exports = React;
+
+/***/ }),
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18923,7 +18929,7 @@ exports.encode = exports.stringify = __webpack_require__(274);
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18983,7 +18989,7 @@ module.exports = function createHash (alg) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1).Buffer))
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(210);
@@ -18996,7 +19002,7 @@ exports.PassThrough = __webpack_require__(288);
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright Joyent, Inc. and other Node contributors.
@@ -19110,7 +19116,7 @@ function objectToString(o) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1).Buffer))
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {module.exports = function xor (a, b) {
@@ -19127,7 +19133,7 @@ function objectToString(o) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1).Buffer))
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19226,7 +19232,7 @@ BlockHash.prototype._pad = function pad() {
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var asn1 = exports;
@@ -19234,14 +19240,14 @@ var asn1 = exports;
 asn1.bignum = __webpack_require__(7);
 
 asn1.define = __webpack_require__(348).define;
-asn1.base = __webpack_require__(40);
+asn1.base = __webpack_require__(41);
 asn1.constants = __webpack_require__(235);
 asn1.decoders = __webpack_require__(354);
 asn1.encoders = __webpack_require__(356);
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var base = exports;
@@ -19253,7 +19259,7 @@ base.Node = __webpack_require__(352);
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-disable node/no-deprecated-api */
@@ -19321,7 +19327,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var ClientRequest = __webpack_require__(368)
@@ -19406,7 +19412,7 @@ http.METHODS = [
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -19418,7 +19424,7 @@ var algs = __webpack_require__(12);
 var crypto = __webpack_require__(8);
 var errs = __webpack_require__(19);
 var Key = __webpack_require__(11);
-var Certificate = __webpack_require__(44);
+var Certificate = __webpack_require__(45);
 var utils = __webpack_require__(9);
 
 var FingerprintFormatError = errs.FingerprintFormatError;
@@ -19574,7 +19580,7 @@ Fingerprint._oldVersionDetect = function (obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1).Buffer))
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2016 Joyent, Inc.
@@ -19584,14 +19590,14 @@ module.exports = Certificate;
 var assert = __webpack_require__(4);
 var algs = __webpack_require__(12);
 var crypto = __webpack_require__(8);
-var Fingerprint = __webpack_require__(43);
+var Fingerprint = __webpack_require__(44);
 var Signature = __webpack_require__(20);
 var errs = __webpack_require__(19);
 var util = __webpack_require__(5);
 var utils = __webpack_require__(9);
 var Key = __webpack_require__(11);
 var PrivateKey = __webpack_require__(13);
-var Identity = __webpack_require__(46);
+var Identity = __webpack_require__(47);
 
 var formats = {};
 formats['openssh'] = __webpack_require__(394);
@@ -19958,7 +19964,7 @@ Certificate._oldVersionDetect = function (obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1).Buffer))
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -20470,7 +20476,7 @@ function writePkcs8ECDSAPrivate(key, der) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1).Buffer))
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2017 Joyent, Inc.
@@ -20480,7 +20486,7 @@ module.exports = Identity;
 var assert = __webpack_require__(4);
 var algs = __webpack_require__(12);
 var crypto = __webpack_require__(8);
-var Fingerprint = __webpack_require__(43);
+var Fingerprint = __webpack_require__(44);
 var Signature = __webpack_require__(20);
 var errs = __webpack_require__(19);
 var util = __webpack_require__(5);
@@ -20752,12 +20758,6 @@ Identity._oldVersionDetect = function (obj) {
 };
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1).Buffer))
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports) {
-
-module.exports = React;
 
 /***/ }),
 /* 48 */
@@ -23698,7 +23698,7 @@ module.exports = function extend() {
 
 var jsonSafeStringify = __webpack_require__(280)
 var crypto = __webpack_require__(8)
-var Buffer = __webpack_require__(41).Buffer
+var Buffer = __webpack_require__(42).Buffer
 
 var defer = typeof setImmediate === 'undefined'
   ? process.nextTick
@@ -24291,7 +24291,7 @@ var Duplex;
 Writable.WritableState = WritableState;
 
 /*<replacement>*/
-var util = __webpack_require__(36);
+var util = __webpack_require__(37);
 util.inherits = __webpack_require__(2);
 /*</replacement>*/
 
@@ -25023,7 +25023,7 @@ function getr(priv) {
 var hash = exports;
 
 hash.utils = __webpack_require__(18);
-hash.common = __webpack_require__(38);
+hash.common = __webpack_require__(39);
 hash.sha = __webpack_require__(333);
 hash.ripemd = __webpack_require__(337);
 hash.hmac = __webpack_require__(338);
@@ -25041,7 +25041,7 @@ hash.ripemd160 = hash.ripemd.ripemd160;
 /* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var http = __webpack_require__(42)
+var http = __webpack_require__(43)
 var url = __webpack_require__(17)
 
 var https = module.exports
@@ -25081,11 +25081,11 @@ function validateParams (params) {
 // Copyright 2015 Joyent, Inc.
 
 var Key = __webpack_require__(11);
-var Fingerprint = __webpack_require__(43);
+var Fingerprint = __webpack_require__(44);
 var Signature = __webpack_require__(20);
 var PrivateKey = __webpack_require__(13);
-var Certificate = __webpack_require__(44);
-var Identity = __webpack_require__(46);
+var Certificate = __webpack_require__(45);
+var Identity = __webpack_require__(47);
 var errs = __webpack_require__(19);
 
 module.exports = {
@@ -25202,7 +25202,7 @@ var Key = __webpack_require__(11);
 var PrivateKey = __webpack_require__(13);
 var pem = __webpack_require__(22);
 
-var pkcs8 = __webpack_require__(45);
+var pkcs8 = __webpack_require__(46);
 var readECDSACurve = pkcs8.readECDSACurve;
 
 function read(buf, options) {
@@ -38047,7 +38047,7 @@ function _isUint8Array(obj) {
 /*</replacement>*/
 
 /*<replacement>*/
-var util = __webpack_require__(36);
+var util = __webpack_require__(37);
 util.inherits = __webpack_require__(2);
 /*</replacement>*/
 
@@ -39150,7 +39150,7 @@ module.exports = Transform;
 var Duplex = __webpack_require__(24);
 
 /*<replacement>*/
-var util = __webpack_require__(36);
+var util = __webpack_require__(37);
 util.inherits = __webpack_require__(2);
 /*</replacement>*/
 
@@ -39939,7 +39939,7 @@ module.exports = pbkdf2
 /* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var xor = __webpack_require__(37)
+var xor = __webpack_require__(38)
 var Buffer = __webpack_require__(3).Buffer
 var incr32 = __webpack_require__(223)
 
@@ -40007,7 +40007,7 @@ var Buffer = __webpack_require__(3).Buffer
 var Transform = __webpack_require__(21)
 var inherits = __webpack_require__(2)
 var GHASH = __webpack_require__(310)
-var xor = __webpack_require__(37)
+var xor = __webpack_require__(38)
 var incr32 = __webpack_require__(223)
 
 function xorTest (a, b) {
@@ -40586,7 +40586,7 @@ exports.g1_256 = g1_256;
 
 
 var utils = __webpack_require__(18);
-var common = __webpack_require__(38);
+var common = __webpack_require__(39);
 var shaCommon = __webpack_require__(231);
 var assert = __webpack_require__(16);
 
@@ -40698,7 +40698,7 @@ SHA256.prototype._digest = function digest(enc) {
 
 
 var utils = __webpack_require__(18);
-var common = __webpack_require__(38);
+var common = __webpack_require__(39);
 var assert = __webpack_require__(16);
 
 var rotr64_hi = utils.rotr64_hi;
@@ -41032,7 +41032,7 @@ function g1_512_lo(xh, xl) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(2);
-var Reporter = __webpack_require__(40).Reporter;
+var Reporter = __webpack_require__(41).Reporter;
 var Buffer = __webpack_require__(1).Buffer;
 
 function DecoderBuffer(base, options) {
@@ -41180,7 +41180,7 @@ constants.der = __webpack_require__(353);
 
 var inherits = __webpack_require__(2);
 
-var asn1 = __webpack_require__(39);
+var asn1 = __webpack_require__(40);
 var base = asn1.base;
 var bignum = asn1.bignum;
 
@@ -41511,7 +41511,7 @@ function derDecodeLen(buf, primitive, fail) {
 var inherits = __webpack_require__(2);
 var Buffer = __webpack_require__(1).Buffer;
 
-var asn1 = __webpack_require__(39);
+var asn1 = __webpack_require__(40);
 var base = asn1.base;
 
 // Import DER constants
@@ -41815,7 +41815,7 @@ module.exports = {"1.3.132.0.10":"secp256k1","1.3.132.0.33":"p224","1.2.840.1004
 /* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(34);
+/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(35);
 module.exports = function (seed, len) {
   var t = new Buffer('');
   var  i = 0, c;
@@ -43432,10 +43432,10 @@ var utils = __webpack_require__(9);
 var Key = __webpack_require__(11);
 var PrivateKey = __webpack_require__(13);
 var pem = __webpack_require__(22);
-var Identity = __webpack_require__(46);
+var Identity = __webpack_require__(47);
 var Signature = __webpack_require__(20);
-var Certificate = __webpack_require__(44);
-var pkcs8 = __webpack_require__(45);
+var Certificate = __webpack_require__(45);
+var pkcs8 = __webpack_require__(46);
 
 /*
  * This file is based on RFC5280 (X.509).
@@ -45905,7 +45905,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(47);
+var React = __webpack_require__(33);
 var ReactDOM = __webpack_require__(268);
 var weatherApp_component_1 = __webpack_require__(269);
 var Index = /** @class */ (function (_super) {
@@ -45946,19 +45946,22 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(47);
+var React = __webpack_require__(33);
 var keys_1 = __webpack_require__(83);
 var Moment = __webpack_require__(0);
 var Request = __webpack_require__(202);
 var inputField_component_1 = __webpack_require__(480);
 var weatherCard_component_1 = __webpack_require__(481);
+var nextWeather_component_1 = __webpack_require__(482);
 var WeatherApp = /** @class */ (function (_super) {
     __extends(WeatherApp, _super);
     // ----------------------------------------------------------------------------------------------------
     function WeatherApp(props) {
         var _this = _super.call(this, props) || this;
-        _this.state = { weather: [] };
+        _this.state = { weather: [], city: [] };
         _this.handleSearch = _this.handleSearch.bind(_this);
+        Moment().locale("it");
+        Moment().format('LLLL');
         return _this;
     }
     // ----------------------------------------------------------------------------------------------------
@@ -45986,7 +45989,7 @@ var WeatherApp = /** @class */ (function (_super) {
             }
             console.log("Weather API predistions: ");
             console.log(body);
-            _this.setState({ weather: body.list });
+            _this.setState({ weather: body.list, city: body.city });
             var tempWeather = [];
             console.log("Weather predictions: ");
             console.log(_this.state.weather);
@@ -45998,12 +46001,11 @@ var WeatherApp = /** @class */ (function (_super) {
             React.createElement("div", { className: "header" },
                 React.createElement("div", { className: "nav" },
                     React.createElement(inputField_component_1.InputField, { onSearch: this.handleSearch }))),
-            React.createElement("div", { className: "wrapper" },
-                this.state.weather.map(function (value) {
-                    var day = Moment.unix(value.dt).format("dd");
-                    return React.createElement(weatherCard_component_1.WeatherCard, { key: value.dt, day: day, temperature: Math.round(value.main.temp - 273.15), temperatureMin: Math.round(value.main.temp_min - 273.15), temperatureMax: Math.round(value.main.temp_max - 273.15), imageName: value.weather[0].icon });
-                }),
-                React.createElement("canvas", { id: "myChart" }))));
+            this.state.weather[0] && React.createElement(nextWeather_component_1.NextWeather, { city: this.state.city.name, time: Moment.unix(this.state.weather[0].dt).format("dddd DD MMMM"), weather: this.state.weather[0].weather[0].main, temperature: this.state.weather[0].main.temp, rain: this.state.weather[0].rain['3h'], humidity: this.state.weather[0].main.humidity, wind: this.state.weather[0].wind.speed, icon: this.state.weather[0].weather[0].icon }),
+            React.createElement("div", { className: "wrapper" }, this.state.weather.map(function (value) {
+                var day = Moment.unix(value.dt).format("dd");
+                return React.createElement(weatherCard_component_1.WeatherCard, { key: value.dt, day: day, temperature: Math.round(value.main.temp - 273.15), temperatureMin: Math.round(value.main.temp_min - 273.15), temperatureMax: Math.round(value.main.temp_max - 273.15), imageName: value.weather[0].icon });
+            }))));
     };
     return WeatherApp;
 }(React.Component));
@@ -48043,7 +48045,7 @@ if (typeof Object.create === 'function') {
 /* 278 */
 /***/ (function(module, exports) {
 
-module.exports = {"_args":[["tough-cookie@2.3.3","E:\\Documenti\\__Progetti\\simple-weather"]],"_from":"tough-cookie@2.3.3","_id":"tough-cookie@2.3.3","_inBundle":false,"_integrity":"sha1-C2GKVWW23qkL80JdBNVe3EdadWE=","_location":"/tough-cookie","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"tough-cookie@2.3.3","name":"tough-cookie","escapedName":"tough-cookie","rawSpec":"2.3.3","saveSpec":null,"fetchSpec":"2.3.3"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.3.tgz","_spec":"2.3.3","_where":"E:\\Documenti\\__Progetti\\simple-weather","author":{"name":"Jeremy Stashewsky","email":"jstashewsky@salesforce.com"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"engines":{"node":">=0.8"},"files":["lib"],"homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","name":"tough-cookie","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.3"}
+module.exports = {"_args":[["tough-cookie@2.3.3","C:\\Users\\alex\\Documents\\Progetti\\simple-weather"]],"_from":"tough-cookie@2.3.3","_id":"tough-cookie@2.3.3","_inBundle":false,"_integrity":"sha1-C2GKVWW23qkL80JdBNVe3EdadWE=","_location":"/tough-cookie","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"tough-cookie@2.3.3","name":"tough-cookie","escapedName":"tough-cookie","rawSpec":"2.3.3","saveSpec":null,"fetchSpec":"2.3.3"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.3.tgz","_spec":"2.3.3","_where":"C:\\Users\\alex\\Documents\\Progetti\\simple-weather","author":{"name":"Jeremy Stashewsky","email":"jstashewsky@salesforce.com"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"engines":{"node":">=0.8"},"files":["lib"],"homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","name":"tough-cookie","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.3"}
 
 /***/ }),
 /* 279 */
@@ -48808,7 +48810,7 @@ module.exports = PassThrough;
 var Transform = __webpack_require__(213);
 
 /*<replacement>*/
-var util = __webpack_require__(36);
+var util = __webpack_require__(37);
 util.inherits = __webpack_require__(2);
 /*</replacement>*/
 
@@ -48842,14 +48844,14 @@ module.exports = __webpack_require__(24);
 /* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(35).Transform
+module.exports = __webpack_require__(36).Transform
 
 
 /***/ }),
 /* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(35).PassThrough
+module.exports = __webpack_require__(36).PassThrough
 
 
 /***/ }),
@@ -49815,7 +49817,7 @@ exports.decrypt = function (self, block) {
 /* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var xor = __webpack_require__(37)
+var xor = __webpack_require__(38)
 
 exports.encrypt = function (self, block) {
   var data = xor(block, self._prev)
@@ -49839,7 +49841,7 @@ exports.decrypt = function (self, block) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(3).Buffer
-var xor = __webpack_require__(37)
+var xor = __webpack_require__(38)
 
 function encryptStart (self, data, decrypt) {
   var len = data.length
@@ -49956,7 +49958,7 @@ exports.encrypt = function (self, chunk, decrypt) {
 /* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var xor = __webpack_require__(37)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var xor = __webpack_require__(38)
 
 function getBlock (self) {
   self._prev = self._cipher.encryptBlock(self._prev)
@@ -51214,7 +51216,7 @@ function formatReturnValue(bn, enc) {
 /* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(34)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(35)
 var stream = __webpack_require__(15)
 var inherits = __webpack_require__(2)
 var sign = __webpack_require__(325)
@@ -51464,7 +51466,7 @@ module.exports.makeKey = makeKey
 /* 326 */
 /***/ (function(module, exports) {
 
-module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.0","_inBundle":false,"_integrity":"sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=","_location":"/webpack/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.0.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.0.0","saveSpec":null,"fetchSpec":"^6.0.0"},"_requiredBy":["/webpack/browserify-sign","/webpack/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz","_shasum":"cac9af8762c85836187003c8dfe193e5e2eae5df","_spec":"elliptic@^6.0.0","_where":"C:\\Users\\Alex\\AppData\\Roaming\\npm\\node_modules\\webpack\\node_modules\\browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.0"}
+module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.0","_inBundle":false,"_integrity":"sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=","_location":"/webpack/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.0.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.0.0","saveSpec":null,"fetchSpec":"^6.0.0"},"_requiredBy":["/webpack/browserify-sign","/webpack/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz","_shasum":"cac9af8762c85836187003c8dfe193e5e2eae5df","_spec":"elliptic@^6.0.0","_where":"C:\\Users\\alex\\AppData\\Roaming\\npm\\node_modules\\webpack\\node_modules\\browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.0"}
 
 /***/ }),
 /* 327 */
@@ -53781,7 +53783,7 @@ exports.sha512 = __webpack_require__(233);
 
 
 var utils = __webpack_require__(18);
-var common = __webpack_require__(38);
+var common = __webpack_require__(39);
 var shaCommon = __webpack_require__(231);
 
 var rotl32 = utils.rotl32;
@@ -53941,7 +53943,7 @@ SHA384.prototype._digest = function digest(enc) {
 
 
 var utils = __webpack_require__(18);
-var common = __webpack_require__(38);
+var common = __webpack_require__(39);
 
 var rotl32 = utils.rotl32;
 var sum32 = utils.sum32;
@@ -55871,7 +55873,7 @@ module.exports = Signature;
 // Fedor, you are amazing.
 
 
-var asn1 = __webpack_require__(39)
+var asn1 = __webpack_require__(40)
 
 exports.certificate = __webpack_require__(358)
 
@@ -55995,7 +55997,7 @@ exports.signature = asn1.define('signature', function () {
 /* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var asn1 = __webpack_require__(39);
+var asn1 = __webpack_require__(40);
 var inherits = __webpack_require__(2);
 
 var api = exports;
@@ -56348,9 +56350,9 @@ ReporterError.prototype.rethrow = function rethrow(msg) {
 /* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Reporter = __webpack_require__(40).Reporter;
-var EncoderBuffer = __webpack_require__(40).EncoderBuffer;
-var DecoderBuffer = __webpack_require__(40).DecoderBuffer;
+var Reporter = __webpack_require__(41).Reporter;
+var EncoderBuffer = __webpack_require__(41).EncoderBuffer;
+var DecoderBuffer = __webpack_require__(41).DecoderBuffer;
 var assert = __webpack_require__(16);
 
 // Supported tags
@@ -57144,7 +57146,7 @@ PEMEncoder.prototype.encode = function encode(data, options) {
 
 
 
-var asn = __webpack_require__(39)
+var asn = __webpack_require__(40)
 
 var Time = asn.define('Time', function () {
   this.choice({
@@ -57512,7 +57514,7 @@ exports.publicDecrypt = function publicDecrypt(key, buf) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var parseKeys = __webpack_require__(54);
 var randomBytes = __webpack_require__(30);
-var createHash = __webpack_require__(34);
+var createHash = __webpack_require__(35);
 var mgf = __webpack_require__(239);
 var xor = __webpack_require__(240);
 var bn = __webpack_require__(7);
@@ -57616,7 +57618,7 @@ var mgf = __webpack_require__(239);
 var xor = __webpack_require__(240);
 var bn = __webpack_require__(7);
 var crt = __webpack_require__(71);
-var createHash = __webpack_require__(34);
+var createHash = __webpack_require__(35);
 var withPublic = __webpack_require__(241);
 module.exports = function privateDecrypt(private_key, enc, reverse) {
   var padding;
@@ -57844,7 +57846,7 @@ function randomFillSync (buf, offset, size) {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var http = __webpack_require__(42)
+var http = __webpack_require__(43)
 var https = __webpack_require__(73)
 var url = __webpack_require__(17)
 var util = __webpack_require__(5)
@@ -57873,7 +57875,7 @@ var Multipart = __webpack_require__(473).Multipart
 var Redirect = __webpack_require__(476).Redirect
 var Tunnel = __webpack_require__(477).Tunnel
 var now = __webpack_require__(479)
-var Buffer = __webpack_require__(41).Buffer
+var Buffer = __webpack_require__(42).Buffer
 
 var safeStringify = helpers.safeStringify
 var isReadStream = helpers.isReadStream
@@ -59404,7 +59406,7 @@ module.exports = Request
 /* WEBPACK VAR INJECTION */(function(Buffer, global, process) {var capability = __webpack_require__(242)
 var inherits = __webpack_require__(2)
 var response = __webpack_require__(369)
-var stream = __webpack_require__(35)
+var stream = __webpack_require__(36)
 var toArrayBuffer = __webpack_require__(370)
 
 var IncomingMessage = response.IncomingMessage
@@ -59716,7 +59718,7 @@ var unsafeHeaders = [
 
 /* WEBPACK VAR INJECTION */(function(process, Buffer, global) {var capability = __webpack_require__(242)
 var inherits = __webpack_require__(2)
-var stream = __webpack_require__(35)
+var stream = __webpack_require__(36)
 
 var rStates = exports.readyStates = {
 	UNSENT: 0,
@@ -67624,7 +67626,7 @@ module.exports.canonicalizeResource = canonicalizeResource
 
 /* WEBPACK VAR INJECTION */(function(Buffer, process) {var aws4 = exports,
     url = __webpack_require__(17),
-    querystring = __webpack_require__(33),
+    querystring = __webpack_require__(34),
     crypto = __webpack_require__(8),
     lru = __webpack_require__(386),
     credentialsCache = lru(1000)
@@ -69245,11 +69247,11 @@ var crypto = __webpack_require__(8);
 var algs = __webpack_require__(12);
 var Key = __webpack_require__(11);
 var PrivateKey = __webpack_require__(13);
-var Identity = __webpack_require__(46);
+var Identity = __webpack_require__(47);
 var rfc4253 = __webpack_require__(28);
 var Signature = __webpack_require__(20);
 var utils = __webpack_require__(9);
-var Certificate = __webpack_require__(44);
+var Certificate = __webpack_require__(45);
 
 function verify(cert, key) {
 	/*
@@ -69572,9 +69574,9 @@ var utils = __webpack_require__(9);
 var Key = __webpack_require__(11);
 var PrivateKey = __webpack_require__(13);
 var pem = __webpack_require__(22);
-var Identity = __webpack_require__(46);
+var Identity = __webpack_require__(47);
 var Signature = __webpack_require__(20);
-var Certificate = __webpack_require__(44);
+var Certificate = __webpack_require__(45);
 
 function read(buf, options) {
 	if (typeof (buf) !== 'string') {
@@ -69642,7 +69644,7 @@ function write(cert, options) {
 
 var assert = __webpack_require__(4);
 var crypto = __webpack_require__(8);
-var http = __webpack_require__(42);
+var http = __webpack_require__(43);
 var util = __webpack_require__(5);
 var sshpk = __webpack_require__(74);
 var jsprim = __webpack_require__(397);
@@ -72295,7 +72297,7 @@ module.exports = ForeverAgent
 ForeverAgent.SSL = ForeverAgentSSL
 
 var util = __webpack_require__(5)
-  , Agent = __webpack_require__(42).Agent
+  , Agent = __webpack_require__(43).Agent
   , net = __webpack_require__(29)
   , tls = __webpack_require__(29)
   , AgentSSL = __webpack_require__(73).Agent
@@ -72581,7 +72583,7 @@ module.exports = getProxyFromURI
 
 
 var qs = __webpack_require__(254)
-var querystring = __webpack_require__(33)
+var querystring = __webpack_require__(34)
 
 function Querystring (request) {
   this.request = request
@@ -73036,7 +73038,7 @@ module.exports = function (str, opts) {
 
 
 var fs = __webpack_require__(29)
-var qs = __webpack_require__(33)
+var qs = __webpack_require__(34)
 var validate = __webpack_require__(415)
 var extend = __webpack_require__(61)
 
@@ -77907,7 +77909,7 @@ var caseless = __webpack_require__(78)
 var uuid = __webpack_require__(82)
 var oauth = __webpack_require__(472)
 var crypto = __webpack_require__(8)
-var Buffer = __webpack_require__(41).Buffer
+var Buffer = __webpack_require__(42).Buffer
 
 function OAuth (request) {
   this.request = request
@@ -78054,7 +78056,7 @@ exports.OAuth = OAuth
 /***/ (function(module, exports, __webpack_require__) {
 
 var crypto = __webpack_require__(8)
-  , qs = __webpack_require__(33)
+  , qs = __webpack_require__(34)
   ;
 
 function sha1 (key, body) {
@@ -78201,7 +78203,7 @@ exports.generateBase = generateBase
 var uuid = __webpack_require__(82)
 var CombinedStream = __webpack_require__(474)
 var isstream = __webpack_require__(253)
-var Buffer = __webpack_require__(41).Buffer
+var Buffer = __webpack_require__(42).Buffer
 
 function Multipart (request) {
   this.request = request
@@ -78970,12 +78972,12 @@ exports.Tunnel = Tunnel
 
 var net = __webpack_require__(29)
   , tls = __webpack_require__(29)
-  , http = __webpack_require__(42)
+  , http = __webpack_require__(43)
   , https = __webpack_require__(73)
   , events = __webpack_require__(48)
   , assert = __webpack_require__(25)
   , util = __webpack_require__(5)
-  , Buffer = __webpack_require__(41).Buffer
+  , Buffer = __webpack_require__(42).Buffer
   ;
 
 exports.httpOverHttp = httpOverHttp
@@ -79272,7 +79274,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(47);
+var React = __webpack_require__(33);
 var keys_1 = __webpack_require__(83);
 var Request = __webpack_require__(202);
 var InputField = /** @class */ (function (_super) {
@@ -79288,20 +79290,14 @@ var InputField = /** @class */ (function (_super) {
     // ----------------------------------------------------------------------------------------------------
     InputField.prototype.handleChange = function (event) {
         var _this = this;
-        this.setState({ currentInputValue: event.target.value });
+        this.setState({ currentInputValue: event.target.value, suggestions: [] });
         console.log("Search query changed to: " + event.target.value);
         var reqString = 'https://maps.googleapis.com/maps/api/place/autocomplete/json';
         Request(reqString + "?input=" + event.target.value + "&type=geocode&key=" + keys_1.GOOGLE_PLACES_KEY, { json: true }, function (err, res, body) {
             if (err) {
                 return console.log(err);
             }
-            console.log("Segguestions: ");
-            console.log(body);
-            var tempSuggestion = [];
-            for (var i = 0; i < body.predictions.length; i++) {
-                tempSuggestion.push(body.predictions[i].description);
-            }
-            _this.setState({ suggestions: tempSuggestion });
+            _this.setState({ suggestions: body.predictions });
         });
     };
     // ----------------------------------------------------------------------------------------------------
@@ -79316,7 +79312,7 @@ var InputField = /** @class */ (function (_super) {
         return (React.createElement("div", { className: "search-field" },
             React.createElement("input", { type: "text", placeholder: "Cerca...", value: this.state.currentInputValue, onChange: this.handleChange }),
             React.createElement("ul", null, this.state.suggestions.map(function (value) {
-                return React.createElement("li", { key: value, onClick: function (e) { return _this.handleSearch(value); } }, value);
+                return React.createElement("li", { key: value.id, onClick: function (e) { return _this.handleSearch(value.description); } }, value.description);
             }))));
     };
     return InputField;
@@ -79341,7 +79337,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(47);
+var React = __webpack_require__(33);
 var WeatherCard = /** @class */ (function (_super) {
     __extends(WeatherCard, _super);
     function WeatherCard() {
@@ -79364,6 +79360,57 @@ var WeatherCard = /** @class */ (function (_super) {
     return WeatherCard;
 }(React.Component));
 exports.WeatherCard = WeatherCard;
+
+
+/***/ }),
+/* 482 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(33);
+var NextWeather = /** @class */ (function (_super) {
+    __extends(NextWeather, _super);
+    function NextWeather() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    NextWeather.prototype.render = function () {
+        return (React.createElement("div", { className: "next-weather" },
+            React.createElement("p", { className: "city" }, this.props.city),
+            React.createElement("p", { className: "time" }, this.props.time),
+            React.createElement("p", { className: "weather" }, this.props.weather),
+            React.createElement("img", { src: "./images/" + this.props.icon + ".png" }),
+            React.createElement("p", { className: "temperature" },
+                Math.round(this.props.temperature - 273.15),
+                "\u00B0C"),
+            React.createElement("br", null),
+            React.createElement("p", { className: "rain" },
+                "Pioggia: ",
+                this.props.rain,
+                "%"),
+            React.createElement("p", { className: "humidity" },
+                "Umidit\u00E0: ",
+                this.props.humidity,
+                "%"),
+            React.createElement("p", { className: "wind" },
+                "Vento: ",
+                this.props.wind,
+                "%")));
+    };
+    return NextWeather;
+}(React.Component));
+exports.NextWeather = NextWeather;
 
 
 /***/ })
