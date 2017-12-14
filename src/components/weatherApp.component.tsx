@@ -11,6 +11,8 @@ import { InputField } from './inputField.component';
 import { WeatherCard } from './weatherCard.component';
 import { NextWeather } from './nextWeather.component';
 
+let currentDay: string = '';
+
 export class WeatherApp extends React.Component<any, any> {
 
     // ----------------------------------------------------------------------------------------------------
@@ -29,7 +31,11 @@ export class WeatherApp extends React.Component<any, any> {
         let reqString = 'https://maps.googleapis.com/maps/api/geocode/json';
 
         Request(reqString + "?address=" + searchQuery.split(' ').join('+') + "&key=" + GOOGLE_MAPS_KEY, { json: true }, (err: any, res: any, body: any) => {
-            if (err) { return console.log(err); }
+            if (err) {
+                console.log("Search query returned error: ");
+                console.log(err);
+                return;
+            }
 
             console.log("Found Coordinates: ");
             console.log(body);
@@ -75,22 +81,29 @@ export class WeatherApp extends React.Component<any, any> {
                     time={Moment.unix(this.state.weather[0].dt).format("ddd DD MMMM")}
                     weather={this.state.weather[0].weather[0].main}
                     temperature={this.state.weather[0].main.temp}
-                    rain={this.state.weather[0].rain['3h']}
+                    rain={this.state.weather[0].rain ? this.state.weather[0].rain['3h'] : 0}
                     humidity={this.state.weather[0].main.humidity}
-                    wind={this.state.weather[0].wind.speed}
+                    wind={this.state.weather[0].wind ? this.state.weather[0].wind.speed : 0}
                     icon={this.state.weather[0].weather[0].icon} />}
 
                 <div className="wrapper">
                     {this.state.weather.map(
                         (value: any) => {
-                            let day = Moment.unix(value.dt).format("dd");
-                            return <WeatherCard
-                                key={value.dt}
-                                day={day}
-                                temperature={Math.round(value.main.temp - 273.15)}
-                                temperatureMin={Math.round(value.main.temp_min - 273.15)}
-                                temperatureMax={Math.round(value.main.temp_max - 273.15)}
-                                imageName={value.weather[0].icon} />;
+                            let day = Moment.unix(value.dt).format("ddd");
+
+                            if (currentDay == day) {
+                                return;
+                            }
+                            else {
+                                currentDay = day;
+                                return <WeatherCard
+                                    key={value.dt}
+                                    day={day}
+                                    temperature={Math.round(value.main.temp - 273.15)}
+                                    temperatureMin={Math.round(value.main.temp_min - 273.15)}
+                                    temperatureMax={Math.round(value.main.temp_max - 273.15)}
+                                    imageName={value.weather[0].icon} />;
+                            }
                         }
                     )}
                 </div>

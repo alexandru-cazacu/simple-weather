@@ -45953,6 +45953,7 @@ var Request = __webpack_require__(202);
 var inputField_component_1 = __webpack_require__(480);
 var weatherCard_component_1 = __webpack_require__(481);
 var nextWeather_component_1 = __webpack_require__(482);
+var currentDay = '';
 var WeatherApp = /** @class */ (function (_super) {
     __extends(WeatherApp, _super);
     // ----------------------------------------------------------------------------------------------------
@@ -45970,7 +45971,9 @@ var WeatherApp = /** @class */ (function (_super) {
         var reqString = 'https://maps.googleapis.com/maps/api/geocode/json';
         Request(reqString + "?address=" + searchQuery.split(' ').join('+') + "&key=" + keys_1.GOOGLE_MAPS_KEY, { json: true }, function (err, res, body) {
             if (err) {
-                return console.log(err);
+                console.log("Search query returned error: ");
+                console.log(err);
+                return;
             }
             console.log("Found Coordinates: ");
             console.log(body);
@@ -46001,10 +46004,16 @@ var WeatherApp = /** @class */ (function (_super) {
             React.createElement("div", { className: "header" },
                 React.createElement("div", { className: "nav" },
                     React.createElement(inputField_component_1.InputField, { onSearch: this.handleSearch }))),
-            this.state.weather[0] && React.createElement(nextWeather_component_1.NextWeather, { city: this.state.city.name, time: Moment.unix(this.state.weather[0].dt).format("dddd DD MMMM"), weather: this.state.weather[0].weather[0].main, temperature: this.state.weather[0].main.temp, rain: this.state.weather[0].rain['3h'], humidity: this.state.weather[0].main.humidity, wind: this.state.weather[0].wind.speed, icon: this.state.weather[0].weather[0].icon }),
+            this.state.weather[0] && React.createElement(nextWeather_component_1.NextWeather, { city: this.state.city.name, time: Moment.unix(this.state.weather[0].dt).format("ddd DD MMMM"), weather: this.state.weather[0].weather[0].main, temperature: this.state.weather[0].main.temp, rain: this.state.weather[0].rain ? this.state.weather[0].rain['3h'] : 0, humidity: this.state.weather[0].main.humidity, wind: this.state.weather[0].wind ? this.state.weather[0].wind.speed : 0, icon: this.state.weather[0].weather[0].icon }),
             React.createElement("div", { className: "wrapper" }, this.state.weather.map(function (value) {
                 var day = Moment.unix(value.dt).format("dd");
-                return React.createElement(weatherCard_component_1.WeatherCard, { key: value.dt, day: day, temperature: Math.round(value.main.temp - 273.15), temperatureMin: Math.round(value.main.temp_min - 273.15), temperatureMax: Math.round(value.main.temp_max - 273.15), imageName: value.weather[0].icon });
+                if (currentDay == day) {
+                    return;
+                }
+                else {
+                    currentDay = day;
+                    return React.createElement(weatherCard_component_1.WeatherCard, { key: value.dt, day: day, temperature: Math.round(value.main.temp - 273.15), temperatureMin: Math.round(value.main.temp_min - 273.15), temperatureMax: Math.round(value.main.temp_max - 273.15), imageName: value.weather[0].icon });
+                }
             }))));
     };
     return WeatherApp;
