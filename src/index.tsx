@@ -7,9 +7,7 @@ import { WeatherApp } from './components/weatherApp.component';
 export class Index extends React.Component<any, any> {
     render() {
         return (
-            <div>
-                <WeatherApp />
-            </div>
+            <WeatherApp />
         );
     }
 }

@@ -1,21 +1,28 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
-
-html, body, #root {
+html, body, #root, .wrapper, .container {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-}
-
-.container {
+    height: 100%;
     width: 100%;
 }
+
+.wrapper {
+    width: 90%;
+    margin: 0 auto;
+    height: 90%;
+}
+
+/* ============================== HEADER ============================== */
 
 .header {
     width: 100%;
     background-color: #eee;
+    z-index: 999;
 }
 
 /* Clearfix */
+
 .header::after {
     display: block;
     content: "";
@@ -89,9 +96,54 @@ input[type=text]:focus {
     border: 1px solid #999;
 }
 
-.wrapper {
-    width: 90%;
+/* ============================== NEXT WEATHER ============================== */
+
+.next-weather {
     margin: 0 auto;
+    text-align: center;
+    padding: 1em;
+    margin: 1em;
+}
+
+.next-weather .city {
+    font-size: 2em;
+    color: #bbb;
+    text-align: center;
+    margin: 0;
+}
+
+.next-weather .time {
+    color: #bbb;
+    padding: 0;
+    margin: 0;
+}
+
+.next-weather .weather {
+    color: #bbb;
+    padding: 0;
+    margin: 0;
+}
+
+.next-weather img {
+    width: 60px;
+    height: 60px;
+    text-align: right;
+}
+
+.next-weather .temperature {
+    font-size: 6em;
+    font-weight: lighter;
+    width: 2.5em;
+    color: #222;
+}
+
+.next-weather .tag {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #eee;
+    border: 2px solid #ddd;
+    margin: 20px 10px 0 10px;
+    color: #222;
 }
 
 /* ============================== WEATHER CARD ============================== */
@@ -101,7 +153,7 @@ input[type=text]:focus {
     margin: 1.5%;
     padding: 1%;
     display: inline-block;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .weather-card .day {
@@ -142,56 +194,34 @@ input[type=text]:focus {
     margin: 0;
 }
 
-/* ============================== NEXT WEATHER ============================== */
+/* ============================== SPINNER ============================== */
 
-.next-weather {
-    margin: 0 auto;
-    text-align: center;
-    padding: 1em;
-    margin: 1em;
+.spinner {
+    color: #eee;
+    animation: spinner 1500ms infinite linear;
+    position: absolute;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    font-size: 3em;
+    width: 1em;
+    height: 1em;
 }
 
-
-.next-weather .city {
-    font-size: 2em;
-    color: #bbb;
-    text-align: center;
-    margin: 0;
+@-webkit-keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-.next-weather .time {
-    color: #bbb;
-    padding: 0;
-    margin: 0;
-}
+/* ============================== TEMPERATURE CHART ============================== */
 
-
-.next-weather .weather {
-    color: #bbb;
-    padding: 0;
-    margin: 0;
-}
-
-.next-weather img {
-    width: 60px;
-    height: 60px;
-    text-align: right;
-}
-
-.next-weather .temperature {
-    font-size: 6em;
-    font-weight: lighter;
-    width: 2.5em;
-    color: #222;
-}
-
-.next-weather .rain,
-.next-weather .humidity,
-.next-weather .wind {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #eee;
-    border: 2px solid #ddd;
-    margin: 20px 10px 0 10px;
-    color: #222;
+#temperature-chart {
+    border: 1px solid red;
 }
