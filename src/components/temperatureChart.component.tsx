@@ -16,7 +16,7 @@ export class TemperatureChart extends React.Component<any, any> {
                     label: "My First dataset",
                     backgroundColor: 'rgba(255, 206, 86, 0.2)',
                     borderColor: 'rgba(255, 206, 86, 1)',
-                    data: [0, 10, 5, 2, 20, 30, 45],
+                    data: [0, 10, 5, 2, 20, 30, 45]
                 }]
             },
 
@@ -28,28 +28,47 @@ export class TemperatureChart extends React.Component<any, any> {
                 tooltips: {
                     enabled: false
                 },
+                hover: {
+                    animationDuration: 0
+                },
                 scales: {
                     xAxes: [{
                         display: false
                     }],
                     yAxes: [{
-                        display: false
+                        display: false,
                     }]
                 },
                 animation: {
-                    onComplete: (data) => {
+                    duration: 1,
+                    onComplete: function () {
 
-                        var ctx = data.chart.ctx;
-                        ctx.textAlign = "center";
-                        ctx.textBaseline = "bottom";
+                        var chartInstance = this.chart,
+                            ctx = chartInstance.ctx;
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'bottom';
+                        ctx.fillStyle = '#333';
 
-                        console.log(data);
+                        this.data.datasets.forEach(function (dataset: any, i: number) {
+                            var meta = chartInstance.controller.getDatasetMeta(i);
+                            meta.data.forEach(function (bar: any, index: any) {
+                                var data = dataset.data[index];
+                                ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                            });
+                        });
 
-                        // data.datasets.forEach(function (dataset: any) {
-                        //     dataset.points.forEach(function (points: any) {
-                        //         ctx.fillText(points.value, points.x, points.y - 10);
-                        //     });
-                        // })
+                        // var ctx = chart.ctx;
+                        // ctx.textAlign = "center";
+                        // ctx.textBaseline = "bottom";
+                        // ctx.font = "8px";
+                        // ctx.fillStyle = "#000000";
+
+                        // console.log(chart.data);
+
+                        // for (var i = 0; i < chart.data.datasets[0].data.length; i++) {
+                        //     console.log(chart.data.datasets[0].data[i]);
+                        //     ctx.fillText(chart.data.datasets[0].data[i].toString(), 30 * i, 50);
+                        // }
                     }
                 }
             },
