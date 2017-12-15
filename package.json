@@ -9,14 +9,17 @@
     "author": "Alexandru Cazacu",
     "license": "MIT",
     "dependencies": {
+        "@types/chart.js": "^2.7.3",
         "@types/react": "^16.0.25",
         "@types/react-dom": "^16.0.3",
         "@types/react-router-dom": "^4.2.2",
         "@types/request": "^2.0.8",
+        "chart.js": "^2.7.1",
         "moment": "^2.19.3",
         "react": "^16.1.1",
         "react-dom": "^16.1.1",
         "react-router-dom": "^4.2.2",
+        "react-timeout": "^1.0.1",
         "request": "^2.83.0"
     },
     "devDependencies": {

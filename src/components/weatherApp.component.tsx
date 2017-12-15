@@ -10,6 +10,8 @@ import { currentId } from 'async_hooks';
 import { InputField } from './inputField.component';
 import { WeatherCard } from './weatherCard.component';
 import { NextWeather } from './nextWeather.component';
+import { Loader } from './loader.component';
+import { TemperatureChart } from "./temperatureChart.component";
 
 let currentDay: string = '';
 
@@ -18,16 +20,18 @@ export class WeatherApp extends React.Component<any, any> {
     // ----------------------------------------------------------------------------------------------------
     constructor(props: any) {
         super(props);
-        this.state = { weather: [], city: [] };
+        this.state = { weather: [], city: [], showLoadingSpinner: false };
 
         this.handleSearch = this.handleSearch.bind(this);
 
-        Moment().locale("it")
         Moment().format('LLLL');
     }
 
     // ----------------------------------------------------------------------------------------------------
     handleSearch(searchQuery: string) {
+
+        this.setState({ weather: [], city: [], showLoadingSpinner: true });
+
         let reqString = 'https://maps.googleapis.com/maps/api/geocode/json';
 
         Request(reqString + "?address=" + searchQuery.split(' ').join('+') + "&key=" + GOOGLE_MAPS_KEY, { json: true }, (err: any, res: any, body: any) => {
@@ -57,7 +61,7 @@ export class WeatherApp extends React.Component<any, any> {
             console.log("Weather API predistions: ");
             console.log(body);
 
-            this.setState({ weather: body.list, city: body.city });
+            this.setState({ weather: body.list, city: body.city, showLoadingSpinner: false });
 
             let tempWeather = [];
 
@@ -69,24 +73,32 @@ export class WeatherApp extends React.Component<any, any> {
     // ----------------------------------------------------------------------------------------------------
     render() {
         return (
-            <div>
+            <div className="container">
                 <div className="header">
                     <div className="nav">
                         <InputField onSearch={this.handleSearch} />
                     </div>
                 </div>
 
-                {this.state.weather[0] && <NextWeather
-                    city={this.state.city.name}
-                    time={Moment.unix(this.state.weather[0].dt).format("ddd DD MMMM")}
-                    weather={this.state.weather[0].weather[0].main}
-                    temperature={this.state.weather[0].main.temp}
-                    rain={this.state.weather[0].rain ? this.state.weather[0].rain['3h'] : 0}
-                    humidity={this.state.weather[0].main.humidity}
-                    wind={this.state.weather[0].wind ? this.state.weather[0].wind.speed : 0}
-                    icon={this.state.weather[0].weather[0].icon} />}
-
                 <div className="wrapper">
+                    {this.state.showLoadingSpinner == true && <Loader />}
+
+                    {this.state.weather[0] && <NextWeather
+                        city={this.state.city.name}
+                        time={Moment.unix(this.state.weather[0].dt).format("ddd DD MMMM")}
+                        weather={this.state.weather[0].weather[0].main}
+                        temperature={this.state.weather[0].main.temp}
+                        humidity={this.state.weather[0].main.humidity}
+
+                        clouds={this.state.weather[0].clouds ? this.state.weather[0].clouds.all : 0}
+                        wind={this.state.weather[0].wind ? this.state.weather[0].wind.speed : 0}
+                        // rain={this.state.weather[0].rain ? (this.state.weather[0].rain['3h'] == undefined ? 0 : this.state.weather[0].rain['3h']) : 0}
+                        rain={!this.state.weather[0].rain && this.state.weather[0].rain['3h'] == undefined ? 0 : this.state.weather[0].rain['3h']}
+                        snow={this.state.weather[0].snow ? this.state.weather[0].snow['3h'] : 0}
+
+                        icon={this.state.weather[0].weather[0].icon} />}
+
+
                     {this.state.weather.map(
                         (value: any) => {
                             let day = Moment.unix(value.dt).format("ddd");
@@ -106,8 +118,10 @@ export class WeatherApp extends React.Component<any, any> {
                             }
                         }
                     )}
+
+                    <TemperatureChart />
                 </div>
-            </div >
+            </div>
         );
     }
 }
