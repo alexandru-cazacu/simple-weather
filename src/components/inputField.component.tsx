@@ -55,13 +55,18 @@ export class InputField extends React.Component<InputFieldProps, any> {
     // ----------------------------------------------------------------------------------------------------
     render() {
         return (
-            <div className="search-field" >
-                <input type="text" placeholder="Cerca..." value={this.state.currentInputValue} onChange={this.handleChange} />
-                <ul>
-                    {this.state.suggestions.map((value: any) =>
-                        <li key={value.id} onClick={(e) => this.handleSearch(value.description)}>{value.description}</li>
-                    )}
-                </ul>
+            <div className="nav">
+                <span className="fa fa-refresh"></span>
+                <span className="fa fa-star-o"></span>
+                <span className="fa fa-ellipsis-v"></span>
+                <div className="search-field" >
+                    <input type="text" placeholder="Cerca..." value={this.state.currentInputValue} onChange={this.handleChange} />
+                    <ul>
+                        {this.state.suggestions.map((value: any) =>
+                            <li key={value.id} onClick={(e) => this.handleSearch(value.description)}>{value.description}</li>
+                        )}
+                    </ul>
+                </div>
             </div>
         );
     }

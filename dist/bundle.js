@@ -63149,6 +63149,9 @@ var WeatherApp = /** @class */ (function (_super) {
         Moment().format('LLLL');
         return _this;
     }
+    WeatherApp.prototype.componentDidMount = function () {
+        this.handleSearch("Via Cantore");
+    };
     // ----------------------------------------------------------------------------------------------------
     WeatherApp.prototype.handleSearch = function (searchQuery) {
         var _this = this;
@@ -63178,7 +63181,6 @@ var WeatherApp = /** @class */ (function (_super) {
             console.log("Weather API predistions: ");
             console.log(body);
             _this.setState({ weather: body.list, city: body.city, showLoadingSpinner: false });
-            var tempWeather = [];
             console.log("Weather predictions: ");
             console.log(_this.state.weather);
         });
@@ -63187,14 +63189,15 @@ var WeatherApp = /** @class */ (function (_super) {
     WeatherApp.prototype.render = function () {
         return (React.createElement("div", { className: "container" },
             React.createElement("div", { className: "header" },
-                React.createElement("div", { className: "nav" },
-                    React.createElement(inputField_component_1.InputField, { onSearch: this.handleSearch }))),
+                React.createElement("p", { className: "logo" }, "Simple Weather"),
+                React.createElement(inputField_component_1.InputField, { onSearch: this.handleSearch })),
             React.createElement("div", { className: "wrapper" },
                 this.state.showLoadingSpinner == true && React.createElement(loader_component_1.Loader, null),
                 this.state.weather[0] && React.createElement(nextWeather_component_1.NextWeather, { city: this.state.city.name, time: Moment.unix(this.state.weather[0].dt).format("ddd DD MMMM"), weather: this.state.weather[0].weather[0].main, temperature: this.state.weather[0].main.temp, humidity: this.state.weather[0].main.humidity, clouds: this.state.weather[0].clouds ? this.state.weather[0].clouds.all : 0, wind: this.state.weather[0].wind ? this.state.weather[0].wind.speed : 0, 
                     // rain={this.state.weather[0].rain ? (this.state.weather[0].rain['3h'] == undefined ? 0 : this.state.weather[0].rain['3h']) : 0}
-                    rain: !this.state.weather[0].rain && this.state.weather[0].rain['3h'] == undefined ? 0 : this.state.weather[0].rain['3h'], snow: this.state.weather[0].snow ? this.state.weather[0].snow['3h'] : 0, icon: this.state.weather[0].weather[0].icon }),
-                this.state.weather.map(function (value) {
+                    rain: this.state.weather[0].rain ? this.state.weather[0].rain['3h'] : 0, snow: this.state.weather[0].snow ? this.state.weather[0].snow['3h'] : 0, icon: this.state.weather[0].weather[0].icon }),
+                this.state.weather && React.createElement("h2", { className: "section-title" }, "Daily"),
+                this.state.weather && this.state.weather.map(function (value) {
                     var day = Moment.unix(value.dt).format("ddd");
                     if (currentDay == day) {
                         return;
@@ -63204,7 +63207,28 @@ var WeatherApp = /** @class */ (function (_super) {
                         return React.createElement(weatherCard_component_1.WeatherCard, { key: value.dt, day: day, temperature: Math.round(value.main.temp - 273.15), temperatureMin: Math.round(value.main.temp_min - 273.15), temperatureMax: Math.round(value.main.temp_max - 273.15), imageName: value.weather[0].icon });
                     }
                 }),
-                React.createElement(temperatureChart_component_1.TemperatureChart, null))));
+                this.state.weather[0] && React.createElement(temperatureChart_component_1.TemperatureChart, { labels: this.getLabels(), numbers: this.getNumbers() }))));
+    };
+    WeatherApp.prototype.getLabels = function () {
+        var labels = [];
+        for (var i = 0; i < 8; i++) {
+            if (i == 0 || i == 7) {
+                labels.push("");
+            }
+            else {
+                labels.push(Moment.unix(this.state.weather[i].dt).format("HH:mm"));
+            }
+        }
+        console.log(labels);
+        return labels;
+    };
+    WeatherApp.prototype.getNumbers = function () {
+        var numbers = [];
+        for (var i = 0; i < 8; i++) {
+            numbers.push(Math.round(this.state.weather[i].main.temp - 273.15));
+        }
+        console.log(numbers);
+        return numbers;
     };
     return WeatherApp;
 }(React.Component));
@@ -65244,7 +65268,7 @@ if (typeof Object.create === 'function') {
 /* 403 */
 /***/ (function(module, exports) {
 
-module.exports = {"_args":[["tough-cookie@2.3.3","C:\\Users\\alex\\Documents\\Progetti\\simple-weather"]],"_from":"tough-cookie@2.3.3","_id":"tough-cookie@2.3.3","_inBundle":false,"_integrity":"sha1-C2GKVWW23qkL80JdBNVe3EdadWE=","_location":"/tough-cookie","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"tough-cookie@2.3.3","name":"tough-cookie","escapedName":"tough-cookie","rawSpec":"2.3.3","saveSpec":null,"fetchSpec":"2.3.3"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.3.tgz","_spec":"2.3.3","_where":"C:\\Users\\alex\\Documents\\Progetti\\simple-weather","author":{"name":"Jeremy Stashewsky","email":"jstashewsky@salesforce.com"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"engines":{"node":">=0.8"},"files":["lib"],"homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","name":"tough-cookie","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.3"}
+module.exports = {"_args":[["tough-cookie@2.3.3","E:\\Documenti\\__Progetti\\simple-weather"]],"_from":"tough-cookie@2.3.3","_id":"tough-cookie@2.3.3","_inBundle":false,"_integrity":"sha1-C2GKVWW23qkL80JdBNVe3EdadWE=","_location":"/tough-cookie","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"tough-cookie@2.3.3","name":"tough-cookie","escapedName":"tough-cookie","rawSpec":"2.3.3","saveSpec":null,"fetchSpec":"2.3.3"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.3.tgz","_spec":"2.3.3","_where":"E:\\Documenti\\__Progetti\\simple-weather","author":{"name":"Jeremy Stashewsky","email":"jstashewsky@salesforce.com"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"engines":{"node":">=0.8"},"files":["lib"],"homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","name":"tough-cookie","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.3"}
 
 /***/ }),
 /* 404 */
@@ -68665,7 +68689,7 @@ module.exports.makeKey = makeKey
 /* 451 */
 /***/ (function(module, exports) {
 
-module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.0","_inBundle":false,"_integrity":"sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=","_location":"/webpack/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.0.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.0.0","saveSpec":null,"fetchSpec":"^6.0.0"},"_requiredBy":["/webpack/browserify-sign","/webpack/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz","_shasum":"cac9af8762c85836187003c8dfe193e5e2eae5df","_spec":"elliptic@^6.0.0","_where":"C:\\Users\\alex\\AppData\\Roaming\\npm\\node_modules\\webpack\\node_modules\\browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.0"}
+module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.0","_inBundle":false,"_integrity":"sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=","_location":"/webpack/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.0.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.0.0","saveSpec":null,"fetchSpec":"^6.0.0"},"_requiredBy":["/webpack/browserify-sign","/webpack/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz","_shasum":"cac9af8762c85836187003c8dfe193e5e2eae5df","_spec":"elliptic@^6.0.0","_where":"C:\\Users\\Alex\\AppData\\Roaming\\npm\\node_modules\\webpack\\node_modules\\browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.0"}
 
 /***/ }),
 /* 452 */
@@ -96514,11 +96538,15 @@ var InputField = /** @class */ (function (_super) {
     // ----------------------------------------------------------------------------------------------------
     InputField.prototype.render = function () {
         var _this = this;
-        return (React.createElement("div", { className: "search-field" },
-            React.createElement("input", { type: "text", placeholder: "Cerca...", value: this.state.currentInputValue, onChange: this.handleChange }),
-            React.createElement("ul", null, this.state.suggestions.map(function (value) {
-                return React.createElement("li", { key: value.id, onClick: function (e) { return _this.handleSearch(value.description); } }, value.description);
-            }))));
+        return (React.createElement("div", { className: "nav" },
+            React.createElement("span", { className: "fa fa-refresh" }),
+            React.createElement("span", { className: "fa fa-star-o" }),
+            React.createElement("span", { className: "fa fa-ellipsis-v" }),
+            React.createElement("div", { className: "search-field" },
+                React.createElement("input", { type: "text", placeholder: "Cerca...", value: this.state.currentInputValue, onChange: this.handleChange }),
+                React.createElement("ul", null, this.state.suggestions.map(function (value) {
+                    return React.createElement("li", { key: value.id, onClick: function (e) { return _this.handleSearch(value.description); } }, value.description);
+                })))));
     };
     return InputField;
 }(React.Component));
@@ -96688,16 +96716,27 @@ var TemperatureChart = /** @class */ (function (_super) {
             type: 'line',
             // The data for our dataset
             data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                // labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: this.props.labels,
                 datasets: [{
-                        label: "My First dataset",
-                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        label: "Temperatures",
+                        // backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        backgroundColor: 'rgba(255, 206, 86, 0)',
                         borderColor: 'rgba(255, 206, 86, 1)',
-                        data: [0, 10, 5, 2, 20, 30, 45]
+                        // data: [0, 10, 5, 2, 20, 30, 45]
+                        data: this.props.numbers
                     }]
             },
             // Configuration options go here
             options: {
+                elements: {
+                    point: {
+                        radius: 0
+                    } //,
+                    // line: {
+                    //     tension: 0
+                    // }
+                },
                 legend: {
                     display: false
                 },
@@ -96709,11 +96748,20 @@ var TemperatureChart = /** @class */ (function (_super) {
                 },
                 scales: {
                     xAxes: [{
-                            display: false
+                            display: true,
+                            gridLines: {
+                                display: false
+                            }
                         }],
                     yAxes: [{
                             display: false,
-                        }]
+                            gridLines: {
+                                display: false
+                            }
+                        }],
+                    ticks: {
+                        min: 0
+                    }
                 },
                 animation: {
                     duration: 1,
@@ -96726,7 +96774,9 @@ var TemperatureChart = /** @class */ (function (_super) {
                             var meta = chartInstance.controller.getDatasetMeta(i);
                             meta.data.forEach(function (bar, index) {
                                 var data = dataset.data[index];
-                                ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                                if (index != 0 || index != 7) {
+                                    ctx.fillText(data, bar._model.x, bar._model.y - 8);
+                                }
                             });
                         });
                         // var ctx = chart.ctx;
@@ -96745,7 +96795,9 @@ var TemperatureChart = /** @class */ (function (_super) {
         });
     };
     TemperatureChart.prototype.render = function () {
-        return (React.createElement("canvas", { id: "temperature-chart" }));
+        return (React.createElement("div", { className: "section" },
+            React.createElement("h2", { className: "section-title" }, "Every 4 hours"),
+            React.createElement("canvas", { id: "temperature-chart", height: "160px" })));
     };
     return TemperatureChart;
 }(React.Component));

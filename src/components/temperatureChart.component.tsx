@@ -1,7 +1,12 @@
 import * as React from "react";
 import { Chart } from 'chart.js';
 
-export class TemperatureChart extends React.Component<any, any> {
+interface TemperatureChartProps {
+    labels: any[],
+    numbers: any[]
+}
+
+export class TemperatureChart extends React.Component<TemperatureChartProps, any> {
 
     componentDidMount() {
         var canvas: any = document.getElementById('temperature-chart');
@@ -11,17 +16,28 @@ export class TemperatureChart extends React.Component<any, any> {
 
             // The data for our dataset
             data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                // labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: this.props.labels,
                 datasets: [{
-                    label: "My First dataset",
-                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                    label: "Temperatures",
+                    // backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                    backgroundColor: 'rgba(255, 206, 86, 0)',
                     borderColor: 'rgba(255, 206, 86, 1)',
-                    data: [0, 10, 5, 2, 20, 30, 45]
+                    // data: [0, 10, 5, 2, 20, 30, 45]
+                    data: this.props.numbers
                 }]
             },
 
             // Configuration options go here
             options: {
+                elements: {
+                    point: {
+                        radius: 0
+                    }//,
+                    // line: {
+                    //     tension: 0
+                    // }
+                },
                 legend: {
                     display: false
                 },
@@ -33,11 +49,20 @@ export class TemperatureChart extends React.Component<any, any> {
                 },
                 scales: {
                     xAxes: [{
-                        display: false
+                        display: true,
+                        gridLines: {
+                            display: false
+                        }
                     }],
                     yAxes: [{
                         display: false,
-                    }]
+                        gridLines: {
+                            display: false
+                        }
+                    }],
+                    ticks: {
+                        min: 0
+                    }
                 },
                 animation: {
                     duration: 1,
@@ -53,7 +78,9 @@ export class TemperatureChart extends React.Component<any, any> {
                             var meta = chartInstance.controller.getDatasetMeta(i);
                             meta.data.forEach(function (bar: any, index: any) {
                                 var data = dataset.data[index];
-                                ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                                if (index != 0 || index != 7) {
+                                    ctx.fillText(data, bar._model.x, bar._model.y - 8);
+                                }
                             });
                         });
 
@@ -77,7 +104,10 @@ export class TemperatureChart extends React.Component<any, any> {
 
     render() {
         return (
-            <canvas id="temperature-chart"></canvas>
+            <div className="section">
+                <h2 className="section-title">Every 4 hours</h2>
+                <canvas id="temperature-chart" height="160px"></canvas>
+            </div>
         );
     }
 }

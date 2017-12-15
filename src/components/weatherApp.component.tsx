@@ -27,6 +27,10 @@ export class WeatherApp extends React.Component<any, any> {
         Moment().format('LLLL');
     }
 
+    componentDidMount() {
+        this.handleSearch("Via Cantore");
+    }
+
     // ----------------------------------------------------------------------------------------------------
     handleSearch(searchQuery: string) {
 
@@ -63,8 +67,6 @@ export class WeatherApp extends React.Component<any, any> {
 
             this.setState({ weather: body.list, city: body.city, showLoadingSpinner: false });
 
-            let tempWeather = [];
-
             console.log("Weather predictions: ");
             console.log(this.state.weather);
         });
@@ -75,9 +77,8 @@ export class WeatherApp extends React.Component<any, any> {
         return (
             <div className="container">
                 <div className="header">
-                    <div className="nav">
-                        <InputField onSearch={this.handleSearch} />
-                    </div>
+                    <p className="logo">Simple Weather</p>
+                    <InputField onSearch={this.handleSearch} />
                 </div>
 
                 <div className="wrapper">
@@ -93,13 +94,14 @@ export class WeatherApp extends React.Component<any, any> {
                         clouds={this.state.weather[0].clouds ? this.state.weather[0].clouds.all : 0}
                         wind={this.state.weather[0].wind ? this.state.weather[0].wind.speed : 0}
                         // rain={this.state.weather[0].rain ? (this.state.weather[0].rain['3h'] == undefined ? 0 : this.state.weather[0].rain['3h']) : 0}
-                        rain={!this.state.weather[0].rain && this.state.weather[0].rain['3h'] == undefined ? 0 : this.state.weather[0].rain['3h']}
+                        rain={this.state.weather[0].rain ? this.state.weather[0].rain['3h'] : 0}
                         snow={this.state.weather[0].snow ? this.state.weather[0].snow['3h'] : 0}
 
                         icon={this.state.weather[0].weather[0].icon} />}
 
 
-                    {this.state.weather.map(
+                    {this.state.weather && <h2 className="section-title">Daily</h2>}
+                    {this.state.weather && this.state.weather.map(
                         (value: any) => {
                             let day = Moment.unix(value.dt).format("ddd");
 
@@ -119,10 +121,35 @@ export class WeatherApp extends React.Component<any, any> {
                         }
                     )}
 
-                    <TemperatureChart />
+                    {this.state.weather[0] && <TemperatureChart labels={this.getLabels()} numbers={this.getNumbers()} />}
                 </div>
             </div>
         );
+    }
+
+    getLabels() {
+        let labels = [];
+        for (var i = 0; i < 8; i++) {
+            if (i == 0 || i == 7) {
+                labels.push("");
+            }
+            else {
+                labels.push(Moment.unix(this.state.weather[i].dt).format("HH:mm"));
+            }
+        }
+
+        console.log(labels);
+        return labels;
+    }
+
+    getNumbers() {
+        let numbers = [];
+        for (var i = 0; i < 8; i++) {
+            numbers.push(Math.round(this.state.weather[i].main.temp - 273.15));
+        }
+
+        console.log(numbers);
+        return numbers;
     }
 }
 
