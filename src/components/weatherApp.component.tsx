@@ -9,9 +9,10 @@ import { currentId } from 'async_hooks';
 
 import { InputField } from './inputField.component';
 import { WeatherCard } from './weatherCard.component';
-import { NextWeather } from './nextWeather.component';
-import { Loader } from './loader.component';
-import { TemperatureChart } from "./temperatureChart.component";
+import { WeatherCardBig } from './weatherCardBig.component';
+import { Spinner } from './spinner.component';
+import { LineChart } from "./lineChart.component";
+import { DailyWeather } from './dailyWeather.component';
 
 let currentDay: string = '';
 
@@ -33,10 +34,9 @@ export class WeatherApp extends React.Component<any, any> {
 
     // ----------------------------------------------------------------------------------------------------
     handleSearch(searchQuery: string) {
-
         this.setState({ weather: [], city: [], showLoadingSpinner: true });
 
-        let reqString = 'https://maps.googleapis.com/maps/api/geocode/json';
+        let reqString = 'http://localhost:4000/maps.googleapis.com/maps/api/geocode/json';
 
         Request(reqString + "?address=" + searchQuery.split(' ').join('+') + "&key=" + GOOGLE_MAPS_KEY, { json: true }, (err: any, res: any, body: any) => {
             if (err) {
@@ -57,7 +57,7 @@ export class WeatherApp extends React.Component<any, any> {
 
     // ----------------------------------------------------------------------------------------------------
     getWeather(lat: number, lng: number) {
-        let reqString = 'http://api.openweathermap.org/data/2.5/forecast';
+        let reqString = 'http://localhost:4000/api.openweathermap.org/data/2.5/forecast';
 
         Request(reqString + "?lat=" + lat + "&lon=" + lng + "&appid=" + OPEN_WEATHER_KEY, { json: true }, (err: any, res: any, body: any) => {
             if (err) { return console.log(err); }
@@ -76,52 +76,25 @@ export class WeatherApp extends React.Component<any, any> {
     render() {
         return (
             <div className="container">
-                <div className="header">
-                    <p className="logo">Simple Weather</p>
-                    <InputField onSearch={this.handleSearch} />
-                </div>
+                <InputField onSearch={this.handleSearch} />
 
                 <div className="wrapper">
-                    {this.state.showLoadingSpinner == true && <Loader />}
-
-                    {this.state.weather[0] && <NextWeather
+                    <Spinner visible={this.state.visible} />
+                    {this.state.weather[0] && <WeatherCardBig
                         city={this.state.city.name}
                         time={Moment.unix(this.state.weather[0].dt).format("ddd DD MMMM")}
                         weather={this.state.weather[0].weather[0].main}
                         temperature={this.state.weather[0].main.temp}
                         humidity={this.state.weather[0].main.humidity}
-
                         clouds={this.state.weather[0].clouds ? this.state.weather[0].clouds.all : 0}
                         wind={this.state.weather[0].wind ? this.state.weather[0].wind.speed : 0}
-                        // rain={this.state.weather[0].rain ? (this.state.weather[0].rain['3h'] == undefined ? 0 : this.state.weather[0].rain['3h']) : 0}
                         rain={this.state.weather[0].rain ? this.state.weather[0].rain['3h'] : 0}
                         snow={this.state.weather[0].snow ? this.state.weather[0].snow['3h'] : 0}
-
                         icon={this.state.weather[0].weather[0].icon} />}
 
+                    {this.state.weather[0] && <DailyWeather weather={this.state.weather} />}
 
-                    {this.state.weather && <h2 className="section-title">Daily</h2>}
-                    {this.state.weather && this.state.weather.map(
-                        (value: any) => {
-                            let day = Moment.unix(value.dt).format("ddd");
-
-                            if (currentDay == day) {
-                                return;
-                            }
-                            else {
-                                currentDay = day;
-                                return <WeatherCard
-                                    key={value.dt}
-                                    day={day}
-                                    temperature={Math.round(value.main.temp - 273.15)}
-                                    temperatureMin={Math.round(value.main.temp_min - 273.15)}
-                                    temperatureMax={Math.round(value.main.temp_max - 273.15)}
-                                    imageName={value.weather[0].icon} />;
-                            }
-                        }
-                    )}
-
-                    {this.state.weather[0] && <TemperatureChart labels={this.getLabels()} numbers={this.getNumbers()} />}
+                    {this.state.weather[0] && <LineChart labels={this.getLabels()} numbers={this.getNumbers()} />}
                 </div>
             </div>
         );
@@ -130,15 +103,9 @@ export class WeatherApp extends React.Component<any, any> {
     getLabels() {
         let labels = [];
         for (var i = 0; i < 8; i++) {
-            if (i == 0 || i == 7) {
-                labels.push("");
-            }
-            else {
-                labels.push(Moment.unix(this.state.weather[i].dt).format("HH:mm"));
-            }
+            labels.push(Moment.unix(this.state.weather[i].dt).format("HH:mm"));
         }
 
-        console.log(labels);
         return labels;
     }
 
@@ -147,8 +114,6 @@ export class WeatherApp extends React.Component<any, any> {
         for (var i = 0; i < 8; i++) {
             numbers.push(Math.round(this.state.weather[i].main.temp - 273.15));
         }
-
-        console.log(numbers);
         return numbers;
     }
 }

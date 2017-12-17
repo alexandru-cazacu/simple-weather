@@ -1,3 +1,4 @@
 node_modules
 dist/bundle.js
 dist/bundle.map.js
+/simple-weather-server/target/

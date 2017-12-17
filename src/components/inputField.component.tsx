@@ -4,7 +4,6 @@ import { GOOGLE_PLACES_KEY, GOOGLE_MAPS_KEY, OPEN_WEATHER_KEY } from '../keys';
 import * as Moment from 'moment';
 import * as Request from 'request';
 import { currentId } from 'async_hooks';
-import { SearchLocation } from './searchlocation.component';
 
 let timeout: any = null;
 
@@ -32,7 +31,7 @@ export class InputField extends React.Component<InputFieldProps, any> {
 
         // Make a new timeout set to go off in 500ms
         timeout = setTimeout(() => {
-            let reqString = 'https://maps.googleapis.com/maps/api/place/autocomplete/json';
+            let reqString = 'http://localhost:4000/maps.googleapis.com/maps/api/place/autocomplete/json';
 
             // event.target.value
 
@@ -55,17 +54,22 @@ export class InputField extends React.Component<InputFieldProps, any> {
     // ----------------------------------------------------------------------------------------------------
     render() {
         return (
-            <div className="nav">
-                <span className="fa fa-refresh"></span>
-                <span className="fa fa-star-o"></span>
-                <span className="fa fa-ellipsis-v"></span>
-                <div className="search-field" >
-                    <input type="text" placeholder="Cerca..." value={this.state.currentInputValue} onChange={this.handleChange} />
-                    <ul>
-                        {this.state.suggestions.map((value: any) =>
-                            <li key={value.id} onClick={(e) => this.handleSearch(value.description)}>{value.description}</li>
-                        )}
-                    </ul>
+            <div className="header">
+                <span className="spinning-sun fa fa-sun-o"></span>
+                <p className="logo">Simple Weather</p>
+
+                <div className="nav">
+                    <span className="fa fa-refresh"></span>
+                    <span className="fa fa-star-o"></span>
+                    <span className="fa fa-ellipsis-v"></span>
+                    <div className="search-field" >
+                        <input type="text" placeholder="Cerca..." value={this.state.currentInputValue} onChange={this.handleChange} />
+                        <ul>
+                            {this.state.suggestions.map((value: any) =>
+                                <li key={value.id} onClick={(e) => this.handleSearch(value.description)}>{value.description}</li>
+                            )}
+                        </ul>
+                    </div>
                 </div>
             </div>
         );

@@ -6418,7 +6418,7 @@ function loadLocale(name) {
             module && module.exports) {
         try {
             oldLocale = globalLocale._abbr;
-            __webpack_require__(640)("./" + name);
+            __webpack_require__(639)("./" + name);
             // because defineLocale currently also sets the global locale, we
             // want to undo that for lazy loaded locales
             getSetGlobalLocale(oldLocale);
@@ -10889,9 +10889,9 @@ if (typeof Object.create === 'function') {
 
 
 module.exports = __webpack_require__(67);
-module.exports.easing = __webpack_require__(612);
-module.exports.canvas = __webpack_require__(613);
-module.exports.options = __webpack_require__(614);
+module.exports.easing = __webpack_require__(611);
+module.exports.canvas = __webpack_require__(612);
+module.exports.options = __webpack_require__(613);
 
 
 /***/ }),
@@ -15872,7 +15872,7 @@ var KeyParseError = errs.KeyParseError;
 
 var formats = {};
 formats['auto'] = __webpack_require__(255);
-formats['pem'] = __webpack_require__(26);
+formats['pem'] = __webpack_require__(27);
 formats['pkcs1'] = __webpack_require__(84);
 formats['pkcs8'] = __webpack_require__(51);
 formats['rfc4253'] = __webpack_require__(34);
@@ -16334,7 +16334,7 @@ var KeyEncryptedError = errs.KeyEncryptedError;
 
 var formats = {};
 formats['auto'] = __webpack_require__(255);
-formats['pem'] = __webpack_require__(26);
+formats['pem'] = __webpack_require__(27);
 formats['pkcs1'] = __webpack_require__(84);
 formats['pkcs8'] = __webpack_require__(51);
 formats['rfc4253'] = __webpack_require__(34);
@@ -17953,7 +17953,7 @@ var algs = __webpack_require__(15);
 var crypto = __webpack_require__(11);
 var errs = __webpack_require__(23);
 var utils = __webpack_require__(12);
-var asn1 = __webpack_require__(27);
+var asn1 = __webpack_require__(28);
 var SSHBuffer = __webpack_require__(66);
 
 var InvalidAlgorithmError = errs.InvalidAlgorithmError;
@@ -18262,6 +18262,12 @@ Signature._oldVersionDetect = function (obj) {
 
 /***/ }),
 /* 25 */
+/***/ (function(module, exports) {
+
+module.exports = React;
+
+/***/ }),
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(5).Buffer
@@ -18366,7 +18372,7 @@ module.exports = CipherBase
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -18377,7 +18383,7 @@ module.exports = {
 };
 
 var assert = __webpack_require__(6);
-var asn1 = __webpack_require__(27);
+var asn1 = __webpack_require__(28);
 var crypto = __webpack_require__(11);
 var algs = __webpack_require__(15);
 var utils = __webpack_require__(12);
@@ -18559,7 +18565,7 @@ function write(key, options, type) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
@@ -18585,24 +18591,18 @@ module.exports = {
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = {};
-module.exports.Arc = __webpack_require__(620);
-module.exports.Line = __webpack_require__(621);
-module.exports.Point = __webpack_require__(622);
-module.exports.Rectangle = __webpack_require__(623);
+module.exports.Arc = __webpack_require__(619);
+module.exports.Line = __webpack_require__(620);
+module.exports.Point = __webpack_require__(621);
+module.exports.Rectangle = __webpack_require__(622);
 
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports) {
-
-module.exports = React;
 
 /***/ }),
 /* 30 */
@@ -23577,7 +23577,7 @@ var md5 = __webpack_require__(71)
 var RIPEMD160 = __webpack_require__(72)
 var sha = __webpack_require__(74)
 
-var Base = __webpack_require__(25)
+var Base = __webpack_require__(26)
 
 function HashNoConstructor (hash) {
   Base.call(this, 'digest')
@@ -24618,12 +24618,12 @@ module.exports = {
 };
 
 var assert = __webpack_require__(6);
-var asn1 = __webpack_require__(27);
+var asn1 = __webpack_require__(28);
 var algs = __webpack_require__(15);
 var utils = __webpack_require__(12);
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
-var pem = __webpack_require__(26);
+var pem = __webpack_require__(27);
 
 function read(buf, options) {
 	return (pem.read(buf, options, 'pkcs8'));
@@ -25129,7 +25129,7 @@ var Signature = __webpack_require__(24);
 var errs = __webpack_require__(23);
 var util = __webpack_require__(8);
 var utils = __webpack_require__(12);
-var asn1 = __webpack_require__(27);
+var asn1 = __webpack_require__(28);
 
 /*JSSTYLED*/
 var DNS_NAME_RE = /^([*]|[a-z0-9][a-z0-9\-]{0,62})(?:\.([*]|[a-z0-9][a-z0-9\-]{0,62}))*$/i;
@@ -27496,14 +27496,14 @@ module.exports = {
 };
 
 var assert = __webpack_require__(6);
-var asn1 = __webpack_require__(27);
+var asn1 = __webpack_require__(28);
 var algs = __webpack_require__(15);
 var utils = __webpack_require__(12);
 var crypto = __webpack_require__(11);
 
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
-var pem = __webpack_require__(26);
+var pem = __webpack_require__(27);
 var rfc4253 = __webpack_require__(34);
 var SSHBuffer = __webpack_require__(66);
 var errors = __webpack_require__(23);
@@ -30389,13 +30389,13 @@ module.exports = {
 };
 
 var assert = __webpack_require__(6);
-var asn1 = __webpack_require__(27);
+var asn1 = __webpack_require__(28);
 var algs = __webpack_require__(15);
 var utils = __webpack_require__(12);
 
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
-var pem = __webpack_require__(26);
+var pem = __webpack_require__(27);
 
 var pkcs8 = __webpack_require__(51);
 var readECDSACurve = pkcs8.readECDSACurve;
@@ -44905,7 +44905,7 @@ module.exports = Sha512
 
 var inherits = __webpack_require__(3)
 var Legacy = __webpack_require__(422)
-var Base = __webpack_require__(25)
+var Base = __webpack_require__(26)
 var Buffer = __webpack_require__(5).Buffer
 var md5 = __webpack_require__(71)
 var RIPEMD160 = __webpack_require__(72)
@@ -45199,7 +45199,7 @@ module.exports = {"aes-128-ecb":{"cipher":"AES","key":128,"iv":0,"mode":"ECB","t
 
 var aes = __webpack_require__(59)
 var Buffer = __webpack_require__(5).Buffer
-var Transform = __webpack_require__(25)
+var Transform = __webpack_require__(26)
 var inherits = __webpack_require__(3)
 var GHASH = __webpack_require__(435)
 var xor = __webpack_require__(43)
@@ -45322,7 +45322,7 @@ module.exports = StreamCipher
 
 var aes = __webpack_require__(59)
 var Buffer = __webpack_require__(5).Buffer
-var Transform = __webpack_require__(25)
+var Transform = __webpack_require__(26)
 var inherits = __webpack_require__(3)
 
 function StreamCipher (mode, key, iv, decrypt) {
@@ -47858,7 +47858,7 @@ var utils = __webpack_require__(12);
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
 
-var pem = __webpack_require__(26);
+var pem = __webpack_require__(27);
 var ssh = __webpack_require__(257);
 var rfc4253 = __webpack_require__(34);
 
@@ -48621,12 +48621,12 @@ module.exports = {
 };
 
 var assert = __webpack_require__(6);
-var asn1 = __webpack_require__(27);
+var asn1 = __webpack_require__(28);
 var algs = __webpack_require__(15);
 var utils = __webpack_require__(12);
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
-var pem = __webpack_require__(26);
+var pem = __webpack_require__(27);
 var Identity = __webpack_require__(52);
 var Signature = __webpack_require__(24);
 var Certificate = __webpack_require__(50);
@@ -51088,8 +51088,8 @@ module.exports = bytesToUuid;
 /***/ (function(module, exports, __webpack_require__) {
 
 /* MIT license */
-var convert = __webpack_require__(616);
-var string = __webpack_require__(618);
+var convert = __webpack_require__(615);
+var string = __webpack_require__(617);
 
 var Color = function (obj) {
 	if (obj instanceof Color) {
@@ -51919,8 +51919,8 @@ module.exports = {
 
 
 var helpers = __webpack_require__(4);
-var basic = __webpack_require__(624);
-var dom = __webpack_require__(625);
+var basic = __webpack_require__(623);
+var dom = __webpack_require__(624);
 
 // @TODO Make possible to select another platform at build time.
 var implementation = dom._enabled ? dom : basic;
@@ -63089,7 +63089,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(29);
+var React = __webpack_require__(25);
 var ReactDOM = __webpack_require__(393);
 var weatherApp_component_1 = __webpack_require__(394);
 var Index = /** @class */ (function (_super) {
@@ -63129,15 +63129,15 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(29);
+var React = __webpack_require__(25);
 var keys_1 = __webpack_require__(90);
 var Moment = __webpack_require__(0);
 var Request = __webpack_require__(209);
 var inputField_component_1 = __webpack_require__(605);
-var weatherCard_component_1 = __webpack_require__(606);
-var nextWeather_component_1 = __webpack_require__(607);
-var loader_component_1 = __webpack_require__(608);
-var temperatureChart_component_1 = __webpack_require__(609);
+var weatherCardBig_component_1 = __webpack_require__(606);
+var spinner_component_1 = __webpack_require__(607);
+var lineChart_component_1 = __webpack_require__(608);
+var dailyWeather_component_1 = __webpack_require__(657);
 var currentDay = '';
 var WeatherApp = /** @class */ (function (_super) {
     __extends(WeatherApp, _super);
@@ -63156,7 +63156,7 @@ var WeatherApp = /** @class */ (function (_super) {
     WeatherApp.prototype.handleSearch = function (searchQuery) {
         var _this = this;
         this.setState({ weather: [], city: [], showLoadingSpinner: true });
-        var reqString = 'https://maps.googleapis.com/maps/api/geocode/json';
+        var reqString = 'http://localhost:4000/maps.googleapis.com/maps/api/geocode/json';
         Request(reqString + "?address=" + searchQuery.split(' ').join('+') + "&key=" + keys_1.GOOGLE_MAPS_KEY, { json: true }, function (err, res, body) {
             if (err) {
                 console.log("Search query returned error: ");
@@ -63173,7 +63173,7 @@ var WeatherApp = /** @class */ (function (_super) {
     // ----------------------------------------------------------------------------------------------------
     WeatherApp.prototype.getWeather = function (lat, lng) {
         var _this = this;
-        var reqString = 'http://api.openweathermap.org/data/2.5/forecast';
+        var reqString = 'http://localhost:4000/api.openweathermap.org/data/2.5/forecast';
         Request(reqString + "?lat=" + lat + "&lon=" + lng + "&appid=" + keys_1.OPEN_WEATHER_KEY, { json: true }, function (err, res, body) {
             if (err) {
                 return console.log(err);
@@ -63188,38 +63188,18 @@ var WeatherApp = /** @class */ (function (_super) {
     // ----------------------------------------------------------------------------------------------------
     WeatherApp.prototype.render = function () {
         return (React.createElement("div", { className: "container" },
-            React.createElement("div", { className: "header" },
-                React.createElement("p", { className: "logo" }, "Simple Weather"),
-                React.createElement(inputField_component_1.InputField, { onSearch: this.handleSearch })),
+            React.createElement(inputField_component_1.InputField, { onSearch: this.handleSearch }),
             React.createElement("div", { className: "wrapper" },
-                this.state.showLoadingSpinner == true && React.createElement(loader_component_1.Loader, null),
-                this.state.weather[0] && React.createElement(nextWeather_component_1.NextWeather, { city: this.state.city.name, time: Moment.unix(this.state.weather[0].dt).format("ddd DD MMMM"), weather: this.state.weather[0].weather[0].main, temperature: this.state.weather[0].main.temp, humidity: this.state.weather[0].main.humidity, clouds: this.state.weather[0].clouds ? this.state.weather[0].clouds.all : 0, wind: this.state.weather[0].wind ? this.state.weather[0].wind.speed : 0, 
-                    // rain={this.state.weather[0].rain ? (this.state.weather[0].rain['3h'] == undefined ? 0 : this.state.weather[0].rain['3h']) : 0}
-                    rain: this.state.weather[0].rain ? this.state.weather[0].rain['3h'] : 0, snow: this.state.weather[0].snow ? this.state.weather[0].snow['3h'] : 0, icon: this.state.weather[0].weather[0].icon }),
-                this.state.weather && React.createElement("h2", { className: "section-title" }, "Daily"),
-                this.state.weather && this.state.weather.map(function (value) {
-                    var day = Moment.unix(value.dt).format("ddd");
-                    if (currentDay == day) {
-                        return;
-                    }
-                    else {
-                        currentDay = day;
-                        return React.createElement(weatherCard_component_1.WeatherCard, { key: value.dt, day: day, temperature: Math.round(value.main.temp - 273.15), temperatureMin: Math.round(value.main.temp_min - 273.15), temperatureMax: Math.round(value.main.temp_max - 273.15), imageName: value.weather[0].icon });
-                    }
-                }),
-                this.state.weather[0] && React.createElement(temperatureChart_component_1.TemperatureChart, { labels: this.getLabels(), numbers: this.getNumbers() }))));
+                React.createElement(spinner_component_1.Spinner, { visible: this.state.visible }),
+                this.state.weather[0] && React.createElement(weatherCardBig_component_1.WeatherCardBig, { city: this.state.city.name, time: Moment.unix(this.state.weather[0].dt).format("ddd DD MMMM"), weather: this.state.weather[0].weather[0].main, temperature: this.state.weather[0].main.temp, humidity: this.state.weather[0].main.humidity, clouds: this.state.weather[0].clouds ? this.state.weather[0].clouds.all : 0, wind: this.state.weather[0].wind ? this.state.weather[0].wind.speed : 0, rain: this.state.weather[0].rain ? this.state.weather[0].rain['3h'] : 0, snow: this.state.weather[0].snow ? this.state.weather[0].snow['3h'] : 0, icon: this.state.weather[0].weather[0].icon }),
+                this.state.weather[0] && React.createElement(dailyWeather_component_1.DailyWeather, { weather: this.state.weather }),
+                this.state.weather[0] && React.createElement(lineChart_component_1.LineChart, { labels: this.getLabels(), numbers: this.getNumbers() }))));
     };
     WeatherApp.prototype.getLabels = function () {
         var labels = [];
         for (var i = 0; i < 8; i++) {
-            if (i == 0 || i == 7) {
-                labels.push("");
-            }
-            else {
-                labels.push(Moment.unix(this.state.weather[i].dt).format("HH:mm"));
-            }
+            labels.push(Moment.unix(this.state.weather[i].dt).format("HH:mm"));
         }
-        console.log(labels);
         return labels;
     };
     WeatherApp.prototype.getNumbers = function () {
@@ -63227,7 +63207,6 @@ var WeatherApp = /** @class */ (function (_super) {
         for (var i = 0; i < 8; i++) {
             numbers.push(Math.round(this.state.weather[i].main.temp - 273.15));
         }
-        console.log(numbers);
         return numbers;
     };
     return WeatherApp;
@@ -66413,7 +66392,7 @@ module.exports = Sha384
 var inherits = __webpack_require__(3)
 var Buffer = __webpack_require__(5).Buffer
 
-var Base = __webpack_require__(25)
+var Base = __webpack_require__(26)
 
 var ZEROS = Buffer.alloc(128)
 var blocksize = 64
@@ -66911,7 +66890,7 @@ var MODES = __webpack_require__(76)
 var AuthCipher = __webpack_require__(232)
 var Buffer = __webpack_require__(5).Buffer
 var StreamCipher = __webpack_require__(233)
-var Transform = __webpack_require__(25)
+var Transform = __webpack_require__(26)
 var aes = __webpack_require__(59)
 var ebtk = __webpack_require__(58)
 var inherits = __webpack_require__(3)
@@ -67303,7 +67282,7 @@ var AuthCipher = __webpack_require__(232)
 var Buffer = __webpack_require__(5).Buffer
 var MODES = __webpack_require__(76)
 var StreamCipher = __webpack_require__(233)
-var Transform = __webpack_require__(25)
+var Transform = __webpack_require__(26)
 var aes = __webpack_require__(59)
 var ebtk = __webpack_require__(58)
 var inherits = __webpack_require__(3)
@@ -67426,7 +67405,7 @@ exports.createDecipheriv = createDecipheriv
 /* 437 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var CipherBase = __webpack_require__(25)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var CipherBase = __webpack_require__(26)
 var des = __webpack_require__(77)
 var inherits = __webpack_require__(3)
 
@@ -86791,12 +86770,12 @@ module.exports = {
 };
 
 var assert = __webpack_require__(6);
-var asn1 = __webpack_require__(27);
+var asn1 = __webpack_require__(28);
 var algs = __webpack_require__(15);
 var utils = __webpack_require__(12);
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
-var pem = __webpack_require__(26);
+var pem = __webpack_require__(27);
 var Identity = __webpack_require__(52);
 var Signature = __webpack_require__(24);
 var Certificate = __webpack_require__(50);
@@ -96497,7 +96476,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(29);
+var React = __webpack_require__(25);
 var keys_1 = __webpack_require__(90);
 var Request = __webpack_require__(209);
 var timeout = null;
@@ -96519,7 +96498,7 @@ var InputField = /** @class */ (function (_super) {
         console.log("Search query changed to: " + event.target.value);
         // Make a new timeout set to go off in 500ms
         timeout = setTimeout(function () {
-            var reqString = 'https://maps.googleapis.com/maps/api/place/autocomplete/json';
+            var reqString = 'http://localhost:4000/maps.googleapis.com/maps/api/place/autocomplete/json';
             // event.target.value
             Request(reqString + "?input=" + _this.state.currentInputValue + "&type=geocode&key=" + keys_1.GOOGLE_PLACES_KEY, { json: true }, function (err, res, body) {
                 if (err) {
@@ -96538,15 +96517,18 @@ var InputField = /** @class */ (function (_super) {
     // ----------------------------------------------------------------------------------------------------
     InputField.prototype.render = function () {
         var _this = this;
-        return (React.createElement("div", { className: "nav" },
-            React.createElement("span", { className: "fa fa-refresh" }),
-            React.createElement("span", { className: "fa fa-star-o" }),
-            React.createElement("span", { className: "fa fa-ellipsis-v" }),
-            React.createElement("div", { className: "search-field" },
-                React.createElement("input", { type: "text", placeholder: "Cerca...", value: this.state.currentInputValue, onChange: this.handleChange }),
-                React.createElement("ul", null, this.state.suggestions.map(function (value) {
-                    return React.createElement("li", { key: value.id, onClick: function (e) { return _this.handleSearch(value.description); } }, value.description);
-                })))));
+        return (React.createElement("div", { className: "header" },
+            React.createElement("span", { className: "spinning-sun fa fa-sun-o" }),
+            React.createElement("p", { className: "logo" }, "Simple Weather"),
+            React.createElement("div", { className: "nav" },
+                React.createElement("span", { className: "fa fa-refresh" }),
+                React.createElement("span", { className: "fa fa-star-o" }),
+                React.createElement("span", { className: "fa fa-ellipsis-v" }),
+                React.createElement("div", { className: "search-field" },
+                    React.createElement("input", { type: "text", placeholder: "Cerca...", value: this.state.currentInputValue, onChange: this.handleChange }),
+                    React.createElement("ul", null, this.state.suggestions.map(function (value) {
+                        return React.createElement("li", { key: value.id, onClick: function (e) { return _this.handleSearch(value.description); } }, value.description);
+                    }))))));
     };
     return InputField;
 }(React.Component));
@@ -96570,55 +96552,13 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(29);
-var WeatherCard = /** @class */ (function (_super) {
-    __extends(WeatherCard, _super);
-    function WeatherCard() {
+var React = __webpack_require__(25);
+var WeatherCardBig = /** @class */ (function (_super) {
+    __extends(WeatherCardBig, _super);
+    function WeatherCardBig() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    WeatherCard.prototype.render = function () {
-        return (React.createElement("div", { className: "weather-card" },
-            React.createElement("p", { className: "day" }, this.props.day),
-            React.createElement("img", { src: "./images/" + this.props.imageName + ".png" }),
-            React.createElement("p", { className: "temperature-max" },
-                this.props.temperatureMax,
-                "\u00B0"),
-            React.createElement("p", { className: "temperature" },
-                this.props.temperature,
-                "\u00B0"),
-            React.createElement("p", { className: "temperature-min" },
-                this.props.temperatureMin,
-                "\u00B0")));
-    };
-    return WeatherCard;
-}(React.Component));
-exports.WeatherCard = WeatherCard;
-
-
-/***/ }),
-/* 607 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(29);
-var NextWeather = /** @class */ (function (_super) {
-    __extends(NextWeather, _super);
-    function NextWeather() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    NextWeather.prototype.render = function () {
+    WeatherCardBig.prototype.render = function () {
         return (React.createElement("div", { className: "next-weather" },
             React.createElement("p", { className: "city" }, this.props.city),
             React.createElement("p", { className: "time" }, this.props.time),
@@ -96649,9 +96589,45 @@ var NextWeather = /** @class */ (function (_super) {
                 this.props.snow,
                 "%")));
     };
-    return NextWeather;
+    return WeatherCardBig;
 }(React.Component));
-exports.NextWeather = NextWeather;
+exports.WeatherCardBig = WeatherCardBig;
+
+
+/***/ }),
+/* 607 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(25);
+var Spinner = /** @class */ (function (_super) {
+    __extends(Spinner, _super);
+    function Spinner() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Spinner.prototype.render = function () {
+        if (this.props.visible) {
+            return React.createElement("div", { className: "spinner fa fa-circle-o-notch" });
+        }
+        else {
+            return null;
+        }
+    };
+    return Spinner;
+}(React.Component));
+exports.Spinner = Spinner;
 
 
 /***/ }),
@@ -96671,71 +96647,49 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(29);
-var Loader = /** @class */ (function (_super) {
-    __extends(Loader, _super);
-    function Loader() {
+var React = __webpack_require__(25);
+var chart_js_1 = __webpack_require__(609);
+var LineChart = /** @class */ (function (_super) {
+    __extends(LineChart, _super);
+    function LineChart() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Loader.prototype.render = function () {
-        return (React.createElement("div", { className: "spinner fa fa-circle-o-notch" }));
-    };
-    return Loader;
-}(React.Component));
-exports.Loader = Loader;
-
-
-/***/ }),
-/* 609 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(29);
-var chart_js_1 = __webpack_require__(610);
-var TemperatureChart = /** @class */ (function (_super) {
-    __extends(TemperatureChart, _super);
-    function TemperatureChart() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    TemperatureChart.prototype.componentDidMount = function () {
+    LineChart.prototype.componentDidMount = function () {
         var canvas = document.getElementById('temperature-chart');
         var ctx = canvas.getContext('2d');
         var chart = new chart_js_1.Chart(ctx, {
             type: 'line',
             // The data for our dataset
             data: {
-                // labels: ["January", "February", "March", "April", "May", "June", "July"],
                 labels: this.props.labels,
                 datasets: [{
                         label: "Temperatures",
-                        // backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                        backgroundColor: 'rgba(255, 206, 86, 0)',
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        // backgroundColor: 'rgba(255, 206, 86, 0)',
                         borderColor: 'rgba(255, 206, 86, 1)',
                         // data: [0, 10, 5, 2, 20, 30, 45]
-                        data: this.props.numbers
-                    }]
+                        data: this.props.numbers,
+                        borderWidth: 1
+                    }],
             },
             // Configuration options go here
             options: {
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        top: 40,
+                        right: 20,
+                        bottom: 10,
+                        left: 20
+                    }
+                },
                 elements: {
                     point: {
                         radius: 0
-                    } //,
-                    // line: {
-                    //     tension: 0
-                    // }
+                    },
+                    line: {
+                        tension: .2
+                    }
                 },
                 legend: {
                     display: false
@@ -96756,12 +96710,10 @@ var TemperatureChart = /** @class */ (function (_super) {
                     yAxes: [{
                             display: false,
                             gridLines: {
-                                display: false
+                                display: false,
+                                tickMarkLength: 20
                             }
-                        }],
-                    ticks: {
-                        min: 0
-                    }
+                        }]
                 },
                 animation: {
                     duration: 1,
@@ -96774,56 +96726,47 @@ var TemperatureChart = /** @class */ (function (_super) {
                             var meta = chartInstance.controller.getDatasetMeta(i);
                             meta.data.forEach(function (bar, index) {
                                 var data = dataset.data[index];
-                                if (index != 0 || index != 7) {
-                                    ctx.fillText(data, bar._model.x, bar._model.y - 8);
-                                }
+                                ctx.fillText(data, bar._model.x, bar._model.y - 8);
                             });
                         });
-                        // var ctx = chart.ctx;
-                        // ctx.textAlign = "center";
-                        // ctx.textBaseline = "bottom";
-                        // ctx.font = "8px";
-                        // ctx.fillStyle = "#000000";
-                        // console.log(chart.data);
-                        // for (var i = 0; i < chart.data.datasets[0].data.length; i++) {
-                        //     console.log(chart.data.datasets[0].data[i]);
-                        //     ctx.fillText(chart.data.datasets[0].data[i].toString(), 30 * i, 50);
-                        // }
                     }
                 }
             },
         });
     };
-    TemperatureChart.prototype.render = function () {
+    LineChart.prototype.render = function () {
         return (React.createElement("div", { className: "section" },
             React.createElement("h2", { className: "section-title" }, "Every 4 hours"),
-            React.createElement("canvas", { id: "temperature-chart", height: "160px" })));
+            React.createElement("div", { className: "chart-container-relative" },
+                React.createElement("div", { className: "chart-container" },
+                    React.createElement("canvas", { id: "temperature-chart", width: "600", height: "100" })))));
     };
-    return TemperatureChart;
+    return LineChart;
 }(React.Component));
-exports.TemperatureChart = TemperatureChart;
+exports.LineChart = LineChart;
 
 
 /***/ }),
-/* 610 */
+/* 609 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
  * @namespace Chart
  */
-var Chart = __webpack_require__(611)();
+var Chart = __webpack_require__(610)();
 
 Chart.helpers = __webpack_require__(4);
 
 // @todo dispatch these helpers into appropriated helpers/helpers.* file and write unit tests!
-__webpack_require__(615)(Chart);
+__webpack_require__(614)(Chart);
 
 Chart.defaults = __webpack_require__(7);
 Chart.Element = __webpack_require__(20);
-Chart.elements = __webpack_require__(28);
+Chart.elements = __webpack_require__(29);
 Chart.Interaction = __webpack_require__(275);
 Chart.platform = __webpack_require__(276);
 
+__webpack_require__(625)(Chart);
 __webpack_require__(626)(Chart);
 __webpack_require__(627)(Chart);
 __webpack_require__(628)(Chart);
@@ -96831,40 +96774,39 @@ __webpack_require__(629)(Chart);
 __webpack_require__(630)(Chart);
 __webpack_require__(631)(Chart);
 __webpack_require__(632)(Chart);
-__webpack_require__(633)(Chart);
 
+__webpack_require__(633)(Chart);
 __webpack_require__(634)(Chart);
 __webpack_require__(635)(Chart);
 __webpack_require__(636)(Chart);
 __webpack_require__(637)(Chart);
 __webpack_require__(638)(Chart);
-__webpack_require__(639)(Chart);
 
 // Controllers must be loaded after elements
 // See Chart.core.datasetController.dataElementType
+__webpack_require__(640)(Chart);
 __webpack_require__(641)(Chart);
 __webpack_require__(642)(Chart);
 __webpack_require__(643)(Chart);
 __webpack_require__(644)(Chart);
 __webpack_require__(645)(Chart);
 __webpack_require__(646)(Chart);
-__webpack_require__(647)(Chart);
 
+__webpack_require__(647)(Chart);
 __webpack_require__(648)(Chart);
 __webpack_require__(649)(Chart);
 __webpack_require__(650)(Chart);
 __webpack_require__(651)(Chart);
 __webpack_require__(652)(Chart);
 __webpack_require__(653)(Chart);
-__webpack_require__(654)(Chart);
 
 // Loading built-it plugins
 var plugins = [];
 
 plugins.push(
+	__webpack_require__(654)(Chart),
 	__webpack_require__(655)(Chart),
-	__webpack_require__(656)(Chart),
-	__webpack_require__(657)(Chart)
+	__webpack_require__(656)(Chart)
 );
 
 Chart.plugins.register(plugins);
@@ -96889,7 +96831,7 @@ Chart.canvasHelpers = Chart.helpers.canvas;
 
 
 /***/ }),
-/* 611 */
+/* 610 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -96945,7 +96887,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 612 */
+/* 611 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -97202,7 +97144,7 @@ helpers.easingEffects = effects;
 
 
 /***/ }),
-/* 613 */
+/* 612 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -97423,7 +97365,7 @@ helpers.drawRoundedRectangle = function(ctx) {
 
 
 /***/ }),
-/* 614 */
+/* 613 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -97526,7 +97468,7 @@ module.exports = {
 
 
 /***/ }),
-/* 615 */
+/* 614 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -98136,10 +98078,10 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 616 */
+/* 615 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var conversions = __webpack_require__(617);
+var conversions = __webpack_require__(616);
 
 var convert = function() {
    return new Converter();
@@ -98233,7 +98175,7 @@ Converter.prototype.getValues = function(space) {
 module.exports = convert;
 
 /***/ }),
-/* 617 */
+/* 616 */
 /***/ (function(module, exports) {
 
 /* MIT license */
@@ -98937,11 +98879,11 @@ for (var key in cssKeywords) {
 
 
 /***/ }),
-/* 618 */
+/* 617 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* MIT license */
-var colorNames = __webpack_require__(619);
+var colorNames = __webpack_require__(618);
 
 module.exports = {
    getRgba: getRgba,
@@ -99164,7 +99106,7 @@ for (var name in colorNames) {
 
 
 /***/ }),
-/* 619 */
+/* 618 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99323,7 +99265,7 @@ module.exports = {
 
 
 /***/ }),
-/* 620 */
+/* 619 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99437,7 +99379,7 @@ module.exports = Element.extend({
 
 
 /***/ }),
-/* 621 */
+/* 620 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99535,7 +99477,7 @@ module.exports = Element.extend({
 
 
 /***/ }),
-/* 622 */
+/* 621 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99648,7 +99590,7 @@ module.exports = Element.extend({
 
 
 /***/ }),
-/* 623 */
+/* 622 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99872,7 +99814,7 @@ module.exports = Element.extend({
 
 
 /***/ }),
-/* 624 */
+/* 623 */
 /***/ (function(module, exports) {
 
 /**
@@ -99893,7 +99835,7 @@ module.exports = {
 
 
 /***/ }),
-/* 625 */
+/* 624 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100357,7 +100299,7 @@ helpers.removeEvent = removeEventListener;
 
 
 /***/ }),
-/* 626 */
+/* 625 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100759,7 +100701,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 627 */
+/* 626 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100938,7 +100880,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 628 */
+/* 627 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -101849,7 +101791,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 629 */
+/* 628 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -102186,7 +102128,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 630 */
+/* 629 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -102615,7 +102557,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 631 */
+/* 630 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -102667,7 +102609,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 632 */
+/* 631 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -103605,7 +103547,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 633 */
+/* 632 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -104560,7 +104502,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 634 */
+/* 633 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -104699,7 +104641,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 635 */
+/* 634 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -104839,7 +104781,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 636 */
+/* 635 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -105038,7 +104980,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 637 */
+/* 636 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -105289,7 +105231,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 638 */
+/* 637 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -105826,7 +105768,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 639 */
+/* 638 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -106589,7 +106531,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 640 */
+/* 639 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -106838,17 +106780,17 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 640;
+webpackContext.id = 639;
 
 /***/ }),
-/* 641 */
+/* 640 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var defaults = __webpack_require__(7);
-var elements = __webpack_require__(28);
+var elements = __webpack_require__(29);
 var helpers = __webpack_require__(4);
 
 defaults._set('bar', {
@@ -107269,14 +107211,14 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 642 */
+/* 641 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var defaults = __webpack_require__(7);
-var elements = __webpack_require__(28);
+var elements = __webpack_require__(29);
 var helpers = __webpack_require__(4);
 
 defaults._set('bubble', {
@@ -107456,14 +107398,14 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 643 */
+/* 642 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var defaults = __webpack_require__(7);
-var elements = __webpack_require__(28);
+var elements = __webpack_require__(29);
 var helpers = __webpack_require__(4);
 
 defaults._set('doughnut', {
@@ -107762,14 +107704,14 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 644 */
+/* 643 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var defaults = __webpack_require__(7);
-var elements = __webpack_require__(28);
+var elements = __webpack_require__(29);
 var helpers = __webpack_require__(4);
 
 defaults._set('line', {
@@ -108102,14 +108044,14 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 645 */
+/* 644 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var defaults = __webpack_require__(7);
-var elements = __webpack_require__(28);
+var elements = __webpack_require__(29);
 var helpers = __webpack_require__(4);
 
 defaults._set('polarArea', {
@@ -108331,14 +108273,14 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 646 */
+/* 645 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var defaults = __webpack_require__(7);
-var elements = __webpack_require__(28);
+var elements = __webpack_require__(29);
 var helpers = __webpack_require__(4);
 
 defaults._set('radar', {
@@ -108506,7 +108448,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 647 */
+/* 646 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108555,7 +108497,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 648 */
+/* 647 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108573,7 +108515,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 649 */
+/* 648 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108590,7 +108532,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 650 */
+/* 649 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108608,7 +108550,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 651 */
+/* 650 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108626,7 +108568,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 652 */
+/* 651 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108644,7 +108586,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 653 */
+/* 652 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108662,7 +108604,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 654 */
+/* 653 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108677,7 +108619,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 655 */
+/* 654 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108690,7 +108632,7 @@ module.exports = function(Chart) {
 
 
 var defaults = __webpack_require__(7);
-var elements = __webpack_require__(28);
+var elements = __webpack_require__(29);
 var helpers = __webpack_require__(4);
 
 defaults._set('global', {
@@ -109005,7 +108947,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 656 */
+/* 655 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -109579,7 +109521,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 657 */
+/* 656 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -109826,6 +109768,99 @@ module.exports = function(Chart) {
 		}
 	};
 };
+
+
+/***/ }),
+/* 657 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(25);
+var Moment = __webpack_require__(0);
+var weatherCard_component_1 = __webpack_require__(658);
+var currentDay = '';
+var DailyWeather = /** @class */ (function (_super) {
+    __extends(DailyWeather, _super);
+    function DailyWeather() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    DailyWeather.prototype.render = function () {
+        var listItems = this.props.weather.map(function (value) {
+            var day = Moment.unix(value.dt).format("ddd");
+            if (currentDay == day) {
+                return;
+            }
+            else {
+                currentDay = day;
+                return React.createElement(weatherCard_component_1.WeatherCard, { key: value.dt, day: day, temperature: Math.round(value.main.temp - 273.15), temperatureMin: Math.round(value.main.temp_min - 273.15), temperatureMax: Math.round(value.main.temp_max - 273.15), imageName: value.weather[0].icon });
+            }
+        });
+        if (this.props.weather != undefined) {
+            return (React.createElement("div", { className: "section" },
+                React.createElement("h1", { className: "section-title" }, "Daily"),
+                React.createElement("ul", null, listItems)));
+        }
+        else {
+            return null;
+        }
+    };
+    return DailyWeather;
+}(React.Component));
+exports.DailyWeather = DailyWeather;
+
+
+/***/ }),
+/* 658 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(25);
+var WeatherCard = /** @class */ (function (_super) {
+    __extends(WeatherCard, _super);
+    function WeatherCard() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    WeatherCard.prototype.render = function () {
+        return (React.createElement("div", { className: "weather-card" },
+            React.createElement("p", { className: "day" }, this.props.day),
+            React.createElement("img", { src: "./images/" + this.props.imageName + ".png" }),
+            React.createElement("p", { className: "temperature-max" },
+                this.props.temperatureMax,
+                "\u00B0"),
+            React.createElement("p", { className: "temperature" },
+                this.props.temperature,
+                "\u00B0"),
+            React.createElement("p", { className: "temperature-min" },
+                this.props.temperatureMin,
+                "\u00B0")));
+    };
+    return WeatherCard;
+}(React.Component));
+exports.WeatherCard = WeatherCard;
 
 
 /***/ })
