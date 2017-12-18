@@ -19,12 +19,13 @@ export class LineChart extends React.Component<LineChartProps, any> {
                 labels: this.props.labels,
                 datasets: [{
                     label: "Temperatures",
+                    fill: 1,
                     backgroundColor: 'rgba(255, 206, 86, 0.2)',
                     // backgroundColor: 'rgba(255, 206, 86, 0)',
                     borderColor: 'rgba(255, 206, 86, 1)',
                     // data: [0, 10, 5, 2, 20, 30, 45]
                     data: this.props.numbers,
-                    borderWidth: 1
+                    borderWidth: 1,
                 }],
             },
 
