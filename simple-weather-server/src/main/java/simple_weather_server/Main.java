@@ -1,7 +1,6 @@
 package simple_weather_server;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,6 +11,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.util.EntityUtils;
+import simple_weather_server.Schemas.*;
 
 /**
  *
@@ -48,6 +48,7 @@ public class Main {
                 String httpResponse = "HTTP/1.1 200 OK\r\n\r\n" + body;
                 client.getOutputStream().write(httpResponse.getBytes("UTF-8"));
 
+                // Creates JSON object as WeatherContainer.
                 Gson gson = new Gson();
 
                 JsonElement json = gson.fromJson(body, JsonElement.class);
@@ -66,8 +67,10 @@ public class Main {
 //                System.out.println();
             }
         }
+    }
+}
 
-        // La parte sotto non serve 
+// La parte sotto non serve
 //
 //        // Set up URI.
 //        //URIBuilder builder = new URIBuilder().setScheme("http").setHost("numbersapi.com").setPath("13");
@@ -86,5 +89,3 @@ public class Main {
 //        String body = EntityUtils.toString(response.getEntity());
 //        System.out.println("Response code: " + returnCode);
 //        System.out.println("Response body: " + body);
-    }
-}
