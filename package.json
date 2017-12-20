@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "description": "Personal website made with React, TypeScript, Webpack",
     "main": "main.js",
+    "repository": "https://github.com/alexandru-cazacu/simple-weather.git",
     "scripts": {
         "start": "webpack && electron ."
     },
@@ -26,6 +27,7 @@
         "awesome-typescript-loader": "^3.4.0",
         "electron": "^1.7.9",
         "source-map-loader": "^0.2.3",
-        "typescript": "^2.6.1"
+        "typescript": "^2.6.1",
+        "webpack": "^3.10.0"
     }
 }

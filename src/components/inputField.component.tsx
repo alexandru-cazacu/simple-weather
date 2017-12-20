@@ -1,9 +1,7 @@
 import * as React from 'react';
-import { GOOGLE_PLACES_KEY, GOOGLE_MAPS_KEY, OPEN_WEATHER_KEY } from '../keys';
+import { GOOGLE_PLACES_KEY } from '../keys';
 
-import * as Moment from 'moment';
 import * as Request from 'request';
-import { currentId } from 'async_hooks';
 
 let timeout: any = null;
 
@@ -22,6 +20,11 @@ export class InputField extends React.Component<InputFieldProps, any> {
         this.handleSearch = this.handleSearch.bind(this);
     }
 
+    /**
+     * Performs an HTTP Request to Google Places API and retrieves a json containing autocomplete suggestions for the current input query.
+     * That operation is performed only if the user stops typing for 0.5 seconds.
+     * @param event
+     */
     // ----------------------------------------------------------------------------------------------------
     handleChange(event: any) {
         clearTimeout(timeout);
@@ -38,19 +41,28 @@ export class InputField extends React.Component<InputFieldProps, any> {
             Request(reqString + "?input=" + this.state.currentInputValue + "&type=geocode&key=" + GOOGLE_PLACES_KEY, { json: true }, (err: any, res: any, body: any) => {
                 if (err) { return console.log(err); }
 
+                res = res;
+
                 this.setState({ suggestions: body.predictions });
             })
         }, 500);
     }
 
+    /**
+     * Callback function that is called every time the user types something in the input field.
+     * Sets this.state.currentInputValue to searchQuery.
+     * @param searchQuery Value in the input field.
+     */
     // ----------------------------------------------------------------------------------------------------
     handleSearch(searchQuery: string) {
         this.setState({ currentInputValue: '', suggestions: [] });
 
-        console.log("Search query sent to Maps: " + searchQuery);
         this.props.onSearch(searchQuery);
     }
 
+    /**
+     * Life Cycle method that is called after a component state or props change.
+     */
     // ----------------------------------------------------------------------------------------------------
     render() {
         return (
@@ -66,7 +78,7 @@ export class InputField extends React.Component<InputFieldProps, any> {
                         <input type="text" placeholder="Cerca..." value={this.state.currentInputValue} onChange={this.handleChange} />
                         <ul>
                             {this.state.suggestions.map((value: any) =>
-                                <li key={value.id} onClick={(e) => this.handleSearch(value.description)}>{value.description}</li>
+                                <li key={value.id} onClick={() => this.handleSearch(value.description)}>{value.description}</li>
                             )}
                         </ul>
                     </div>

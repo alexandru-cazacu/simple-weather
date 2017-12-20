@@ -53,7 +53,7 @@ public class Main {
                 JsonElement json = gson.fromJson(body, JsonElement.class);
                 String result = gson.toJson(json);
 
-                json.System.out.println(json);
+                System.out.println(json);
 
 //                JSONObject obj = new JSONObject(" .... ");
 //                String pageName = obj.getJSONObject("pageInfo").getString("pageName");

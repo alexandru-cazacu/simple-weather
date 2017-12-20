@@ -2,12 +2,17 @@ import * as React from "react";
 import { Chart } from 'chart.js';
 
 interface LineChartProps {
-    labels: any[],
-    numbers: any[]
+    hourLabels: any[];
+    numbers: any[];
+    rain: any[];
 }
 
 export class LineChart extends React.Component<LineChartProps, any> {
 
+    /**
+     * Life Cycle method that is called after a component is rendered in the DOM.
+     */
+    // ----------------------------------------------------------------------------------------------------
     componentDidMount() {
         var canvas: any = document.getElementById('temperature-chart');
         var ctx = canvas.getContext('2d');
@@ -16,19 +21,17 @@ export class LineChart extends React.Component<LineChartProps, any> {
 
             // The data for our dataset
             data: {
-                labels: this.props.labels,
                 datasets: [{
-                    label: "Temperatures",
-                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                    // backgroundColor: 'rgba(255, 206, 86, 0)',
+                    label: "Temperature",
+                    // backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                    backgroundColor: 'rgba(255, 206, 86, 0)',
                     borderColor: 'rgba(255, 206, 86, 1)',
                     // data: [0, 10, 5, 2, 20, 30, 45]
-                    data: this.props.numbers,
-                    borderWidth: 1
+                    data: this.props.numbers
                 }],
+                labels: this.props.hourLabels
             },
 
-            // Configuration options go here
             options: {
                 maintainAspectRatio: false,
                 layout: {
@@ -49,7 +52,8 @@ export class LineChart extends React.Component<LineChartProps, any> {
                     }
                 },
                 legend: {
-                    display: false
+                    display: true,
+                    position: 'bottom'
                 },
                 tooltips: {
                     enabled: false
@@ -67,8 +71,7 @@ export class LineChart extends React.Component<LineChartProps, any> {
                     yAxes: [{
                         display: false,
                         gridLines: {
-                            display: false,
-                            tickMarkLength: 20
+                            display: false
                         }
                     }]
                 },
@@ -93,12 +96,18 @@ export class LineChart extends React.Component<LineChartProps, any> {
                 }
             },
         });
+
+        console.log(chart);
     }
 
+    /**
+     * Life Cycle method that is called after a component state or props change.
+     */
+    // ----------------------------------------------------------------------------------------------------
     render() {
         return (
             <div className="section">
-                <h2 className="section-title">Every 4 hours</h2>
+                <h2 className="section-title">Every 3 hours</h2>
                 <div className="chart-container-relative">
                     <div className="chart-container">
                         <canvas id="temperature-chart" width="600" height="100"></canvas>

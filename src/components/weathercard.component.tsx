@@ -1,16 +1,19 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 interface WeatherCardProps {
-    day: string,
-    temperature: number,
-    temperatureMax: number,
-    temperatureMin: number
-    imageName: string
+    day: string;
+    temperature: number;
+    temperatureMax: number;
+    temperatureMin: number;
+    imageName: string;
 }
 
 export class WeatherCard extends React.Component<WeatherCardProps, any> {
+
+    /**
+     * Life Cycle method that is called after a component state or props change.
+     */
+    // ----------------------------------------------------------------------------------------------------
     render() {
         return (
             <div className="weather-card">

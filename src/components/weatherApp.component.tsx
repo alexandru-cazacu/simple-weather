@@ -1,20 +1,15 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
 
-import { GOOGLE_PLACES_KEY, GOOGLE_MAPS_KEY, OPEN_WEATHER_KEY } from '../keys';
+import { GOOGLE_MAPS_KEY, OPEN_WEATHER_KEY } from '../keys';
 
 import * as Moment from 'moment';
 import * as Request from 'request';
-import { currentId } from 'async_hooks';
 
 import { InputField } from './inputField.component';
-import { WeatherCard } from './weatherCard.component';
 import { WeatherCardBig } from './weatherCardBig.component';
 import { Spinner } from './spinner.component';
 import { LineChart } from "./lineChart.component";
 import { DailyWeather } from './dailyWeather.component';
-
-let currentDay: string = '';
 
 export class WeatherApp extends React.Component<any, any> {
 
@@ -28,12 +23,20 @@ export class WeatherApp extends React.Component<any, any> {
         Moment().format('LLLL');
     }
 
+    /**
+     * Life Cycle method that is called after a component is rendered in the DOM.
+     */
+    // ----------------------------------------------------------------------------------------------------
     componentDidMount() {
         this.handleSearch("Via Cantore");
     }
 
+    /**
+     * Performs an HTTP request to Google Maps API. Retrieves the coordinates of seachQuery, then calls {@link #getWeather(number, number) getWeather}.
+     * @param searchQuery Name of the location to search for.
+     */
     // ----------------------------------------------------------------------------------------------------
-    handleSearch(searchQuery: string) {
+    private handleSearch(searchQuery: string) {
         this.setState({ weather: [], city: [], showLoadingSpinner: true });
 
         let reqString = 'http://localhost:4000/maps.googleapis.com/maps/api/geocode/json';
@@ -47,6 +50,7 @@ export class WeatherApp extends React.Component<any, any> {
 
             console.log("Found Coordinates: ");
             console.log(body);
+            console.log(res);
 
             console.log("Lat: " + body.results[0].geometry.location.lat);
             console.log("Lng: " + body.results[0].geometry.location.lng);
@@ -55,6 +59,11 @@ export class WeatherApp extends React.Component<any, any> {
         });
     }
 
+    /**
+     * Performs an HTTP request to OpenWeather API. Retrieves the forecast and sets this.state.weather equals to the resulting json.
+     * @param lat Latitude of the location.
+     * @param lng Longitute of the location.
+     */
     // ----------------------------------------------------------------------------------------------------
     getWeather(lat: number, lng: number) {
         let reqString = 'http://localhost:4000/api.openweathermap.org/data/2.5/forecast';
@@ -64,14 +73,19 @@ export class WeatherApp extends React.Component<any, any> {
 
             console.log("Weather API predistions: ");
             console.log(body);
+            console.log(res);
 
-            this.setState({ weather: body.list, city: body.city, showLoadingSpinner: false });
+            this.setState({ weather: body.list, city: body.city });
+            this.setState({ visible: false });
 
             console.log("Weather predictions: ");
             console.log(this.state.weather);
         });
     }
 
+    /**
+     * Life Cycle method that is called after a component state or props change.
+     */
     // ----------------------------------------------------------------------------------------------------
     render() {
         return (
@@ -94,14 +108,20 @@ export class WeatherApp extends React.Component<any, any> {
 
                     {this.state.weather[0] && <DailyWeather weather={this.state.weather} />}
 
-                    {this.state.weather[0] && <LineChart labels={this.getLabels()} numbers={this.getNumbers()} />}
+                    {this.state.weather[0] && <LineChart hourLabels={this.getHourLabels()} numbers={this.getTemperatures()} rain={this.getWind()} />}
                 </div>
             </div>
         );
     }
 
-    getLabels() {
-        let labels = [];
+    /**
+     * Loops throught the current weather forecast and builds an array of 8 values containing the next available hours.
+     * Available hours are: 01:00 04:00 07:00 10:00 13:00 16:00 19:00 22:00.
+     * @returns Array containing labels for the next 8 available hours.
+     */
+    // ----------------------------------------------------------------------------------------------------
+    getHourLabels(): string[] {
+        let labels: string[] = [];
         for (var i = 0; i < 8; i++) {
             labels.push(Moment.unix(this.state.weather[i].dt).format("HH:mm"));
         }
@@ -109,11 +129,55 @@ export class WeatherApp extends React.Component<any, any> {
         return labels;
     }
 
-    getNumbers() {
-        let numbers = [];
+    /**
+     * Loops throught the current weather forecast and builds an array of 8 values containing the temperatures for the next available hours.
+     * Available hours are: 01:00 04:00 07:00 10:00 13:00 16:00 19:00 22:00.
+     * @returns Array containing temperature values for the next 8 available hours.
+     */
+    // ----------------------------------------------------------------------------------------------------
+    getTemperatures(): number[] {
+        let numbers: number[] = [];
         for (var i = 0; i < 8; i++) {
             numbers.push(Math.round(this.state.weather[i].main.temp - 273.15));
         }
+
+        return numbers;
+    }
+
+    getRain(): number[] {
+        let numbers: number[] = [];
+        for (var i = 0; i < 8; i++) {
+            if (this.state.weather[0].hasOwnProperty("rain")) {
+                if (this.state.weather[i].rain.hasOwnProperty("3h")) {
+                    numbers.push(this.state.weather[i].rain["3h"]);
+                }
+                else {
+                    numbers.push(0);
+                }
+            }
+            else {
+                numbers.push(0);
+            }
+        }
+        return numbers;
+    }
+
+    getWind(): number[] {
+        let numbers: number[] = [];
+        for (var i = 0; i < 8; i++) {
+            if (this.state.weather[0].hasOwnProperty("wind")) {
+                if (this.state.weather[i].wind.hasOwnProperty("speed")) {
+                    numbers.push(this.state.weather[i].wind.speed);
+                }
+                else {
+                    numbers.push(0);
+                }
+            }
+            else {
+                numbers.push(0);
+            }
+        }
+        console.log(numbers);
         return numbers;
     }
 }

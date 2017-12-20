@@ -17,6 +17,11 @@ interface WeatherCardBigProps {
 }
 
 export class WeatherCardBig extends React.Component<WeatherCardBigProps, any> {
+
+    /**
+     * Life Cycle method that is called after a component state or props change.
+     */
+    // ----------------------------------------------------------------------------------------------------
     render() {
         return (
             <div className="next-weather">
@@ -29,8 +34,8 @@ export class WeatherCardBig extends React.Component<WeatherCardBigProps, any> {
                 <p className="tag">Humidity: {this.props.humidity}%</p>
                 <p className="tag">Clouds: {this.props.clouds}%</p>
                 <p className="tag">Wind: {this.props.wind} Km/h</p>
-                <p className="tag">Rain: {this.props.rain}%</p>
-                <p className="tag">Snow: {this.props.snow}%</p>
+                <p className="tag">Rain: {this.props.rain} mm</p>
+                <p className="tag">Snow: {this.props.snow} mm</p>
             </div>
         );
     }

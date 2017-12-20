@@ -63097,6 +63097,10 @@ var Index = /** @class */ (function (_super) {
     function Index() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    /**
+     * Life Cycle method that is called after a component state or props change.
+     */
+    // ----------------------------------------------------------------------------------------------------
     Index.prototype.render = function () {
         return (React.createElement(weatherApp_component_1.WeatherApp, null));
     };
@@ -63138,7 +63142,6 @@ var weatherCardBig_component_1 = __webpack_require__(606);
 var spinner_component_1 = __webpack_require__(607);
 var lineChart_component_1 = __webpack_require__(608);
 var dailyWeather_component_1 = __webpack_require__(657);
-var currentDay = '';
 var WeatherApp = /** @class */ (function (_super) {
     __extends(WeatherApp, _super);
     // ----------------------------------------------------------------------------------------------------
@@ -63149,9 +63152,17 @@ var WeatherApp = /** @class */ (function (_super) {
         Moment().format('LLLL');
         return _this;
     }
+    /**
+     * Life Cycle method that is called after a component is rendered in the DOM.
+     */
+    // ----------------------------------------------------------------------------------------------------
     WeatherApp.prototype.componentDidMount = function () {
         this.handleSearch("Via Cantore");
     };
+    /**
+     * Performs an HTTP request to Google Maps API. Retrieves the coordinates of seachQuery, then calls {@link #getWeather(number, number) getWeather}.
+     * @param searchQuery Name of the location to search for.
+     */
     // ----------------------------------------------------------------------------------------------------
     WeatherApp.prototype.handleSearch = function (searchQuery) {
         var _this = this;
@@ -63165,11 +63176,17 @@ var WeatherApp = /** @class */ (function (_super) {
             }
             console.log("Found Coordinates: ");
             console.log(body);
+            console.log(res);
             console.log("Lat: " + body.results[0].geometry.location.lat);
             console.log("Lng: " + body.results[0].geometry.location.lng);
             _this.getWeather(body.results[0].geometry.location.lat, body.results[0].geometry.location.lng);
         });
     };
+    /**
+     * Performs an HTTP request to OpenWeather API. Retrieves the forecast and sets this.state.weather equals to the resulting json.
+     * @param lat Latitude of the location.
+     * @param lng Longitute of the location.
+     */
     // ----------------------------------------------------------------------------------------------------
     WeatherApp.prototype.getWeather = function (lat, lng) {
         var _this = this;
@@ -63180,11 +63197,16 @@ var WeatherApp = /** @class */ (function (_super) {
             }
             console.log("Weather API predistions: ");
             console.log(body);
-            _this.setState({ weather: body.list, city: body.city, showLoadingSpinner: false });
+            console.log(res);
+            _this.setState({ weather: body.list, city: body.city });
+            _this.setState({ visible: false });
             console.log("Weather predictions: ");
             console.log(_this.state.weather);
         });
     };
+    /**
+     * Life Cycle method that is called after a component state or props change.
+     */
     // ----------------------------------------------------------------------------------------------------
     WeatherApp.prototype.render = function () {
         return (React.createElement("div", { className: "container" },
@@ -63193,20 +63215,67 @@ var WeatherApp = /** @class */ (function (_super) {
                 React.createElement(spinner_component_1.Spinner, { visible: this.state.visible }),
                 this.state.weather[0] && React.createElement(weatherCardBig_component_1.WeatherCardBig, { city: this.state.city.name, time: Moment.unix(this.state.weather[0].dt).format("ddd DD MMMM"), weather: this.state.weather[0].weather[0].main, temperature: this.state.weather[0].main.temp, humidity: this.state.weather[0].main.humidity, clouds: this.state.weather[0].clouds ? this.state.weather[0].clouds.all : 0, wind: this.state.weather[0].wind ? this.state.weather[0].wind.speed : 0, rain: this.state.weather[0].rain ? this.state.weather[0].rain['3h'] : 0, snow: this.state.weather[0].snow ? this.state.weather[0].snow['3h'] : 0, icon: this.state.weather[0].weather[0].icon }),
                 this.state.weather[0] && React.createElement(dailyWeather_component_1.DailyWeather, { weather: this.state.weather }),
-                this.state.weather[0] && React.createElement(lineChart_component_1.LineChart, { labels: this.getLabels(), numbers: this.getNumbers() }))));
+                this.state.weather[0] && React.createElement(lineChart_component_1.LineChart, { hourLabels: this.getHourLabels(), numbers: this.getTemperatures(), rain: this.getWind() }))));
     };
-    WeatherApp.prototype.getLabels = function () {
+    /**
+     * Loops throught the current weather forecast and builds an array of 8 values containing the next available hours.
+     * Available hours are: 01:00 04:00 07:00 10:00 13:00 16:00 19:00 22:00.
+     * @returns Array containing labels for the next 8 available hours.
+     */
+    // ----------------------------------------------------------------------------------------------------
+    WeatherApp.prototype.getHourLabels = function () {
         var labels = [];
         for (var i = 0; i < 8; i++) {
             labels.push(Moment.unix(this.state.weather[i].dt).format("HH:mm"));
         }
         return labels;
     };
-    WeatherApp.prototype.getNumbers = function () {
+    /**
+     * Loops throught the current weather forecast and builds an array of 8 values containing the temperatures for the next available hours.
+     * Available hours are: 01:00 04:00 07:00 10:00 13:00 16:00 19:00 22:00.
+     * @returns Array containing temperature values for the next 8 available hours.
+     */
+    // ----------------------------------------------------------------------------------------------------
+    WeatherApp.prototype.getTemperatures = function () {
         var numbers = [];
         for (var i = 0; i < 8; i++) {
             numbers.push(Math.round(this.state.weather[i].main.temp - 273.15));
         }
+        return numbers;
+    };
+    WeatherApp.prototype.getRain = function () {
+        var numbers = [];
+        for (var i = 0; i < 8; i++) {
+            if (this.state.weather[0].hasOwnProperty("rain")) {
+                if (this.state.weather[i].rain.hasOwnProperty("3h")) {
+                    numbers.push(this.state.weather[i].rain["3h"]);
+                }
+                else {
+                    numbers.push(0);
+                }
+            }
+            else {
+                numbers.push(0);
+            }
+        }
+        return numbers;
+    };
+    WeatherApp.prototype.getWind = function () {
+        var numbers = [];
+        for (var i = 0; i < 8; i++) {
+            if (this.state.weather[0].hasOwnProperty("wind")) {
+                if (this.state.weather[i].wind.hasOwnProperty("speed")) {
+                    numbers.push(this.state.weather[i].wind.speed);
+                }
+                else {
+                    numbers.push(0);
+                }
+            }
+            else {
+                numbers.push(0);
+            }
+        }
+        console.log(numbers);
         return numbers;
     };
     return WeatherApp;
@@ -96490,6 +96559,11 @@ var InputField = /** @class */ (function (_super) {
         _this.handleSearch = _this.handleSearch.bind(_this);
         return _this;
     }
+    /**
+     * Performs an HTTP Request to Google Places API and retrieves a json containing autocomplete suggestions for the current input query.
+     * That operation is performed only if the user stops typing for 0.5 seconds.
+     * @param event
+     */
     // ----------------------------------------------------------------------------------------------------
     InputField.prototype.handleChange = function (event) {
         var _this = this;
@@ -96504,16 +96578,24 @@ var InputField = /** @class */ (function (_super) {
                 if (err) {
                     return console.log(err);
                 }
+                res = res;
                 _this.setState({ suggestions: body.predictions });
             });
         }, 500);
     };
+    /**
+     * Callback function that is called every time the user types something in the input field.
+     * Sets this.state.currentInputValue to searchQuery.
+     * @param searchQuery Value in the input field.
+     */
     // ----------------------------------------------------------------------------------------------------
     InputField.prototype.handleSearch = function (searchQuery) {
         this.setState({ currentInputValue: '', suggestions: [] });
-        console.log("Search query sent to Maps: " + searchQuery);
         this.props.onSearch(searchQuery);
     };
+    /**
+     * Life Cycle method that is called after a component state or props change.
+     */
     // ----------------------------------------------------------------------------------------------------
     InputField.prototype.render = function () {
         var _this = this;
@@ -96527,7 +96609,7 @@ var InputField = /** @class */ (function (_super) {
                 React.createElement("div", { className: "search-field" },
                     React.createElement("input", { type: "text", placeholder: "Cerca...", value: this.state.currentInputValue, onChange: this.handleChange }),
                     React.createElement("ul", null, this.state.suggestions.map(function (value) {
-                        return React.createElement("li", { key: value.id, onClick: function (e) { return _this.handleSearch(value.description); } }, value.description);
+                        return React.createElement("li", { key: value.id, onClick: function () { return _this.handleSearch(value.description); } }, value.description);
                     }))))));
     };
     return InputField;
@@ -96558,6 +96640,10 @@ var WeatherCardBig = /** @class */ (function (_super) {
     function WeatherCardBig() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    /**
+     * Life Cycle method that is called after a component state or props change.
+     */
+    // ----------------------------------------------------------------------------------------------------
     WeatherCardBig.prototype.render = function () {
         return (React.createElement("div", { className: "next-weather" },
             React.createElement("p", { className: "city" }, this.props.city),
@@ -96583,11 +96669,11 @@ var WeatherCardBig = /** @class */ (function (_super) {
             React.createElement("p", { className: "tag" },
                 "Rain: ",
                 this.props.rain,
-                "%"),
+                " mm"),
             React.createElement("p", { className: "tag" },
                 "Snow: ",
                 this.props.snow,
-                "%")));
+                " mm")));
     };
     return WeatherCardBig;
 }(React.Component));
@@ -96617,6 +96703,10 @@ var Spinner = /** @class */ (function (_super) {
     function Spinner() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    /**
+     * Life Cycle method that is called after a component state or props change.
+     */
+    // ----------------------------------------------------------------------------------------------------
     Spinner.prototype.render = function () {
         if (this.props.visible) {
             return React.createElement("div", { className: "spinner fa fa-circle-o-notch" });
@@ -96654,6 +96744,10 @@ var LineChart = /** @class */ (function (_super) {
     function LineChart() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    /**
+     * Life Cycle method that is called after a component is rendered in the DOM.
+     */
+    // ----------------------------------------------------------------------------------------------------
     LineChart.prototype.componentDidMount = function () {
         var canvas = document.getElementById('temperature-chart');
         var ctx = canvas.getContext('2d');
@@ -96661,18 +96755,16 @@ var LineChart = /** @class */ (function (_super) {
             type: 'line',
             // The data for our dataset
             data: {
-                labels: this.props.labels,
                 datasets: [{
-                        label: "Temperatures",
-                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                        // backgroundColor: 'rgba(255, 206, 86, 0)',
+                        label: "Temperature",
+                        // backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        backgroundColor: 'rgba(255, 206, 86, 0)',
                         borderColor: 'rgba(255, 206, 86, 1)',
                         // data: [0, 10, 5, 2, 20, 30, 45]
-                        data: this.props.numbers,
-                        borderWidth: 1
+                        data: this.props.numbers
                     }],
+                labels: this.props.hourLabels
             },
-            // Configuration options go here
             options: {
                 maintainAspectRatio: false,
                 layout: {
@@ -96692,7 +96784,8 @@ var LineChart = /** @class */ (function (_super) {
                     }
                 },
                 legend: {
-                    display: false
+                    display: true,
+                    position: 'bottom'
                 },
                 tooltips: {
                     enabled: false
@@ -96710,8 +96803,7 @@ var LineChart = /** @class */ (function (_super) {
                     yAxes: [{
                             display: false,
                             gridLines: {
-                                display: false,
-                                tickMarkLength: 20
+                                display: false
                             }
                         }]
                 },
@@ -96733,10 +96825,15 @@ var LineChart = /** @class */ (function (_super) {
                 }
             },
         });
+        console.log(chart);
     };
+    /**
+     * Life Cycle method that is called after a component state or props change.
+     */
+    // ----------------------------------------------------------------------------------------------------
     LineChart.prototype.render = function () {
         return (React.createElement("div", { className: "section" },
-            React.createElement("h2", { className: "section-title" }, "Every 4 hours"),
+            React.createElement("h2", { className: "section-title" }, "Every 3 hours"),
             React.createElement("div", { className: "chart-container-relative" },
                 React.createElement("div", { className: "chart-container" },
                     React.createElement("canvas", { id: "temperature-chart", width: "600", height: "100" })))));
@@ -109791,20 +109888,37 @@ var React = __webpack_require__(25);
 var Moment = __webpack_require__(0);
 var weatherCard_component_1 = __webpack_require__(658);
 var currentDay = '';
+var worstForecastedWeather = '01d';
+var daysCount = 0;
 var DailyWeather = /** @class */ (function (_super) {
     __extends(DailyWeather, _super);
     function DailyWeather() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    /**
+     * Life Cycle method that is called after a component state or props change.
+     */
+    // ----------------------------------------------------------------------------------------------------
     DailyWeather.prototype.render = function () {
+        currentDay = '';
+        worstForecastedWeather = '01d';
+        daysCount = 0;
         var listItems = this.props.weather.map(function (value) {
             var day = Moment.unix(value.dt).format("ddd");
+            // Forecast still part of current day.
             if (currentDay == day) {
-                return;
+                var currForecast = value.weather[0].icon;
+                if (currForecast > worstForecastedWeather) {
+                    worstForecastedWeather = currForecast;
+                }
             }
             else {
                 currentDay = day;
-                return React.createElement(weatherCard_component_1.WeatherCard, { key: value.dt, day: day, temperature: Math.round(value.main.temp - 273.15), temperatureMin: Math.round(value.main.temp_min - 273.15), temperatureMax: Math.round(value.main.temp_max - 273.15), imageName: value.weather[0].icon });
+                worstForecastedWeather = value.weather[0].icon;
+                daysCount++;
+                if (daysCount <= 5) {
+                    return React.createElement(weatherCard_component_1.WeatherCard, { key: value.dt, day: day, temperature: Math.round(value.main.temp - 273.15), temperatureMin: Math.round(value.main.temp_min - 273.15), temperatureMax: Math.round(value.main.temp_max - 273.15), imageName: worstForecastedWeather });
+                }
             }
         });
         if (this.props.weather != undefined) {
@@ -109844,6 +109958,10 @@ var WeatherCard = /** @class */ (function (_super) {
     function WeatherCard() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    /**
+     * Life Cycle method that is called after a component state or props change.
+     */
+    // ----------------------------------------------------------------------------------------------------
     WeatherCard.prototype.render = function () {
         return (React.createElement("div", { className: "weather-card" },
             React.createElement("p", { className: "day" }, this.props.day),
