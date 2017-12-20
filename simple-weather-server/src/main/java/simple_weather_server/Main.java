@@ -1,6 +1,7 @@
 package simple_weather_server;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
