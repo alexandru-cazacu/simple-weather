@@ -45,7 +45,7 @@ export class DailyWeather extends React.Component<DailyWeatherProps, any> {
                             temperature={Math.round(value.main.temp - 273.15)}
                             temperatureMin={Math.round(value.main.temp_min - 273.15)}
                             temperatureMax={Math.round(value.main.temp_max - 273.15)}
-                            imageName={worstForecastedWeather} />;
+                            imageName={worstForecastedWeather.replace("n", "d")} />;
                     }
                 }
             }
