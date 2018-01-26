@@ -4583,7 +4583,7 @@ return hooks;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(54)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)(module)))
 
 /***/ }),
 /* 1 */
@@ -6418,7 +6418,7 @@ function loadLocale(name) {
             module && module.exports) {
         try {
             oldLocale = globalLocale._abbr;
-            __webpack_require__(639)("./" + name);
+            __webpack_require__(637)("./" + name);
             // because defineLocale currently also sets the global locale, we
             // want to undo that for lazy loaded locales
             getSetGlobalLocale(oldLocale);
@@ -9053,7 +9053,7 @@ return hooks;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(54)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)(module)))
 
 /***/ }),
 /* 2 */
@@ -9072,7 +9072,7 @@ return hooks;
 
 var base64 = __webpack_require__(406)
 var ieee754 = __webpack_require__(407)
-var isArray = __webpack_require__(216)
+var isArray = __webpack_require__(215)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -10850,7 +10850,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
 /* 3 */
@@ -10883,19 +10883,6 @@ if (typeof Object.create === 'function') {
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(67);
-module.exports.easing = __webpack_require__(611);
-module.exports.canvas = __webpack_require__(612);
-module.exports.options = __webpack_require__(613);
-
-
-/***/ }),
-/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-disable node/no-deprecated-api */
@@ -10960,6 +10947,19 @@ SafeBuffer.allocUnsafeSlow = function (size) {
   }
   return buffer.SlowBuffer(size)
 }
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(66);
+module.exports.easing = __webpack_require__(609);
+module.exports.canvas = __webpack_require__(610);
+module.exports.options = __webpack_require__(611);
 
 
 /***/ }),
@@ -11187,7 +11187,7 @@ module.exports = _setExports(process.env.NODE_NDEBUG);
 "use strict";
 
 
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 module.exports = {
 	/**
@@ -11790,7 +11790,7 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13), __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(9)))
 
 /***/ }),
 /* 9 */
@@ -15414,7 +15414,7 @@ process.umask = function() { return 0; };
   };
 })(typeof module === 'undefined' || module, this);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(54)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)(module)))
 
 /***/ }),
 /* 11 */
@@ -15424,8 +15424,8 @@ process.umask = function() { return 0; };
 
 
 exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = __webpack_require__(36)
-exports.createHash = exports.Hash = __webpack_require__(40)
-exports.createHmac = exports.Hmac = __webpack_require__(223)
+exports.createHash = exports.Hash = __webpack_require__(41)
+exports.createHmac = exports.Hmac = __webpack_require__(222)
 
 var algos = __webpack_require__(423)
 var algoKeys = Object.keys(algos)
@@ -15434,7 +15434,7 @@ exports.getHashes = function () {
   return hashes
 }
 
-var p = __webpack_require__(225)
+var p = __webpack_require__(224)
 exports.pbkdf2 = p.pbkdf2
 exports.pbkdf2Sync = p.pbkdf2Sync
 
@@ -15522,6 +15522,33 @@ exports.constants = {
 
 /***/ }),
 /* 12 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -15816,33 +15843,6 @@ function opensshCipherInfo(cipher) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 13 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15853,11 +15853,11 @@ module.exports = Key;
 var assert = __webpack_require__(6);
 var algs = __webpack_require__(15);
 var crypto = __webpack_require__(11);
-var Fingerprint = __webpack_require__(49);
+var Fingerprint = __webpack_require__(48);
 var Signature = __webpack_require__(24);
 var DiffieHellman = __webpack_require__(252).DiffieHellman;
 var errs = __webpack_require__(23);
-var utils = __webpack_require__(12);
+var utils = __webpack_require__(13);
 var PrivateKey = __webpack_require__(16);
 var edCompat;
 
@@ -15873,11 +15873,11 @@ var KeyParseError = errs.KeyParseError;
 var formats = {};
 formats['auto'] = __webpack_require__(255);
 formats['pem'] = __webpack_require__(27);
-formats['pkcs1'] = __webpack_require__(84);
-formats['pkcs8'] = __webpack_require__(51);
+formats['pkcs1'] = __webpack_require__(83);
+formats['pkcs8'] = __webpack_require__(50);
 formats['rfc4253'] = __webpack_require__(34);
 formats['ssh'] = __webpack_require__(257);
-formats['ssh-private'] = __webpack_require__(65);
+formats['ssh-private'] = __webpack_require__(64);
 formats['openssh'] = formats['ssh-private'];
 
 function Key(opts) {
@@ -16309,11 +16309,11 @@ module.exports = PrivateKey;
 var assert = __webpack_require__(6);
 var algs = __webpack_require__(15);
 var crypto = __webpack_require__(11);
-var Fingerprint = __webpack_require__(49);
+var Fingerprint = __webpack_require__(48);
 var Signature = __webpack_require__(24);
 var errs = __webpack_require__(23);
 var util = __webpack_require__(8);
-var utils = __webpack_require__(12);
+var utils = __webpack_require__(13);
 var dhe = __webpack_require__(252);
 var generateECDSA = dhe.generateECDSA;
 var generateED25519 = dhe.generateED25519;
@@ -16335,10 +16335,10 @@ var KeyEncryptedError = errs.KeyEncryptedError;
 var formats = {};
 formats['auto'] = __webpack_require__(255);
 formats['pem'] = __webpack_require__(27);
-formats['pkcs1'] = __webpack_require__(84);
-formats['pkcs8'] = __webpack_require__(51);
+formats['pkcs1'] = __webpack_require__(83);
+formats['pkcs8'] = __webpack_require__(50);
 formats['rfc4253'] = __webpack_require__(34);
-formats['ssh-private'] = __webpack_require__(65);
+formats['ssh-private'] = __webpack_require__(64);
 formats['openssh'] = formats['ssh-private'];
 formats['ssh'] = formats['ssh-private'];
 
@@ -16570,8 +16570,8 @@ var elliptic = exports;
 
 elliptic.version = __webpack_require__(451).version;
 elliptic.utils = __webpack_require__(452);
-elliptic.rand = __webpack_require__(236);
-elliptic.curve = __webpack_require__(60);
+elliptic.rand = __webpack_require__(235);
+elliptic.curve = __webpack_require__(59);
 elliptic.curves = __webpack_require__(457);
 
 // Protocols
@@ -16606,11 +16606,11 @@ elliptic.eddsa = __webpack_require__(469);
 
 module.exports = Stream;
 
-var EE = __webpack_require__(55).EventEmitter;
+var EE = __webpack_require__(54).EventEmitter;
 var inherits = __webpack_require__(3);
 
 inherits(Stream, EE);
-Stream.Readable = __webpack_require__(41);
+Stream.Readable = __webpack_require__(42);
 Stream.Writable = __webpack_require__(414);
 Stream.Duplex = __webpack_require__(415);
 Stream.Transform = __webpack_require__(416);
@@ -16737,7 +16737,7 @@ assert.equal = function assertEqual(l, r, msg) {
 
 
 var color = __webpack_require__(274);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 function interpolate(start, view, model, ease) {
 	var keys = Object.keys(model);
@@ -16879,7 +16879,7 @@ module.exports = Element;
 
 
 
-var punycode = __webpack_require__(69);
+var punycode = __webpack_require__(68);
 var util = __webpack_require__(397);
 
 exports.parse = urlParse;
@@ -16955,7 +16955,7 @@ var protocolPattern = /^([a-z0-9.+-]+:)/i,
       'gopher:': true,
       'file:': true
     },
-    querystring = __webpack_require__(39);
+    querystring = __webpack_require__(40);
 
 function urlParse(url, parseQueryString, slashesDenoteHost) {
   if (url && util.isObject(url) && url instanceof Url) return url;
@@ -17952,9 +17952,9 @@ var assert = __webpack_require__(6);
 var algs = __webpack_require__(15);
 var crypto = __webpack_require__(11);
 var errs = __webpack_require__(23);
-var utils = __webpack_require__(12);
+var utils = __webpack_require__(13);
 var asn1 = __webpack_require__(28);
-var SSHBuffer = __webpack_require__(66);
+var SSHBuffer = __webpack_require__(65);
 
 var InvalidAlgorithmError = errs.InvalidAlgorithmError;
 var SignatureParseError = errs.SignatureParseError;
@@ -18270,9 +18270,9 @@ module.exports = React;
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(5).Buffer
+var Buffer = __webpack_require__(4).Buffer
 var Transform = __webpack_require__(18).Transform
-var StringDecoder = __webpack_require__(57).StringDecoder
+var StringDecoder = __webpack_require__(56).StringDecoder
 var inherits = __webpack_require__(3)
 
 function CipherBase (hashMode) {
@@ -18386,13 +18386,13 @@ var assert = __webpack_require__(6);
 var asn1 = __webpack_require__(28);
 var crypto = __webpack_require__(11);
 var algs = __webpack_require__(15);
-var utils = __webpack_require__(12);
+var utils = __webpack_require__(13);
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
 
-var pkcs1 = __webpack_require__(84);
-var pkcs8 = __webpack_require__(51);
-var sshpriv = __webpack_require__(65);
+var pkcs1 = __webpack_require__(83);
+var pkcs8 = __webpack_require__(50);
+var sshpriv = __webpack_require__(64);
 var rfc4253 = __webpack_require__(34);
 
 var errors = __webpack_require__(23);
@@ -18573,7 +18573,7 @@ function write(key, options, type) {
 // If you have no idea what ASN.1 or BER is, see this:
 // ftp://ftp.rsa.com/pub/pkcs/ascii/layman.asc
 
-var Ber = __webpack_require__(516);
+var Ber = __webpack_require__(515);
 
 
 
@@ -18598,10 +18598,10 @@ module.exports = {
 
 
 module.exports = {};
-module.exports.Arc = __webpack_require__(619);
-module.exports.Line = __webpack_require__(620);
-module.exports.Point = __webpack_require__(621);
-module.exports.Rectangle = __webpack_require__(622);
+module.exports.Arc = __webpack_require__(617);
+module.exports.Line = __webpack_require__(618);
+module.exports.Point = __webpack_require__(619);
+module.exports.Rectangle = __webpack_require__(620);
 
 
 /***/ }),
@@ -18639,7 +18639,7 @@ module.exports.Rectangle = __webpack_require__(622);
 
 /*<replacement>*/
 
-var processNextTick = __webpack_require__(56);
+var processNextTick = __webpack_require__(55);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -18654,12 +18654,12 @@ var objectKeys = Object.keys || function (obj) {
 module.exports = Duplex;
 
 /*<replacement>*/
-var util = __webpack_require__(42);
+var util = __webpack_require__(37);
 util.inherits = __webpack_require__(3);
 /*</replacement>*/
 
-var Readable = __webpack_require__(217);
-var Writable = __webpack_require__(73);
+var Readable = __webpack_require__(216);
+var Writable = __webpack_require__(72);
 
 util.inherits(Duplex, Readable);
 
@@ -19230,7 +19230,7 @@ var objectKeys = Object.keys || function (obj) {
   return keys;
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
 /* 32 */
@@ -22975,7 +22975,7 @@ nacl.setPRNG = function(fn) {
     });
   } else if (true) {
     // Node.js.
-    crypto = __webpack_require__(515);
+    crypto = __webpack_require__(514);
     if (crypto && crypto.randomBytes) {
       nacl.setPRNG(function(x, n) {
         var i, v = crypto.randomBytes(n);
@@ -23010,10 +23010,10 @@ module.exports = {
 
 var assert = __webpack_require__(6);
 var algs = __webpack_require__(15);
-var utils = __webpack_require__(12);
+var utils = __webpack_require__(13);
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
-var SSHBuffer = __webpack_require__(66);
+var SSHBuffer = __webpack_require__(65);
 
 function algToKeyType(alg) {
 	assert.string(alg);
@@ -23156,10 +23156,10 @@ function write(key, options) {
 /* WEBPACK VAR INJECTION */(function(global, process) {
 
 function oldBrowser () {
-  throw new Error('secure random number generation not supported by this browser\nuse chrome, FireFox or Internet Explorer 11')
+  throw new Error('Secure random number generation is not supported by this browser.\nUse Chrome, Firefox or Internet Explorer 11')
 }
 
-var Buffer = __webpack_require__(5).Buffer
+var Buffer = __webpack_require__(4).Buffer
 var crypto = global.crypto || global.msCrypto
 
 if (crypto && crypto.getRandomValues) {
@@ -23192,13 +23192,127 @@ function randomBytes (size, cb) {
   return bytes
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13), __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(9)))
 
 /***/ }),
 /* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(5).Buffer
+/* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+// NOTE: These type checking functions intentionally don't use `instanceof`
+// because it is fragile and can be easily faked with `Object.create()`.
+
+function isArray(arg) {
+  if (Array.isArray) {
+    return Array.isArray(arg);
+  }
+  return objectToString(arg) === '[object Array]';
+}
+exports.isArray = isArray;
+
+function isBoolean(arg) {
+  return typeof arg === 'boolean';
+}
+exports.isBoolean = isBoolean;
+
+function isNull(arg) {
+  return arg === null;
+}
+exports.isNull = isNull;
+
+function isNullOrUndefined(arg) {
+  return arg == null;
+}
+exports.isNullOrUndefined = isNullOrUndefined;
+
+function isNumber(arg) {
+  return typeof arg === 'number';
+}
+exports.isNumber = isNumber;
+
+function isString(arg) {
+  return typeof arg === 'string';
+}
+exports.isString = isString;
+
+function isSymbol(arg) {
+  return typeof arg === 'symbol';
+}
+exports.isSymbol = isSymbol;
+
+function isUndefined(arg) {
+  return arg === void 0;
+}
+exports.isUndefined = isUndefined;
+
+function isRegExp(re) {
+  return objectToString(re) === '[object RegExp]';
+}
+exports.isRegExp = isRegExp;
+
+function isObject(arg) {
+  return typeof arg === 'object' && arg !== null;
+}
+exports.isObject = isObject;
+
+function isDate(d) {
+  return objectToString(d) === '[object Date]';
+}
+exports.isDate = isDate;
+
+function isError(e) {
+  return (objectToString(e) === '[object Error]' || e instanceof Error);
+}
+exports.isError = isError;
+
+function isFunction(arg) {
+  return typeof arg === 'function';
+}
+exports.isFunction = isFunction;
+
+function isPrimitive(arg) {
+  return arg === null ||
+         typeof arg === 'boolean' ||
+         typeof arg === 'number' ||
+         typeof arg === 'string' ||
+         typeof arg === 'symbol' ||  // ES6 symbol
+         typeof arg === 'undefined';
+}
+exports.isPrimitive = isPrimitive;
+
+exports.isBuffer = Buffer.isBuffer;
+
+function objectToString(o) {
+  return Object.prototype.toString.call(o);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Buffer = __webpack_require__(4).Buffer
 
 // prototype class for hash functions
 function Hash (blockSize, finalSize) {
@@ -23261,7 +23375,7 @@ Hash.prototype.digest = function (enc) {
 
   // uint64
   } else {
-    var lowBits = bits & 0xffffffff
+    var lowBits = (bits & 0xffffffff) >>> 0
     var highBits = (bits - lowBits) / 0x100000000
 
     this._block.writeUInt32BE(highBits, this._blockSize - 8)
@@ -23282,7 +23396,7 @@ module.exports = Hash
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23297,8 +23411,8 @@ module.exports = {
   toHash: toHash,
   getProperty: getProperty,
   escapeQuotes: escapeQuotes,
-  equal: __webpack_require__(87),
-  ucs2length: __webpack_require__(543),
+  equal: __webpack_require__(86),
+  ucs2length: __webpack_require__(541),
   varOccurences: varOccurences,
   varReplace: varReplace,
   cleanUpCode: cleanUpCode,
@@ -23556,7 +23670,7 @@ function unescapeJsonPointer(str) {
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23567,15 +23681,15 @@ exports.encode = exports.stringify = __webpack_require__(399);
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(Buffer) {
 var inherits = __webpack_require__(3)
-var md5 = __webpack_require__(71)
-var RIPEMD160 = __webpack_require__(72)
-var sha = __webpack_require__(74)
+var md5 = __webpack_require__(70)
+var RIPEMD160 = __webpack_require__(71)
+var sha = __webpack_require__(73)
 
 var Base = __webpack_require__(26)
 
@@ -23627,131 +23741,17 @@ module.exports = function createHash (alg) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 41 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(217);
-exports.Stream = exports;
-exports.Readable = exports;
-exports.Writable = __webpack_require__(73);
-exports.Duplex = __webpack_require__(30);
-exports.Transform = __webpack_require__(220);
-exports.PassThrough = __webpack_require__(413);
-
-
-/***/ }),
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
+exports = module.exports = __webpack_require__(216);
+exports.Stream = exports;
+exports.Readable = exports;
+exports.Writable = __webpack_require__(72);
+exports.Duplex = __webpack_require__(30);
+exports.Transform = __webpack_require__(219);
+exports.PassThrough = __webpack_require__(413);
 
-// NOTE: These type checking functions intentionally don't use `instanceof`
-// because it is fragile and can be easily faked with `Object.create()`.
-
-function isArray(arg) {
-  if (Array.isArray) {
-    return Array.isArray(arg);
-  }
-  return objectToString(arg) === '[object Array]';
-}
-exports.isArray = isArray;
-
-function isBoolean(arg) {
-  return typeof arg === 'boolean';
-}
-exports.isBoolean = isBoolean;
-
-function isNull(arg) {
-  return arg === null;
-}
-exports.isNull = isNull;
-
-function isNullOrUndefined(arg) {
-  return arg == null;
-}
-exports.isNullOrUndefined = isNullOrUndefined;
-
-function isNumber(arg) {
-  return typeof arg === 'number';
-}
-exports.isNumber = isNumber;
-
-function isString(arg) {
-  return typeof arg === 'string';
-}
-exports.isString = isString;
-
-function isSymbol(arg) {
-  return typeof arg === 'symbol';
-}
-exports.isSymbol = isSymbol;
-
-function isUndefined(arg) {
-  return arg === void 0;
-}
-exports.isUndefined = isUndefined;
-
-function isRegExp(re) {
-  return objectToString(re) === '[object RegExp]';
-}
-exports.isRegExp = isRegExp;
-
-function isObject(arg) {
-  return typeof arg === 'object' && arg !== null;
-}
-exports.isObject = isObject;
-
-function isDate(d) {
-  return objectToString(d) === '[object Date]';
-}
-exports.isDate = isDate;
-
-function isError(e) {
-  return (objectToString(e) === '[object Error]' || e instanceof Error);
-}
-exports.isError = isError;
-
-function isFunction(arg) {
-  return typeof arg === 'function';
-}
-exports.isFunction = isFunction;
-
-function isPrimitive(arg) {
-  return arg === null ||
-         typeof arg === 'boolean' ||
-         typeof arg === 'number' ||
-         typeof arg === 'string' ||
-         typeof arg === 'symbol' ||  // ES6 symbol
-         typeof arg === 'undefined';
-}
-exports.isPrimitive = isPrimitive;
-
-exports.isBuffer = Buffer.isBuffer;
-
-function objectToString(o) {
-  return Object.prototype.toString.call(o);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
 /* 43 */
@@ -23879,7 +23879,7 @@ asn1.bignum = __webpack_require__(10);
 
 asn1.define = __webpack_require__(473).define;
 asn1.base = __webpack_require__(46);
-asn1.constants = __webpack_require__(242);
+asn1.constants = __webpack_require__(241);
 asn1.decoders = __webpack_require__(479);
 asn1.encoders = __webpack_require__(481);
 
@@ -23891,8 +23891,8 @@ asn1.encoders = __webpack_require__(481);
 var base = exports;
 
 base.Reporter = __webpack_require__(476).Reporter;
-base.DecoderBuffer = __webpack_require__(241).DecoderBuffer;
-base.EncoderBuffer = __webpack_require__(241).EncoderBuffer;
+base.DecoderBuffer = __webpack_require__(240).DecoderBuffer;
+base.EncoderBuffer = __webpack_require__(240).EncoderBuffer;
 base.Node = __webpack_require__(477);
 
 
@@ -23900,77 +23900,10 @@ base.Node = __webpack_require__(477);
 /* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* eslint-disable node/no-deprecated-api */
-var buffer = __webpack_require__(2)
-var Buffer = buffer.Buffer
-
-// alternative to using Object.keys for old browsers
-function copyProps (src, dst) {
-  for (var key in src) {
-    dst[key] = src[key]
-  }
-}
-if (Buffer.from && Buffer.alloc && Buffer.allocUnsafe && Buffer.allocUnsafeSlow) {
-  module.exports = buffer
-} else {
-  // Copy properties from require('buffer')
-  copyProps(buffer, exports)
-  exports.Buffer = SafeBuffer
-}
-
-function SafeBuffer (arg, encodingOrOffset, length) {
-  return Buffer(arg, encodingOrOffset, length)
-}
-
-// Copy static methods from Buffer
-copyProps(Buffer, SafeBuffer)
-
-SafeBuffer.from = function (arg, encodingOrOffset, length) {
-  if (typeof arg === 'number') {
-    throw new TypeError('Argument must not be a number')
-  }
-  return Buffer(arg, encodingOrOffset, length)
-}
-
-SafeBuffer.alloc = function (size, fill, encoding) {
-  if (typeof size !== 'number') {
-    throw new TypeError('Argument must be a number')
-  }
-  var buf = Buffer(size)
-  if (fill !== undefined) {
-    if (typeof encoding === 'string') {
-      buf.fill(fill, encoding)
-    } else {
-      buf.fill(fill)
-    }
-  } else {
-    buf.fill(0)
-  }
-  return buf
-}
-
-SafeBuffer.allocUnsafe = function (size) {
-  if (typeof size !== 'number') {
-    throw new TypeError('Argument must be a number')
-  }
-  return Buffer(size)
-}
-
-SafeBuffer.allocUnsafeSlow = function (size) {
-  if (typeof size !== 'number') {
-    throw new TypeError('Argument must be a number')
-  }
-  return buffer.SlowBuffer(size)
-}
-
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
 /* WEBPACK VAR INJECTION */(function(global) {var ClientRequest = __webpack_require__(493)
-var extend = __webpack_require__(496)
-var statusCodes = __webpack_require__(497)
+var IncomingMessage = __webpack_require__(249)
+var extend = __webpack_require__(495)
+var statusCodes = __webpack_require__(496)
 var url = __webpack_require__(21)
 
 var http = exports
@@ -24014,6 +23947,9 @@ http.get = function get (opts, cb) {
 	return req
 }
 
+http.ClientRequest = ClientRequest
+http.IncomingMessage = IncomingMessage
+
 http.Agent = function () {}
 http.Agent.defaultMaxSockets = 4
 
@@ -24047,10 +23983,10 @@ http.METHODS = [
 	'UNLOCK',
 	'UNSUBSCRIBE'
 ]
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -24062,8 +23998,8 @@ var algs = __webpack_require__(15);
 var crypto = __webpack_require__(11);
 var errs = __webpack_require__(23);
 var Key = __webpack_require__(14);
-var Certificate = __webpack_require__(50);
-var utils = __webpack_require__(12);
+var Certificate = __webpack_require__(49);
+var utils = __webpack_require__(13);
 
 var FingerprintFormatError = errs.FingerprintFormatError;
 var InvalidAlgorithmError = errs.InvalidAlgorithmError;
@@ -24218,7 +24154,7 @@ Fingerprint._oldVersionDetect = function (obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2016 Joyent, Inc.
@@ -24228,19 +24164,19 @@ module.exports = Certificate;
 var assert = __webpack_require__(6);
 var algs = __webpack_require__(15);
 var crypto = __webpack_require__(11);
-var Fingerprint = __webpack_require__(49);
+var Fingerprint = __webpack_require__(48);
 var Signature = __webpack_require__(24);
 var errs = __webpack_require__(23);
 var util = __webpack_require__(8);
-var utils = __webpack_require__(12);
+var utils = __webpack_require__(13);
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
-var Identity = __webpack_require__(52);
+var Identity = __webpack_require__(51);
 
 var formats = {};
-formats['openssh'] = __webpack_require__(519);
+formats['openssh'] = __webpack_require__(518);
 formats['x509'] = __webpack_require__(258);
-formats['pem'] = __webpack_require__(520);
+formats['pem'] = __webpack_require__(519);
 
 var CertificateParseError = errs.CertificateParseError;
 var InvalidAlgorithmError = errs.InvalidAlgorithmError;
@@ -24602,7 +24538,7 @@ Certificate._oldVersionDetect = function (obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -24620,7 +24556,7 @@ module.exports = {
 var assert = __webpack_require__(6);
 var asn1 = __webpack_require__(28);
 var algs = __webpack_require__(15);
-var utils = __webpack_require__(12);
+var utils = __webpack_require__(13);
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
 var pem = __webpack_require__(27);
@@ -25114,7 +25050,7 @@ function writePkcs8ECDSAPrivate(key, der) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2017 Joyent, Inc.
@@ -25124,11 +25060,11 @@ module.exports = Identity;
 var assert = __webpack_require__(6);
 var algs = __webpack_require__(15);
 var crypto = __webpack_require__(11);
-var Fingerprint = __webpack_require__(49);
+var Fingerprint = __webpack_require__(48);
 var Signature = __webpack_require__(24);
 var errs = __webpack_require__(23);
 var util = __webpack_require__(8);
-var utils = __webpack_require__(12);
+var utils = __webpack_require__(13);
 var asn1 = __webpack_require__(28);
 
 /*JSSTYLED*/
@@ -25398,13 +25334,13 @@ Identity._oldVersionDetect = function (obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 /**
  * Namespace to hold static tick generation functions
@@ -25609,7 +25545,7 @@ module.exports = {
 
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -25637,7 +25573,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -25945,7 +25881,7 @@ function isUndefined(arg) {
 
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25996,13 +25932,13 @@ function nextTick(fn, arg1, arg2, arg3) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Buffer = __webpack_require__(5).Buffer;
+var Buffer = __webpack_require__(4).Buffer;
 
 var isEncoding = Buffer.isEncoding || function (encoding) {
   encoding = '' + encoding;
@@ -26274,10 +26210,10 @@ function simpleEnd(buf) {
 }
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(5).Buffer
+var Buffer = __webpack_require__(4).Buffer
 var MD5 = __webpack_require__(426)
 
 /* eslint-disable camelcase */
@@ -26325,7 +26261,7 @@ module.exports = EVP_BytesToKey
 
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // based on the aes implimentation in triple sec
@@ -26333,7 +26269,7 @@ module.exports = EVP_BytesToKey
 // which is in turn based on the one from crypto-js
 // https://code.google.com/p/crypto-js/
 
-var Buffer = __webpack_require__(5).Buffer
+var Buffer = __webpack_require__(4).Buffer
 
 function asUInt32Array (buf) {
   if (!Buffer.isBuffer(buf)) buf = Buffer.from(buf)
@@ -26559,7 +26495,7 @@ module.exports.AES = AES
 
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26574,14 +26510,14 @@ curve.edwards = __webpack_require__(456);
 
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var asn1 = __webpack_require__(472)
 var aesid = __webpack_require__(484)
 var fixProc = __webpack_require__(485)
-var ciphers = __webpack_require__(75)
-var compat = __webpack_require__(225)
+var ciphers = __webpack_require__(74)
+var compat = __webpack_require__(224)
 module.exports = parseKeys
 
 function parseKeys (buffer) {
@@ -26687,7 +26623,7 @@ function decrypt (data, password) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26799,13 +26735,13 @@ exports.setTyped(TYPED_OK);
 
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2012 Joyent, Inc.  All rights reserved.
 
 var assert = __webpack_require__(6);
-var sshpk = __webpack_require__(81);
+var sshpk = __webpack_require__(80);
 var util = __webpack_require__(8);
 
 var HASH_ALGOS = {
@@ -26917,7 +26853,7 @@ module.exports = {
 
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Basic Javascript Elliptic Curve implementation
@@ -27484,7 +27420,7 @@ module.exports = exports
 
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -27498,14 +27434,14 @@ module.exports = {
 var assert = __webpack_require__(6);
 var asn1 = __webpack_require__(28);
 var algs = __webpack_require__(15);
-var utils = __webpack_require__(12);
+var utils = __webpack_require__(13);
 var crypto = __webpack_require__(11);
 
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
 var pem = __webpack_require__(27);
 var rfc4253 = __webpack_require__(34);
-var SSHBuffer = __webpack_require__(66);
+var SSHBuffer = __webpack_require__(65);
 var errors = __webpack_require__(23);
 
 var bcrypt;
@@ -27752,7 +27688,7 @@ function write(key, options) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 66 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -27907,7 +27843,7 @@ SSHBuffer.prototype.write = function (buf) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 67 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28253,7 +28189,7 @@ helpers.getValueAtIndexOrDefault = helpers.valueAtIndexOrDefault;
 
 
 /***/ }),
-/* 68 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28346,7 +28282,7 @@ module.exports = function extend() {
 
 
 /***/ }),
-/* 69 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/punycode v1.4.1 by @mathias */
@@ -28861,9 +28797,9 @@ module.exports = function extend() {
 	if (
 		true
 	) {
-		!(__WEBPACK_AMD_DEFINE_RESULT__ = function() {
+		!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
 			return punycode;
-		}.call(exports, __webpack_require__, exports, module),
+		}).call(exports, __webpack_require__, exports, module),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	} else if (freeExports && freeModule) {
 		if (module.exports == freeExports) {
@@ -28882,10 +28818,10 @@ module.exports = function extend() {
 
 }(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(54)(module), __webpack_require__(13)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)(module), __webpack_require__(12)))
 
 /***/ }),
-/* 70 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28893,7 +28829,7 @@ module.exports = function extend() {
 
 var jsonSafeStringify = __webpack_require__(405)
 var crypto = __webpack_require__(11)
-var Buffer = __webpack_require__(47).Buffer
+var Buffer = __webpack_require__(4).Buffer
 
 var defer = typeof setImmediate === 'undefined'
   ? process.nextTick
@@ -28956,10 +28892,10 @@ exports.copy = copy
 exports.version = version
 exports.defer = defer
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(215).setImmediate, __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(214).setImmediate, __webpack_require__(9)))
 
 /***/ }),
-/* 71 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29117,7 +29053,7 @@ module.exports = function md5 (buf) {
 
 
 /***/ }),
-/* 72 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29416,7 +29352,7 @@ module.exports = RIPEMD160
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 73 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29449,7 +29385,7 @@ module.exports = RIPEMD160
 
 /*<replacement>*/
 
-var processNextTick = __webpack_require__(56);
+var processNextTick = __webpack_require__(55);
 /*</replacement>*/
 
 module.exports = Writable;
@@ -29486,7 +29422,7 @@ var Duplex;
 Writable.WritableState = WritableState;
 
 /*<replacement>*/
-var util = __webpack_require__(42);
+var util = __webpack_require__(37);
 util.inherits = __webpack_require__(3);
 /*</replacement>*/
 
@@ -29497,11 +29433,11 @@ var internalUtil = {
 /*</replacement>*/
 
 /*<replacement>*/
-var Stream = __webpack_require__(218);
+var Stream = __webpack_require__(217);
 /*</replacement>*/
 
 /*<replacement>*/
-var Buffer = __webpack_require__(5).Buffer;
+var Buffer = __webpack_require__(4).Buffer;
 var OurUint8Array = global.Uint8Array || function () {};
 function _uint8ArrayToBuffer(chunk) {
   return Buffer.from(chunk);
@@ -29511,7 +29447,7 @@ function _isUint8Array(obj) {
 }
 /*</replacement>*/
 
-var destroyImpl = __webpack_require__(219);
+var destroyImpl = __webpack_require__(218);
 
 util.inherits(Writable, Stream);
 
@@ -30084,10 +30020,10 @@ Writable.prototype._destroy = function (err, cb) {
   this.end();
   cb(err);
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9), __webpack_require__(215).setImmediate, __webpack_require__(13)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9), __webpack_require__(214).setImmediate, __webpack_require__(12)))
 
 /***/ }),
-/* 74 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var exports = module.exports = function SHA (algorithm) {
@@ -30102,18 +30038,18 @@ var exports = module.exports = function SHA (algorithm) {
 exports.sha = __webpack_require__(418)
 exports.sha1 = __webpack_require__(419)
 exports.sha224 = __webpack_require__(420)
-exports.sha256 = __webpack_require__(221)
+exports.sha256 = __webpack_require__(220)
 exports.sha384 = __webpack_require__(421)
-exports.sha512 = __webpack_require__(222)
+exports.sha512 = __webpack_require__(221)
 
 
 /***/ }),
-/* 75 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ciphers = __webpack_require__(428)
 var deciphers = __webpack_require__(436)
-var modes = __webpack_require__(231)
+var modes = __webpack_require__(230)
 
 function getCiphers () {
   return Object.keys(modes)
@@ -30127,7 +30063,7 @@ exports.listCiphers = exports.getCiphers = getCiphers
 
 
 /***/ }),
-/* 76 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var modeModules = {
@@ -30137,11 +30073,11 @@ var modeModules = {
   CFB8: __webpack_require__(432),
   CFB1: __webpack_require__(433),
   OFB: __webpack_require__(434),
-  CTR: __webpack_require__(229),
-  GCM: __webpack_require__(229)
+  CTR: __webpack_require__(228),
+  GCM: __webpack_require__(228)
 }
 
-var modes = __webpack_require__(231)
+var modes = __webpack_require__(230)
 
 for (var key in modes) {
   modes[key].module = modeModules[modes[key].mode]
@@ -30151,7 +30087,7 @@ module.exports = modes
 
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30165,7 +30101,7 @@ exports.EDE = __webpack_require__(442);
 
 
 /***/ }),
-/* 78 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var bn = __webpack_require__(10);
@@ -30212,7 +30148,7 @@ function getr(priv) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 79 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var hash = exports;
@@ -30233,10 +30169,10 @@ hash.ripemd160 = hash.ripemd.ripemd160;
 
 
 /***/ }),
-/* 80 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var http = __webpack_require__(48)
+var http = __webpack_require__(47)
 var url = __webpack_require__(21)
 
 var https = module.exports
@@ -30270,17 +30206,17 @@ function validateParams (params) {
 
 
 /***/ }),
-/* 81 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2015 Joyent, Inc.
 
 var Key = __webpack_require__(14);
-var Fingerprint = __webpack_require__(49);
+var Fingerprint = __webpack_require__(48);
 var Signature = __webpack_require__(24);
 var PrivateKey = __webpack_require__(16);
-var Certificate = __webpack_require__(50);
-var Identity = __webpack_require__(52);
+var Certificate = __webpack_require__(49);
+var Identity = __webpack_require__(51);
 var errs = __webpack_require__(23);
 
 module.exports = {
@@ -30315,7 +30251,7 @@ module.exports = {
 
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports) {
 
 // Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
@@ -30334,7 +30270,7 @@ module.exports = {
 
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports) {
 
 // Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
@@ -30376,7 +30312,7 @@ module.exports = {
 
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
@@ -30391,13 +30327,13 @@ module.exports = {
 var assert = __webpack_require__(6);
 var asn1 = __webpack_require__(28);
 var algs = __webpack_require__(15);
-var utils = __webpack_require__(12);
+var utils = __webpack_require__(13);
 
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
 var pem = __webpack_require__(27);
 
-var pkcs8 = __webpack_require__(51);
+var pkcs8 = __webpack_require__(50);
 var readECDSACurve = pkcs8.readECDSACurve;
 
 function read(buf, options) {
@@ -30703,7 +30639,7 @@ function writePkcs1ECDSAPrivate(der, key) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports) {
 
 function Caseless (dict) {
@@ -30776,17 +30712,17 @@ module.exports.httpify = function (resp, headers) {
 
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var url = __webpack_require__(21)
-  , equal = __webpack_require__(87)
-  , util = __webpack_require__(38)
+  , equal = __webpack_require__(86)
+  , util = __webpack_require__(39)
   , SchemaObject = __webpack_require__(264)
-  , traverse = __webpack_require__(544);
+  , traverse = __webpack_require__(542);
 
 module.exports = resolve;
 
@@ -31054,7 +30990,7 @@ function resolveIds(schema) {
 
 
 /***/ }),
-/* 87 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31104,13 +31040,13 @@ module.exports = function equal(a, b) {
 
 
 /***/ }),
-/* 88 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var resolve = __webpack_require__(86);
+var resolve = __webpack_require__(85);
 
 module.exports = {
   Validation: errorSubclass(ValidationError),
@@ -31145,11 +31081,11 @@ function errorSubclass(Subclass) {
 
 
 /***/ }),
-/* 89 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var v1 = __webpack_require__(594);
-var v4 = __webpack_require__(595);
+var v1 = __webpack_require__(592);
+var v4 = __webpack_require__(593);
 
 var uuid = v4;
 uuid.v1 = v1;
@@ -31159,7 +31095,7 @@ module.exports = uuid;
 
 
 /***/ }),
-/* 90 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31171,7 +31107,7 @@ exports.OPEN_WEATHER_KEY = '29cabd959646720b099eb2c2fa6b0518';
 
 
 /***/ }),
-/* 91 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31249,7 +31185,7 @@ return af;
 
 
 /***/ }),
-/* 92 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31396,7 +31332,7 @@ return ar;
 
 
 /***/ }),
-/* 93 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31460,7 +31396,7 @@ return arDz;
 
 
 /***/ }),
-/* 94 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31524,7 +31460,7 @@ return arKw;
 
 
 /***/ }),
-/* 95 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31655,7 +31591,7 @@ return arLy;
 
 
 /***/ }),
-/* 96 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31720,7 +31656,7 @@ return arMa;
 
 
 /***/ }),
-/* 97 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31830,7 +31766,7 @@ return arSa;
 
 
 /***/ }),
-/* 98 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31894,7 +31830,7 @@ return arTn;
 
 
 /***/ }),
-/* 99 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32004,7 +31940,7 @@ return az;
 
 
 /***/ }),
-/* 100 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32143,7 +32079,7 @@ return be;
 
 
 /***/ }),
-/* 101 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32238,7 +32174,7 @@ return bg;
 
 
 /***/ }),
-/* 102 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32302,7 +32238,7 @@ return bm;
 
 
 /***/ }),
-/* 103 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32426,7 +32362,7 @@ return bn;
 
 
 /***/ }),
-/* 104 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32550,7 +32486,7 @@ return bo;
 
 
 /***/ }),
-/* 105 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32663,7 +32599,7 @@ return br;
 
 
 /***/ }),
-/* 106 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32811,7 +32747,7 @@ return bs;
 
 
 /***/ }),
-/* 107 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32904,7 +32840,7 @@ return ca;
 
 
 /***/ }),
-/* 108 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33081,7 +33017,7 @@ return cs;
 
 
 /***/ }),
-/* 109 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33149,7 +33085,7 @@ return cv;
 
 
 /***/ }),
-/* 110 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33235,7 +33171,7 @@ return cy;
 
 
 /***/ }),
-/* 111 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33300,7 +33236,7 @@ return da;
 
 
 /***/ }),
-/* 112 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33383,7 +33319,7 @@ return de;
 
 
 /***/ }),
-/* 113 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33467,7 +33403,7 @@ return deAt;
 
 
 /***/ }),
-/* 114 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33550,7 +33486,7 @@ return deCh;
 
 
 /***/ }),
-/* 115 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33655,7 +33591,7 @@ return dv;
 
 
 /***/ }),
-/* 116 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33760,7 +33696,7 @@ return el;
 
 
 /***/ }),
-/* 117 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33832,7 +33768,7 @@ return enAu;
 
 
 /***/ }),
-/* 118 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33900,7 +33836,7 @@ return enCa;
 
 
 /***/ }),
-/* 119 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33972,7 +33908,7 @@ return enGb;
 
 
 /***/ }),
-/* 120 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34044,7 +33980,7 @@ return enIe;
 
 
 /***/ }),
-/* 121 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34116,7 +34052,7 @@ return enNz;
 
 
 /***/ }),
-/* 122 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34194,7 +34130,7 @@ return eo;
 
 
 /***/ }),
-/* 123 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34291,7 +34227,7 @@ return es;
 
 
 /***/ }),
-/* 124 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34387,7 +34323,7 @@ return esDo;
 
 
 /***/ }),
-/* 125 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34475,7 +34411,7 @@ return esUs;
 
 
 /***/ }),
-/* 126 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34560,7 +34496,7 @@ return et;
 
 
 /***/ }),
-/* 127 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34631,7 +34567,7 @@ return eu;
 
 
 /***/ }),
-/* 128 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34743,7 +34679,7 @@ return fa;
 
 
 /***/ }),
-/* 129 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34855,7 +34791,7 @@ return fi;
 
 
 /***/ }),
-/* 130 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34920,7 +34856,7 @@ return fo;
 
 
 /***/ }),
-/* 131 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35008,7 +34944,7 @@ return fr;
 
 
 /***/ }),
-/* 132 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35087,7 +35023,7 @@ return frCa;
 
 
 /***/ }),
-/* 133 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35170,7 +35106,7 @@ return frCh;
 
 
 /***/ }),
-/* 134 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35250,7 +35186,7 @@ return fy;
 
 
 /***/ }),
-/* 135 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35331,7 +35267,7 @@ return gd;
 
 
 /***/ }),
-/* 136 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35413,7 +35349,7 @@ return gl;
 
 
 /***/ }),
-/* 137 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35540,7 +35476,7 @@ return gomLatn;
 
 
 /***/ }),
-/* 138 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35669,7 +35605,7 @@ return gu;
 
 
 /***/ }),
-/* 139 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35773,7 +35709,7 @@ return he;
 
 
 /***/ }),
-/* 140 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35902,7 +35838,7 @@ return hi;
 
 
 /***/ }),
-/* 141 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36052,7 +35988,7 @@ return hr;
 
 
 /***/ }),
-/* 142 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36165,7 +36101,7 @@ return hu;
 
 
 /***/ }),
-/* 143 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36265,7 +36201,7 @@ return hyAm;
 
 
 /***/ }),
-/* 144 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36353,7 +36289,7 @@ return id;
 
 
 /***/ }),
-/* 145 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36485,7 +36421,7 @@ return is;
 
 
 /***/ }),
-/* 146 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36560,7 +36496,7 @@ return it;
 
 
 /***/ }),
-/* 147 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36645,7 +36581,7 @@ return ja;
 
 
 /***/ }),
-/* 148 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36733,7 +36669,7 @@ return jv;
 
 
 /***/ }),
-/* 149 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36827,7 +36763,7 @@ return ka;
 
 
 /***/ }),
-/* 150 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36919,7 +36855,7 @@ return kk;
 
 
 /***/ }),
-/* 151 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36982,7 +36918,7 @@ return km;
 
 
 /***/ }),
-/* 152 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37113,7 +37049,7 @@ return kn;
 
 
 /***/ }),
-/* 153 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37201,7 +37137,7 @@ return ko;
 
 
 /***/ }),
-/* 154 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37294,7 +37230,7 @@ return ky;
 
 
 /***/ }),
-/* 155 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37436,7 +37372,7 @@ return lb;
 
 
 /***/ }),
-/* 156 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37511,7 +37447,7 @@ return lo;
 
 
 /***/ }),
-/* 157 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37633,7 +37569,7 @@ return lt;
 
 
 /***/ }),
-/* 158 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37735,7 +37671,7 @@ return lv;
 
 
 /***/ }),
-/* 159 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37851,7 +37787,7 @@ return me;
 
 
 /***/ }),
-/* 160 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37920,7 +37856,7 @@ return mi;
 
 
 /***/ }),
-/* 161 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38015,7 +37951,7 @@ return mk;
 
 
 /***/ }),
-/* 162 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38101,7 +38037,7 @@ return ml;
 
 
 /***/ }),
-/* 163 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38265,7 +38201,7 @@ return mr;
 
 
 /***/ }),
-/* 164 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38352,7 +38288,7 @@ return ms;
 
 
 /***/ }),
-/* 165 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38440,7 +38376,7 @@ return msMy;
 
 
 /***/ }),
-/* 166 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38541,7 +38477,7 @@ return my;
 
 
 /***/ }),
-/* 167 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38609,7 +38545,7 @@ return nb;
 
 
 /***/ }),
-/* 168 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38737,7 +38673,7 @@ return ne;
 
 
 /***/ }),
-/* 169 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38830,7 +38766,7 @@ return nl;
 
 
 /***/ }),
-/* 170 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38923,7 +38859,7 @@ return nlBe;
 
 
 /***/ }),
-/* 171 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38988,7 +38924,7 @@ return nn;
 
 
 /***/ }),
-/* 172 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39117,7 +39053,7 @@ return paIn;
 
 
 /***/ }),
-/* 173 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39246,7 +39182,7 @@ return pl;
 
 
 /***/ }),
-/* 174 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39316,7 +39252,7 @@ return pt;
 
 
 /***/ }),
-/* 175 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39383,7 +39319,7 @@ return ptBr;
 
 
 /***/ }),
-/* 176 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39463,7 +39399,7 @@ return ro;
 
 
 /***/ }),
-/* 177 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39651,7 +39587,7 @@ return ru;
 
 
 /***/ }),
-/* 178 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39754,7 +39690,7 @@ return sd;
 
 
 /***/ }),
-/* 179 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39820,7 +39756,7 @@ return se;
 
 
 /***/ }),
-/* 180 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39896,7 +39832,7 @@ return si;
 
 
 /***/ }),
-/* 181 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40051,7 +39987,7 @@ return sk;
 
 
 /***/ }),
-/* 182 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40218,7 +40154,7 @@ return sl;
 
 
 /***/ }),
-/* 183 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40293,7 +40229,7 @@ return sq;
 
 
 /***/ }),
-/* 184 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40408,7 +40344,7 @@ return sr;
 
 
 /***/ }),
-/* 185 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40523,7 +40459,7 @@ return srCyrl;
 
 
 /***/ }),
-/* 186 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40617,7 +40553,7 @@ return ss;
 
 
 /***/ }),
-/* 187 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40691,7 +40627,7 @@ return sv;
 
 
 /***/ }),
-/* 188 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40755,7 +40691,7 @@ return sw;
 
 
 /***/ }),
-/* 189 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40890,7 +40826,7 @@ return ta;
 
 
 /***/ }),
-/* 190 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40984,7 +40920,7 @@ return te;
 
 
 /***/ }),
-/* 191 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41057,7 +40993,7 @@ return tet;
 
 
 /***/ }),
-/* 192 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41129,7 +41065,7 @@ return th;
 
 
 /***/ }),
-/* 193 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41196,7 +41132,7 @@ return tlPh;
 
 
 /***/ }),
-/* 194 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41321,7 +41257,7 @@ return tlh;
 
 
 /***/ }),
-/* 195 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41416,7 +41352,7 @@ return tr;
 
 
 /***/ }),
-/* 196 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41512,7 +41448,7 @@ return tzl;
 
 
 /***/ }),
-/* 197 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41575,7 +41511,7 @@ return tzm;
 
 
 /***/ }),
-/* 198 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41638,7 +41574,7 @@ return tzmLatn;
 
 
 /***/ }),
-/* 199 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41794,7 +41730,7 @@ return uk;
 
 
 /***/ }),
-/* 200 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41898,7 +41834,7 @@ return ur;
 
 
 /***/ }),
-/* 201 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41961,7 +41897,7 @@ return uz;
 
 
 /***/ }),
-/* 202 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42024,7 +41960,7 @@ return uzLatn;
 
 
 /***/ }),
-/* 203 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42108,7 +42044,7 @@ return vi;
 
 
 /***/ }),
-/* 204 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42181,7 +42117,7 @@ return xPseudo;
 
 
 /***/ }),
-/* 205 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42246,7 +42182,7 @@ return yo;
 
 
 /***/ }),
-/* 206 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42362,7 +42298,7 @@ return zhCn;
 
 
 /***/ }),
-/* 207 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42472,7 +42408,7 @@ return zhHk;
 
 
 /***/ }),
-/* 208 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42581,7 +42517,7 @@ return zhTw;
 
 
 /***/ }),
-/* 209 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42601,9 +42537,9 @@ return zhTw;
 
 
 
-var extend = __webpack_require__(68)
-var cookies = __webpack_require__(210)
-var helpers = __webpack_require__(70)
+var extend = __webpack_require__(67)
+var cookies = __webpack_require__(209)
+var helpers = __webpack_require__(69)
 
 var paramsHaveRequestBody = helpers.paramsHaveRequestBody
 
@@ -42743,7 +42679,7 @@ Object.defineProperty(request, 'debug', {
 
 
 /***/ }),
-/* 210 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42788,7 +42724,7 @@ exports.jar = function (store) {
 
 
 /***/ }),
-/* 211 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42799,7 +42735,7 @@ exports.jar = function (store) {
 
 
 
-var punycode = __webpack_require__(69);
+var punycode = __webpack_require__(68);
 
 module.exports.getPublicSuffix = function getPublicSuffix(domain) {
   /*!
@@ -42893,7 +42829,7 @@ var index = module.exports.index = Object.freeze(
 
 
 /***/ }),
-/* 212 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42971,7 +42907,7 @@ Store.prototype.getAllCookies = function(cb) {
 
 
 /***/ }),
-/* 213 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43006,7 +42942,7 @@ Store.prototype.getAllCookies = function(cb) {
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-var pubsuffix = __webpack_require__(211);
+var pubsuffix = __webpack_require__(210);
 
 // Gives the permutation of all possible domainMatch()es of a given domain. The
 // array is in shortest-to-longest order.  Handy for indexing.
@@ -43034,7 +42970,7 @@ exports.permuteDomain = permuteDomain;
 
 
 /***/ }),
-/* 214 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43102,10 +43038,10 @@ exports.pathMatch = pathMatch;
 
 
 /***/ }),
-/* 215 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var apply = Function.prototype.apply;
+/* WEBPACK VAR INJECTION */(function(global) {var apply = Function.prototype.apply;
 
 // DOM APIs, for completeness
 
@@ -43156,12 +43092,20 @@ exports._unrefActive = exports.active = function(item) {
 
 // setimmediate attaches itself to the global object
 __webpack_require__(404);
-exports.setImmediate = setImmediate;
-exports.clearImmediate = clearImmediate;
+// On some exotic environments, it's not clear which object `setimmeidate` was
+// able to install onto.  Search each possibility in the same order as the
+// `setimmediate` library.
+exports.setImmediate = (typeof self !== "undefined" && self.setImmediate) ||
+                       (typeof global !== "undefined" && global.setImmediate) ||
+                       (this && this.setImmediate);
+exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
+                         (typeof global !== "undefined" && global.clearImmediate) ||
+                         (this && this.clearImmediate);
 
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
-/* 216 */
+/* 215 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -43172,7 +43116,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 217 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43201,13 +43145,13 @@ module.exports = Array.isArray || function (arr) {
 
 /*<replacement>*/
 
-var processNextTick = __webpack_require__(56);
+var processNextTick = __webpack_require__(55);
 /*</replacement>*/
 
 module.exports = Readable;
 
 /*<replacement>*/
-var isArray = __webpack_require__(216);
+var isArray = __webpack_require__(215);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -43217,7 +43161,7 @@ var Duplex;
 Readable.ReadableState = ReadableState;
 
 /*<replacement>*/
-var EE = __webpack_require__(55).EventEmitter;
+var EE = __webpack_require__(54).EventEmitter;
 
 var EElistenerCount = function (emitter, type) {
   return emitter.listeners(type).length;
@@ -43225,13 +43169,13 @@ var EElistenerCount = function (emitter, type) {
 /*</replacement>*/
 
 /*<replacement>*/
-var Stream = __webpack_require__(218);
+var Stream = __webpack_require__(217);
 /*</replacement>*/
 
 // TODO(bmeurer): Change this back to const once hole checks are
 // properly optimized away early in Ignition+TurboFan.
 /*<replacement>*/
-var Buffer = __webpack_require__(5).Buffer;
+var Buffer = __webpack_require__(4).Buffer;
 var OurUint8Array = global.Uint8Array || function () {};
 function _uint8ArrayToBuffer(chunk) {
   return Buffer.from(chunk);
@@ -43242,7 +43186,7 @@ function _isUint8Array(obj) {
 /*</replacement>*/
 
 /*<replacement>*/
-var util = __webpack_require__(42);
+var util = __webpack_require__(37);
 util.inherits = __webpack_require__(3);
 /*</replacement>*/
 
@@ -43257,7 +43201,7 @@ if (debugUtil && debugUtil.debuglog) {
 /*</replacement>*/
 
 var BufferList = __webpack_require__(411);
-var destroyImpl = __webpack_require__(219);
+var destroyImpl = __webpack_require__(218);
 var StringDecoder;
 
 util.inherits(Readable, Stream);
@@ -43340,7 +43284,7 @@ function ReadableState(options, stream) {
   this.decoder = null;
   this.encoding = null;
   if (options.encoding) {
-    if (!StringDecoder) StringDecoder = __webpack_require__(57).StringDecoder;
+    if (!StringDecoder) StringDecoder = __webpack_require__(56).StringDecoder;
     this.decoder = new StringDecoder(options.encoding);
     this.encoding = options.encoding;
   }
@@ -43496,7 +43440,7 @@ Readable.prototype.isPaused = function () {
 
 // backwards compatibility.
 Readable.prototype.setEncoding = function (enc) {
-  if (!StringDecoder) StringDecoder = __webpack_require__(57).StringDecoder;
+  if (!StringDecoder) StringDecoder = __webpack_require__(56).StringDecoder;
   this._readableState.decoder = new StringDecoder(enc);
   this._readableState.encoding = enc;
   return this;
@@ -44183,17 +44127,17 @@ function indexOf(xs, x) {
   }
   return -1;
 }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13), __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(9)))
+
+/***/ }),
+/* 217 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(54).EventEmitter;
+
 
 /***/ }),
 /* 218 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(55).EventEmitter;
-
-
-/***/ }),
-/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44201,7 +44145,7 @@ module.exports = __webpack_require__(55).EventEmitter;
 
 /*<replacement>*/
 
-var processNextTick = __webpack_require__(56);
+var processNextTick = __webpack_require__(55);
 /*</replacement>*/
 
 // undocumented cb() API, needed for core, not for public API
@@ -44271,7 +44215,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 220 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44345,7 +44289,7 @@ module.exports = Transform;
 var Duplex = __webpack_require__(30);
 
 /*<replacement>*/
-var util = __webpack_require__(42);
+var util = __webpack_require__(37);
 util.inherits = __webpack_require__(3);
 /*</replacement>*/
 
@@ -44491,7 +44435,7 @@ function done(stream, er, data) {
 }
 
 /***/ }),
-/* 221 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -44503,8 +44447,8 @@ function done(stream, er, data) {
  */
 
 var inherits = __webpack_require__(3)
-var Hash = __webpack_require__(37)
-var Buffer = __webpack_require__(5).Buffer
+var Hash = __webpack_require__(38)
+var Buffer = __webpack_require__(4).Buffer
 
 var K = [
   0x428A2F98, 0x71374491, 0xB5C0FBCF, 0xE9B5DBA5,
@@ -44632,12 +44576,12 @@ module.exports = Sha256
 
 
 /***/ }),
-/* 222 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(3)
-var Hash = __webpack_require__(37)
-var Buffer = __webpack_require__(5).Buffer
+var Hash = __webpack_require__(38)
+var Buffer = __webpack_require__(4).Buffer
 
 var K = [
   0x428a2f98, 0xd728ae22, 0x71374491, 0x23ef65cd,
@@ -44898,7 +44842,7 @@ module.exports = Sha512
 
 
 /***/ }),
-/* 223 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44906,11 +44850,11 @@ module.exports = Sha512
 var inherits = __webpack_require__(3)
 var Legacy = __webpack_require__(422)
 var Base = __webpack_require__(26)
-var Buffer = __webpack_require__(5).Buffer
-var md5 = __webpack_require__(71)
-var RIPEMD160 = __webpack_require__(72)
+var Buffer = __webpack_require__(4).Buffer
+var md5 = __webpack_require__(70)
+var RIPEMD160 = __webpack_require__(71)
 
-var sha = __webpack_require__(74)
+var sha = __webpack_require__(73)
 
 var ZEROS = Buffer.alloc(128)
 
@@ -44967,23 +44911,23 @@ module.exports = function createHmac (alg, key) {
 
 
 /***/ }),
-/* 224 */
+/* 223 */
 /***/ (function(module, exports) {
 
 module.exports = {"sha224WithRSAEncryption":{"sign":"rsa","hash":"sha224","id":"302d300d06096086480165030402040500041c"},"RSA-SHA224":{"sign":"ecdsa/rsa","hash":"sha224","id":"302d300d06096086480165030402040500041c"},"sha256WithRSAEncryption":{"sign":"rsa","hash":"sha256","id":"3031300d060960864801650304020105000420"},"RSA-SHA256":{"sign":"ecdsa/rsa","hash":"sha256","id":"3031300d060960864801650304020105000420"},"sha384WithRSAEncryption":{"sign":"rsa","hash":"sha384","id":"3041300d060960864801650304020205000430"},"RSA-SHA384":{"sign":"ecdsa/rsa","hash":"sha384","id":"3041300d060960864801650304020205000430"},"sha512WithRSAEncryption":{"sign":"rsa","hash":"sha512","id":"3051300d060960864801650304020305000440"},"RSA-SHA512":{"sign":"ecdsa/rsa","hash":"sha512","id":"3051300d060960864801650304020305000440"},"RSA-SHA1":{"sign":"rsa","hash":"sha1","id":"3021300906052b0e03021a05000414"},"ecdsa-with-SHA1":{"sign":"ecdsa","hash":"sha1","id":""},"sha256":{"sign":"ecdsa","hash":"sha256","id":""},"sha224":{"sign":"ecdsa","hash":"sha224","id":""},"sha384":{"sign":"ecdsa","hash":"sha384","id":""},"sha512":{"sign":"ecdsa","hash":"sha512","id":""},"DSA-SHA":{"sign":"dsa","hash":"sha1","id":""},"DSA-SHA1":{"sign":"dsa","hash":"sha1","id":""},"DSA":{"sign":"dsa","hash":"sha1","id":""},"DSA-WITH-SHA224":{"sign":"dsa","hash":"sha224","id":""},"DSA-SHA224":{"sign":"dsa","hash":"sha224","id":""},"DSA-WITH-SHA256":{"sign":"dsa","hash":"sha256","id":""},"DSA-SHA256":{"sign":"dsa","hash":"sha256","id":""},"DSA-WITH-SHA384":{"sign":"dsa","hash":"sha384","id":""},"DSA-SHA384":{"sign":"dsa","hash":"sha384","id":""},"DSA-WITH-SHA512":{"sign":"dsa","hash":"sha512","id":""},"DSA-SHA512":{"sign":"dsa","hash":"sha512","id":""},"DSA-RIPEMD160":{"sign":"dsa","hash":"rmd160","id":""},"ripemd160WithRSA":{"sign":"rsa","hash":"rmd160","id":"3021300906052b2403020105000414"},"RSA-RIPEMD160":{"sign":"rsa","hash":"rmd160","id":"3021300906052b2403020105000414"},"md5WithRSAEncryption":{"sign":"rsa","hash":"md5","id":"3020300c06082a864886f70d020505000410"},"RSA-MD5":{"sign":"rsa","hash":"md5","id":"3020300c06082a864886f70d020505000410"}}
 
 /***/ }),
-/* 225 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 exports.pbkdf2 = __webpack_require__(424)
 
-exports.pbkdf2Sync = __webpack_require__(228)
+exports.pbkdf2Sync = __webpack_require__(227)
 
 
 /***/ }),
-/* 226 */
+/* 225 */
 /***/ (function(module, exports) {
 
 var MAX_ALLOC = Math.pow(2, 30) - 1 // default in iojs
@@ -45007,7 +44951,7 @@ module.exports = function (iterations, keylen) {
 
 
 /***/ }),
-/* 227 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {var defaultEncoding
@@ -45024,16 +44968,16 @@ module.exports = defaultEncoding
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
-/* 228 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var md5 = __webpack_require__(71)
-var rmd160 = __webpack_require__(72)
-var sha = __webpack_require__(74)
+var md5 = __webpack_require__(70)
+var rmd160 = __webpack_require__(71)
+var sha = __webpack_require__(73)
 
-var checkParameters = __webpack_require__(226)
-var defaultEncoding = __webpack_require__(227)
-var Buffer = __webpack_require__(5).Buffer
+var checkParameters = __webpack_require__(225)
+var defaultEncoding = __webpack_require__(226)
+var Buffer = __webpack_require__(4).Buffer
 var ZEROS = Buffer.alloc(128)
 var sizes = {
   md5: 16,
@@ -45131,12 +45075,12 @@ module.exports = pbkdf2
 
 
 /***/ }),
-/* 229 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var xor = __webpack_require__(43)
-var Buffer = __webpack_require__(5).Buffer
-var incr32 = __webpack_require__(230)
+var Buffer = __webpack_require__(4).Buffer
+var incr32 = __webpack_require__(229)
 
 function getBlock (self) {
   var out = self._cipher.encryptBlockRaw(self._prev)
@@ -45167,7 +45111,7 @@ exports.encrypt = function (self, chunk) {
 
 
 /***/ }),
-/* 230 */
+/* 229 */
 /***/ (function(module, exports) {
 
 function incr32 (iv) {
@@ -45188,22 +45132,22 @@ module.exports = incr32
 
 
 /***/ }),
-/* 231 */
+/* 230 */
 /***/ (function(module, exports) {
 
 module.exports = {"aes-128-ecb":{"cipher":"AES","key":128,"iv":0,"mode":"ECB","type":"block"},"aes-192-ecb":{"cipher":"AES","key":192,"iv":0,"mode":"ECB","type":"block"},"aes-256-ecb":{"cipher":"AES","key":256,"iv":0,"mode":"ECB","type":"block"},"aes-128-cbc":{"cipher":"AES","key":128,"iv":16,"mode":"CBC","type":"block"},"aes-192-cbc":{"cipher":"AES","key":192,"iv":16,"mode":"CBC","type":"block"},"aes-256-cbc":{"cipher":"AES","key":256,"iv":16,"mode":"CBC","type":"block"},"aes128":{"cipher":"AES","key":128,"iv":16,"mode":"CBC","type":"block"},"aes192":{"cipher":"AES","key":192,"iv":16,"mode":"CBC","type":"block"},"aes256":{"cipher":"AES","key":256,"iv":16,"mode":"CBC","type":"block"},"aes-128-cfb":{"cipher":"AES","key":128,"iv":16,"mode":"CFB","type":"stream"},"aes-192-cfb":{"cipher":"AES","key":192,"iv":16,"mode":"CFB","type":"stream"},"aes-256-cfb":{"cipher":"AES","key":256,"iv":16,"mode":"CFB","type":"stream"},"aes-128-cfb8":{"cipher":"AES","key":128,"iv":16,"mode":"CFB8","type":"stream"},"aes-192-cfb8":{"cipher":"AES","key":192,"iv":16,"mode":"CFB8","type":"stream"},"aes-256-cfb8":{"cipher":"AES","key":256,"iv":16,"mode":"CFB8","type":"stream"},"aes-128-cfb1":{"cipher":"AES","key":128,"iv":16,"mode":"CFB1","type":"stream"},"aes-192-cfb1":{"cipher":"AES","key":192,"iv":16,"mode":"CFB1","type":"stream"},"aes-256-cfb1":{"cipher":"AES","key":256,"iv":16,"mode":"CFB1","type":"stream"},"aes-128-ofb":{"cipher":"AES","key":128,"iv":16,"mode":"OFB","type":"stream"},"aes-192-ofb":{"cipher":"AES","key":192,"iv":16,"mode":"OFB","type":"stream"},"aes-256-ofb":{"cipher":"AES","key":256,"iv":16,"mode":"OFB","type":"stream"},"aes-128-ctr":{"cipher":"AES","key":128,"iv":16,"mode":"CTR","type":"stream"},"aes-192-ctr":{"cipher":"AES","key":192,"iv":16,"mode":"CTR","type":"stream"},"aes-256-ctr":{"cipher":"AES","key":256,"iv":16,"mode":"CTR","type":"stream"},"aes-128-gcm":{"cipher":"AES","key":128,"iv":12,"mode":"GCM","type":"auth"},"aes-192-gcm":{"cipher":"AES","key":192,"iv":12,"mode":"GCM","type":"auth"},"aes-256-gcm":{"cipher":"AES","key":256,"iv":12,"mode":"GCM","type":"auth"}}
 
 /***/ }),
-/* 232 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var aes = __webpack_require__(59)
-var Buffer = __webpack_require__(5).Buffer
+var aes = __webpack_require__(58)
+var Buffer = __webpack_require__(4).Buffer
 var Transform = __webpack_require__(26)
 var inherits = __webpack_require__(3)
 var GHASH = __webpack_require__(435)
 var xor = __webpack_require__(43)
-var incr32 = __webpack_require__(230)
+var incr32 = __webpack_require__(229)
 
 function xorTest (a, b) {
   var out = 0
@@ -45317,11 +45261,11 @@ module.exports = StreamCipher
 
 
 /***/ }),
-/* 233 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var aes = __webpack_require__(59)
-var Buffer = __webpack_require__(5).Buffer
+var aes = __webpack_require__(58)
+var Buffer = __webpack_require__(4).Buffer
 var Transform = __webpack_require__(26)
 var inherits = __webpack_require__(3)
 
@@ -45350,7 +45294,7 @@ module.exports = StreamCipher
 
 
 /***/ }),
-/* 234 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var randomBytes = __webpack_require__(36);
@@ -45359,7 +45303,7 @@ findPrime.simpleSieve = simpleSieve;
 findPrime.fermatTest = fermatTest;
 var BN = __webpack_require__(10);
 var TWENTYFOUR = new BN(24);
-var MillerRabin = __webpack_require__(235);
+var MillerRabin = __webpack_require__(234);
 var millerRabin = new MillerRabin();
 var ONE = new BN(1);
 var TWO = new BN(2);
@@ -45461,11 +45405,11 @@ function findPrime(bits, gen) {
 
 
 /***/ }),
-/* 235 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var bn = __webpack_require__(10);
-var brorand = __webpack_require__(236);
+var brorand = __webpack_require__(235);
 
 function MillerRabin(rand) {
   this.rand = rand || new brorand.Rand();
@@ -45582,7 +45526,7 @@ MillerRabin.prototype.getDivisor = function getDivisor(n, k) {
 
 
 /***/ }),
-/* 236 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var r;
@@ -45653,7 +45597,7 @@ if (typeof self === 'object') {
 
 
 /***/ }),
-/* 237 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45718,7 +45662,7 @@ utils.encode = function encode(arr, enc) {
 
 
 /***/ }),
-/* 238 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45774,7 +45718,7 @@ exports.g1_256 = g1_256;
 
 
 /***/ }),
-/* 239 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45782,7 +45726,7 @@ exports.g1_256 = g1_256;
 
 var utils = __webpack_require__(22);
 var common = __webpack_require__(44);
-var shaCommon = __webpack_require__(238);
+var shaCommon = __webpack_require__(237);
 var assert = __webpack_require__(19);
 
 var sum32 = utils.sum32;
@@ -45886,7 +45830,7 @@ SHA256.prototype._digest = function digest(enc) {
 
 
 /***/ }),
-/* 240 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46223,7 +46167,7 @@ function g1_512_lo(xh, xl) {
 
 
 /***/ }),
-/* 241 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(3);
@@ -46345,7 +46289,7 @@ EncoderBuffer.prototype.join = function join(out, offset) {
 
 
 /***/ }),
-/* 242 */
+/* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var constants = exports;
@@ -46370,7 +46314,7 @@ constants.der = __webpack_require__(478);
 
 
 /***/ }),
-/* 243 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(3);
@@ -46700,7 +46644,7 @@ function derDecodeLen(buf, primitive, fail) {
 
 
 /***/ }),
-/* 244 */
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(3);
@@ -47001,16 +46945,16 @@ function encodeTag(tag, primitive, cls, reporter) {
 
 
 /***/ }),
-/* 245 */
+/* 244 */
 /***/ (function(module, exports) {
 
 module.exports = {"1.3.132.0.10":"secp256k1","1.3.132.0.33":"p224","1.2.840.10045.3.1.1":"p192","1.2.840.10045.3.1.7":"p256","1.3.132.0.34":"p384","1.3.132.0.35":"p521"}
 
 /***/ }),
-/* 246 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(40);
+/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(41);
 module.exports = function (seed, len) {
   var t = new Buffer('');
   var  i = 0, c;
@@ -47029,7 +46973,7 @@ function i2ops(c) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 247 */
+/* 246 */
 /***/ (function(module, exports) {
 
 module.exports = function xor(a, b) {
@@ -47042,7 +46986,7 @@ module.exports = function xor(a, b) {
 };
 
 /***/ }),
-/* 248 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var bn = __webpack_require__(10);
@@ -47058,10 +47002,14 @@ module.exports = withPublic;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 249 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {exports.fetch = isFunction(global.fetch) && isFunction(global.ReadableStream)
+
+exports.writableStream = isFunction(global.WritableStream)
+
+exports.abortController = isFunction(global.AbortController)
 
 exports.blobConstructor = false
 try {
@@ -47131,7 +47079,231 @@ function isFunction (value) {
 
 xhr = null // Help gc
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
+
+/***/ }),
+/* 249 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(process, Buffer, global) {var capability = __webpack_require__(248)
+var inherits = __webpack_require__(3)
+var stream = __webpack_require__(42)
+
+var rStates = exports.readyStates = {
+	UNSENT: 0,
+	OPENED: 1,
+	HEADERS_RECEIVED: 2,
+	LOADING: 3,
+	DONE: 4
+}
+
+var IncomingMessage = exports.IncomingMessage = function (xhr, response, mode) {
+	var self = this
+	stream.Readable.call(self)
+
+	self._mode = mode
+	self.headers = {}
+	self.rawHeaders = []
+	self.trailers = {}
+	self.rawTrailers = []
+
+	// Fake the 'close' event, but only once 'end' fires
+	self.on('end', function () {
+		// The nextTick is necessary to prevent the 'request' module from causing an infinite loop
+		process.nextTick(function () {
+			self.emit('close')
+		})
+	})
+
+	if (mode === 'fetch') {
+		self._fetchResponse = response
+
+		self.url = response.url
+		self.statusCode = response.status
+		self.statusMessage = response.statusText
+		
+		response.headers.forEach(function (header, key){
+			self.headers[key.toLowerCase()] = header
+			self.rawHeaders.push(key, header)
+		})
+
+		if (capability.writableStream) {
+			var writable = new WritableStream({
+				write: function (chunk) {
+					return new Promise(function (resolve, reject) {
+						if (self._destroyed) {
+							return
+						} else if(self.push(new Buffer(chunk))) {
+							resolve()
+						} else {
+							self._resumeFetch = resolve
+						}
+					})
+				},
+				close: function () {
+					if (!self._destroyed)
+						self.push(null)
+				},
+				abort: function (err) {
+					if (!self._destroyed)
+						self.emit('error', err)
+				}
+			})
+
+			try {
+				response.body.pipeTo(writable)
+				return
+			} catch (e) {} // pipeTo method isn't defined. Can't find a better way to feature test this
+		}
+		// fallback for when writableStream or pipeTo aren't available
+		var reader = response.body.getReader()
+		function read () {
+			reader.read().then(function (result) {
+				if (self._destroyed)
+					return
+				if (result.done) {
+					self.push(null)
+					return
+				}
+				self.push(new Buffer(result.value))
+				read()
+			}).catch(function(err) {
+				if (!self._destroyed)
+					self.emit('error', err)
+			})
+		}
+		read()
+	} else {
+		self._xhr = xhr
+		self._pos = 0
+
+		self.url = xhr.responseURL
+		self.statusCode = xhr.status
+		self.statusMessage = xhr.statusText
+		var headers = xhr.getAllResponseHeaders().split(/\r?\n/)
+		headers.forEach(function (header) {
+			var matches = header.match(/^([^:]+):\s*(.*)/)
+			if (matches) {
+				var key = matches[1].toLowerCase()
+				if (key === 'set-cookie') {
+					if (self.headers[key] === undefined) {
+						self.headers[key] = []
+					}
+					self.headers[key].push(matches[2])
+				} else if (self.headers[key] !== undefined) {
+					self.headers[key] += ', ' + matches[2]
+				} else {
+					self.headers[key] = matches[2]
+				}
+				self.rawHeaders.push(matches[1], matches[2])
+			}
+		})
+
+		self._charset = 'x-user-defined'
+		if (!capability.overrideMimeType) {
+			var mimeType = self.rawHeaders['mime-type']
+			if (mimeType) {
+				var charsetMatch = mimeType.match(/;\s*charset=([^;])(;|$)/)
+				if (charsetMatch) {
+					self._charset = charsetMatch[1].toLowerCase()
+				}
+			}
+			if (!self._charset)
+				self._charset = 'utf-8' // best guess
+		}
+	}
+}
+
+inherits(IncomingMessage, stream.Readable)
+
+IncomingMessage.prototype._read = function () {
+	var self = this
+
+	var resolve = self._resumeFetch
+	if (resolve) {
+		self._resumeFetch = null
+		resolve()
+	}
+}
+
+IncomingMessage.prototype._onXHRProgress = function () {
+	var self = this
+
+	var xhr = self._xhr
+
+	var response = null
+	switch (self._mode) {
+		case 'text:vbarray': // For IE9
+			if (xhr.readyState !== rStates.DONE)
+				break
+			try {
+				// This fails in IE8
+				response = new global.VBArray(xhr.responseBody).toArray()
+			} catch (e) {}
+			if (response !== null) {
+				self.push(new Buffer(response))
+				break
+			}
+			// Falls through in IE8	
+		case 'text':
+			try { // This will fail when readyState = 3 in IE9. Switch mode and wait for readyState = 4
+				response = xhr.responseText
+			} catch (e) {
+				self._mode = 'text:vbarray'
+				break
+			}
+			if (response.length > self._pos) {
+				var newData = response.substr(self._pos)
+				if (self._charset === 'x-user-defined') {
+					var buffer = new Buffer(newData.length)
+					for (var i = 0; i < newData.length; i++)
+						buffer[i] = newData.charCodeAt(i) & 0xff
+
+					self.push(buffer)
+				} else {
+					self.push(newData, self._charset)
+				}
+				self._pos = response.length
+			}
+			break
+		case 'arraybuffer':
+			if (xhr.readyState !== rStates.DONE || !xhr.response)
+				break
+			response = xhr.response
+			self.push(new Buffer(new Uint8Array(response)))
+			break
+		case 'moz-chunked-arraybuffer': // take whole
+			response = xhr.response
+			if (xhr.readyState !== rStates.LOADING || !response)
+				break
+			self.push(new Buffer(new Uint8Array(response)))
+			break
+		case 'ms-stream':
+			response = xhr.response
+			if (xhr.readyState !== rStates.LOADING)
+				break
+			var reader = new global.MSStreamReader()
+			reader.onprogress = function () {
+				if (reader.result.byteLength > self._pos) {
+					self.push(new Buffer(new Uint8Array(reader.result.slice(self._pos))))
+					self._pos = reader.result.byteLength
+				}
+			}
+			reader.onload = function () {
+				self.push(null)
+			}
+			// reader.onerror = ??? // TODO: this
+			reader.readAsArrayBuffer(response)
+			break
+	}
+
+	// The ms-stream case handles end separately in reader.onload()
+	if (self._xhr.readyState === rStates.DONE && self._mode !== 'ms-stream') {
+		self.push(null)
+	}
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9), __webpack_require__(2).Buffer, __webpack_require__(12)))
 
 /***/ }),
 /* 250 */
@@ -47272,7 +47444,7 @@ module.exports = {
 var assert = __webpack_require__(6);
 var crypto = __webpack_require__(11);
 var algs = __webpack_require__(15);
-var utils = __webpack_require__(12);
+var utils = __webpack_require__(13);
 var nacl;
 
 var Key = __webpack_require__(14);
@@ -47308,7 +47480,7 @@ function DiffieHellman(key) {
 			if (ecdh === undefined)
 				ecdh = __webpack_require__(253);
 			if (ec === undefined)
-				ec = __webpack_require__(64);
+				ec = __webpack_require__(63);
 			if (jsbn === undefined)
 				jsbn = __webpack_require__(32).BigInteger;
 
@@ -47637,7 +47809,7 @@ function generateECDSA(curve) {
 		if (ecdh === undefined)
 			ecdh = __webpack_require__(253);
 		if (ec === undefined)
-			ec = __webpack_require__(64);
+			ec = __webpack_require__(63);
 		if (jsbn === undefined)
 			jsbn = __webpack_require__(32).BigInteger;
 
@@ -47681,8 +47853,8 @@ function generateECDSA(curve) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var crypto = __webpack_require__(11);
 var BigInteger = __webpack_require__(32).BigInteger;
-var ECPointFp = __webpack_require__(64).ECPointFp;
-exports.ECCurves = __webpack_require__(514);
+var ECPointFp = __webpack_require__(63).ECPointFp;
+exports.ECCurves = __webpack_require__(513);
 
 // zero prepad
 function unstupid(hex,len)
@@ -47854,7 +48026,7 @@ module.exports = {
 };
 
 var assert = __webpack_require__(6);
-var utils = __webpack_require__(12);
+var utils = __webpack_require__(13);
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
 
@@ -48498,11 +48670,11 @@ module.exports = {
 
 var assert = __webpack_require__(6);
 var rfc4253 = __webpack_require__(34);
-var utils = __webpack_require__(12);
+var utils = __webpack_require__(13);
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
 
-var sshpriv = __webpack_require__(65);
+var sshpriv = __webpack_require__(64);
 
 /*JSSTYLED*/
 var SSHKEY_RE = /^([a-z0-9-]+)[ \t]+([a-zA-Z0-9+\/]+[=]*)([\n \t]+([^\n]+))?$/;
@@ -48623,14 +48795,14 @@ module.exports = {
 var assert = __webpack_require__(6);
 var asn1 = __webpack_require__(28);
 var algs = __webpack_require__(15);
-var utils = __webpack_require__(12);
+var utils = __webpack_require__(13);
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
 var pem = __webpack_require__(27);
-var Identity = __webpack_require__(52);
+var Identity = __webpack_require__(51);
 var Signature = __webpack_require__(24);
-var Certificate = __webpack_require__(50);
-var pkcs8 = __webpack_require__(51);
+var Certificate = __webpack_require__(49);
+var pkcs8 = __webpack_require__(50);
 
 /*
  * This file is based on RFC5280 (X.509).
@@ -49569,8 +49741,8 @@ module.exports.isDuplex   = isDuplex
 "use strict";
 
 
-var stringify = __webpack_require__(537);
-var parse = __webpack_require__(538);
+var stringify = __webpack_require__(535);
+var parse = __webpack_require__(536);
 var formats = __webpack_require__(263);
 
 module.exports = {
@@ -49821,7 +49993,7 @@ module.exports = {
 "use strict";
 
 
-var util = __webpack_require__(38);
+var util = __webpack_require__(39);
 
 module.exports = SchemaObject;
 
@@ -51052,7 +51224,7 @@ if (!rng) {
 
 module.exports = rng;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
 /* 273 */
@@ -51088,8 +51260,8 @@ module.exports = bytesToUuid;
 /***/ (function(module, exports, __webpack_require__) {
 
 /* MIT license */
-var convert = __webpack_require__(615);
-var string = __webpack_require__(617);
+var convert = __webpack_require__(613);
+var string = __webpack_require__(615);
 
 var Color = function (obj) {
 	if (obj instanceof Color) {
@@ -51581,7 +51753,7 @@ module.exports = Color;
 "use strict";
 
 
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 /**
  * Helper function to get relative position for an event
@@ -51918,9 +52090,9 @@ module.exports = {
 "use strict";
 
 
-var helpers = __webpack_require__(4);
-var basic = __webpack_require__(623);
-var dom = __webpack_require__(624);
+var helpers = __webpack_require__(5);
+var basic = __webpack_require__(621);
+var dom = __webpack_require__(622);
 
 // @TODO Make possible to select another platform at build time.
 var implementation = dom._enabled ? dom : basic;
@@ -63134,14 +63306,14 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(25);
-var keys_1 = __webpack_require__(90);
+var keys_1 = __webpack_require__(89);
 var Moment = __webpack_require__(0);
-var Request = __webpack_require__(209);
-var inputField_component_1 = __webpack_require__(605);
-var weatherCardBig_component_1 = __webpack_require__(606);
-var spinner_component_1 = __webpack_require__(607);
-var lineChart_component_1 = __webpack_require__(608);
-var dailyWeather_component_1 = __webpack_require__(657);
+var Request = __webpack_require__(208);
+var inputField_component_1 = __webpack_require__(603);
+var weatherCardBig_component_1 = __webpack_require__(604);
+var spinner_component_1 = __webpack_require__(605);
+var lineChart_component_1 = __webpack_require__(606);
+var dailyWeather_component_1 = __webpack_require__(655);
 var WeatherApp = /** @class */ (function (_super) {
     __extends(WeatherApp, _super);
     // ----------------------------------------------------------------------------------------------------
@@ -63288,242 +63460,242 @@ exports.WeatherApp = WeatherApp;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 91,
-	"./af.js": 91,
-	"./ar": 92,
-	"./ar-dz": 93,
-	"./ar-dz.js": 93,
-	"./ar-kw": 94,
-	"./ar-kw.js": 94,
-	"./ar-ly": 95,
-	"./ar-ly.js": 95,
-	"./ar-ma": 96,
-	"./ar-ma.js": 96,
-	"./ar-sa": 97,
-	"./ar-sa.js": 97,
-	"./ar-tn": 98,
-	"./ar-tn.js": 98,
-	"./ar.js": 92,
-	"./az": 99,
-	"./az.js": 99,
-	"./be": 100,
-	"./be.js": 100,
-	"./bg": 101,
-	"./bg.js": 101,
-	"./bm": 102,
-	"./bm.js": 102,
-	"./bn": 103,
-	"./bn.js": 103,
-	"./bo": 104,
-	"./bo.js": 104,
-	"./br": 105,
-	"./br.js": 105,
-	"./bs": 106,
-	"./bs.js": 106,
-	"./ca": 107,
-	"./ca.js": 107,
-	"./cs": 108,
-	"./cs.js": 108,
-	"./cv": 109,
-	"./cv.js": 109,
-	"./cy": 110,
-	"./cy.js": 110,
-	"./da": 111,
-	"./da.js": 111,
-	"./de": 112,
-	"./de-at": 113,
-	"./de-at.js": 113,
-	"./de-ch": 114,
-	"./de-ch.js": 114,
-	"./de.js": 112,
-	"./dv": 115,
-	"./dv.js": 115,
-	"./el": 116,
-	"./el.js": 116,
-	"./en-au": 117,
-	"./en-au.js": 117,
-	"./en-ca": 118,
-	"./en-ca.js": 118,
-	"./en-gb": 119,
-	"./en-gb.js": 119,
-	"./en-ie": 120,
-	"./en-ie.js": 120,
-	"./en-nz": 121,
-	"./en-nz.js": 121,
-	"./eo": 122,
-	"./eo.js": 122,
-	"./es": 123,
-	"./es-do": 124,
-	"./es-do.js": 124,
-	"./es-us": 125,
-	"./es-us.js": 125,
-	"./es.js": 123,
-	"./et": 126,
-	"./et.js": 126,
-	"./eu": 127,
-	"./eu.js": 127,
-	"./fa": 128,
-	"./fa.js": 128,
-	"./fi": 129,
-	"./fi.js": 129,
-	"./fo": 130,
-	"./fo.js": 130,
-	"./fr": 131,
-	"./fr-ca": 132,
-	"./fr-ca.js": 132,
-	"./fr-ch": 133,
-	"./fr-ch.js": 133,
-	"./fr.js": 131,
-	"./fy": 134,
-	"./fy.js": 134,
-	"./gd": 135,
-	"./gd.js": 135,
-	"./gl": 136,
-	"./gl.js": 136,
-	"./gom-latn": 137,
-	"./gom-latn.js": 137,
-	"./gu": 138,
-	"./gu.js": 138,
-	"./he": 139,
-	"./he.js": 139,
-	"./hi": 140,
-	"./hi.js": 140,
-	"./hr": 141,
-	"./hr.js": 141,
-	"./hu": 142,
-	"./hu.js": 142,
-	"./hy-am": 143,
-	"./hy-am.js": 143,
-	"./id": 144,
-	"./id.js": 144,
-	"./is": 145,
-	"./is.js": 145,
-	"./it": 146,
-	"./it.js": 146,
-	"./ja": 147,
-	"./ja.js": 147,
-	"./jv": 148,
-	"./jv.js": 148,
-	"./ka": 149,
-	"./ka.js": 149,
-	"./kk": 150,
-	"./kk.js": 150,
-	"./km": 151,
-	"./km.js": 151,
-	"./kn": 152,
-	"./kn.js": 152,
-	"./ko": 153,
-	"./ko.js": 153,
-	"./ky": 154,
-	"./ky.js": 154,
-	"./lb": 155,
-	"./lb.js": 155,
-	"./lo": 156,
-	"./lo.js": 156,
-	"./lt": 157,
-	"./lt.js": 157,
-	"./lv": 158,
-	"./lv.js": 158,
-	"./me": 159,
-	"./me.js": 159,
-	"./mi": 160,
-	"./mi.js": 160,
-	"./mk": 161,
-	"./mk.js": 161,
-	"./ml": 162,
-	"./ml.js": 162,
-	"./mr": 163,
-	"./mr.js": 163,
-	"./ms": 164,
-	"./ms-my": 165,
-	"./ms-my.js": 165,
-	"./ms.js": 164,
-	"./my": 166,
-	"./my.js": 166,
-	"./nb": 167,
-	"./nb.js": 167,
-	"./ne": 168,
-	"./ne.js": 168,
-	"./nl": 169,
-	"./nl-be": 170,
-	"./nl-be.js": 170,
-	"./nl.js": 169,
-	"./nn": 171,
-	"./nn.js": 171,
-	"./pa-in": 172,
-	"./pa-in.js": 172,
-	"./pl": 173,
-	"./pl.js": 173,
-	"./pt": 174,
-	"./pt-br": 175,
-	"./pt-br.js": 175,
-	"./pt.js": 174,
-	"./ro": 176,
-	"./ro.js": 176,
-	"./ru": 177,
-	"./ru.js": 177,
-	"./sd": 178,
-	"./sd.js": 178,
-	"./se": 179,
-	"./se.js": 179,
-	"./si": 180,
-	"./si.js": 180,
-	"./sk": 181,
-	"./sk.js": 181,
-	"./sl": 182,
-	"./sl.js": 182,
-	"./sq": 183,
-	"./sq.js": 183,
-	"./sr": 184,
-	"./sr-cyrl": 185,
-	"./sr-cyrl.js": 185,
-	"./sr.js": 184,
-	"./ss": 186,
-	"./ss.js": 186,
-	"./sv": 187,
-	"./sv.js": 187,
-	"./sw": 188,
-	"./sw.js": 188,
-	"./ta": 189,
-	"./ta.js": 189,
-	"./te": 190,
-	"./te.js": 190,
-	"./tet": 191,
-	"./tet.js": 191,
-	"./th": 192,
-	"./th.js": 192,
-	"./tl-ph": 193,
-	"./tl-ph.js": 193,
-	"./tlh": 194,
-	"./tlh.js": 194,
-	"./tr": 195,
-	"./tr.js": 195,
-	"./tzl": 196,
-	"./tzl.js": 196,
-	"./tzm": 197,
-	"./tzm-latn": 198,
-	"./tzm-latn.js": 198,
-	"./tzm.js": 197,
-	"./uk": 199,
-	"./uk.js": 199,
-	"./ur": 200,
-	"./ur.js": 200,
-	"./uz": 201,
-	"./uz-latn": 202,
-	"./uz-latn.js": 202,
-	"./uz.js": 201,
-	"./vi": 203,
-	"./vi.js": 203,
-	"./x-pseudo": 204,
-	"./x-pseudo.js": 204,
-	"./yo": 205,
-	"./yo.js": 205,
-	"./zh-cn": 206,
-	"./zh-cn.js": 206,
-	"./zh-hk": 207,
-	"./zh-hk.js": 207,
-	"./zh-tw": 208,
-	"./zh-tw.js": 208
+	"./af": 90,
+	"./af.js": 90,
+	"./ar": 91,
+	"./ar-dz": 92,
+	"./ar-dz.js": 92,
+	"./ar-kw": 93,
+	"./ar-kw.js": 93,
+	"./ar-ly": 94,
+	"./ar-ly.js": 94,
+	"./ar-ma": 95,
+	"./ar-ma.js": 95,
+	"./ar-sa": 96,
+	"./ar-sa.js": 96,
+	"./ar-tn": 97,
+	"./ar-tn.js": 97,
+	"./ar.js": 91,
+	"./az": 98,
+	"./az.js": 98,
+	"./be": 99,
+	"./be.js": 99,
+	"./bg": 100,
+	"./bg.js": 100,
+	"./bm": 101,
+	"./bm.js": 101,
+	"./bn": 102,
+	"./bn.js": 102,
+	"./bo": 103,
+	"./bo.js": 103,
+	"./br": 104,
+	"./br.js": 104,
+	"./bs": 105,
+	"./bs.js": 105,
+	"./ca": 106,
+	"./ca.js": 106,
+	"./cs": 107,
+	"./cs.js": 107,
+	"./cv": 108,
+	"./cv.js": 108,
+	"./cy": 109,
+	"./cy.js": 109,
+	"./da": 110,
+	"./da.js": 110,
+	"./de": 111,
+	"./de-at": 112,
+	"./de-at.js": 112,
+	"./de-ch": 113,
+	"./de-ch.js": 113,
+	"./de.js": 111,
+	"./dv": 114,
+	"./dv.js": 114,
+	"./el": 115,
+	"./el.js": 115,
+	"./en-au": 116,
+	"./en-au.js": 116,
+	"./en-ca": 117,
+	"./en-ca.js": 117,
+	"./en-gb": 118,
+	"./en-gb.js": 118,
+	"./en-ie": 119,
+	"./en-ie.js": 119,
+	"./en-nz": 120,
+	"./en-nz.js": 120,
+	"./eo": 121,
+	"./eo.js": 121,
+	"./es": 122,
+	"./es-do": 123,
+	"./es-do.js": 123,
+	"./es-us": 124,
+	"./es-us.js": 124,
+	"./es.js": 122,
+	"./et": 125,
+	"./et.js": 125,
+	"./eu": 126,
+	"./eu.js": 126,
+	"./fa": 127,
+	"./fa.js": 127,
+	"./fi": 128,
+	"./fi.js": 128,
+	"./fo": 129,
+	"./fo.js": 129,
+	"./fr": 130,
+	"./fr-ca": 131,
+	"./fr-ca.js": 131,
+	"./fr-ch": 132,
+	"./fr-ch.js": 132,
+	"./fr.js": 130,
+	"./fy": 133,
+	"./fy.js": 133,
+	"./gd": 134,
+	"./gd.js": 134,
+	"./gl": 135,
+	"./gl.js": 135,
+	"./gom-latn": 136,
+	"./gom-latn.js": 136,
+	"./gu": 137,
+	"./gu.js": 137,
+	"./he": 138,
+	"./he.js": 138,
+	"./hi": 139,
+	"./hi.js": 139,
+	"./hr": 140,
+	"./hr.js": 140,
+	"./hu": 141,
+	"./hu.js": 141,
+	"./hy-am": 142,
+	"./hy-am.js": 142,
+	"./id": 143,
+	"./id.js": 143,
+	"./is": 144,
+	"./is.js": 144,
+	"./it": 145,
+	"./it.js": 145,
+	"./ja": 146,
+	"./ja.js": 146,
+	"./jv": 147,
+	"./jv.js": 147,
+	"./ka": 148,
+	"./ka.js": 148,
+	"./kk": 149,
+	"./kk.js": 149,
+	"./km": 150,
+	"./km.js": 150,
+	"./kn": 151,
+	"./kn.js": 151,
+	"./ko": 152,
+	"./ko.js": 152,
+	"./ky": 153,
+	"./ky.js": 153,
+	"./lb": 154,
+	"./lb.js": 154,
+	"./lo": 155,
+	"./lo.js": 155,
+	"./lt": 156,
+	"./lt.js": 156,
+	"./lv": 157,
+	"./lv.js": 157,
+	"./me": 158,
+	"./me.js": 158,
+	"./mi": 159,
+	"./mi.js": 159,
+	"./mk": 160,
+	"./mk.js": 160,
+	"./ml": 161,
+	"./ml.js": 161,
+	"./mr": 162,
+	"./mr.js": 162,
+	"./ms": 163,
+	"./ms-my": 164,
+	"./ms-my.js": 164,
+	"./ms.js": 163,
+	"./my": 165,
+	"./my.js": 165,
+	"./nb": 166,
+	"./nb.js": 166,
+	"./ne": 167,
+	"./ne.js": 167,
+	"./nl": 168,
+	"./nl-be": 169,
+	"./nl-be.js": 169,
+	"./nl.js": 168,
+	"./nn": 170,
+	"./nn.js": 170,
+	"./pa-in": 171,
+	"./pa-in.js": 171,
+	"./pl": 172,
+	"./pl.js": 172,
+	"./pt": 173,
+	"./pt-br": 174,
+	"./pt-br.js": 174,
+	"./pt.js": 173,
+	"./ro": 175,
+	"./ro.js": 175,
+	"./ru": 176,
+	"./ru.js": 176,
+	"./sd": 177,
+	"./sd.js": 177,
+	"./se": 178,
+	"./se.js": 178,
+	"./si": 179,
+	"./si.js": 179,
+	"./sk": 180,
+	"./sk.js": 180,
+	"./sl": 181,
+	"./sl.js": 181,
+	"./sq": 182,
+	"./sq.js": 182,
+	"./sr": 183,
+	"./sr-cyrl": 184,
+	"./sr-cyrl.js": 184,
+	"./sr.js": 183,
+	"./ss": 185,
+	"./ss.js": 185,
+	"./sv": 186,
+	"./sv.js": 186,
+	"./sw": 187,
+	"./sw.js": 187,
+	"./ta": 188,
+	"./ta.js": 188,
+	"./te": 189,
+	"./te.js": 189,
+	"./tet": 190,
+	"./tet.js": 190,
+	"./th": 191,
+	"./th.js": 191,
+	"./tl-ph": 192,
+	"./tl-ph.js": 192,
+	"./tlh": 193,
+	"./tlh.js": 193,
+	"./tr": 194,
+	"./tr.js": 194,
+	"./tzl": 195,
+	"./tzl.js": 195,
+	"./tzm": 196,
+	"./tzm-latn": 197,
+	"./tzm-latn.js": 197,
+	"./tzm.js": 196,
+	"./uk": 198,
+	"./uk.js": 198,
+	"./ur": 199,
+	"./ur.js": 199,
+	"./uz": 200,
+	"./uz-latn": 201,
+	"./uz-latn.js": 201,
+	"./uz.js": 200,
+	"./vi": 202,
+	"./vi.js": 202,
+	"./x-pseudo": 203,
+	"./x-pseudo.js": 203,
+	"./yo": 204,
+	"./yo.js": 204,
+	"./zh-cn": 205,
+	"./zh-cn.js": 205,
+	"./zh-hk": 206,
+	"./zh-hk.js": 206,
+	"./zh-tw": 207,
+	"./zh-tw.js": 207
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -63579,15 +63751,15 @@ webpackContext.id = 395;
 
 var net = __webpack_require__(35);
 var urlParse = __webpack_require__(21).parse;
-var pubsuffix = __webpack_require__(211);
-var Store = __webpack_require__(212).Store;
+var pubsuffix = __webpack_require__(210);
+var Store = __webpack_require__(211).Store;
 var MemoryCookieStore = __webpack_require__(400).MemoryCookieStore;
-var pathMatch = __webpack_require__(214).pathMatch;
+var pathMatch = __webpack_require__(213).pathMatch;
 var VERSION = __webpack_require__(403).version;
 
 var punycode;
 try {
-  punycode = __webpack_require__(69);
+  punycode = __webpack_require__(68);
 } catch(e) {
   console.warn("cookie: can't load punycode; won't use punycode for domain normalization");
 }
@@ -64883,7 +65055,7 @@ module.exports = {
   pathMatch: pathMatch,
   getPublicSuffix: pubsuffix.getPublicSuffix,
   cookieCompare: cookieCompare,
-  permuteDomain: __webpack_require__(213).permuteDomain,
+  permuteDomain: __webpack_require__(212).permuteDomain,
   permutePath: permutePath,
   canonicalDomain: canonicalDomain
 };
@@ -65131,9 +65303,9 @@ var objectKeys = Object.keys || function (obj) {
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-var Store = __webpack_require__(212).Store;
-var permuteDomain = __webpack_require__(213).permuteDomain;
-var pathMatch = __webpack_require__(214).pathMatch;
+var Store = __webpack_require__(211).Store;
+var permuteDomain = __webpack_require__(212).permuteDomain;
+var pathMatch = __webpack_require__(213).pathMatch;
 var util = __webpack_require__(8);
 
 function MemoryCookieStore() {
@@ -65316,7 +65488,7 @@ if (typeof Object.create === 'function') {
 /* 403 */
 /***/ (function(module, exports) {
 
-module.exports = {"_args":[["tough-cookie@2.3.3","C:\\Users\\alex\\Documents\\Progetti\\simple-weather"]],"_from":"tough-cookie@2.3.3","_id":"tough-cookie@2.3.3","_inBundle":false,"_integrity":"sha1-C2GKVWW23qkL80JdBNVe3EdadWE=","_location":"/tough-cookie","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"tough-cookie@2.3.3","name":"tough-cookie","escapedName":"tough-cookie","rawSpec":"2.3.3","saveSpec":null,"fetchSpec":"2.3.3"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.3.tgz","_spec":"2.3.3","_where":"C:\\Users\\alex\\Documents\\Progetti\\simple-weather","author":{"name":"Jeremy Stashewsky","email":"jstashewsky@salesforce.com"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"engines":{"node":">=0.8"},"files":["lib"],"homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","name":"tough-cookie","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.3"}
+module.exports = {"_args":[["tough-cookie@2.3.3","E:\\Documenti\\__Progetti\\simple-weather-old"]],"_from":"tough-cookie@2.3.3","_id":"tough-cookie@2.3.3","_inBundle":false,"_integrity":"sha1-C2GKVWW23qkL80JdBNVe3EdadWE=","_location":"/tough-cookie","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"tough-cookie@2.3.3","name":"tough-cookie","escapedName":"tough-cookie","rawSpec":"2.3.3","saveSpec":null,"fetchSpec":"2.3.3"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.3.tgz","_spec":"2.3.3","_where":"E:\\Documenti\\__Progetti\\simple-weather-old","author":{"name":"Jeremy Stashewsky","email":"jstashewsky@salesforce.com"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"engines":{"node":">=0.8"},"files":["lib"],"homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","name":"tough-cookie","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.3"}
 
 /***/ }),
 /* 404 */
@@ -65509,7 +65681,7 @@ module.exports = {"_args":[["tough-cookie@2.3.3","C:\\Users\\alex\\Documents\\Pr
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13), __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(9)))
 
 /***/ }),
 /* 405 */
@@ -65901,7 +66073,7 @@ module.exports = HashBase
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Buffer = __webpack_require__(5).Buffer;
+var Buffer = __webpack_require__(4).Buffer;
 /*</replacement>*/
 
 function copyBuffer(src, target, offset) {
@@ -66042,7 +66214,7 @@ function config (name) {
   return String(val).toLowerCase() === 'true';
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
 /* 413 */
@@ -66078,10 +66250,10 @@ function config (name) {
 
 module.exports = PassThrough;
 
-var Transform = __webpack_require__(220);
+var Transform = __webpack_require__(219);
 
 /*<replacement>*/
-var util = __webpack_require__(42);
+var util = __webpack_require__(37);
 util.inherits = __webpack_require__(3);
 /*</replacement>*/
 
@@ -66101,7 +66273,7 @@ PassThrough.prototype._transform = function (chunk, encoding, cb) {
 /* 414 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(73);
+module.exports = __webpack_require__(72);
 
 
 /***/ }),
@@ -66115,14 +66287,14 @@ module.exports = __webpack_require__(30);
 /* 416 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(41).Transform
+module.exports = __webpack_require__(42).Transform
 
 
 /***/ }),
 /* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(41).PassThrough
+module.exports = __webpack_require__(42).PassThrough
 
 
 /***/ }),
@@ -66138,8 +66310,8 @@ module.exports = __webpack_require__(41).PassThrough
  */
 
 var inherits = __webpack_require__(3)
-var Hash = __webpack_require__(37)
-var Buffer = __webpack_require__(5).Buffer
+var Hash = __webpack_require__(38)
+var Buffer = __webpack_require__(4).Buffer
 
 var K = [
   0x5a827999, 0x6ed9eba1, 0x8f1bbcdc | 0, 0xca62c1d6 | 0
@@ -66239,8 +66411,8 @@ module.exports = Sha
  */
 
 var inherits = __webpack_require__(3)
-var Hash = __webpack_require__(37)
-var Buffer = __webpack_require__(5).Buffer
+var Hash = __webpack_require__(38)
+var Buffer = __webpack_require__(4).Buffer
 
 var K = [
   0x5a827999, 0x6ed9eba1, 0x8f1bbcdc | 0, 0xca62c1d6 | 0
@@ -66343,9 +66515,9 @@ module.exports = Sha1
  */
 
 var inherits = __webpack_require__(3)
-var Sha256 = __webpack_require__(221)
-var Hash = __webpack_require__(37)
-var Buffer = __webpack_require__(5).Buffer
+var Sha256 = __webpack_require__(220)
+var Hash = __webpack_require__(38)
+var Buffer = __webpack_require__(4).Buffer
 
 var W = new Array(64)
 
@@ -66394,9 +66566,9 @@ module.exports = Sha224
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(3)
-var SHA512 = __webpack_require__(222)
-var Hash = __webpack_require__(37)
-var Buffer = __webpack_require__(5).Buffer
+var SHA512 = __webpack_require__(221)
+var Hash = __webpack_require__(38)
+var Buffer = __webpack_require__(4).Buffer
 
 var W = new Array(160)
 
@@ -66459,7 +66631,7 @@ module.exports = Sha384
 "use strict";
 
 var inherits = __webpack_require__(3)
-var Buffer = __webpack_require__(5).Buffer
+var Buffer = __webpack_require__(4).Buffer
 
 var Base = __webpack_require__(26)
 
@@ -66509,17 +66681,17 @@ module.exports = Hmac
 /* 423 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(224)
+module.exports = __webpack_require__(223)
 
 
 /***/ }),
 /* 424 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global, process) {var checkParameters = __webpack_require__(226)
-var defaultEncoding = __webpack_require__(227)
-var sync = __webpack_require__(228)
-var Buffer = __webpack_require__(5).Buffer
+/* WEBPACK VAR INJECTION */(function(global, process) {var checkParameters = __webpack_require__(225)
+var defaultEncoding = __webpack_require__(226)
+var sync = __webpack_require__(227)
+var Buffer = __webpack_require__(4).Buffer
 
 var ZERO_BUF
 var subtle = global.crypto && global.crypto.subtle
@@ -66615,17 +66787,17 @@ module.exports = function (password, salt, iterations, keylen, digest, callback)
   }), callback)
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13), __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(9)))
 
 /***/ }),
 /* 425 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ebtk = __webpack_require__(58)
-var aes = __webpack_require__(75)
+var ebtk = __webpack_require__(57)
+var aes = __webpack_require__(74)
 var DES = __webpack_require__(437)
 var desModes = __webpack_require__(443)
-var aesModes = __webpack_require__(76)
+var aesModes = __webpack_require__(75)
 function createCipher (suite, password) {
   var keyLen, ivLen
   suite = suite.toLowerCase()
@@ -66855,7 +67027,7 @@ module.exports = MD5
 
 "use strict";
 
-var Buffer = __webpack_require__(5).Buffer
+var Buffer = __webpack_require__(4).Buffer
 var Transform = __webpack_require__(18).Transform
 var inherits = __webpack_require__(3)
 
@@ -66955,13 +67127,13 @@ module.exports = HashBase
 /* 428 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var MODES = __webpack_require__(76)
-var AuthCipher = __webpack_require__(232)
-var Buffer = __webpack_require__(5).Buffer
-var StreamCipher = __webpack_require__(233)
+var MODES = __webpack_require__(75)
+var AuthCipher = __webpack_require__(231)
+var Buffer = __webpack_require__(4).Buffer
+var StreamCipher = __webpack_require__(232)
 var Transform = __webpack_require__(26)
-var aes = __webpack_require__(59)
-var ebtk = __webpack_require__(58)
+var aes = __webpack_require__(58)
+var ebtk = __webpack_require__(57)
 var inherits = __webpack_require__(3)
 
 function Cipher (mode, key, iv) {
@@ -67111,7 +67283,7 @@ exports.decrypt = function (self, block) {
 /* 431 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(5).Buffer
+var Buffer = __webpack_require__(4).Buffer
 var xor = __webpack_require__(43)
 
 function encryptStart (self, data, decrypt) {
@@ -67150,7 +67322,7 @@ exports.encrypt = function (self, data, decrypt) {
 /* 432 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(5).Buffer
+var Buffer = __webpack_require__(4).Buffer
 
 function encryptByte (self, byteParam, decrypt) {
   var pad = self._cipher.encryptBlock(self._prev)
@@ -67181,7 +67353,7 @@ exports.encrypt = function (self, chunk, decrypt) {
 /* 433 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(5).Buffer
+var Buffer = __webpack_require__(4).Buffer
 
 function encryptByte (self, byteParam, decrypt) {
   var pad
@@ -67252,7 +67424,7 @@ exports.encrypt = function (self, chunk) {
 /* 435 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(5).Buffer
+var Buffer = __webpack_require__(4).Buffer
 var ZEROES = Buffer.alloc(16, 0)
 
 function toArray (buf) {
@@ -67347,13 +67519,13 @@ module.exports = GHASH
 /* 436 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var AuthCipher = __webpack_require__(232)
-var Buffer = __webpack_require__(5).Buffer
-var MODES = __webpack_require__(76)
-var StreamCipher = __webpack_require__(233)
+var AuthCipher = __webpack_require__(231)
+var Buffer = __webpack_require__(4).Buffer
+var MODES = __webpack_require__(75)
+var StreamCipher = __webpack_require__(232)
 var Transform = __webpack_require__(26)
-var aes = __webpack_require__(59)
-var ebtk = __webpack_require__(58)
+var aes = __webpack_require__(58)
+var ebtk = __webpack_require__(57)
 var inherits = __webpack_require__(3)
 
 function Decipher (mode, key, iv) {
@@ -67475,7 +67647,7 @@ exports.createDecipheriv = createDecipheriv
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var CipherBase = __webpack_require__(26)
-var des = __webpack_require__(77)
+var des = __webpack_require__(76)
 var inherits = __webpack_require__(3)
 
 var modes = {
@@ -67941,7 +68113,7 @@ Cipher.prototype._finalDecrypt = function _finalDecrypt() {
 var assert = __webpack_require__(19);
 var inherits = __webpack_require__(3);
 
-var des = __webpack_require__(77);
+var des = __webpack_require__(76);
 var utils = des.utils;
 var Cipher = des.Cipher;
 
@@ -68163,7 +68335,7 @@ proto._update = function _update(inp, inOff, out, outOff) {
 var assert = __webpack_require__(19);
 var inherits = __webpack_require__(3);
 
-var des = __webpack_require__(77);
+var des = __webpack_require__(76);
 var Cipher = des.Cipher;
 var DES = des.DES;
 
@@ -68249,7 +68421,7 @@ exports['des-ede'] = {
 /* 444 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var generatePrime = __webpack_require__(234)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var generatePrime = __webpack_require__(233)
 var primes = __webpack_require__(447)
 
 var DH = __webpack_require__(448)
@@ -68317,14 +68489,14 @@ module.exports = {"modp1":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var BN = __webpack_require__(10);
-var MillerRabin = __webpack_require__(235);
+var MillerRabin = __webpack_require__(234);
 var millerRabin = new MillerRabin();
 var TWENTYFOUR = new BN(24);
 var ELEVEN = new BN(11);
 var TEN = new BN(10);
 var THREE = new BN(3);
 var SEVEN = new BN(7);
-var primes = __webpack_require__(234);
+var primes = __webpack_require__(233);
 var randomBytes = __webpack_require__(36);
 module.exports = DH;
 
@@ -68487,13 +68659,13 @@ function formatReturnValue(bn, enc) {
 /* 449 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(40)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(41)
 var stream = __webpack_require__(18)
 var inherits = __webpack_require__(3)
 var sign = __webpack_require__(450)
 var verify = __webpack_require__(486)
 
-var algorithms = __webpack_require__(224)
+var algorithms = __webpack_require__(223)
 Object.keys(algorithms).forEach(function (key) {
   algorithms[key].id = new Buffer(algorithms[key].id, 'hex')
   algorithms[key.toLowerCase()] = algorithms[key]
@@ -68586,12 +68758,12 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
-var createHmac = __webpack_require__(223)
-var crt = __webpack_require__(78)
+var createHmac = __webpack_require__(222)
+var crt = __webpack_require__(77)
 var EC = __webpack_require__(17).ec
 var BN = __webpack_require__(10)
-var parseKeys = __webpack_require__(61)
-var curves = __webpack_require__(245)
+var parseKeys = __webpack_require__(60)
+var curves = __webpack_require__(244)
 
 function sign (hash, key, hashType, signType, tag) {
   var priv = parseKeys(key)
@@ -68737,7 +68909,7 @@ module.exports.makeKey = makeKey
 /* 451 */
 /***/ (function(module, exports) {
 
-module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.0","_inBundle":false,"_integrity":"sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=","_location":"/webpack/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.0.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.0.0","saveSpec":null,"fetchSpec":"^6.0.0"},"_requiredBy":["/webpack/browserify-sign","/webpack/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz","_shasum":"cac9af8762c85836187003c8dfe193e5e2eae5df","_spec":"elliptic@^6.0.0","_where":"C:\\Users\\alex\\AppData\\Roaming\\npm\\node_modules\\webpack\\node_modules\\browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.0"}
+module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.0","_inBundle":false,"_integrity":"sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.0.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.0.0","saveSpec":null,"fetchSpec":"^6.0.0"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz","_shasum":"cac9af8762c85836187003c8dfe193e5e2eae5df","_spec":"elliptic@^6.0.0","_where":"E:\\Documenti\\__Progetti\\simple-weather-old\\node_modules\\browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.0"}
 
 /***/ }),
 /* 452 */
@@ -68749,7 +68921,7 @@ module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.0","_inBundle":f
 var utils = exports;
 var BN = __webpack_require__(10);
 var minAssert = __webpack_require__(19);
-var minUtils = __webpack_require__(237);
+var minUtils = __webpack_require__(236);
 
 utils.assert = minAssert;
 utils.toArray = minUtils.toArray;
@@ -69255,7 +69427,7 @@ BasePoint.prototype.dblp = function dblp(k) {
 "use strict";
 
 
-var curve = __webpack_require__(60);
+var curve = __webpack_require__(59);
 var elliptic = __webpack_require__(17);
 var BN = __webpack_require__(10);
 var inherits = __webpack_require__(3);
@@ -70200,7 +70372,7 @@ JPoint.prototype.isInfinity = function isInfinity() {
 "use strict";
 
 
-var curve = __webpack_require__(60);
+var curve = __webpack_require__(59);
 var BN = __webpack_require__(10);
 var inherits = __webpack_require__(3);
 var Base = curve.base;
@@ -70387,7 +70559,7 @@ Point.prototype.getX = function getX() {
 "use strict";
 
 
-var curve = __webpack_require__(60);
+var curve = __webpack_require__(59);
 var elliptic = __webpack_require__(17);
 var BN = __webpack_require__(10);
 var inherits = __webpack_require__(3);
@@ -70829,7 +71001,7 @@ Point.prototype.mixedAdd = Point.prototype.add;
 
 var curves = exports;
 
-var hash = __webpack_require__(79);
+var hash = __webpack_require__(78);
 var elliptic = __webpack_require__(17);
 
 var assert = elliptic.utils.assert;
@@ -71041,9 +71213,9 @@ defineCurve('secp256k1', {
 
 exports.sha1 = __webpack_require__(459);
 exports.sha224 = __webpack_require__(460);
-exports.sha256 = __webpack_require__(239);
+exports.sha256 = __webpack_require__(238);
 exports.sha384 = __webpack_require__(461);
-exports.sha512 = __webpack_require__(240);
+exports.sha512 = __webpack_require__(239);
 
 
 /***/ }),
@@ -71055,7 +71227,7 @@ exports.sha512 = __webpack_require__(240);
 
 var utils = __webpack_require__(22);
 var common = __webpack_require__(44);
-var shaCommon = __webpack_require__(238);
+var shaCommon = __webpack_require__(237);
 
 var rotl32 = utils.rotl32;
 var sum32 = utils.sum32;
@@ -71135,7 +71307,7 @@ SHA1.prototype._digest = function digest(enc) {
 
 
 var utils = __webpack_require__(22);
-var SHA256 = __webpack_require__(239);
+var SHA256 = __webpack_require__(238);
 
 function SHA224() {
   if (!(this instanceof SHA224))
@@ -71173,7 +71345,7 @@ SHA224.prototype._digest = function digest(enc) {
 
 var utils = __webpack_require__(22);
 
-var SHA512 = __webpack_require__(240);
+var SHA512 = __webpack_require__(239);
 
 function SHA384() {
   if (!(this instanceof SHA384))
@@ -72453,8 +72625,8 @@ EC.prototype.getKeyRecoveryParam = function(e, signature, Q, enc) {
 "use strict";
 
 
-var hash = __webpack_require__(79);
-var utils = __webpack_require__(237);
+var hash = __webpack_require__(78);
+var utils = __webpack_require__(236);
 var assert = __webpack_require__(19);
 
 function HmacDRBG(options) {
@@ -72841,7 +73013,7 @@ Signature.prototype.toDER = function toDER(enc) {
 "use strict";
 
 
-var hash = __webpack_require__(79);
+var hash = __webpack_require__(78);
 var elliptic = __webpack_require__(17);
 var utils = elliptic.utils;
 var assert = utils.assert;
@@ -74261,7 +74433,7 @@ Node.prototype._isPrintstr = function isPrintstr(str) {
 /* 478 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var constants = __webpack_require__(242);
+var constants = __webpack_require__(241);
 
 exports.tagClass = {
   0: 'universal',
@@ -74311,7 +74483,7 @@ exports.tagByName = constants._reverse(exports.tag);
 
 var decoders = exports;
 
-decoders.der = __webpack_require__(243);
+decoders.der = __webpack_require__(242);
 decoders.pem = __webpack_require__(480);
 
 
@@ -74322,7 +74494,7 @@ decoders.pem = __webpack_require__(480);
 var inherits = __webpack_require__(3);
 var Buffer = __webpack_require__(2).Buffer;
 
-var DERDecoder = __webpack_require__(243);
+var DERDecoder = __webpack_require__(242);
 
 function PEMDecoder(entity) {
   DERDecoder.call(this, entity);
@@ -74376,7 +74548,7 @@ PEMDecoder.prototype.decode = function decode(data, options) {
 
 var encoders = exports;
 
-encoders.der = __webpack_require__(244);
+encoders.der = __webpack_require__(243);
 encoders.pem = __webpack_require__(482);
 
 
@@ -74386,7 +74558,7 @@ encoders.pem = __webpack_require__(482);
 
 var inherits = __webpack_require__(3);
 
-var DEREncoder = __webpack_require__(244);
+var DEREncoder = __webpack_require__(243);
 
 function PEMEncoder(entity) {
   DEREncoder.call(this, entity);
@@ -74516,8 +74688,8 @@ module.exports = {"2.16.840.1.101.3.4.1.1":"aes-128-ecb","2.16.840.1.101.3.4.1.2
 var findProc = /Proc-Type: 4,ENCRYPTED\n\r?DEK-Info: AES-((?:128)|(?:192)|(?:256))-CBC,([0-9A-H]+)\n\r?\n\r?([0-9A-z\n\r\+\/\=]+)\n\r?/m
 var startRegex = /^-----BEGIN ((?:.* KEY)|CERTIFICATE)-----\n/m
 var fullRegex = /^-----BEGIN ((?:.* KEY)|CERTIFICATE)-----\n\r?([0-9A-z\n\r\+\/\=]+)\n\r?-----END \1-----$/m
-var evp = __webpack_require__(58)
-var ciphers = __webpack_require__(75)
+var evp = __webpack_require__(57)
+var ciphers = __webpack_require__(74)
 module.exports = function (okey, password) {
   var key = okey.toString()
   var match = key.match(findProc)
@@ -74552,8 +74724,8 @@ module.exports = function (okey, password) {
 /* WEBPACK VAR INJECTION */(function(Buffer) {// much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
 var BN = __webpack_require__(10)
 var EC = __webpack_require__(17).ec
-var parseKeys = __webpack_require__(61)
-var curves = __webpack_require__(245)
+var parseKeys = __webpack_require__(60)
+var curves = __webpack_require__(244)
 
 function verify (sig, hash, key, signType, tag) {
   var pub = parseKeys(key)
@@ -74783,14 +74955,14 @@ exports.publicDecrypt = function publicDecrypt(key, buf) {
 /* 489 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var parseKeys = __webpack_require__(61);
+/* WEBPACK VAR INJECTION */(function(Buffer) {var parseKeys = __webpack_require__(60);
 var randomBytes = __webpack_require__(36);
-var createHash = __webpack_require__(40);
-var mgf = __webpack_require__(246);
-var xor = __webpack_require__(247);
+var createHash = __webpack_require__(41);
+var mgf = __webpack_require__(245);
+var xor = __webpack_require__(246);
 var bn = __webpack_require__(10);
-var withPublic = __webpack_require__(248);
-var crt = __webpack_require__(78);
+var withPublic = __webpack_require__(247);
+var crt = __webpack_require__(77);
 
 var constants = {
   RSA_PKCS1_OAEP_PADDING: 4,
@@ -74884,13 +75056,13 @@ function nonZero(len, crypto) {
 /* 490 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var parseKeys = __webpack_require__(61);
-var mgf = __webpack_require__(246);
-var xor = __webpack_require__(247);
+/* WEBPACK VAR INJECTION */(function(Buffer) {var parseKeys = __webpack_require__(60);
+var mgf = __webpack_require__(245);
+var xor = __webpack_require__(246);
 var bn = __webpack_require__(10);
-var crt = __webpack_require__(78);
-var createHash = __webpack_require__(40);
-var withPublic = __webpack_require__(248);
+var crt = __webpack_require__(77);
+var createHash = __webpack_require__(41);
+var withPublic = __webpack_require__(247);
 module.exports = function privateDecrypt(private_key, enc, reverse) {
   var padding;
   if (private_key.padding) {
@@ -75004,7 +75176,7 @@ function compare(a, b){
 function oldBrowser () {
   throw new Error('secure random number generation not supported by this browser\nuse chrome, FireFox or Internet Explorer 11')
 }
-var safeBuffer = __webpack_require__(5)
+var safeBuffer = __webpack_require__(4)
 var randombytes = __webpack_require__(36)
 var Buffer = safeBuffer.Buffer
 var kBufferMaxLength = safeBuffer.kMaxLength
@@ -75108,7 +75280,7 @@ function randomFillSync (buf, offset, size) {
   return actualFill(buf, offset, size)
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13), __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(9)))
 
 /***/ }),
 /* 492 */
@@ -75117,36 +75289,36 @@ function randomFillSync (buf, offset, size) {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var http = __webpack_require__(48)
-var https = __webpack_require__(80)
+var http = __webpack_require__(47)
+var https = __webpack_require__(79)
 var url = __webpack_require__(21)
 var util = __webpack_require__(8)
 var stream = __webpack_require__(18)
-var zlib = __webpack_require__(498)
-var hawk = __webpack_require__(508)
-var aws2 = __webpack_require__(509)
-var aws4 = __webpack_require__(510)
-var httpSignature = __webpack_require__(512)
-var mime = __webpack_require__(527)
-var stringstream = __webpack_require__(531)
-var caseless = __webpack_require__(85)
-var ForeverAgent = __webpack_require__(532)
-var FormData = __webpack_require__(533)
-var extend = __webpack_require__(68)
+var zlib = __webpack_require__(497)
+var hawk = __webpack_require__(507)
+var aws2 = __webpack_require__(508)
+var aws4 = __webpack_require__(509)
+var httpSignature = __webpack_require__(511)
+var mime = __webpack_require__(525)
+var stringstream = __webpack_require__(529)
+var caseless = __webpack_require__(84)
+var ForeverAgent = __webpack_require__(530)
+var FormData = __webpack_require__(531)
+var extend = __webpack_require__(67)
 var isstream = __webpack_require__(260)
-var isTypedArray = __webpack_require__(534).strict
-var helpers = __webpack_require__(70)
-var cookies = __webpack_require__(210)
-var getProxyFromURI = __webpack_require__(535)
-var Querystring = __webpack_require__(536).Querystring
-var Har = __webpack_require__(539).Har
-var Auth = __webpack_require__(593).Auth
-var OAuth = __webpack_require__(596).OAuth
-var Multipart = __webpack_require__(598).Multipart
-var Redirect = __webpack_require__(601).Redirect
-var Tunnel = __webpack_require__(602).Tunnel
-var now = __webpack_require__(604)
-var Buffer = __webpack_require__(47).Buffer
+var isTypedArray = __webpack_require__(532).strict
+var helpers = __webpack_require__(69)
+var cookies = __webpack_require__(209)
+var getProxyFromURI = __webpack_require__(533)
+var Querystring = __webpack_require__(534).Querystring
+var Har = __webpack_require__(537).Har
+var Auth = __webpack_require__(591).Auth
+var OAuth = __webpack_require__(594).OAuth
+var Multipart = __webpack_require__(596).Multipart
+var Redirect = __webpack_require__(599).Redirect
+var Tunnel = __webpack_require__(600).Tunnel
+var now = __webpack_require__(602)
+var Buffer = __webpack_require__(4).Buffer
 
 var safeStringify = helpers.safeStringify
 var isReadStream = helpers.isReadStream
@@ -76674,11 +76846,11 @@ module.exports = Request
 /* 493 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer, global, process) {var capability = __webpack_require__(249)
+/* WEBPACK VAR INJECTION */(function(Buffer, global, process) {var capability = __webpack_require__(248)
 var inherits = __webpack_require__(3)
-var response = __webpack_require__(494)
-var stream = __webpack_require__(41)
-var toArrayBuffer = __webpack_require__(495)
+var response = __webpack_require__(249)
+var stream = __webpack_require__(42)
+var toArrayBuffer = __webpack_require__(494)
 
 var IncomingMessage = response.IncomingMessage
 var rStates = response.readyStates
@@ -76714,9 +76886,8 @@ var ClientRequest = module.exports = function (opts) {
 
 	var preferBinary
 	var useFetch = true
-	if (opts.mode === 'disable-fetch' || 'timeout' in opts) {
-		// If the use of XHR should be preferred and includes preserving the 'content-type' header.
-		// Force XHR to be used since the Fetch API does not yet support timeouts.
+	if (opts.mode === 'disable-fetch' || ('requestTimeout' in opts && !capability.abortController)) {
+		// If the use of XHR should be preferred. Not typically needed.
 		useFetch = false
 		preferBinary = true
 	} else if (opts.mode === 'prefer-streaming') {
@@ -76778,7 +76949,9 @@ ClientRequest.prototype._onFinish = function () {
 	var headersObj = self._headers
 	var body = null
 	if (opts.method !== 'GET' && opts.method !== 'HEAD') {
-		if (capability.blobConstructor) {
+		if (capability.arraybuffer) {
+			body = toArrayBuffer(Buffer.concat(self._body))
+		} else if (capability.blobConstructor) {
 			body = new global.Blob(self._body.map(function (buffer) {
 				return toArrayBuffer(buffer)
 			}), {
@@ -76805,12 +76978,28 @@ ClientRequest.prototype._onFinish = function () {
 	})
 
 	if (self._mode === 'fetch') {
+		var signal = null
+		if (capability.abortController) {
+			var controller = new AbortController()
+			signal = controller.signal
+			self._fetchAbortController = controller
+
+			if ('requestTimeout' in opts && opts.requestTimeout !== 0) {
+				global.setTimeout(function () {
+					self.emit('requestTimeout')
+					if (self._fetchAbortController)
+						self._fetchAbortController.abort()
+				}, opts.requestTimeout)
+			}
+		}
+
 		global.fetch(self._opts.url, {
 			method: self._opts.method,
 			headers: headersList,
 			body: body || undefined,
 			mode: 'cors',
-			credentials: opts.withCredentials ? 'include' : 'same-origin'
+			credentials: opts.withCredentials ? 'include' : 'same-origin',
+			signal: signal
 		}).then(function (response) {
 			self._fetchResponse = response
 			self._connect()
@@ -76838,10 +77027,10 @@ ClientRequest.prototype._onFinish = function () {
 		if (self._mode === 'text' && 'overrideMimeType' in xhr)
 			xhr.overrideMimeType('text/plain; charset=x-user-defined')
 
-		if ('timeout' in opts) {
-			xhr.timeout = opts.timeout
+		if ('requestTimeout' in opts) {
+			xhr.timeout = opts.requestTimeout
 			xhr.ontimeout = function () {
-				self.emit('timeout')
+				self.emit('requestTimeout')
 			}
 		}
 
@@ -76937,8 +77126,8 @@ ClientRequest.prototype.abort = ClientRequest.prototype.destroy = function () {
 		self._response._destroyed = true
 	if (self._xhr)
 		self._xhr.abort()
-	// Currently, there isn't a way to truly abort a fetch.
-	// If you like bikeshedding, see https://github.com/whatwg/fetch/issues/27
+	else if (self._fetchAbortController)
+		self._fetchAbortController.abort()
 }
 
 ClientRequest.prototype.end = function (data, encoding, cb) {
@@ -76981,199 +77170,10 @@ var unsafeHeaders = [
 	'via'
 ]
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer, __webpack_require__(13), __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer, __webpack_require__(12), __webpack_require__(9)))
 
 /***/ }),
 /* 494 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process, Buffer, global) {var capability = __webpack_require__(249)
-var inherits = __webpack_require__(3)
-var stream = __webpack_require__(41)
-
-var rStates = exports.readyStates = {
-	UNSENT: 0,
-	OPENED: 1,
-	HEADERS_RECEIVED: 2,
-	LOADING: 3,
-	DONE: 4
-}
-
-var IncomingMessage = exports.IncomingMessage = function (xhr, response, mode) {
-	var self = this
-	stream.Readable.call(self)
-
-	self._mode = mode
-	self.headers = {}
-	self.rawHeaders = []
-	self.trailers = {}
-	self.rawTrailers = []
-
-	// Fake the 'close' event, but only once 'end' fires
-	self.on('end', function () {
-		// The nextTick is necessary to prevent the 'request' module from causing an infinite loop
-		process.nextTick(function () {
-			self.emit('close')
-		})
-	})
-
-	if (mode === 'fetch') {
-		self._fetchResponse = response
-
-		self.url = response.url
-		self.statusCode = response.status
-		self.statusMessage = response.statusText
-		
-		response.headers.forEach(function(header, key){
-			self.headers[key.toLowerCase()] = header
-			self.rawHeaders.push(key, header)
-		})
-
-
-		// TODO: this doesn't respect backpressure. Once WritableStream is available, this can be fixed
-		var reader = response.body.getReader()
-		function read () {
-			reader.read().then(function (result) {
-				if (self._destroyed)
-					return
-				if (result.done) {
-					self.push(null)
-					return
-				}
-				self.push(new Buffer(result.value))
-				read()
-			}).catch(function(err) {
-				self.emit('error', err)
-			})
-		}
-		read()
-
-	} else {
-		self._xhr = xhr
-		self._pos = 0
-
-		self.url = xhr.responseURL
-		self.statusCode = xhr.status
-		self.statusMessage = xhr.statusText
-		var headers = xhr.getAllResponseHeaders().split(/\r?\n/)
-		headers.forEach(function (header) {
-			var matches = header.match(/^([^:]+):\s*(.*)/)
-			if (matches) {
-				var key = matches[1].toLowerCase()
-				if (key === 'set-cookie') {
-					if (self.headers[key] === undefined) {
-						self.headers[key] = []
-					}
-					self.headers[key].push(matches[2])
-				} else if (self.headers[key] !== undefined) {
-					self.headers[key] += ', ' + matches[2]
-				} else {
-					self.headers[key] = matches[2]
-				}
-				self.rawHeaders.push(matches[1], matches[2])
-			}
-		})
-
-		self._charset = 'x-user-defined'
-		if (!capability.overrideMimeType) {
-			var mimeType = self.rawHeaders['mime-type']
-			if (mimeType) {
-				var charsetMatch = mimeType.match(/;\s*charset=([^;])(;|$)/)
-				if (charsetMatch) {
-					self._charset = charsetMatch[1].toLowerCase()
-				}
-			}
-			if (!self._charset)
-				self._charset = 'utf-8' // best guess
-		}
-	}
-}
-
-inherits(IncomingMessage, stream.Readable)
-
-IncomingMessage.prototype._read = function () {}
-
-IncomingMessage.prototype._onXHRProgress = function () {
-	var self = this
-
-	var xhr = self._xhr
-
-	var response = null
-	switch (self._mode) {
-		case 'text:vbarray': // For IE9
-			if (xhr.readyState !== rStates.DONE)
-				break
-			try {
-				// This fails in IE8
-				response = new global.VBArray(xhr.responseBody).toArray()
-			} catch (e) {}
-			if (response !== null) {
-				self.push(new Buffer(response))
-				break
-			}
-			// Falls through in IE8	
-		case 'text':
-			try { // This will fail when readyState = 3 in IE9. Switch mode and wait for readyState = 4
-				response = xhr.responseText
-			} catch (e) {
-				self._mode = 'text:vbarray'
-				break
-			}
-			if (response.length > self._pos) {
-				var newData = response.substr(self._pos)
-				if (self._charset === 'x-user-defined') {
-					var buffer = new Buffer(newData.length)
-					for (var i = 0; i < newData.length; i++)
-						buffer[i] = newData.charCodeAt(i) & 0xff
-
-					self.push(buffer)
-				} else {
-					self.push(newData, self._charset)
-				}
-				self._pos = response.length
-			}
-			break
-		case 'arraybuffer':
-			if (xhr.readyState !== rStates.DONE || !xhr.response)
-				break
-			response = xhr.response
-			self.push(new Buffer(new Uint8Array(response)))
-			break
-		case 'moz-chunked-arraybuffer': // take whole
-			response = xhr.response
-			if (xhr.readyState !== rStates.LOADING || !response)
-				break
-			self.push(new Buffer(new Uint8Array(response)))
-			break
-		case 'ms-stream':
-			response = xhr.response
-			if (xhr.readyState !== rStates.LOADING)
-				break
-			var reader = new global.MSStreamReader()
-			reader.onprogress = function () {
-				if (reader.result.byteLength > self._pos) {
-					self.push(new Buffer(new Uint8Array(reader.result.slice(self._pos))))
-					self._pos = reader.result.byteLength
-				}
-			}
-			reader.onload = function () {
-				self.push(null)
-			}
-			// reader.onerror = ??? // TODO: this
-			reader.readAsArrayBuffer(response)
-			break
-	}
-
-	// The ms-stream case handles end separately in reader.onload()
-	if (self._xhr.readyState === rStates.DONE && self._mode !== 'ms-stream') {
-		self.push(null)
-	}
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9), __webpack_require__(2).Buffer, __webpack_require__(13)))
-
-/***/ }),
-/* 495 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(2).Buffer
@@ -77206,7 +77206,7 @@ module.exports = function (buf) {
 
 
 /***/ }),
-/* 496 */
+/* 495 */
 /***/ (function(module, exports) {
 
 module.exports = extend
@@ -77231,7 +77231,7 @@ function extend() {
 
 
 /***/ }),
-/* 497 */
+/* 496 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -77301,7 +77301,7 @@ module.exports = {
 
 
 /***/ }),
-/* 498 */
+/* 497 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -77309,7 +77309,7 @@ module.exports = {
 
 var Buffer = __webpack_require__(2).Buffer;
 var Transform = __webpack_require__(18).Transform;
-var binding = __webpack_require__(499);
+var binding = __webpack_require__(498);
 var util = __webpack_require__(8);
 var assert = __webpack_require__(31).ok;
 var kMaxLength = __webpack_require__(2).kMaxLength;
@@ -77917,7 +77917,7 @@ util.inherits(Unzip, Zlib);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
-/* 499 */
+/* 498 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -77926,10 +77926,10 @@ util.inherits(Unzip, Zlib);
 
 var assert = __webpack_require__(31);
 
-var Zstream = __webpack_require__(500);
-var zlib_deflate = __webpack_require__(501);
-var zlib_inflate = __webpack_require__(504);
-var constants = __webpack_require__(507);
+var Zstream = __webpack_require__(499);
+var zlib_deflate = __webpack_require__(500);
+var zlib_inflate = __webpack_require__(503);
+var constants = __webpack_require__(506);
 
 for (var key in constants) {
   exports[key] = constants[key];
@@ -78333,7 +78333,7 @@ exports.Zlib = Zlib;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer, __webpack_require__(9)))
 
 /***/ }),
-/* 500 */
+/* 499 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -78387,7 +78387,7 @@ module.exports = ZStream;
 
 
 /***/ }),
-/* 501 */
+/* 500 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -78412,11 +78412,11 @@ module.exports = ZStream;
 //   misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-var utils   = __webpack_require__(62);
-var trees   = __webpack_require__(502);
+var utils   = __webpack_require__(61);
+var trees   = __webpack_require__(501);
 var adler32 = __webpack_require__(250);
 var crc32   = __webpack_require__(251);
-var msg     = __webpack_require__(503);
+var msg     = __webpack_require__(502);
 
 /* Public constants ==========================================================*/
 /* ===========================================================================*/
@@ -80268,7 +80268,7 @@ exports.deflateTune = deflateTune;
 
 
 /***/ }),
-/* 502 */
+/* 501 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -80293,7 +80293,7 @@ exports.deflateTune = deflateTune;
 //   misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-var utils = __webpack_require__(62);
+var utils = __webpack_require__(61);
 
 /* Public constants ==========================================================*/
 /* ===========================================================================*/
@@ -81495,7 +81495,7 @@ exports._tr_align = _tr_align;
 
 
 /***/ }),
-/* 503 */
+/* 502 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -81534,7 +81534,7 @@ module.exports = {
 
 
 /***/ }),
-/* 504 */
+/* 503 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -81559,11 +81559,11 @@ module.exports = {
 //   misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-var utils         = __webpack_require__(62);
+var utils         = __webpack_require__(61);
 var adler32       = __webpack_require__(250);
 var crc32         = __webpack_require__(251);
-var inflate_fast  = __webpack_require__(505);
-var inflate_table = __webpack_require__(506);
+var inflate_fast  = __webpack_require__(504);
+var inflate_table = __webpack_require__(505);
 
 var CODES = 0;
 var LENS = 1;
@@ -83097,7 +83097,7 @@ exports.inflateUndermine = inflateUndermine;
 
 
 /***/ }),
-/* 505 */
+/* 504 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -83449,7 +83449,7 @@ module.exports = function inflate_fast(strm, start) {
 
 
 /***/ }),
-/* 506 */
+/* 505 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -83474,7 +83474,7 @@ module.exports = function inflate_fast(strm, start) {
 //   misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-var utils = __webpack_require__(62);
+var utils = __webpack_require__(61);
 
 var MAXBITS = 15;
 var ENOUGH_LENS = 852;
@@ -83799,7 +83799,7 @@ module.exports = function inflate_table(type, lens, lens_index, codes, table, ta
 
 
 /***/ }),
-/* 507 */
+/* 506 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -83874,7 +83874,7 @@ module.exports = {
 
 
 /***/ }),
-/* 508 */
+/* 507 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -84674,7 +84674,7 @@ if (typeof module !== 'undefined' && module.exports) {
 
 
 /***/ }),
-/* 509 */
+/* 508 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -84892,14 +84892,14 @@ module.exports.canonicalizeResource = canonicalizeResource
 
 
 /***/ }),
-/* 510 */
+/* 509 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer, process) {var aws4 = exports,
     url = __webpack_require__(21),
-    querystring = __webpack_require__(39),
+    querystring = __webpack_require__(40),
     crypto = __webpack_require__(11),
-    lru = __webpack_require__(511),
+    lru = __webpack_require__(510),
     credentialsCache = lru(1000)
 
 // http://docs.amazonwebservices.com/general/latest/gr/signature-version-4.html
@@ -85231,7 +85231,7 @@ aws4.sign = function(request, credentials) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer, __webpack_require__(9)))
 
 /***/ }),
-/* 511 */
+/* 510 */
 /***/ (function(module, exports) {
 
 module.exports = function(size) {
@@ -85333,15 +85333,15 @@ function DoublyLinkedNode(key, val) {
 
 
 /***/ }),
-/* 512 */
+/* 511 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2015 Joyent, Inc.
 
-var parser = __webpack_require__(513);
-var signer = __webpack_require__(521);
-var verify = __webpack_require__(526);
-var utils = __webpack_require__(63);
+var parser = __webpack_require__(512);
+var signer = __webpack_require__(520);
+var verify = __webpack_require__(524);
+var utils = __webpack_require__(62);
 
 
 
@@ -85368,14 +85368,14 @@ module.exports = {
 
 
 /***/ }),
-/* 513 */
+/* 512 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2012 Joyent, Inc.  All rights reserved.
 
 var assert = __webpack_require__(6);
 var util = __webpack_require__(8);
-var utils = __webpack_require__(63);
+var utils = __webpack_require__(62);
 
 
 
@@ -85689,14 +85689,14 @@ module.exports = {
 
 
 /***/ }),
-/* 514 */
+/* 513 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Named EC curves
 
 // Requires ec.js, jsbn.js, and jsbn2.js
 var BigInteger = __webpack_require__(32).BigInteger
-var ECCurveFp = __webpack_require__(64).ECCurveFp
+var ECCurveFp = __webpack_require__(63).ECCurveFp
 
 
 // ----------------
@@ -85865,22 +85865,22 @@ module.exports = {
 
 
 /***/ }),
-/* 515 */
+/* 514 */
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
-/* 516 */
+/* 515 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
 
-var errors = __webpack_require__(82);
-var types = __webpack_require__(83);
+var errors = __webpack_require__(81);
+var types = __webpack_require__(82);
 
-var Reader = __webpack_require__(517);
-var Writer = __webpack_require__(518);
+var Reader = __webpack_require__(516);
+var Writer = __webpack_require__(517);
 
 
 ///--- Exports
@@ -85904,15 +85904,15 @@ for (var e in errors) {
 
 
 /***/ }),
-/* 517 */
+/* 516 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
 
 var assert = __webpack_require__(31);
 
-var ASN1 = __webpack_require__(83);
-var errors = __webpack_require__(82);
+var ASN1 = __webpack_require__(82);
+var errors = __webpack_require__(81);
 
 
 ///--- Globals
@@ -86172,14 +86172,14 @@ module.exports = Reader;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 518 */
+/* 517 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
 
 var assert = __webpack_require__(31);
-var ASN1 = __webpack_require__(83);
-var errors = __webpack_require__(82);
+var ASN1 = __webpack_require__(82);
+var errors = __webpack_require__(81);
 
 
 ///--- Globals
@@ -86495,7 +86495,7 @@ module.exports = Writer;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 519 */
+/* 518 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2017 Joyent, Inc.
@@ -86513,16 +86513,16 @@ module.exports = {
 };
 
 var assert = __webpack_require__(6);
-var SSHBuffer = __webpack_require__(66);
+var SSHBuffer = __webpack_require__(65);
 var crypto = __webpack_require__(11);
 var algs = __webpack_require__(15);
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
-var Identity = __webpack_require__(52);
+var Identity = __webpack_require__(51);
 var rfc4253 = __webpack_require__(34);
 var Signature = __webpack_require__(24);
-var utils = __webpack_require__(12);
-var Certificate = __webpack_require__(50);
+var utils = __webpack_require__(13);
+var Certificate = __webpack_require__(49);
 
 function verify(cert, key) {
 	/*
@@ -86824,7 +86824,7 @@ function getCertType(key) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 520 */
+/* 519 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2016 Joyent, Inc.
@@ -86841,13 +86841,13 @@ module.exports = {
 var assert = __webpack_require__(6);
 var asn1 = __webpack_require__(28);
 var algs = __webpack_require__(15);
-var utils = __webpack_require__(12);
+var utils = __webpack_require__(13);
 var Key = __webpack_require__(14);
 var PrivateKey = __webpack_require__(16);
 var pem = __webpack_require__(27);
-var Identity = __webpack_require__(52);
+var Identity = __webpack_require__(51);
 var Signature = __webpack_require__(24);
-var Certificate = __webpack_require__(50);
+var Certificate = __webpack_require__(49);
 
 function read(buf, options) {
 	if (typeof (buf) !== 'string') {
@@ -86908,18 +86908,18 @@ function write(cert, options) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 521 */
+/* 520 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2012 Joyent, Inc.  All rights reserved.
 
 var assert = __webpack_require__(6);
 var crypto = __webpack_require__(11);
-var http = __webpack_require__(48);
+var http = __webpack_require__(47);
 var util = __webpack_require__(8);
-var sshpk = __webpack_require__(81);
-var jsprim = __webpack_require__(522);
-var utils = __webpack_require__(63);
+var sshpk = __webpack_require__(80);
+var jsprim = __webpack_require__(521);
+var utils = __webpack_require__(62);
 
 var sprintf = __webpack_require__(8).format;
 
@@ -87316,7 +87316,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 522 */
+/* 521 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -87327,8 +87327,8 @@ var mod_assert = __webpack_require__(6);
 var mod_util = __webpack_require__(8);
 
 var mod_extsprintf = __webpack_require__(259);
-var mod_verror = __webpack_require__(523);
-var mod_jsonschema = __webpack_require__(525);
+var mod_verror = __webpack_require__(522);
+var mod_jsonschema = __webpack_require__(523);
 
 /*
  * Public interface
@@ -88057,7 +88057,7 @@ function mergeObjects(provided, overrides, defaults)
 
 
 /***/ }),
-/* 523 */
+/* 522 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -88068,7 +88068,7 @@ var mod_assertplus = __webpack_require__(6);
 var mod_util = __webpack_require__(8);
 
 var mod_extsprintf = __webpack_require__(259);
-var mod_isError = __webpack_require__(524).isError;
+var mod_isError = __webpack_require__(37).isError;
 var sprintf = mod_extsprintf.sprintf;
 
 /*
@@ -88514,121 +88514,7 @@ WError.prototype.cause = function we_cause(c)
 
 
 /***/ }),
-/* 524 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-// NOTE: These type checking functions intentionally don't use `instanceof`
-// because it is fragile and can be easily faked with `Object.create()`.
-
-function isArray(arg) {
-  if (Array.isArray) {
-    return Array.isArray(arg);
-  }
-  return objectToString(arg) === '[object Array]';
-}
-exports.isArray = isArray;
-
-function isBoolean(arg) {
-  return typeof arg === 'boolean';
-}
-exports.isBoolean = isBoolean;
-
-function isNull(arg) {
-  return arg === null;
-}
-exports.isNull = isNull;
-
-function isNullOrUndefined(arg) {
-  return arg == null;
-}
-exports.isNullOrUndefined = isNullOrUndefined;
-
-function isNumber(arg) {
-  return typeof arg === 'number';
-}
-exports.isNumber = isNumber;
-
-function isString(arg) {
-  return typeof arg === 'string';
-}
-exports.isString = isString;
-
-function isSymbol(arg) {
-  return typeof arg === 'symbol';
-}
-exports.isSymbol = isSymbol;
-
-function isUndefined(arg) {
-  return arg === void 0;
-}
-exports.isUndefined = isUndefined;
-
-function isRegExp(re) {
-  return objectToString(re) === '[object RegExp]';
-}
-exports.isRegExp = isRegExp;
-
-function isObject(arg) {
-  return typeof arg === 'object' && arg !== null;
-}
-exports.isObject = isObject;
-
-function isDate(d) {
-  return objectToString(d) === '[object Date]';
-}
-exports.isDate = isDate;
-
-function isError(e) {
-  return (objectToString(e) === '[object Error]' || e instanceof Error);
-}
-exports.isError = isError;
-
-function isFunction(arg) {
-  return typeof arg === 'function';
-}
-exports.isFunction = isFunction;
-
-function isPrimitive(arg) {
-  return arg === null ||
-         typeof arg === 'boolean' ||
-         typeof arg === 'number' ||
-         typeof arg === 'string' ||
-         typeof arg === 'symbol' ||  // ES6 symbol
-         typeof arg === 'undefined';
-}
-exports.isPrimitive = isPrimitive;
-
-exports.isBuffer = Buffer.isBuffer;
-
-function objectToString(o) {
-  return Object.prototype.toString.call(o);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
-
-/***/ }),
-/* 525 */
+/* 523 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -88649,9 +88535,9 @@ empty list will be returned. A validation error will have two properties:
 (function (root, factory) {
     if (true) {
         // AMD. Register as an anonymous module.
-        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
             return factory();
-        }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+        }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
     } else if (typeof module === 'object' && module.exports) {
         // Node. Does not work with strict CommonJS, but
@@ -88908,15 +88794,15 @@ return exports;
 
 
 /***/ }),
-/* 526 */
+/* 524 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright 2015 Joyent, Inc.
 
 var assert = __webpack_require__(6);
 var crypto = __webpack_require__(11);
-var sshpk = __webpack_require__(81);
-var utils = __webpack_require__(63);
+var sshpk = __webpack_require__(80);
+var utils = __webpack_require__(62);
 
 var HASH_ALGOS = utils.HASH_ALGOS;
 var PK_ALGOS = utils.PK_ALGOS;
@@ -89003,7 +88889,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 527 */
+/* 525 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -89021,8 +88907,8 @@ module.exports = {
  * @private
  */
 
-var db = __webpack_require__(528)
-var extname = __webpack_require__(530).extname
+var db = __webpack_require__(526)
+var extname = __webpack_require__(528).extname
 
 /**
  * Module variables.
@@ -89198,7 +89084,7 @@ function populateMaps (extensions, types) {
 
 
 /***/ }),
-/* 528 */
+/* 526 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -89211,17 +89097,17 @@ function populateMaps (extensions, types) {
  * Module exports.
  */
 
-module.exports = __webpack_require__(529)
+module.exports = __webpack_require__(527)
 
 
 /***/ }),
-/* 529 */
+/* 527 */
 /***/ (function(module, exports) {
 
 module.exports = {"application/1d-interleaved-parityfec":{"source":"iana"},"application/3gpdash-qoe-report+xml":{"source":"iana"},"application/3gpp-ims+xml":{"source":"iana"},"application/a2l":{"source":"iana"},"application/activemessage":{"source":"iana"},"application/alto-costmap+json":{"source":"iana","compressible":true},"application/alto-costmapfilter+json":{"source":"iana","compressible":true},"application/alto-directory+json":{"source":"iana","compressible":true},"application/alto-endpointcost+json":{"source":"iana","compressible":true},"application/alto-endpointcostparams+json":{"source":"iana","compressible":true},"application/alto-endpointprop+json":{"source":"iana","compressible":true},"application/alto-endpointpropparams+json":{"source":"iana","compressible":true},"application/alto-error+json":{"source":"iana","compressible":true},"application/alto-networkmap+json":{"source":"iana","compressible":true},"application/alto-networkmapfilter+json":{"source":"iana","compressible":true},"application/aml":{"source":"iana"},"application/andrew-inset":{"source":"iana","extensions":["ez"]},"application/applefile":{"source":"iana"},"application/applixware":{"source":"apache","extensions":["aw"]},"application/atf":{"source":"iana"},"application/atfx":{"source":"iana"},"application/atom+xml":{"source":"iana","compressible":true,"extensions":["atom"]},"application/atomcat+xml":{"source":"iana","extensions":["atomcat"]},"application/atomdeleted+xml":{"source":"iana"},"application/atomicmail":{"source":"iana"},"application/atomsvc+xml":{"source":"iana","extensions":["atomsvc"]},"application/atxml":{"source":"iana"},"application/auth-policy+xml":{"source":"iana"},"application/bacnet-xdd+zip":{"source":"iana"},"application/batch-smtp":{"source":"iana"},"application/bdoc":{"compressible":false,"extensions":["bdoc"]},"application/beep+xml":{"source":"iana"},"application/calendar+json":{"source":"iana","compressible":true},"application/calendar+xml":{"source":"iana"},"application/call-completion":{"source":"iana"},"application/cals-1840":{"source":"iana"},"application/cbor":{"source":"iana"},"application/cccex":{"source":"iana"},"application/ccmp+xml":{"source":"iana"},"application/ccxml+xml":{"source":"iana","extensions":["ccxml"]},"application/cdfx+xml":{"source":"iana"},"application/cdmi-capability":{"source":"iana","extensions":["cdmia"]},"application/cdmi-container":{"source":"iana","extensions":["cdmic"]},"application/cdmi-domain":{"source":"iana","extensions":["cdmid"]},"application/cdmi-object":{"source":"iana","extensions":["cdmio"]},"application/cdmi-queue":{"source":"iana","extensions":["cdmiq"]},"application/cdni":{"source":"iana"},"application/cea":{"source":"iana"},"application/cea-2018+xml":{"source":"iana"},"application/cellml+xml":{"source":"iana"},"application/cfw":{"source":"iana"},"application/clue_info+xml":{"source":"iana"},"application/cms":{"source":"iana"},"application/cnrp+xml":{"source":"iana"},"application/coap-group+json":{"source":"iana","compressible":true},"application/coap-payload":{"source":"iana"},"application/commonground":{"source":"iana"},"application/conference-info+xml":{"source":"iana"},"application/cose":{"source":"iana"},"application/cose-key":{"source":"iana"},"application/cose-key-set":{"source":"iana"},"application/cpl+xml":{"source":"iana"},"application/csrattrs":{"source":"iana"},"application/csta+xml":{"source":"iana"},"application/cstadata+xml":{"source":"iana"},"application/csvm+json":{"source":"iana","compressible":true},"application/cu-seeme":{"source":"apache","extensions":["cu"]},"application/cybercash":{"source":"iana"},"application/dart":{"compressible":true},"application/dash+xml":{"source":"iana","extensions":["mpd"]},"application/dashdelta":{"source":"iana"},"application/davmount+xml":{"source":"iana","extensions":["davmount"]},"application/dca-rft":{"source":"iana"},"application/dcd":{"source":"iana"},"application/dec-dx":{"source":"iana"},"application/dialog-info+xml":{"source":"iana"},"application/dicom":{"source":"iana"},"application/dicom+json":{"source":"iana","compressible":true},"application/dicom+xml":{"source":"iana"},"application/dii":{"source":"iana"},"application/dit":{"source":"iana"},"application/dns":{"source":"iana"},"application/docbook+xml":{"source":"apache","extensions":["dbk"]},"application/dskpp+xml":{"source":"iana"},"application/dssc+der":{"source":"iana","extensions":["dssc"]},"application/dssc+xml":{"source":"iana","extensions":["xdssc"]},"application/dvcs":{"source":"iana"},"application/ecmascript":{"source":"iana","compressible":true,"extensions":["ecma"]},"application/edi-consent":{"source":"iana"},"application/edi-x12":{"source":"iana","compressible":false},"application/edifact":{"source":"iana","compressible":false},"application/efi":{"source":"iana"},"application/emergencycalldata.comment+xml":{"source":"iana"},"application/emergencycalldata.control+xml":{"source":"iana"},"application/emergencycalldata.deviceinfo+xml":{"source":"iana"},"application/emergencycalldata.ecall.msd":{"source":"iana"},"application/emergencycalldata.providerinfo+xml":{"source":"iana"},"application/emergencycalldata.serviceinfo+xml":{"source":"iana"},"application/emergencycalldata.subscriberinfo+xml":{"source":"iana"},"application/emergencycalldata.veds+xml":{"source":"iana"},"application/emma+xml":{"source":"iana","extensions":["emma"]},"application/emotionml+xml":{"source":"iana"},"application/encaprtp":{"source":"iana"},"application/epp+xml":{"source":"iana"},"application/epub+zip":{"source":"iana","extensions":["epub"]},"application/eshop":{"source":"iana"},"application/exi":{"source":"iana","extensions":["exi"]},"application/fastinfoset":{"source":"iana"},"application/fastsoap":{"source":"iana"},"application/fdt+xml":{"source":"iana"},"application/fido.trusted-apps+json":{"compressible":true},"application/fits":{"source":"iana"},"application/font-sfnt":{"source":"iana"},"application/font-tdpfr":{"source":"iana","extensions":["pfr"]},"application/font-woff":{"source":"iana","compressible":false,"extensions":["woff"]},"application/font-woff2":{"compressible":false,"extensions":["woff2"]},"application/framework-attributes+xml":{"source":"iana"},"application/geo+json":{"source":"iana","compressible":true,"extensions":["geojson"]},"application/geo+json-seq":{"source":"iana"},"application/geoxacml+xml":{"source":"iana"},"application/gml+xml":{"source":"iana","extensions":["gml"]},"application/gpx+xml":{"source":"apache","extensions":["gpx"]},"application/gxf":{"source":"apache","extensions":["gxf"]},"application/gzip":{"source":"iana","compressible":false,"extensions":["gz"]},"application/h224":{"source":"iana"},"application/held+xml":{"source":"iana"},"application/http":{"source":"iana"},"application/hyperstudio":{"source":"iana","extensions":["stk"]},"application/ibe-key-request+xml":{"source":"iana"},"application/ibe-pkg-reply+xml":{"source":"iana"},"application/ibe-pp-data":{"source":"iana"},"application/iges":{"source":"iana"},"application/im-iscomposing+xml":{"source":"iana"},"application/index":{"source":"iana"},"application/index.cmd":{"source":"iana"},"application/index.obj":{"source":"iana"},"application/index.response":{"source":"iana"},"application/index.vnd":{"source":"iana"},"application/inkml+xml":{"source":"iana","extensions":["ink","inkml"]},"application/iotp":{"source":"iana"},"application/ipfix":{"source":"iana","extensions":["ipfix"]},"application/ipp":{"source":"iana"},"application/isup":{"source":"iana"},"application/its+xml":{"source":"iana"},"application/java-archive":{"source":"apache","compressible":false,"extensions":["jar","war","ear"]},"application/java-serialized-object":{"source":"apache","compressible":false,"extensions":["ser"]},"application/java-vm":{"source":"apache","compressible":false,"extensions":["class"]},"application/javascript":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["js","mjs"]},"application/jf2feed+json":{"source":"iana","compressible":true},"application/jose":{"source":"iana"},"application/jose+json":{"source":"iana","compressible":true},"application/jrd+json":{"source":"iana","compressible":true},"application/json":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["json","map"]},"application/json-patch+json":{"source":"iana","compressible":true},"application/json-seq":{"source":"iana"},"application/json5":{"extensions":["json5"]},"application/jsonml+json":{"source":"apache","compressible":true,"extensions":["jsonml"]},"application/jwk+json":{"source":"iana","compressible":true},"application/jwk-set+json":{"source":"iana","compressible":true},"application/jwt":{"source":"iana"},"application/kpml-request+xml":{"source":"iana"},"application/kpml-response+xml":{"source":"iana"},"application/ld+json":{"source":"iana","compressible":true,"extensions":["jsonld"]},"application/lgr+xml":{"source":"iana"},"application/link-format":{"source":"iana"},"application/load-control+xml":{"source":"iana"},"application/lost+xml":{"source":"iana","extensions":["lostxml"]},"application/lostsync+xml":{"source":"iana"},"application/lxf":{"source":"iana"},"application/mac-binhex40":{"source":"iana","extensions":["hqx"]},"application/mac-compactpro":{"source":"apache","extensions":["cpt"]},"application/macwriteii":{"source":"iana"},"application/mads+xml":{"source":"iana","extensions":["mads"]},"application/manifest+json":{"charset":"UTF-8","compressible":true,"extensions":["webmanifest"]},"application/marc":{"source":"iana","extensions":["mrc"]},"application/marcxml+xml":{"source":"iana","extensions":["mrcx"]},"application/mathematica":{"source":"iana","extensions":["ma","nb","mb"]},"application/mathml+xml":{"source":"iana","extensions":["mathml"]},"application/mathml-content+xml":{"source":"iana"},"application/mathml-presentation+xml":{"source":"iana"},"application/mbms-associated-procedure-description+xml":{"source":"iana"},"application/mbms-deregister+xml":{"source":"iana"},"application/mbms-envelope+xml":{"source":"iana"},"application/mbms-msk+xml":{"source":"iana"},"application/mbms-msk-response+xml":{"source":"iana"},"application/mbms-protection-description+xml":{"source":"iana"},"application/mbms-reception-report+xml":{"source":"iana"},"application/mbms-register+xml":{"source":"iana"},"application/mbms-register-response+xml":{"source":"iana"},"application/mbms-schedule+xml":{"source":"iana"},"application/mbms-user-service-description+xml":{"source":"iana"},"application/mbox":{"source":"iana","extensions":["mbox"]},"application/media-policy-dataset+xml":{"source":"iana"},"application/media_control+xml":{"source":"iana"},"application/mediaservercontrol+xml":{"source":"iana","extensions":["mscml"]},"application/merge-patch+json":{"source":"iana","compressible":true},"application/metalink+xml":{"source":"apache","extensions":["metalink"]},"application/metalink4+xml":{"source":"iana","extensions":["meta4"]},"application/mets+xml":{"source":"iana","extensions":["mets"]},"application/mf4":{"source":"iana"},"application/mikey":{"source":"iana"},"application/mmt-usd+xml":{"source":"iana"},"application/mods+xml":{"source":"iana","extensions":["mods"]},"application/moss-keys":{"source":"iana"},"application/moss-signature":{"source":"iana"},"application/mosskey-data":{"source":"iana"},"application/mosskey-request":{"source":"iana"},"application/mp21":{"source":"iana","extensions":["m21","mp21"]},"application/mp4":{"source":"iana","extensions":["mp4s","m4p"]},"application/mpeg4-generic":{"source":"iana"},"application/mpeg4-iod":{"source":"iana"},"application/mpeg4-iod-xmt":{"source":"iana"},"application/mrb-consumer+xml":{"source":"iana"},"application/mrb-publish+xml":{"source":"iana"},"application/msc-ivr+xml":{"source":"iana"},"application/msc-mixer+xml":{"source":"iana"},"application/msword":{"source":"iana","compressible":false,"extensions":["doc","dot"]},"application/mud+json":{"source":"iana","compressible":true},"application/mxf":{"source":"iana","extensions":["mxf"]},"application/n-quads":{"source":"iana"},"application/n-triples":{"source":"iana"},"application/nasdata":{"source":"iana"},"application/news-checkgroups":{"source":"iana"},"application/news-groupinfo":{"source":"iana"},"application/news-transmission":{"source":"iana"},"application/nlsml+xml":{"source":"iana"},"application/nss":{"source":"iana"},"application/ocsp-request":{"source":"iana"},"application/ocsp-response":{"source":"iana"},"application/octet-stream":{"source":"iana","compressible":false,"extensions":["bin","dms","lrf","mar","so","dist","distz","pkg","bpk","dump","elc","deploy","exe","dll","deb","dmg","iso","img","msi","msp","msm","buffer"]},"application/oda":{"source":"iana","extensions":["oda"]},"application/odx":{"source":"iana"},"application/oebps-package+xml":{"source":"iana","extensions":["opf"]},"application/ogg":{"source":"iana","compressible":false,"extensions":["ogx"]},"application/omdoc+xml":{"source":"apache","extensions":["omdoc"]},"application/onenote":{"source":"apache","extensions":["onetoc","onetoc2","onetmp","onepkg"]},"application/oxps":{"source":"iana","extensions":["oxps"]},"application/p2p-overlay+xml":{"source":"iana"},"application/parityfec":{"source":"iana"},"application/passport":{"source":"iana"},"application/patch-ops-error+xml":{"source":"iana","extensions":["xer"]},"application/pdf":{"source":"iana","compressible":false,"extensions":["pdf"]},"application/pdx":{"source":"iana"},"application/pgp-encrypted":{"source":"iana","compressible":false,"extensions":["pgp"]},"application/pgp-keys":{"source":"iana"},"application/pgp-signature":{"source":"iana","extensions":["asc","sig"]},"application/pics-rules":{"source":"apache","extensions":["prf"]},"application/pidf+xml":{"source":"iana"},"application/pidf-diff+xml":{"source":"iana"},"application/pkcs10":{"source":"iana","extensions":["p10"]},"application/pkcs12":{"source":"iana"},"application/pkcs7-mime":{"source":"iana","extensions":["p7m","p7c"]},"application/pkcs7-signature":{"source":"iana","extensions":["p7s"]},"application/pkcs8":{"source":"iana","extensions":["p8"]},"application/pkix-attr-cert":{"source":"iana","extensions":["ac"]},"application/pkix-cert":{"source":"iana","extensions":["cer"]},"application/pkix-crl":{"source":"iana","extensions":["crl"]},"application/pkix-pkipath":{"source":"iana","extensions":["pkipath"]},"application/pkixcmp":{"source":"iana","extensions":["pki"]},"application/pls+xml":{"source":"iana","extensions":["pls"]},"application/poc-settings+xml":{"source":"iana"},"application/postscript":{"source":"iana","compressible":true,"extensions":["ai","eps","ps"]},"application/ppsp-tracker+json":{"source":"iana","compressible":true},"application/problem+json":{"source":"iana","compressible":true},"application/problem+xml":{"source":"iana"},"application/provenance+xml":{"source":"iana"},"application/prs.alvestrand.titrax-sheet":{"source":"iana"},"application/prs.cww":{"source":"iana","extensions":["cww"]},"application/prs.hpub+zip":{"source":"iana"},"application/prs.nprend":{"source":"iana"},"application/prs.plucker":{"source":"iana"},"application/prs.rdf-xml-crypt":{"source":"iana"},"application/prs.xsf+xml":{"source":"iana"},"application/pskc+xml":{"source":"iana","extensions":["pskcxml"]},"application/qsig":{"source":"iana"},"application/raptorfec":{"source":"iana"},"application/rdap+json":{"source":"iana","compressible":true},"application/rdf+xml":{"source":"iana","compressible":true,"extensions":["rdf"]},"application/reginfo+xml":{"source":"iana","extensions":["rif"]},"application/relax-ng-compact-syntax":{"source":"iana","extensions":["rnc"]},"application/remote-printing":{"source":"iana"},"application/reputon+json":{"source":"iana","compressible":true},"application/resource-lists+xml":{"source":"iana","extensions":["rl"]},"application/resource-lists-diff+xml":{"source":"iana","extensions":["rld"]},"application/rfc+xml":{"source":"iana"},"application/riscos":{"source":"iana"},"application/rlmi+xml":{"source":"iana"},"application/rls-services+xml":{"source":"iana","extensions":["rs"]},"application/route-apd+xml":{"source":"iana"},"application/route-s-tsid+xml":{"source":"iana"},"application/route-usd+xml":{"source":"iana"},"application/rpki-ghostbusters":{"source":"iana","extensions":["gbr"]},"application/rpki-manifest":{"source":"iana","extensions":["mft"]},"application/rpki-publication":{"source":"iana"},"application/rpki-roa":{"source":"iana","extensions":["roa"]},"application/rpki-updown":{"source":"iana"},"application/rsd+xml":{"source":"apache","extensions":["rsd"]},"application/rss+xml":{"source":"apache","compressible":true,"extensions":["rss"]},"application/rtf":{"source":"iana","compressible":true,"extensions":["rtf"]},"application/rtploopback":{"source":"iana"},"application/rtx":{"source":"iana"},"application/samlassertion+xml":{"source":"iana"},"application/samlmetadata+xml":{"source":"iana"},"application/sbml+xml":{"source":"iana","extensions":["sbml"]},"application/scaip+xml":{"source":"iana"},"application/scim+json":{"source":"iana","compressible":true},"application/scvp-cv-request":{"source":"iana","extensions":["scq"]},"application/scvp-cv-response":{"source":"iana","extensions":["scs"]},"application/scvp-vp-request":{"source":"iana","extensions":["spq"]},"application/scvp-vp-response":{"source":"iana","extensions":["spp"]},"application/sdp":{"source":"iana","extensions":["sdp"]},"application/sep+xml":{"source":"iana"},"application/sep-exi":{"source":"iana"},"application/session-info":{"source":"iana"},"application/set-payment":{"source":"iana"},"application/set-payment-initiation":{"source":"iana","extensions":["setpay"]},"application/set-registration":{"source":"iana"},"application/set-registration-initiation":{"source":"iana","extensions":["setreg"]},"application/sgml":{"source":"iana"},"application/sgml-open-catalog":{"source":"iana"},"application/shf+xml":{"source":"iana","extensions":["shf"]},"application/sieve":{"source":"iana"},"application/simple-filter+xml":{"source":"iana"},"application/simple-message-summary":{"source":"iana"},"application/simplesymbolcontainer":{"source":"iana"},"application/slate":{"source":"iana"},"application/smil":{"source":"iana"},"application/smil+xml":{"source":"iana","extensions":["smi","smil"]},"application/smpte336m":{"source":"iana"},"application/soap+fastinfoset":{"source":"iana"},"application/soap+xml":{"source":"iana","compressible":true},"application/sparql-query":{"source":"iana","extensions":["rq"]},"application/sparql-results+xml":{"source":"iana","extensions":["srx"]},"application/spirits-event+xml":{"source":"iana"},"application/sql":{"source":"iana"},"application/srgs":{"source":"iana","extensions":["gram"]},"application/srgs+xml":{"source":"iana","extensions":["grxml"]},"application/sru+xml":{"source":"iana","extensions":["sru"]},"application/ssdl+xml":{"source":"apache","extensions":["ssdl"]},"application/ssml+xml":{"source":"iana","extensions":["ssml"]},"application/tamp-apex-update":{"source":"iana"},"application/tamp-apex-update-confirm":{"source":"iana"},"application/tamp-community-update":{"source":"iana"},"application/tamp-community-update-confirm":{"source":"iana"},"application/tamp-error":{"source":"iana"},"application/tamp-sequence-adjust":{"source":"iana"},"application/tamp-sequence-adjust-confirm":{"source":"iana"},"application/tamp-status-query":{"source":"iana"},"application/tamp-status-response":{"source":"iana"},"application/tamp-update":{"source":"iana"},"application/tamp-update-confirm":{"source":"iana"},"application/tar":{"compressible":true},"application/tei+xml":{"source":"iana","extensions":["tei","teicorpus"]},"application/thraud+xml":{"source":"iana","extensions":["tfi"]},"application/timestamp-query":{"source":"iana"},"application/timestamp-reply":{"source":"iana"},"application/timestamped-data":{"source":"iana","extensions":["tsd"]},"application/trig":{"source":"iana"},"application/ttml+xml":{"source":"iana"},"application/tve-trigger":{"source":"iana"},"application/ulpfec":{"source":"iana"},"application/urc-grpsheet+xml":{"source":"iana"},"application/urc-ressheet+xml":{"source":"iana"},"application/urc-targetdesc+xml":{"source":"iana"},"application/urc-uisocketdesc+xml":{"source":"iana"},"application/vcard+json":{"source":"iana","compressible":true},"application/vcard+xml":{"source":"iana"},"application/vemmi":{"source":"iana"},"application/vividence.scriptfile":{"source":"apache"},"application/vnd.1000minds.decision-model+xml":{"source":"iana"},"application/vnd.3gpp-prose+xml":{"source":"iana"},"application/vnd.3gpp-prose-pc3ch+xml":{"source":"iana"},"application/vnd.3gpp.access-transfer-events+xml":{"source":"iana"},"application/vnd.3gpp.bsf+xml":{"source":"iana"},"application/vnd.3gpp.gmop+xml":{"source":"iana"},"application/vnd.3gpp.mcptt-info+xml":{"source":"iana"},"application/vnd.3gpp.mcptt-mbms-usage-info+xml":{"source":"iana"},"application/vnd.3gpp.mid-call+xml":{"source":"iana"},"application/vnd.3gpp.pic-bw-large":{"source":"iana","extensions":["plb"]},"application/vnd.3gpp.pic-bw-small":{"source":"iana","extensions":["psb"]},"application/vnd.3gpp.pic-bw-var":{"source":"iana","extensions":["pvb"]},"application/vnd.3gpp.sms":{"source":"iana"},"application/vnd.3gpp.sms+xml":{"source":"iana"},"application/vnd.3gpp.srvcc-ext+xml":{"source":"iana"},"application/vnd.3gpp.srvcc-info+xml":{"source":"iana"},"application/vnd.3gpp.state-and-event-info+xml":{"source":"iana"},"application/vnd.3gpp.ussd+xml":{"source":"iana"},"application/vnd.3gpp2.bcmcsinfo+xml":{"source":"iana"},"application/vnd.3gpp2.sms":{"source":"iana"},"application/vnd.3gpp2.tcap":{"source":"iana","extensions":["tcap"]},"application/vnd.3lightssoftware.imagescal":{"source":"iana"},"application/vnd.3m.post-it-notes":{"source":"iana","extensions":["pwn"]},"application/vnd.accpac.simply.aso":{"source":"iana","extensions":["aso"]},"application/vnd.accpac.simply.imp":{"source":"iana","extensions":["imp"]},"application/vnd.acucobol":{"source":"iana","extensions":["acu"]},"application/vnd.acucorp":{"source":"iana","extensions":["atc","acutc"]},"application/vnd.adobe.air-application-installer-package+zip":{"source":"apache","extensions":["air"]},"application/vnd.adobe.flash.movie":{"source":"iana"},"application/vnd.adobe.formscentral.fcdt":{"source":"iana","extensions":["fcdt"]},"application/vnd.adobe.fxp":{"source":"iana","extensions":["fxp","fxpl"]},"application/vnd.adobe.partial-upload":{"source":"iana"},"application/vnd.adobe.xdp+xml":{"source":"iana","extensions":["xdp"]},"application/vnd.adobe.xfdf":{"source":"iana","extensions":["xfdf"]},"application/vnd.aether.imp":{"source":"iana"},"application/vnd.ah-barcode":{"source":"iana"},"application/vnd.ahead.space":{"source":"iana","extensions":["ahead"]},"application/vnd.airzip.filesecure.azf":{"source":"iana","extensions":["azf"]},"application/vnd.airzip.filesecure.azs":{"source":"iana","extensions":["azs"]},"application/vnd.amazon.ebook":{"source":"apache","extensions":["azw"]},"application/vnd.amazon.mobi8-ebook":{"source":"iana"},"application/vnd.americandynamics.acc":{"source":"iana","extensions":["acc"]},"application/vnd.amiga.ami":{"source":"iana","extensions":["ami"]},"application/vnd.amundsen.maze+xml":{"source":"iana"},"application/vnd.android.package-archive":{"source":"apache","compressible":false,"extensions":["apk"]},"application/vnd.anki":{"source":"iana"},"application/vnd.anser-web-certificate-issue-initiation":{"source":"iana","extensions":["cii"]},"application/vnd.anser-web-funds-transfer-initiation":{"source":"apache","extensions":["fti"]},"application/vnd.antix.game-component":{"source":"iana","extensions":["atx"]},"application/vnd.apache.thrift.binary":{"source":"iana"},"application/vnd.apache.thrift.compact":{"source":"iana"},"application/vnd.apache.thrift.json":{"source":"iana"},"application/vnd.api+json":{"source":"iana","compressible":true},"application/vnd.apothekende.reservation+json":{"source":"iana","compressible":true},"application/vnd.apple.installer+xml":{"source":"iana","extensions":["mpkg"]},"application/vnd.apple.mpegurl":{"source":"iana","extensions":["m3u8"]},"application/vnd.apple.pkpass":{"compressible":false,"extensions":["pkpass"]},"application/vnd.arastra.swi":{"source":"iana"},"application/vnd.aristanetworks.swi":{"source":"iana","extensions":["swi"]},"application/vnd.artsquare":{"source":"iana"},"application/vnd.astraea-software.iota":{"source":"iana","extensions":["iota"]},"application/vnd.audiograph":{"source":"iana","extensions":["aep"]},"application/vnd.autopackage":{"source":"iana"},"application/vnd.avistar+xml":{"source":"iana"},"application/vnd.balsamiq.bmml+xml":{"source":"iana"},"application/vnd.balsamiq.bmpr":{"source":"iana"},"application/vnd.bekitzur-stech+json":{"source":"iana","compressible":true},"application/vnd.bint.med-content":{"source":"iana"},"application/vnd.biopax.rdf+xml":{"source":"iana"},"application/vnd.blink-idb-value-wrapper":{"source":"iana"},"application/vnd.blueice.multipass":{"source":"iana","extensions":["mpm"]},"application/vnd.bluetooth.ep.oob":{"source":"iana"},"application/vnd.bluetooth.le.oob":{"source":"iana"},"application/vnd.bmi":{"source":"iana","extensions":["bmi"]},"application/vnd.businessobjects":{"source":"iana","extensions":["rep"]},"application/vnd.cab-jscript":{"source":"iana"},"application/vnd.canon-cpdl":{"source":"iana"},"application/vnd.canon-lips":{"source":"iana"},"application/vnd.capasystems-pg+json":{"source":"iana","compressible":true},"application/vnd.cendio.thinlinc.clientconf":{"source":"iana"},"application/vnd.century-systems.tcp_stream":{"source":"iana"},"application/vnd.chemdraw+xml":{"source":"iana","extensions":["cdxml"]},"application/vnd.chess-pgn":{"source":"iana"},"application/vnd.chipnuts.karaoke-mmd":{"source":"iana","extensions":["mmd"]},"application/vnd.cinderella":{"source":"iana","extensions":["cdy"]},"application/vnd.cirpack.isdn-ext":{"source":"iana"},"application/vnd.citationstyles.style+xml":{"source":"iana"},"application/vnd.claymore":{"source":"iana","extensions":["cla"]},"application/vnd.cloanto.rp9":{"source":"iana","extensions":["rp9"]},"application/vnd.clonk.c4group":{"source":"iana","extensions":["c4g","c4d","c4f","c4p","c4u"]},"application/vnd.cluetrust.cartomobile-config":{"source":"iana","extensions":["c11amc"]},"application/vnd.cluetrust.cartomobile-config-pkg":{"source":"iana","extensions":["c11amz"]},"application/vnd.coffeescript":{"source":"iana"},"application/vnd.collection+json":{"source":"iana","compressible":true},"application/vnd.collection.doc+json":{"source":"iana","compressible":true},"application/vnd.collection.next+json":{"source":"iana","compressible":true},"application/vnd.comicbook+zip":{"source":"iana"},"application/vnd.commerce-battelle":{"source":"iana"},"application/vnd.commonspace":{"source":"iana","extensions":["csp"]},"application/vnd.contact.cmsg":{"source":"iana","extensions":["cdbcmsg"]},"application/vnd.coreos.ignition+json":{"source":"iana","compressible":true},"application/vnd.cosmocaller":{"source":"iana","extensions":["cmc"]},"application/vnd.crick.clicker":{"source":"iana","extensions":["clkx"]},"application/vnd.crick.clicker.keyboard":{"source":"iana","extensions":["clkk"]},"application/vnd.crick.clicker.palette":{"source":"iana","extensions":["clkp"]},"application/vnd.crick.clicker.template":{"source":"iana","extensions":["clkt"]},"application/vnd.crick.clicker.wordbank":{"source":"iana","extensions":["clkw"]},"application/vnd.criticaltools.wbs+xml":{"source":"iana","extensions":["wbs"]},"application/vnd.ctc-posml":{"source":"iana","extensions":["pml"]},"application/vnd.ctct.ws+xml":{"source":"iana"},"application/vnd.cups-pdf":{"source":"iana"},"application/vnd.cups-postscript":{"source":"iana"},"application/vnd.cups-ppd":{"source":"iana","extensions":["ppd"]},"application/vnd.cups-raster":{"source":"iana"},"application/vnd.cups-raw":{"source":"iana"},"application/vnd.curl":{"source":"iana"},"application/vnd.curl.car":{"source":"apache","extensions":["car"]},"application/vnd.curl.pcurl":{"source":"apache","extensions":["pcurl"]},"application/vnd.cyan.dean.root+xml":{"source":"iana"},"application/vnd.cybank":{"source":"iana"},"application/vnd.d2l.coursepackage1p0+zip":{"source":"iana"},"application/vnd.dart":{"source":"iana","compressible":true,"extensions":["dart"]},"application/vnd.data-vision.rdz":{"source":"iana","extensions":["rdz"]},"application/vnd.datapackage+json":{"source":"iana","compressible":true},"application/vnd.dataresource+json":{"source":"iana","compressible":true},"application/vnd.debian.binary-package":{"source":"iana"},"application/vnd.dece.data":{"source":"iana","extensions":["uvf","uvvf","uvd","uvvd"]},"application/vnd.dece.ttml+xml":{"source":"iana","extensions":["uvt","uvvt"]},"application/vnd.dece.unspecified":{"source":"iana","extensions":["uvx","uvvx"]},"application/vnd.dece.zip":{"source":"iana","extensions":["uvz","uvvz"]},"application/vnd.denovo.fcselayout-link":{"source":"iana","extensions":["fe_launch"]},"application/vnd.desmume-movie":{"source":"iana"},"application/vnd.desmume.movie":{"source":"apache"},"application/vnd.dir-bi.plate-dl-nosuffix":{"source":"iana"},"application/vnd.dm.delegation+xml":{"source":"iana"},"application/vnd.dna":{"source":"iana","extensions":["dna"]},"application/vnd.document+json":{"source":"iana","compressible":true},"application/vnd.dolby.mlp":{"source":"apache","extensions":["mlp"]},"application/vnd.dolby.mobile.1":{"source":"iana"},"application/vnd.dolby.mobile.2":{"source":"iana"},"application/vnd.doremir.scorecloud-binary-document":{"source":"iana"},"application/vnd.dpgraph":{"source":"iana","extensions":["dpg"]},"application/vnd.dreamfactory":{"source":"iana","extensions":["dfac"]},"application/vnd.drive+json":{"source":"iana","compressible":true},"application/vnd.ds-keypoint":{"source":"apache","extensions":["kpxx"]},"application/vnd.dtg.local":{"source":"iana"},"application/vnd.dtg.local.flash":{"source":"iana"},"application/vnd.dtg.local.html":{"source":"iana"},"application/vnd.dvb.ait":{"source":"iana","extensions":["ait"]},"application/vnd.dvb.dvbj":{"source":"iana"},"application/vnd.dvb.esgcontainer":{"source":"iana"},"application/vnd.dvb.ipdcdftnotifaccess":{"source":"iana"},"application/vnd.dvb.ipdcesgaccess":{"source":"iana"},"application/vnd.dvb.ipdcesgaccess2":{"source":"iana"},"application/vnd.dvb.ipdcesgpdd":{"source":"iana"},"application/vnd.dvb.ipdcroaming":{"source":"iana"},"application/vnd.dvb.iptv.alfec-base":{"source":"iana"},"application/vnd.dvb.iptv.alfec-enhancement":{"source":"iana"},"application/vnd.dvb.notif-aggregate-root+xml":{"source":"iana"},"application/vnd.dvb.notif-container+xml":{"source":"iana"},"application/vnd.dvb.notif-generic+xml":{"source":"iana"},"application/vnd.dvb.notif-ia-msglist+xml":{"source":"iana"},"application/vnd.dvb.notif-ia-registration-request+xml":{"source":"iana"},"application/vnd.dvb.notif-ia-registration-response+xml":{"source":"iana"},"application/vnd.dvb.notif-init+xml":{"source":"iana"},"application/vnd.dvb.pfr":{"source":"iana"},"application/vnd.dvb.service":{"source":"iana","extensions":["svc"]},"application/vnd.dxr":{"source":"iana"},"application/vnd.dynageo":{"source":"iana","extensions":["geo"]},"application/vnd.dzr":{"source":"iana"},"application/vnd.easykaraoke.cdgdownload":{"source":"iana"},"application/vnd.ecdis-update":{"source":"iana"},"application/vnd.ecowin.chart":{"source":"iana","extensions":["mag"]},"application/vnd.ecowin.filerequest":{"source":"iana"},"application/vnd.ecowin.fileupdate":{"source":"iana"},"application/vnd.ecowin.series":{"source":"iana"},"application/vnd.ecowin.seriesrequest":{"source":"iana"},"application/vnd.ecowin.seriesupdate":{"source":"iana"},"application/vnd.efi.img":{"source":"iana"},"application/vnd.efi.iso":{"source":"iana"},"application/vnd.emclient.accessrequest+xml":{"source":"iana"},"application/vnd.enliven":{"source":"iana","extensions":["nml"]},"application/vnd.enphase.envoy":{"source":"iana"},"application/vnd.eprints.data+xml":{"source":"iana"},"application/vnd.epson.esf":{"source":"iana","extensions":["esf"]},"application/vnd.epson.msf":{"source":"iana","extensions":["msf"]},"application/vnd.epson.quickanime":{"source":"iana","extensions":["qam"]},"application/vnd.epson.salt":{"source":"iana","extensions":["slt"]},"application/vnd.epson.ssf":{"source":"iana","extensions":["ssf"]},"application/vnd.ericsson.quickcall":{"source":"iana"},"application/vnd.espass-espass+zip":{"source":"iana"},"application/vnd.eszigno3+xml":{"source":"iana","extensions":["es3","et3"]},"application/vnd.etsi.aoc+xml":{"source":"iana"},"application/vnd.etsi.asic-e+zip":{"source":"iana"},"application/vnd.etsi.asic-s+zip":{"source":"iana"},"application/vnd.etsi.cug+xml":{"source":"iana"},"application/vnd.etsi.iptvcommand+xml":{"source":"iana"},"application/vnd.etsi.iptvdiscovery+xml":{"source":"iana"},"application/vnd.etsi.iptvprofile+xml":{"source":"iana"},"application/vnd.etsi.iptvsad-bc+xml":{"source":"iana"},"application/vnd.etsi.iptvsad-cod+xml":{"source":"iana"},"application/vnd.etsi.iptvsad-npvr+xml":{"source":"iana"},"application/vnd.etsi.iptvservice+xml":{"source":"iana"},"application/vnd.etsi.iptvsync+xml":{"source":"iana"},"application/vnd.etsi.iptvueprofile+xml":{"source":"iana"},"application/vnd.etsi.mcid+xml":{"source":"iana"},"application/vnd.etsi.mheg5":{"source":"iana"},"application/vnd.etsi.overload-control-policy-dataset+xml":{"source":"iana"},"application/vnd.etsi.pstn+xml":{"source":"iana"},"application/vnd.etsi.sci+xml":{"source":"iana"},"application/vnd.etsi.simservs+xml":{"source":"iana"},"application/vnd.etsi.timestamp-token":{"source":"iana"},"application/vnd.etsi.tsl+xml":{"source":"iana"},"application/vnd.etsi.tsl.der":{"source":"iana"},"application/vnd.eudora.data":{"source":"iana"},"application/vnd.evolv.ecig.profile":{"source":"iana"},"application/vnd.evolv.ecig.settings":{"source":"iana"},"application/vnd.evolv.ecig.theme":{"source":"iana"},"application/vnd.ezpix-album":{"source":"iana","extensions":["ez2"]},"application/vnd.ezpix-package":{"source":"iana","extensions":["ez3"]},"application/vnd.f-secure.mobile":{"source":"iana"},"application/vnd.fastcopy-disk-image":{"source":"iana"},"application/vnd.fdf":{"source":"iana","extensions":["fdf"]},"application/vnd.fdsn.mseed":{"source":"iana","extensions":["mseed"]},"application/vnd.fdsn.seed":{"source":"iana","extensions":["seed","dataless"]},"application/vnd.ffsns":{"source":"iana"},"application/vnd.filmit.zfc":{"source":"iana"},"application/vnd.fints":{"source":"iana"},"application/vnd.firemonkeys.cloudcell":{"source":"iana"},"application/vnd.flographit":{"source":"iana","extensions":["gph"]},"application/vnd.fluxtime.clip":{"source":"iana","extensions":["ftc"]},"application/vnd.font-fontforge-sfd":{"source":"iana"},"application/vnd.framemaker":{"source":"iana","extensions":["fm","frame","maker","book"]},"application/vnd.frogans.fnc":{"source":"iana","extensions":["fnc"]},"application/vnd.frogans.ltf":{"source":"iana","extensions":["ltf"]},"application/vnd.fsc.weblaunch":{"source":"iana","extensions":["fsc"]},"application/vnd.fujitsu.oasys":{"source":"iana","extensions":["oas"]},"application/vnd.fujitsu.oasys2":{"source":"iana","extensions":["oa2"]},"application/vnd.fujitsu.oasys3":{"source":"iana","extensions":["oa3"]},"application/vnd.fujitsu.oasysgp":{"source":"iana","extensions":["fg5"]},"application/vnd.fujitsu.oasysprs":{"source":"iana","extensions":["bh2"]},"application/vnd.fujixerox.art-ex":{"source":"iana"},"application/vnd.fujixerox.art4":{"source":"iana"},"application/vnd.fujixerox.ddd":{"source":"iana","extensions":["ddd"]},"application/vnd.fujixerox.docuworks":{"source":"iana","extensions":["xdw"]},"application/vnd.fujixerox.docuworks.binder":{"source":"iana","extensions":["xbd"]},"application/vnd.fujixerox.docuworks.container":{"source":"iana"},"application/vnd.fujixerox.hbpl":{"source":"iana"},"application/vnd.fut-misnet":{"source":"iana"},"application/vnd.fuzzysheet":{"source":"iana","extensions":["fzs"]},"application/vnd.genomatix.tuxedo":{"source":"iana","extensions":["txd"]},"application/vnd.geo+json":{"source":"iana","compressible":true},"application/vnd.geocube+xml":{"source":"iana"},"application/vnd.geogebra.file":{"source":"iana","extensions":["ggb"]},"application/vnd.geogebra.tool":{"source":"iana","extensions":["ggt"]},"application/vnd.geometry-explorer":{"source":"iana","extensions":["gex","gre"]},"application/vnd.geonext":{"source":"iana","extensions":["gxt"]},"application/vnd.geoplan":{"source":"iana","extensions":["g2w"]},"application/vnd.geospace":{"source":"iana","extensions":["g3w"]},"application/vnd.gerber":{"source":"iana"},"application/vnd.globalplatform.card-content-mgt":{"source":"iana"},"application/vnd.globalplatform.card-content-mgt-response":{"source":"iana"},"application/vnd.gmx":{"source":"iana","extensions":["gmx"]},"application/vnd.google-apps.document":{"compressible":false,"extensions":["gdoc"]},"application/vnd.google-apps.presentation":{"compressible":false,"extensions":["gslides"]},"application/vnd.google-apps.spreadsheet":{"compressible":false,"extensions":["gsheet"]},"application/vnd.google-earth.kml+xml":{"source":"iana","compressible":true,"extensions":["kml"]},"application/vnd.google-earth.kmz":{"source":"iana","compressible":false,"extensions":["kmz"]},"application/vnd.gov.sk.e-form+xml":{"source":"iana"},"application/vnd.gov.sk.e-form+zip":{"source":"iana"},"application/vnd.gov.sk.xmldatacontainer+xml":{"source":"iana"},"application/vnd.grafeq":{"source":"iana","extensions":["gqf","gqs"]},"application/vnd.gridmp":{"source":"iana"},"application/vnd.groove-account":{"source":"iana","extensions":["gac"]},"application/vnd.groove-help":{"source":"iana","extensions":["ghf"]},"application/vnd.groove-identity-message":{"source":"iana","extensions":["gim"]},"application/vnd.groove-injector":{"source":"iana","extensions":["grv"]},"application/vnd.groove-tool-message":{"source":"iana","extensions":["gtm"]},"application/vnd.groove-tool-template":{"source":"iana","extensions":["tpl"]},"application/vnd.groove-vcard":{"source":"iana","extensions":["vcg"]},"application/vnd.hal+json":{"source":"iana","compressible":true},"application/vnd.hal+xml":{"source":"iana","extensions":["hal"]},"application/vnd.handheld-entertainment+xml":{"source":"iana","extensions":["zmm"]},"application/vnd.hbci":{"source":"iana","extensions":["hbci"]},"application/vnd.hc+json":{"source":"iana","compressible":true},"application/vnd.hcl-bireports":{"source":"iana"},"application/vnd.hdt":{"source":"iana"},"application/vnd.heroku+json":{"source":"iana","compressible":true},"application/vnd.hhe.lesson-player":{"source":"iana","extensions":["les"]},"application/vnd.hp-hpgl":{"source":"iana","extensions":["hpgl"]},"application/vnd.hp-hpid":{"source":"iana","extensions":["hpid"]},"application/vnd.hp-hps":{"source":"iana","extensions":["hps"]},"application/vnd.hp-jlyt":{"source":"iana","extensions":["jlt"]},"application/vnd.hp-pcl":{"source":"iana","extensions":["pcl"]},"application/vnd.hp-pclxl":{"source":"iana","extensions":["pclxl"]},"application/vnd.httphone":{"source":"iana"},"application/vnd.hydrostatix.sof-data":{"source":"iana","extensions":["sfd-hdstx"]},"application/vnd.hyper-item+json":{"source":"iana","compressible":true},"application/vnd.hyperdrive+json":{"source":"iana","compressible":true},"application/vnd.hzn-3d-crossword":{"source":"iana"},"application/vnd.ibm.afplinedata":{"source":"iana"},"application/vnd.ibm.electronic-media":{"source":"iana"},"application/vnd.ibm.minipay":{"source":"iana","extensions":["mpy"]},"application/vnd.ibm.modcap":{"source":"iana","extensions":["afp","listafp","list3820"]},"application/vnd.ibm.rights-management":{"source":"iana","extensions":["irm"]},"application/vnd.ibm.secure-container":{"source":"iana","extensions":["sc"]},"application/vnd.iccprofile":{"source":"iana","extensions":["icc","icm"]},"application/vnd.ieee.1905":{"source":"iana"},"application/vnd.igloader":{"source":"iana","extensions":["igl"]},"application/vnd.imagemeter.folder+zip":{"source":"iana"},"application/vnd.imagemeter.image+zip":{"source":"iana"},"application/vnd.immervision-ivp":{"source":"iana","extensions":["ivp"]},"application/vnd.immervision-ivu":{"source":"iana","extensions":["ivu"]},"application/vnd.ims.imsccv1p1":{"source":"iana"},"application/vnd.ims.imsccv1p2":{"source":"iana"},"application/vnd.ims.imsccv1p3":{"source":"iana"},"application/vnd.ims.lis.v2.result+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolconsumerprofile+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolproxy+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolproxy.id+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolsettings+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolsettings.simple+json":{"source":"iana","compressible":true},"application/vnd.informedcontrol.rms+xml":{"source":"iana"},"application/vnd.informix-visionary":{"source":"iana"},"application/vnd.infotech.project":{"source":"iana"},"application/vnd.infotech.project+xml":{"source":"iana"},"application/vnd.innopath.wamp.notification":{"source":"iana"},"application/vnd.insors.igm":{"source":"iana","extensions":["igm"]},"application/vnd.intercon.formnet":{"source":"iana","extensions":["xpw","xpx"]},"application/vnd.intergeo":{"source":"iana","extensions":["i2g"]},"application/vnd.intertrust.digibox":{"source":"iana"},"application/vnd.intertrust.nncp":{"source":"iana"},"application/vnd.intu.qbo":{"source":"iana","extensions":["qbo"]},"application/vnd.intu.qfx":{"source":"iana","extensions":["qfx"]},"application/vnd.iptc.g2.catalogitem+xml":{"source":"iana"},"application/vnd.iptc.g2.conceptitem+xml":{"source":"iana"},"application/vnd.iptc.g2.knowledgeitem+xml":{"source":"iana"},"application/vnd.iptc.g2.newsitem+xml":{"source":"iana"},"application/vnd.iptc.g2.newsmessage+xml":{"source":"iana"},"application/vnd.iptc.g2.packageitem+xml":{"source":"iana"},"application/vnd.iptc.g2.planningitem+xml":{"source":"iana"},"application/vnd.ipunplugged.rcprofile":{"source":"iana","extensions":["rcprofile"]},"application/vnd.irepository.package+xml":{"source":"iana","extensions":["irp"]},"application/vnd.is-xpr":{"source":"iana","extensions":["xpr"]},"application/vnd.isac.fcs":{"source":"iana","extensions":["fcs"]},"application/vnd.jam":{"source":"iana","extensions":["jam"]},"application/vnd.japannet-directory-service":{"source":"iana"},"application/vnd.japannet-jpnstore-wakeup":{"source":"iana"},"application/vnd.japannet-payment-wakeup":{"source":"iana"},"application/vnd.japannet-registration":{"source":"iana"},"application/vnd.japannet-registration-wakeup":{"source":"iana"},"application/vnd.japannet-setstore-wakeup":{"source":"iana"},"application/vnd.japannet-verification":{"source":"iana"},"application/vnd.japannet-verification-wakeup":{"source":"iana"},"application/vnd.jcp.javame.midlet-rms":{"source":"iana","extensions":["rms"]},"application/vnd.jisp":{"source":"iana","extensions":["jisp"]},"application/vnd.joost.joda-archive":{"source":"iana","extensions":["joda"]},"application/vnd.jsk.isdn-ngn":{"source":"iana"},"application/vnd.kahootz":{"source":"iana","extensions":["ktz","ktr"]},"application/vnd.kde.karbon":{"source":"iana","extensions":["karbon"]},"application/vnd.kde.kchart":{"source":"iana","extensions":["chrt"]},"application/vnd.kde.kformula":{"source":"iana","extensions":["kfo"]},"application/vnd.kde.kivio":{"source":"iana","extensions":["flw"]},"application/vnd.kde.kontour":{"source":"iana","extensions":["kon"]},"application/vnd.kde.kpresenter":{"source":"iana","extensions":["kpr","kpt"]},"application/vnd.kde.kspread":{"source":"iana","extensions":["ksp"]},"application/vnd.kde.kword":{"source":"iana","extensions":["kwd","kwt"]},"application/vnd.kenameaapp":{"source":"iana","extensions":["htke"]},"application/vnd.kidspiration":{"source":"iana","extensions":["kia"]},"application/vnd.kinar":{"source":"iana","extensions":["kne","knp"]},"application/vnd.koan":{"source":"iana","extensions":["skp","skd","skt","skm"]},"application/vnd.kodak-descriptor":{"source":"iana","extensions":["sse"]},"application/vnd.las.las+json":{"source":"iana","compressible":true},"application/vnd.las.las+xml":{"source":"iana","extensions":["lasxml"]},"application/vnd.liberty-request+xml":{"source":"iana"},"application/vnd.llamagraphics.life-balance.desktop":{"source":"iana","extensions":["lbd"]},"application/vnd.llamagraphics.life-balance.exchange+xml":{"source":"iana","extensions":["lbe"]},"application/vnd.lotus-1-2-3":{"source":"iana","extensions":["123"]},"application/vnd.lotus-approach":{"source":"iana","extensions":["apr"]},"application/vnd.lotus-freelance":{"source":"iana","extensions":["pre"]},"application/vnd.lotus-notes":{"source":"iana","extensions":["nsf"]},"application/vnd.lotus-organizer":{"source":"iana","extensions":["org"]},"application/vnd.lotus-screencam":{"source":"iana","extensions":["scm"]},"application/vnd.lotus-wordpro":{"source":"iana","extensions":["lwp"]},"application/vnd.macports.portpkg":{"source":"iana","extensions":["portpkg"]},"application/vnd.mapbox-vector-tile":{"source":"iana"},"application/vnd.marlin.drm.actiontoken+xml":{"source":"iana"},"application/vnd.marlin.drm.conftoken+xml":{"source":"iana"},"application/vnd.marlin.drm.license+xml":{"source":"iana"},"application/vnd.marlin.drm.mdcf":{"source":"iana"},"application/vnd.mason+json":{"source":"iana","compressible":true},"application/vnd.maxmind.maxmind-db":{"source":"iana"},"application/vnd.mcd":{"source":"iana","extensions":["mcd"]},"application/vnd.medcalcdata":{"source":"iana","extensions":["mc1"]},"application/vnd.mediastation.cdkey":{"source":"iana","extensions":["cdkey"]},"application/vnd.meridian-slingshot":{"source":"iana"},"application/vnd.mfer":{"source":"iana","extensions":["mwf"]},"application/vnd.mfmp":{"source":"iana","extensions":["mfm"]},"application/vnd.micro+json":{"source":"iana","compressible":true},"application/vnd.micrografx.flo":{"source":"iana","extensions":["flo"]},"application/vnd.micrografx.igx":{"source":"iana","extensions":["igx"]},"application/vnd.microsoft.portable-executable":{"source":"iana"},"application/vnd.microsoft.windows.thumbnail-cache":{"source":"iana"},"application/vnd.miele+json":{"source":"iana","compressible":true},"application/vnd.mif":{"source":"iana","extensions":["mif"]},"application/vnd.minisoft-hp3000-save":{"source":"iana"},"application/vnd.mitsubishi.misty-guard.trustweb":{"source":"iana"},"application/vnd.mobius.daf":{"source":"iana","extensions":["daf"]},"application/vnd.mobius.dis":{"source":"iana","extensions":["dis"]},"application/vnd.mobius.mbk":{"source":"iana","extensions":["mbk"]},"application/vnd.mobius.mqy":{"source":"iana","extensions":["mqy"]},"application/vnd.mobius.msl":{"source":"iana","extensions":["msl"]},"application/vnd.mobius.plc":{"source":"iana","extensions":["plc"]},"application/vnd.mobius.txf":{"source":"iana","extensions":["txf"]},"application/vnd.mophun.application":{"source":"iana","extensions":["mpn"]},"application/vnd.mophun.certificate":{"source":"iana","extensions":["mpc"]},"application/vnd.motorola.flexsuite":{"source":"iana"},"application/vnd.motorola.flexsuite.adsi":{"source":"iana"},"application/vnd.motorola.flexsuite.fis":{"source":"iana"},"application/vnd.motorola.flexsuite.gotap":{"source":"iana"},"application/vnd.motorola.flexsuite.kmr":{"source":"iana"},"application/vnd.motorola.flexsuite.ttc":{"source":"iana"},"application/vnd.motorola.flexsuite.wem":{"source":"iana"},"application/vnd.motorola.iprm":{"source":"iana"},"application/vnd.mozilla.xul+xml":{"source":"iana","compressible":true,"extensions":["xul"]},"application/vnd.ms-3mfdocument":{"source":"iana"},"application/vnd.ms-artgalry":{"source":"iana","extensions":["cil"]},"application/vnd.ms-asf":{"source":"iana"},"application/vnd.ms-cab-compressed":{"source":"iana","extensions":["cab"]},"application/vnd.ms-color.iccprofile":{"source":"apache"},"application/vnd.ms-excel":{"source":"iana","compressible":false,"extensions":["xls","xlm","xla","xlc","xlt","xlw"]},"application/vnd.ms-excel.addin.macroenabled.12":{"source":"iana","extensions":["xlam"]},"application/vnd.ms-excel.sheet.binary.macroenabled.12":{"source":"iana","extensions":["xlsb"]},"application/vnd.ms-excel.sheet.macroenabled.12":{"source":"iana","extensions":["xlsm"]},"application/vnd.ms-excel.template.macroenabled.12":{"source":"iana","extensions":["xltm"]},"application/vnd.ms-fontobject":{"source":"iana","compressible":true,"extensions":["eot"]},"application/vnd.ms-htmlhelp":{"source":"iana","extensions":["chm"]},"application/vnd.ms-ims":{"source":"iana","extensions":["ims"]},"application/vnd.ms-lrm":{"source":"iana","extensions":["lrm"]},"application/vnd.ms-office.activex+xml":{"source":"iana"},"application/vnd.ms-officetheme":{"source":"iana","extensions":["thmx"]},"application/vnd.ms-opentype":{"source":"apache","compressible":true},"application/vnd.ms-outlook":{"compressible":false,"extensions":["msg"]},"application/vnd.ms-package.obfuscated-opentype":{"source":"apache"},"application/vnd.ms-pki.seccat":{"source":"apache","extensions":["cat"]},"application/vnd.ms-pki.stl":{"source":"apache","extensions":["stl"]},"application/vnd.ms-playready.initiator+xml":{"source":"iana"},"application/vnd.ms-powerpoint":{"source":"iana","compressible":false,"extensions":["ppt","pps","pot"]},"application/vnd.ms-powerpoint.addin.macroenabled.12":{"source":"iana","extensions":["ppam"]},"application/vnd.ms-powerpoint.presentation.macroenabled.12":{"source":"iana","extensions":["pptm"]},"application/vnd.ms-powerpoint.slide.macroenabled.12":{"source":"iana","extensions":["sldm"]},"application/vnd.ms-powerpoint.slideshow.macroenabled.12":{"source":"iana","extensions":["ppsm"]},"application/vnd.ms-powerpoint.template.macroenabled.12":{"source":"iana","extensions":["potm"]},"application/vnd.ms-printdevicecapabilities+xml":{"source":"iana"},"application/vnd.ms-printing.printticket+xml":{"source":"apache"},"application/vnd.ms-printschematicket+xml":{"source":"iana"},"application/vnd.ms-project":{"source":"iana","extensions":["mpp","mpt"]},"application/vnd.ms-tnef":{"source":"iana"},"application/vnd.ms-windows.devicepairing":{"source":"iana"},"application/vnd.ms-windows.nwprinting.oob":{"source":"iana"},"application/vnd.ms-windows.printerpairing":{"source":"iana"},"application/vnd.ms-windows.wsd.oob":{"source":"iana"},"application/vnd.ms-wmdrm.lic-chlg-req":{"source":"iana"},"application/vnd.ms-wmdrm.lic-resp":{"source":"iana"},"application/vnd.ms-wmdrm.meter-chlg-req":{"source":"iana"},"application/vnd.ms-wmdrm.meter-resp":{"source":"iana"},"application/vnd.ms-word.document.macroenabled.12":{"source":"iana","extensions":["docm"]},"application/vnd.ms-word.template.macroenabled.12":{"source":"iana","extensions":["dotm"]},"application/vnd.ms-works":{"source":"iana","extensions":["wps","wks","wcm","wdb"]},"application/vnd.ms-wpl":{"source":"iana","extensions":["wpl"]},"application/vnd.ms-xpsdocument":{"source":"iana","compressible":false,"extensions":["xps"]},"application/vnd.msa-disk-image":{"source":"iana"},"application/vnd.mseq":{"source":"iana","extensions":["mseq"]},"application/vnd.msign":{"source":"iana"},"application/vnd.multiad.creator":{"source":"iana"},"application/vnd.multiad.creator.cif":{"source":"iana"},"application/vnd.music-niff":{"source":"iana"},"application/vnd.musician":{"source":"iana","extensions":["mus"]},"application/vnd.muvee.style":{"source":"iana","extensions":["msty"]},"application/vnd.mynfc":{"source":"iana","extensions":["taglet"]},"application/vnd.ncd.control":{"source":"iana"},"application/vnd.ncd.reference":{"source":"iana"},"application/vnd.nearst.inv+json":{"source":"iana","compressible":true},"application/vnd.nervana":{"source":"iana"},"application/vnd.netfpx":{"source":"iana"},"application/vnd.neurolanguage.nlu":{"source":"iana","extensions":["nlu"]},"application/vnd.nintendo.nitro.rom":{"source":"iana"},"application/vnd.nintendo.snes.rom":{"source":"iana"},"application/vnd.nitf":{"source":"iana","extensions":["ntf","nitf"]},"application/vnd.noblenet-directory":{"source":"iana","extensions":["nnd"]},"application/vnd.noblenet-sealer":{"source":"iana","extensions":["nns"]},"application/vnd.noblenet-web":{"source":"iana","extensions":["nnw"]},"application/vnd.nokia.catalogs":{"source":"iana"},"application/vnd.nokia.conml+wbxml":{"source":"iana"},"application/vnd.nokia.conml+xml":{"source":"iana"},"application/vnd.nokia.iptv.config+xml":{"source":"iana"},"application/vnd.nokia.isds-radio-presets":{"source":"iana"},"application/vnd.nokia.landmark+wbxml":{"source":"iana"},"application/vnd.nokia.landmark+xml":{"source":"iana"},"application/vnd.nokia.landmarkcollection+xml":{"source":"iana"},"application/vnd.nokia.n-gage.ac+xml":{"source":"iana"},"application/vnd.nokia.n-gage.data":{"source":"iana","extensions":["ngdat"]},"application/vnd.nokia.n-gage.symbian.install":{"source":"iana","extensions":["n-gage"]},"application/vnd.nokia.ncd":{"source":"iana"},"application/vnd.nokia.pcd+wbxml":{"source":"iana"},"application/vnd.nokia.pcd+xml":{"source":"iana"},"application/vnd.nokia.radio-preset":{"source":"iana","extensions":["rpst"]},"application/vnd.nokia.radio-presets":{"source":"iana","extensions":["rpss"]},"application/vnd.novadigm.edm":{"source":"iana","extensions":["edm"]},"application/vnd.novadigm.edx":{"source":"iana","extensions":["edx"]},"application/vnd.novadigm.ext":{"source":"iana","extensions":["ext"]},"application/vnd.ntt-local.content-share":{"source":"iana"},"application/vnd.ntt-local.file-transfer":{"source":"iana"},"application/vnd.ntt-local.ogw_remote-access":{"source":"iana"},"application/vnd.ntt-local.sip-ta_remote":{"source":"iana"},"application/vnd.ntt-local.sip-ta_tcp_stream":{"source":"iana"},"application/vnd.oasis.opendocument.chart":{"source":"iana","extensions":["odc"]},"application/vnd.oasis.opendocument.chart-template":{"source":"iana","extensions":["otc"]},"application/vnd.oasis.opendocument.database":{"source":"iana","extensions":["odb"]},"application/vnd.oasis.opendocument.formula":{"source":"iana","extensions":["odf"]},"application/vnd.oasis.opendocument.formula-template":{"source":"iana","extensions":["odft"]},"application/vnd.oasis.opendocument.graphics":{"source":"iana","compressible":false,"extensions":["odg"]},"application/vnd.oasis.opendocument.graphics-template":{"source":"iana","extensions":["otg"]},"application/vnd.oasis.opendocument.image":{"source":"iana","extensions":["odi"]},"application/vnd.oasis.opendocument.image-template":{"source":"iana","extensions":["oti"]},"application/vnd.oasis.opendocument.presentation":{"source":"iana","compressible":false,"extensions":["odp"]},"application/vnd.oasis.opendocument.presentation-template":{"source":"iana","extensions":["otp"]},"application/vnd.oasis.opendocument.spreadsheet":{"source":"iana","compressible":false,"extensions":["ods"]},"application/vnd.oasis.opendocument.spreadsheet-template":{"source":"iana","extensions":["ots"]},"application/vnd.oasis.opendocument.text":{"source":"iana","compressible":false,"extensions":["odt"]},"application/vnd.oasis.opendocument.text-master":{"source":"iana","extensions":["odm"]},"application/vnd.oasis.opendocument.text-template":{"source":"iana","extensions":["ott"]},"application/vnd.oasis.opendocument.text-web":{"source":"iana","extensions":["oth"]},"application/vnd.obn":{"source":"iana"},"application/vnd.ocf+cbor":{"source":"iana"},"application/vnd.oftn.l10n+json":{"source":"iana","compressible":true},"application/vnd.oipf.contentaccessdownload+xml":{"source":"iana"},"application/vnd.oipf.contentaccessstreaming+xml":{"source":"iana"},"application/vnd.oipf.cspg-hexbinary":{"source":"iana"},"application/vnd.oipf.dae.svg+xml":{"source":"iana"},"application/vnd.oipf.dae.xhtml+xml":{"source":"iana"},"application/vnd.oipf.mippvcontrolmessage+xml":{"source":"iana"},"application/vnd.oipf.pae.gem":{"source":"iana"},"application/vnd.oipf.spdiscovery+xml":{"source":"iana"},"application/vnd.oipf.spdlist+xml":{"source":"iana"},"application/vnd.oipf.ueprofile+xml":{"source":"iana"},"application/vnd.oipf.userprofile+xml":{"source":"iana"},"application/vnd.olpc-sugar":{"source":"iana","extensions":["xo"]},"application/vnd.oma-scws-config":{"source":"iana"},"application/vnd.oma-scws-http-request":{"source":"iana"},"application/vnd.oma-scws-http-response":{"source":"iana"},"application/vnd.oma.bcast.associated-procedure-parameter+xml":{"source":"iana"},"application/vnd.oma.bcast.drm-trigger+xml":{"source":"iana"},"application/vnd.oma.bcast.imd+xml":{"source":"iana"},"application/vnd.oma.bcast.ltkm":{"source":"iana"},"application/vnd.oma.bcast.notification+xml":{"source":"iana"},"application/vnd.oma.bcast.provisioningtrigger":{"source":"iana"},"application/vnd.oma.bcast.sgboot":{"source":"iana"},"application/vnd.oma.bcast.sgdd+xml":{"source":"iana"},"application/vnd.oma.bcast.sgdu":{"source":"iana"},"application/vnd.oma.bcast.simple-symbol-container":{"source":"iana"},"application/vnd.oma.bcast.smartcard-trigger+xml":{"source":"iana"},"application/vnd.oma.bcast.sprov+xml":{"source":"iana"},"application/vnd.oma.bcast.stkm":{"source":"iana"},"application/vnd.oma.cab-address-book+xml":{"source":"iana"},"application/vnd.oma.cab-feature-handler+xml":{"source":"iana"},"application/vnd.oma.cab-pcc+xml":{"source":"iana"},"application/vnd.oma.cab-subs-invite+xml":{"source":"iana"},"application/vnd.oma.cab-user-prefs+xml":{"source":"iana"},"application/vnd.oma.dcd":{"source":"iana"},"application/vnd.oma.dcdc":{"source":"iana"},"application/vnd.oma.dd2+xml":{"source":"iana","extensions":["dd2"]},"application/vnd.oma.drm.risd+xml":{"source":"iana"},"application/vnd.oma.group-usage-list+xml":{"source":"iana"},"application/vnd.oma.lwm2m+json":{"source":"iana","compressible":true},"application/vnd.oma.lwm2m+tlv":{"source":"iana"},"application/vnd.oma.pal+xml":{"source":"iana"},"application/vnd.oma.poc.detailed-progress-report+xml":{"source":"iana"},"application/vnd.oma.poc.final-report+xml":{"source":"iana"},"application/vnd.oma.poc.groups+xml":{"source":"iana"},"application/vnd.oma.poc.invocation-descriptor+xml":{"source":"iana"},"application/vnd.oma.poc.optimized-progress-report+xml":{"source":"iana"},"application/vnd.oma.push":{"source":"iana"},"application/vnd.oma.scidm.messages+xml":{"source":"iana"},"application/vnd.oma.xcap-directory+xml":{"source":"iana"},"application/vnd.omads-email+xml":{"source":"iana"},"application/vnd.omads-file+xml":{"source":"iana"},"application/vnd.omads-folder+xml":{"source":"iana"},"application/vnd.omaloc-supl-init":{"source":"iana"},"application/vnd.onepager":{"source":"iana"},"application/vnd.onepagertamp":{"source":"iana"},"application/vnd.onepagertamx":{"source":"iana"},"application/vnd.onepagertat":{"source":"iana"},"application/vnd.onepagertatp":{"source":"iana"},"application/vnd.onepagertatx":{"source":"iana"},"application/vnd.openblox.game+xml":{"source":"iana"},"application/vnd.openblox.game-binary":{"source":"iana"},"application/vnd.openeye.oeb":{"source":"iana"},"application/vnd.openofficeorg.extension":{"source":"apache","extensions":["oxt"]},"application/vnd.openstreetmap.data+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.custom-properties+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.customxmlproperties+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawing+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.chart+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.chartshapes+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.diagramcolors+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.diagramdata+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.diagramlayout+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.diagramstyle+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.extended-properties+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml-template":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.commentauthors+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.comments+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.handoutmaster+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.notesmaster+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.notesslide+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.presentation":{"source":"iana","compressible":false,"extensions":["pptx"]},"application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.presprops+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slide":{"source":"iana","extensions":["sldx"]},"application/vnd.openxmlformats-officedocument.presentationml.slide+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slidelayout+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slidemaster+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slideshow":{"source":"iana","extensions":["ppsx"]},"application/vnd.openxmlformats-officedocument.presentationml.slideshow.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slideupdateinfo+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.tablestyles+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.tags+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.template":{"source":"apache","extensions":["potx"]},"application/vnd.openxmlformats-officedocument.presentationml.template.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.viewprops+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml-template":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.calcchain+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.chartsheet+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.comments+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.connections+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.dialogsheet+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.externallink+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivotcachedefinition+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivotcacherecords+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivottable+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.querytable+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.revisionheaders+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.revisionlog+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.sharedstrings+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":{"source":"iana","compressible":false,"extensions":["xlsx"]},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheetmetadata+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.table+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.tablesinglecells+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.template":{"source":"apache","extensions":["xltx"]},"application/vnd.openxmlformats-officedocument.spreadsheetml.template.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.usernames+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.volatiledependencies+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.theme+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.themeoverride+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.vmldrawing":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml-template":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.comments+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.document":{"source":"iana","compressible":false,"extensions":["docx"]},"application/vnd.openxmlformats-officedocument.wordprocessingml.document.glossary+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.endnotes+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.fonttable+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.footnotes+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.template":{"source":"apache","extensions":["dotx"]},"application/vnd.openxmlformats-officedocument.wordprocessingml.template.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.websettings+xml":{"source":"iana"},"application/vnd.openxmlformats-package.core-properties+xml":{"source":"iana"},"application/vnd.openxmlformats-package.digital-signature-xmlsignature+xml":{"source":"iana"},"application/vnd.openxmlformats-package.relationships+xml":{"source":"iana"},"application/vnd.oracle.resource+json":{"source":"iana","compressible":true},"application/vnd.orange.indata":{"source":"iana"},"application/vnd.osa.netdeploy":{"source":"iana"},"application/vnd.osgeo.mapguide.package":{"source":"iana","extensions":["mgp"]},"application/vnd.osgi.bundle":{"source":"iana"},"application/vnd.osgi.dp":{"source":"iana","extensions":["dp"]},"application/vnd.osgi.subsystem":{"source":"iana","extensions":["esa"]},"application/vnd.otps.ct-kip+xml":{"source":"iana"},"application/vnd.oxli.countgraph":{"source":"iana"},"application/vnd.pagerduty+json":{"source":"iana","compressible":true},"application/vnd.palm":{"source":"iana","extensions":["pdb","pqa","oprc"]},"application/vnd.panoply":{"source":"iana"},"application/vnd.paos+xml":{"source":"iana"},"application/vnd.paos.xml":{"source":"apache"},"application/vnd.pawaafile":{"source":"iana","extensions":["paw"]},"application/vnd.pcos":{"source":"iana"},"application/vnd.pg.format":{"source":"iana","extensions":["str"]},"application/vnd.pg.osasli":{"source":"iana","extensions":["ei6"]},"application/vnd.piaccess.application-licence":{"source":"iana"},"application/vnd.picsel":{"source":"iana","extensions":["efif"]},"application/vnd.pmi.widget":{"source":"iana","extensions":["wg"]},"application/vnd.poc.group-advertisement+xml":{"source":"iana"},"application/vnd.pocketlearn":{"source":"iana","extensions":["plf"]},"application/vnd.powerbuilder6":{"source":"iana","extensions":["pbd"]},"application/vnd.powerbuilder6-s":{"source":"iana"},"application/vnd.powerbuilder7":{"source":"iana"},"application/vnd.powerbuilder7-s":{"source":"iana"},"application/vnd.powerbuilder75":{"source":"iana"},"application/vnd.powerbuilder75-s":{"source":"iana"},"application/vnd.preminet":{"source":"iana"},"application/vnd.previewsystems.box":{"source":"iana","extensions":["box"]},"application/vnd.proteus.magazine":{"source":"iana","extensions":["mgz"]},"application/vnd.publishare-delta-tree":{"source":"iana","extensions":["qps"]},"application/vnd.pvi.ptid1":{"source":"iana","extensions":["ptid"]},"application/vnd.pwg-multiplexed":{"source":"iana"},"application/vnd.pwg-xhtml-print+xml":{"source":"iana"},"application/vnd.qualcomm.brew-app-res":{"source":"iana"},"application/vnd.quarantainenet":{"source":"iana"},"application/vnd.quark.quarkxpress":{"source":"iana","extensions":["qxd","qxt","qwd","qwt","qxl","qxb"]},"application/vnd.quobject-quoxdocument":{"source":"iana"},"application/vnd.radisys.moml+xml":{"source":"iana"},"application/vnd.radisys.msml+xml":{"source":"iana"},"application/vnd.radisys.msml-audit+xml":{"source":"iana"},"application/vnd.radisys.msml-audit-conf+xml":{"source":"iana"},"application/vnd.radisys.msml-audit-conn+xml":{"source":"iana"},"application/vnd.radisys.msml-audit-dialog+xml":{"source":"iana"},"application/vnd.radisys.msml-audit-stream+xml":{"source":"iana"},"application/vnd.radisys.msml-conf+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-base+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-fax-detect+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-fax-sendrecv+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-group+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-speech+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-transform+xml":{"source":"iana"},"application/vnd.rainstor.data":{"source":"iana"},"application/vnd.rapid":{"source":"iana"},"application/vnd.rar":{"source":"iana"},"application/vnd.realvnc.bed":{"source":"iana","extensions":["bed"]},"application/vnd.recordare.musicxml":{"source":"iana","extensions":["mxl"]},"application/vnd.recordare.musicxml+xml":{"source":"iana","extensions":["musicxml"]},"application/vnd.renlearn.rlprint":{"source":"iana"},"application/vnd.rig.cryptonote":{"source":"iana","extensions":["cryptonote"]},"application/vnd.rim.cod":{"source":"apache","extensions":["cod"]},"application/vnd.rn-realmedia":{"source":"apache","extensions":["rm"]},"application/vnd.rn-realmedia-vbr":{"source":"apache","extensions":["rmvb"]},"application/vnd.route66.link66+xml":{"source":"iana","extensions":["link66"]},"application/vnd.rs-274x":{"source":"iana"},"application/vnd.ruckus.download":{"source":"iana"},"application/vnd.s3sms":{"source":"iana"},"application/vnd.sailingtracker.track":{"source":"iana","extensions":["st"]},"application/vnd.sbm.cid":{"source":"iana"},"application/vnd.sbm.mid2":{"source":"iana"},"application/vnd.scribus":{"source":"iana"},"application/vnd.sealed.3df":{"source":"iana"},"application/vnd.sealed.csf":{"source":"iana"},"application/vnd.sealed.doc":{"source":"iana"},"application/vnd.sealed.eml":{"source":"iana"},"application/vnd.sealed.mht":{"source":"iana"},"application/vnd.sealed.net":{"source":"iana"},"application/vnd.sealed.ppt":{"source":"iana"},"application/vnd.sealed.tiff":{"source":"iana"},"application/vnd.sealed.xls":{"source":"iana"},"application/vnd.sealedmedia.softseal.html":{"source":"iana"},"application/vnd.sealedmedia.softseal.pdf":{"source":"iana"},"application/vnd.seemail":{"source":"iana","extensions":["see"]},"application/vnd.sema":{"source":"iana","extensions":["sema"]},"application/vnd.semd":{"source":"iana","extensions":["semd"]},"application/vnd.semf":{"source":"iana","extensions":["semf"]},"application/vnd.shana.informed.formdata":{"source":"iana","extensions":["ifm"]},"application/vnd.shana.informed.formtemplate":{"source":"iana","extensions":["itp"]},"application/vnd.shana.informed.interchange":{"source":"iana","extensions":["iif"]},"application/vnd.shana.informed.package":{"source":"iana","extensions":["ipk"]},"application/vnd.sigrok.session":{"source":"iana"},"application/vnd.simtech-mindmapper":{"source":"iana","extensions":["twd","twds"]},"application/vnd.siren+json":{"source":"iana","compressible":true},"application/vnd.smaf":{"source":"iana","extensions":["mmf"]},"application/vnd.smart.notebook":{"source":"iana"},"application/vnd.smart.teacher":{"source":"iana","extensions":["teacher"]},"application/vnd.software602.filler.form+xml":{"source":"iana"},"application/vnd.software602.filler.form-xml-zip":{"source":"iana"},"application/vnd.solent.sdkm+xml":{"source":"iana","extensions":["sdkm","sdkd"]},"application/vnd.spotfire.dxp":{"source":"iana","extensions":["dxp"]},"application/vnd.spotfire.sfs":{"source":"iana","extensions":["sfs"]},"application/vnd.sss-cod":{"source":"iana"},"application/vnd.sss-dtf":{"source":"iana"},"application/vnd.sss-ntf":{"source":"iana"},"application/vnd.stardivision.calc":{"source":"apache","extensions":["sdc"]},"application/vnd.stardivision.draw":{"source":"apache","extensions":["sda"]},"application/vnd.stardivision.impress":{"source":"apache","extensions":["sdd"]},"application/vnd.stardivision.math":{"source":"apache","extensions":["smf"]},"application/vnd.stardivision.writer":{"source":"apache","extensions":["sdw","vor"]},"application/vnd.stardivision.writer-global":{"source":"apache","extensions":["sgl"]},"application/vnd.stepmania.package":{"source":"iana","extensions":["smzip"]},"application/vnd.stepmania.stepchart":{"source":"iana","extensions":["sm"]},"application/vnd.street-stream":{"source":"iana"},"application/vnd.sun.wadl+xml":{"source":"iana","compressible":true,"extensions":["wadl"]},"application/vnd.sun.xml.calc":{"source":"apache","extensions":["sxc"]},"application/vnd.sun.xml.calc.template":{"source":"apache","extensions":["stc"]},"application/vnd.sun.xml.draw":{"source":"apache","extensions":["sxd"]},"application/vnd.sun.xml.draw.template":{"source":"apache","extensions":["std"]},"application/vnd.sun.xml.impress":{"source":"apache","extensions":["sxi"]},"application/vnd.sun.xml.impress.template":{"source":"apache","extensions":["sti"]},"application/vnd.sun.xml.math":{"source":"apache","extensions":["sxm"]},"application/vnd.sun.xml.writer":{"source":"apache","extensions":["sxw"]},"application/vnd.sun.xml.writer.global":{"source":"apache","extensions":["sxg"]},"application/vnd.sun.xml.writer.template":{"source":"apache","extensions":["stw"]},"application/vnd.sus-calendar":{"source":"iana","extensions":["sus","susp"]},"application/vnd.svd":{"source":"iana","extensions":["svd"]},"application/vnd.swiftview-ics":{"source":"iana"},"application/vnd.symbian.install":{"source":"apache","extensions":["sis","sisx"]},"application/vnd.syncml+xml":{"source":"iana","extensions":["xsm"]},"application/vnd.syncml.dm+wbxml":{"source":"iana","extensions":["bdm"]},"application/vnd.syncml.dm+xml":{"source":"iana","extensions":["xdm"]},"application/vnd.syncml.dm.notification":{"source":"iana"},"application/vnd.syncml.dmddf+wbxml":{"source":"iana"},"application/vnd.syncml.dmddf+xml":{"source":"iana"},"application/vnd.syncml.dmtnds+wbxml":{"source":"iana"},"application/vnd.syncml.dmtnds+xml":{"source":"iana"},"application/vnd.syncml.ds.notification":{"source":"iana"},"application/vnd.tableschema+json":{"source":"iana","compressible":true},"application/vnd.tao.intent-module-archive":{"source":"iana","extensions":["tao"]},"application/vnd.tcpdump.pcap":{"source":"iana","extensions":["pcap","cap","dmp"]},"application/vnd.tmd.mediaflex.api+xml":{"source":"iana"},"application/vnd.tml":{"source":"iana"},"application/vnd.tmobile-livetv":{"source":"iana","extensions":["tmo"]},"application/vnd.tri.onesource":{"source":"iana"},"application/vnd.trid.tpt":{"source":"iana","extensions":["tpt"]},"application/vnd.triscape.mxs":{"source":"iana","extensions":["mxs"]},"application/vnd.trueapp":{"source":"iana","extensions":["tra"]},"application/vnd.truedoc":{"source":"iana"},"application/vnd.ubisoft.webplayer":{"source":"iana"},"application/vnd.ufdl":{"source":"iana","extensions":["ufd","ufdl"]},"application/vnd.uiq.theme":{"source":"iana","extensions":["utz"]},"application/vnd.umajin":{"source":"iana","extensions":["umj"]},"application/vnd.unity":{"source":"iana","extensions":["unityweb"]},"application/vnd.uoml+xml":{"source":"iana","extensions":["uoml"]},"application/vnd.uplanet.alert":{"source":"iana"},"application/vnd.uplanet.alert-wbxml":{"source":"iana"},"application/vnd.uplanet.bearer-choice":{"source":"iana"},"application/vnd.uplanet.bearer-choice-wbxml":{"source":"iana"},"application/vnd.uplanet.cacheop":{"source":"iana"},"application/vnd.uplanet.cacheop-wbxml":{"source":"iana"},"application/vnd.uplanet.channel":{"source":"iana"},"application/vnd.uplanet.channel-wbxml":{"source":"iana"},"application/vnd.uplanet.list":{"source":"iana"},"application/vnd.uplanet.list-wbxml":{"source":"iana"},"application/vnd.uplanet.listcmd":{"source":"iana"},"application/vnd.uplanet.listcmd-wbxml":{"source":"iana"},"application/vnd.uplanet.signal":{"source":"iana"},"application/vnd.uri-map":{"source":"iana"},"application/vnd.valve.source.material":{"source":"iana"},"application/vnd.vcx":{"source":"iana","extensions":["vcx"]},"application/vnd.vd-study":{"source":"iana"},"application/vnd.vectorworks":{"source":"iana"},"application/vnd.vel+json":{"source":"iana","compressible":true},"application/vnd.verimatrix.vcas":{"source":"iana"},"application/vnd.vidsoft.vidconference":{"source":"iana"},"application/vnd.visio":{"source":"iana","extensions":["vsd","vst","vss","vsw"]},"application/vnd.visionary":{"source":"iana","extensions":["vis"]},"application/vnd.vividence.scriptfile":{"source":"iana"},"application/vnd.vsf":{"source":"iana","extensions":["vsf"]},"application/vnd.wap.sic":{"source":"iana"},"application/vnd.wap.slc":{"source":"iana"},"application/vnd.wap.wbxml":{"source":"iana","extensions":["wbxml"]},"application/vnd.wap.wmlc":{"source":"iana","extensions":["wmlc"]},"application/vnd.wap.wmlscriptc":{"source":"iana","extensions":["wmlsc"]},"application/vnd.webturbo":{"source":"iana","extensions":["wtb"]},"application/vnd.wfa.p2p":{"source":"iana"},"application/vnd.wfa.wsc":{"source":"iana"},"application/vnd.windows.devicepairing":{"source":"iana"},"application/vnd.wmc":{"source":"iana"},"application/vnd.wmf.bootstrap":{"source":"iana"},"application/vnd.wolfram.mathematica":{"source":"iana"},"application/vnd.wolfram.mathematica.package":{"source":"iana"},"application/vnd.wolfram.player":{"source":"iana","extensions":["nbp"]},"application/vnd.wordperfect":{"source":"iana","extensions":["wpd"]},"application/vnd.wqd":{"source":"iana","extensions":["wqd"]},"application/vnd.wrq-hp3000-labelled":{"source":"iana"},"application/vnd.wt.stf":{"source":"iana","extensions":["stf"]},"application/vnd.wv.csp+wbxml":{"source":"iana"},"application/vnd.wv.csp+xml":{"source":"iana"},"application/vnd.wv.ssp+xml":{"source":"iana"},"application/vnd.xacml+json":{"source":"iana","compressible":true},"application/vnd.xara":{"source":"iana","extensions":["xar"]},"application/vnd.xfdl":{"source":"iana","extensions":["xfdl"]},"application/vnd.xfdl.webform":{"source":"iana"},"application/vnd.xmi+xml":{"source":"iana"},"application/vnd.xmpie.cpkg":{"source":"iana"},"application/vnd.xmpie.dpkg":{"source":"iana"},"application/vnd.xmpie.plan":{"source":"iana"},"application/vnd.xmpie.ppkg":{"source":"iana"},"application/vnd.xmpie.xlim":{"source":"iana"},"application/vnd.yamaha.hv-dic":{"source":"iana","extensions":["hvd"]},"application/vnd.yamaha.hv-script":{"source":"iana","extensions":["hvs"]},"application/vnd.yamaha.hv-voice":{"source":"iana","extensions":["hvp"]},"application/vnd.yamaha.openscoreformat":{"source":"iana","extensions":["osf"]},"application/vnd.yamaha.openscoreformat.osfpvg+xml":{"source":"iana","extensions":["osfpvg"]},"application/vnd.yamaha.remote-setup":{"source":"iana"},"application/vnd.yamaha.smaf-audio":{"source":"iana","extensions":["saf"]},"application/vnd.yamaha.smaf-phrase":{"source":"iana","extensions":["spf"]},"application/vnd.yamaha.through-ngn":{"source":"iana"},"application/vnd.yamaha.tunnel-udpencap":{"source":"iana"},"application/vnd.yaoweme":{"source":"iana"},"application/vnd.yellowriver-custom-menu":{"source":"iana","extensions":["cmp"]},"application/vnd.zul":{"source":"iana","extensions":["zir","zirz"]},"application/vnd.zzazz.deck+xml":{"source":"iana","extensions":["zaz"]},"application/voicexml+xml":{"source":"iana","extensions":["vxml"]},"application/vq-rtcpxr":{"source":"iana"},"application/watcherinfo+xml":{"source":"iana"},"application/whoispp-query":{"source":"iana"},"application/whoispp-response":{"source":"iana"},"application/widget":{"source":"iana","extensions":["wgt"]},"application/winhlp":{"source":"apache","extensions":["hlp"]},"application/wita":{"source":"iana"},"application/wordperfect5.1":{"source":"iana"},"application/wsdl+xml":{"source":"iana","extensions":["wsdl"]},"application/wspolicy+xml":{"source":"iana","extensions":["wspolicy"]},"application/x-7z-compressed":{"source":"apache","compressible":false,"extensions":["7z"]},"application/x-abiword":{"source":"apache","extensions":["abw"]},"application/x-ace-compressed":{"source":"apache","extensions":["ace"]},"application/x-amf":{"source":"apache"},"application/x-apple-diskimage":{"source":"apache","extensions":["dmg"]},"application/x-arj":{"compressible":false,"extensions":["arj"]},"application/x-authorware-bin":{"source":"apache","extensions":["aab","x32","u32","vox"]},"application/x-authorware-map":{"source":"apache","extensions":["aam"]},"application/x-authorware-seg":{"source":"apache","extensions":["aas"]},"application/x-bcpio":{"source":"apache","extensions":["bcpio"]},"application/x-bdoc":{"compressible":false,"extensions":["bdoc"]},"application/x-bittorrent":{"source":"apache","extensions":["torrent"]},"application/x-blorb":{"source":"apache","extensions":["blb","blorb"]},"application/x-bzip":{"source":"apache","compressible":false,"extensions":["bz"]},"application/x-bzip2":{"source":"apache","compressible":false,"extensions":["bz2","boz"]},"application/x-cbr":{"source":"apache","extensions":["cbr","cba","cbt","cbz","cb7"]},"application/x-cdlink":{"source":"apache","extensions":["vcd"]},"application/x-cfs-compressed":{"source":"apache","extensions":["cfs"]},"application/x-chat":{"source":"apache","extensions":["chat"]},"application/x-chess-pgn":{"source":"apache","extensions":["pgn"]},"application/x-chrome-extension":{"extensions":["crx"]},"application/x-cocoa":{"source":"nginx","extensions":["cco"]},"application/x-compress":{"source":"apache"},"application/x-conference":{"source":"apache","extensions":["nsc"]},"application/x-cpio":{"source":"apache","extensions":["cpio"]},"application/x-csh":{"source":"apache","extensions":["csh"]},"application/x-deb":{"compressible":false},"application/x-debian-package":{"source":"apache","extensions":["deb","udeb"]},"application/x-dgc-compressed":{"source":"apache","extensions":["dgc"]},"application/x-director":{"source":"apache","extensions":["dir","dcr","dxr","cst","cct","cxt","w3d","fgd","swa"]},"application/x-doom":{"source":"apache","extensions":["wad"]},"application/x-dtbncx+xml":{"source":"apache","extensions":["ncx"]},"application/x-dtbook+xml":{"source":"apache","extensions":["dtb"]},"application/x-dtbresource+xml":{"source":"apache","extensions":["res"]},"application/x-dvi":{"source":"apache","compressible":false,"extensions":["dvi"]},"application/x-envoy":{"source":"apache","extensions":["evy"]},"application/x-eva":{"source":"apache","extensions":["eva"]},"application/x-font-bdf":{"source":"apache","extensions":["bdf"]},"application/x-font-dos":{"source":"apache"},"application/x-font-framemaker":{"source":"apache"},"application/x-font-ghostscript":{"source":"apache","extensions":["gsf"]},"application/x-font-libgrx":{"source":"apache"},"application/x-font-linux-psf":{"source":"apache","extensions":["psf"]},"application/x-font-otf":{"source":"apache","compressible":true,"extensions":["otf"]},"application/x-font-pcf":{"source":"apache","extensions":["pcf"]},"application/x-font-snf":{"source":"apache","extensions":["snf"]},"application/x-font-speedo":{"source":"apache"},"application/x-font-sunos-news":{"source":"apache"},"application/x-font-ttf":{"source":"apache","compressible":true,"extensions":["ttf","ttc"]},"application/x-font-type1":{"source":"apache","extensions":["pfa","pfb","pfm","afm"]},"application/x-font-vfont":{"source":"apache"},"application/x-freearc":{"source":"apache","extensions":["arc"]},"application/x-futuresplash":{"source":"apache","extensions":["spl"]},"application/x-gca-compressed":{"source":"apache","extensions":["gca"]},"application/x-glulx":{"source":"apache","extensions":["ulx"]},"application/x-gnumeric":{"source":"apache","extensions":["gnumeric"]},"application/x-gramps-xml":{"source":"apache","extensions":["gramps"]},"application/x-gtar":{"source":"apache","extensions":["gtar"]},"application/x-gzip":{"source":"apache"},"application/x-hdf":{"source":"apache","extensions":["hdf"]},"application/x-httpd-php":{"compressible":true,"extensions":["php"]},"application/x-install-instructions":{"source":"apache","extensions":["install"]},"application/x-iso9660-image":{"source":"apache","extensions":["iso"]},"application/x-java-archive-diff":{"source":"nginx","extensions":["jardiff"]},"application/x-java-jnlp-file":{"source":"apache","compressible":false,"extensions":["jnlp"]},"application/x-javascript":{"compressible":true},"application/x-latex":{"source":"apache","compressible":false,"extensions":["latex"]},"application/x-lua-bytecode":{"extensions":["luac"]},"application/x-lzh-compressed":{"source":"apache","extensions":["lzh","lha"]},"application/x-makeself":{"source":"nginx","extensions":["run"]},"application/x-mie":{"source":"apache","extensions":["mie"]},"application/x-mobipocket-ebook":{"source":"apache","extensions":["prc","mobi"]},"application/x-mpegurl":{"compressible":false},"application/x-ms-application":{"source":"apache","extensions":["application"]},"application/x-ms-shortcut":{"source":"apache","extensions":["lnk"]},"application/x-ms-wmd":{"source":"apache","extensions":["wmd"]},"application/x-ms-wmz":{"source":"apache","extensions":["wmz"]},"application/x-ms-xbap":{"source":"apache","extensions":["xbap"]},"application/x-msaccess":{"source":"apache","extensions":["mdb"]},"application/x-msbinder":{"source":"apache","extensions":["obd"]},"application/x-mscardfile":{"source":"apache","extensions":["crd"]},"application/x-msclip":{"source":"apache","extensions":["clp"]},"application/x-msdos-program":{"extensions":["exe"]},"application/x-msdownload":{"source":"apache","extensions":["exe","dll","com","bat","msi"]},"application/x-msmediaview":{"source":"apache","extensions":["mvb","m13","m14"]},"application/x-msmetafile":{"source":"apache","extensions":["wmf","wmz","emf","emz"]},"application/x-msmoney":{"source":"apache","extensions":["mny"]},"application/x-mspublisher":{"source":"apache","extensions":["pub"]},"application/x-msschedule":{"source":"apache","extensions":["scd"]},"application/x-msterminal":{"source":"apache","extensions":["trm"]},"application/x-mswrite":{"source":"apache","extensions":["wri"]},"application/x-netcdf":{"source":"apache","extensions":["nc","cdf"]},"application/x-ns-proxy-autoconfig":{"compressible":true,"extensions":["pac"]},"application/x-nzb":{"source":"apache","extensions":["nzb"]},"application/x-perl":{"source":"nginx","extensions":["pl","pm"]},"application/x-pilot":{"source":"nginx","extensions":["prc","pdb"]},"application/x-pkcs12":{"source":"apache","compressible":false,"extensions":["p12","pfx"]},"application/x-pkcs7-certificates":{"source":"apache","extensions":["p7b","spc"]},"application/x-pkcs7-certreqresp":{"source":"apache","extensions":["p7r"]},"application/x-rar-compressed":{"source":"apache","compressible":false,"extensions":["rar"]},"application/x-redhat-package-manager":{"source":"nginx","extensions":["rpm"]},"application/x-research-info-systems":{"source":"apache","extensions":["ris"]},"application/x-sea":{"source":"nginx","extensions":["sea"]},"application/x-sh":{"source":"apache","compressible":true,"extensions":["sh"]},"application/x-shar":{"source":"apache","extensions":["shar"]},"application/x-shockwave-flash":{"source":"apache","compressible":false,"extensions":["swf"]},"application/x-silverlight-app":{"source":"apache","extensions":["xap"]},"application/x-sql":{"source":"apache","extensions":["sql"]},"application/x-stuffit":{"source":"apache","compressible":false,"extensions":["sit"]},"application/x-stuffitx":{"source":"apache","extensions":["sitx"]},"application/x-subrip":{"source":"apache","extensions":["srt"]},"application/x-sv4cpio":{"source":"apache","extensions":["sv4cpio"]},"application/x-sv4crc":{"source":"apache","extensions":["sv4crc"]},"application/x-t3vm-image":{"source":"apache","extensions":["t3"]},"application/x-tads":{"source":"apache","extensions":["gam"]},"application/x-tar":{"source":"apache","compressible":true,"extensions":["tar"]},"application/x-tcl":{"source":"apache","extensions":["tcl","tk"]},"application/x-tex":{"source":"apache","extensions":["tex"]},"application/x-tex-tfm":{"source":"apache","extensions":["tfm"]},"application/x-texinfo":{"source":"apache","extensions":["texinfo","texi"]},"application/x-tgif":{"source":"apache","extensions":["obj"]},"application/x-ustar":{"source":"apache","extensions":["ustar"]},"application/x-virtualbox-hdd":{"compressible":true,"extensions":["hdd"]},"application/x-virtualbox-ova":{"compressible":true,"extensions":["ova"]},"application/x-virtualbox-ovf":{"compressible":true,"extensions":["ovf"]},"application/x-virtualbox-vbox":{"compressible":true,"extensions":["vbox"]},"application/x-virtualbox-vbox-extpack":{"compressible":false,"extensions":["vbox-extpack"]},"application/x-virtualbox-vdi":{"compressible":true,"extensions":["vdi"]},"application/x-virtualbox-vhd":{"compressible":true,"extensions":["vhd"]},"application/x-virtualbox-vmdk":{"compressible":true,"extensions":["vmdk"]},"application/x-wais-source":{"source":"apache","extensions":["src"]},"application/x-web-app-manifest+json":{"compressible":true,"extensions":["webapp"]},"application/x-www-form-urlencoded":{"source":"iana","compressible":true},"application/x-x509-ca-cert":{"source":"apache","extensions":["der","crt","pem"]},"application/x-xfig":{"source":"apache","extensions":["fig"]},"application/x-xliff+xml":{"source":"apache","extensions":["xlf"]},"application/x-xpinstall":{"source":"apache","compressible":false,"extensions":["xpi"]},"application/x-xz":{"source":"apache","extensions":["xz"]},"application/x-zmachine":{"source":"apache","extensions":["z1","z2","z3","z4","z5","z6","z7","z8"]},"application/x400-bp":{"source":"iana"},"application/xacml+xml":{"source":"iana"},"application/xaml+xml":{"source":"apache","extensions":["xaml"]},"application/xcap-att+xml":{"source":"iana"},"application/xcap-caps+xml":{"source":"iana"},"application/xcap-diff+xml":{"source":"iana","extensions":["xdf"]},"application/xcap-el+xml":{"source":"iana"},"application/xcap-error+xml":{"source":"iana"},"application/xcap-ns+xml":{"source":"iana"},"application/xcon-conference-info+xml":{"source":"iana"},"application/xcon-conference-info-diff+xml":{"source":"iana"},"application/xenc+xml":{"source":"iana","extensions":["xenc"]},"application/xhtml+xml":{"source":"iana","compressible":true,"extensions":["xhtml","xht"]},"application/xhtml-voice+xml":{"source":"apache"},"application/xml":{"source":"iana","compressible":true,"extensions":["xml","xsl","xsd","rng"]},"application/xml-dtd":{"source":"iana","compressible":true,"extensions":["dtd"]},"application/xml-external-parsed-entity":{"source":"iana"},"application/xml-patch+xml":{"source":"iana"},"application/xmpp+xml":{"source":"iana"},"application/xop+xml":{"source":"iana","compressible":true,"extensions":["xop"]},"application/xproc+xml":{"source":"apache","extensions":["xpl"]},"application/xslt+xml":{"source":"iana","extensions":["xslt"]},"application/xspf+xml":{"source":"apache","extensions":["xspf"]},"application/xv+xml":{"source":"iana","extensions":["mxml","xhvml","xvml","xvm"]},"application/yang":{"source":"iana","extensions":["yang"]},"application/yang-data+json":{"source":"iana","compressible":true},"application/yang-data+xml":{"source":"iana"},"application/yang-patch+json":{"source":"iana","compressible":true},"application/yang-patch+xml":{"source":"iana"},"application/yin+xml":{"source":"iana","extensions":["yin"]},"application/zip":{"source":"iana","compressible":false,"extensions":["zip"]},"application/zlib":{"source":"iana"},"audio/1d-interleaved-parityfec":{"source":"iana"},"audio/32kadpcm":{"source":"iana"},"audio/3gpp":{"source":"iana","compressible":false,"extensions":["3gpp"]},"audio/3gpp2":{"source":"iana"},"audio/ac3":{"source":"iana"},"audio/adpcm":{"source":"apache","extensions":["adp"]},"audio/amr":{"source":"iana"},"audio/amr-wb":{"source":"iana"},"audio/amr-wb+":{"source":"iana"},"audio/aptx":{"source":"iana"},"audio/asc":{"source":"iana"},"audio/atrac-advanced-lossless":{"source":"iana"},"audio/atrac-x":{"source":"iana"},"audio/atrac3":{"source":"iana"},"audio/basic":{"source":"iana","compressible":false,"extensions":["au","snd"]},"audio/bv16":{"source":"iana"},"audio/bv32":{"source":"iana"},"audio/clearmode":{"source":"iana"},"audio/cn":{"source":"iana"},"audio/dat12":{"source":"iana"},"audio/dls":{"source":"iana"},"audio/dsr-es201108":{"source":"iana"},"audio/dsr-es202050":{"source":"iana"},"audio/dsr-es202211":{"source":"iana"},"audio/dsr-es202212":{"source":"iana"},"audio/dv":{"source":"iana"},"audio/dvi4":{"source":"iana"},"audio/eac3":{"source":"iana"},"audio/encaprtp":{"source":"iana"},"audio/evrc":{"source":"iana"},"audio/evrc-qcp":{"source":"iana"},"audio/evrc0":{"source":"iana"},"audio/evrc1":{"source":"iana"},"audio/evrcb":{"source":"iana"},"audio/evrcb0":{"source":"iana"},"audio/evrcb1":{"source":"iana"},"audio/evrcnw":{"source":"iana"},"audio/evrcnw0":{"source":"iana"},"audio/evrcnw1":{"source":"iana"},"audio/evrcwb":{"source":"iana"},"audio/evrcwb0":{"source":"iana"},"audio/evrcwb1":{"source":"iana"},"audio/evs":{"source":"iana"},"audio/fwdred":{"source":"iana"},"audio/g711-0":{"source":"iana"},"audio/g719":{"source":"iana"},"audio/g722":{"source":"iana"},"audio/g7221":{"source":"iana"},"audio/g723":{"source":"iana"},"audio/g726-16":{"source":"iana"},"audio/g726-24":{"source":"iana"},"audio/g726-32":{"source":"iana"},"audio/g726-40":{"source":"iana"},"audio/g728":{"source":"iana"},"audio/g729":{"source":"iana"},"audio/g7291":{"source":"iana"},"audio/g729d":{"source":"iana"},"audio/g729e":{"source":"iana"},"audio/gsm":{"source":"iana"},"audio/gsm-efr":{"source":"iana"},"audio/gsm-hr-08":{"source":"iana"},"audio/ilbc":{"source":"iana"},"audio/ip-mr_v2.5":{"source":"iana"},"audio/isac":{"source":"apache"},"audio/l16":{"source":"iana"},"audio/l20":{"source":"iana"},"audio/l24":{"source":"iana","compressible":false},"audio/l8":{"source":"iana"},"audio/lpc":{"source":"iana"},"audio/melp":{"source":"iana"},"audio/melp1200":{"source":"iana"},"audio/melp2400":{"source":"iana"},"audio/melp600":{"source":"iana"},"audio/midi":{"source":"apache","extensions":["mid","midi","kar","rmi"]},"audio/mobile-xmf":{"source":"iana"},"audio/mp3":{"compressible":false,"extensions":["mp3"]},"audio/mp4":{"source":"iana","compressible":false,"extensions":["m4a","mp4a"]},"audio/mp4a-latm":{"source":"iana"},"audio/mpa":{"source":"iana"},"audio/mpa-robust":{"source":"iana"},"audio/mpeg":{"source":"iana","compressible":false,"extensions":["mpga","mp2","mp2a","mp3","m2a","m3a"]},"audio/mpeg4-generic":{"source":"iana"},"audio/musepack":{"source":"apache"},"audio/ogg":{"source":"iana","compressible":false,"extensions":["oga","ogg","spx"]},"audio/opus":{"source":"iana"},"audio/parityfec":{"source":"iana"},"audio/pcma":{"source":"iana"},"audio/pcma-wb":{"source":"iana"},"audio/pcmu":{"source":"iana"},"audio/pcmu-wb":{"source":"iana"},"audio/prs.sid":{"source":"iana"},"audio/qcelp":{"source":"iana"},"audio/raptorfec":{"source":"iana"},"audio/red":{"source":"iana"},"audio/rtp-enc-aescm128":{"source":"iana"},"audio/rtp-midi":{"source":"iana"},"audio/rtploopback":{"source":"iana"},"audio/rtx":{"source":"iana"},"audio/s3m":{"source":"apache","extensions":["s3m"]},"audio/silk":{"source":"apache","extensions":["sil"]},"audio/smv":{"source":"iana"},"audio/smv-qcp":{"source":"iana"},"audio/smv0":{"source":"iana"},"audio/sp-midi":{"source":"iana"},"audio/speex":{"source":"iana"},"audio/t140c":{"source":"iana"},"audio/t38":{"source":"iana"},"audio/telephone-event":{"source":"iana"},"audio/tone":{"source":"iana"},"audio/uemclip":{"source":"iana"},"audio/ulpfec":{"source":"iana"},"audio/vdvi":{"source":"iana"},"audio/vmr-wb":{"source":"iana"},"audio/vnd.3gpp.iufp":{"source":"iana"},"audio/vnd.4sb":{"source":"iana"},"audio/vnd.audiokoz":{"source":"iana"},"audio/vnd.celp":{"source":"iana"},"audio/vnd.cisco.nse":{"source":"iana"},"audio/vnd.cmles.radio-events":{"source":"iana"},"audio/vnd.cns.anp1":{"source":"iana"},"audio/vnd.cns.inf1":{"source":"iana"},"audio/vnd.dece.audio":{"source":"iana","extensions":["uva","uvva"]},"audio/vnd.digital-winds":{"source":"iana","extensions":["eol"]},"audio/vnd.dlna.adts":{"source":"iana"},"audio/vnd.dolby.heaac.1":{"source":"iana"},"audio/vnd.dolby.heaac.2":{"source":"iana"},"audio/vnd.dolby.mlp":{"source":"iana"},"audio/vnd.dolby.mps":{"source":"iana"},"audio/vnd.dolby.pl2":{"source":"iana"},"audio/vnd.dolby.pl2x":{"source":"iana"},"audio/vnd.dolby.pl2z":{"source":"iana"},"audio/vnd.dolby.pulse.1":{"source":"iana"},"audio/vnd.dra":{"source":"iana","extensions":["dra"]},"audio/vnd.dts":{"source":"iana","extensions":["dts"]},"audio/vnd.dts.hd":{"source":"iana","extensions":["dtshd"]},"audio/vnd.dvb.file":{"source":"iana"},"audio/vnd.everad.plj":{"source":"iana"},"audio/vnd.hns.audio":{"source":"iana"},"audio/vnd.lucent.voice":{"source":"iana","extensions":["lvp"]},"audio/vnd.ms-playready.media.pya":{"source":"iana","extensions":["pya"]},"audio/vnd.nokia.mobile-xmf":{"source":"iana"},"audio/vnd.nortel.vbk":{"source":"iana"},"audio/vnd.nuera.ecelp4800":{"source":"iana","extensions":["ecelp4800"]},"audio/vnd.nuera.ecelp7470":{"source":"iana","extensions":["ecelp7470"]},"audio/vnd.nuera.ecelp9600":{"source":"iana","extensions":["ecelp9600"]},"audio/vnd.octel.sbc":{"source":"iana"},"audio/vnd.presonus.multitrack":{"source":"iana"},"audio/vnd.qcelp":{"source":"iana"},"audio/vnd.rhetorex.32kadpcm":{"source":"iana"},"audio/vnd.rip":{"source":"iana","extensions":["rip"]},"audio/vnd.rn-realaudio":{"compressible":false},"audio/vnd.sealedmedia.softseal.mpeg":{"source":"iana"},"audio/vnd.vmx.cvsd":{"source":"iana"},"audio/vnd.wave":{"compressible":false},"audio/vorbis":{"source":"iana","compressible":false},"audio/vorbis-config":{"source":"iana"},"audio/wav":{"compressible":false,"extensions":["wav"]},"audio/wave":{"compressible":false,"extensions":["wav"]},"audio/webm":{"source":"apache","compressible":false,"extensions":["weba"]},"audio/x-aac":{"source":"apache","compressible":false,"extensions":["aac"]},"audio/x-aiff":{"source":"apache","extensions":["aif","aiff","aifc"]},"audio/x-caf":{"source":"apache","compressible":false,"extensions":["caf"]},"audio/x-flac":{"source":"apache","extensions":["flac"]},"audio/x-m4a":{"source":"nginx","extensions":["m4a"]},"audio/x-matroska":{"source":"apache","extensions":["mka"]},"audio/x-mpegurl":{"source":"apache","extensions":["m3u"]},"audio/x-ms-wax":{"source":"apache","extensions":["wax"]},"audio/x-ms-wma":{"source":"apache","extensions":["wma"]},"audio/x-pn-realaudio":{"source":"apache","extensions":["ram","ra"]},"audio/x-pn-realaudio-plugin":{"source":"apache","extensions":["rmp"]},"audio/x-realaudio":{"source":"nginx","extensions":["ra"]},"audio/x-tta":{"source":"apache"},"audio/x-wav":{"source":"apache","extensions":["wav"]},"audio/xm":{"source":"apache","extensions":["xm"]},"chemical/x-cdx":{"source":"apache","extensions":["cdx"]},"chemical/x-cif":{"source":"apache","extensions":["cif"]},"chemical/x-cmdf":{"source":"apache","extensions":["cmdf"]},"chemical/x-cml":{"source":"apache","extensions":["cml"]},"chemical/x-csml":{"source":"apache","extensions":["csml"]},"chemical/x-pdb":{"source":"apache"},"chemical/x-xyz":{"source":"apache","extensions":["xyz"]},"font/otf":{"compressible":true,"extensions":["otf"]},"image/apng":{"compressible":false,"extensions":["apng"]},"image/bmp":{"source":"iana","compressible":true,"extensions":["bmp"]},"image/cgm":{"source":"iana","extensions":["cgm"]},"image/dicom-rle":{"source":"iana"},"image/emf":{"source":"iana"},"image/fits":{"source":"iana"},"image/g3fax":{"source":"iana","extensions":["g3"]},"image/gif":{"source":"iana","compressible":false,"extensions":["gif"]},"image/ief":{"source":"iana","extensions":["ief"]},"image/jls":{"source":"iana"},"image/jp2":{"source":"iana"},"image/jpeg":{"source":"iana","compressible":false,"extensions":["jpeg","jpg","jpe"]},"image/jpm":{"source":"iana"},"image/jpx":{"source":"iana"},"image/ktx":{"source":"iana","extensions":["ktx"]},"image/naplps":{"source":"iana"},"image/pjpeg":{"compressible":false},"image/png":{"source":"iana","compressible":false,"extensions":["png"]},"image/prs.btif":{"source":"iana","extensions":["btif"]},"image/prs.pti":{"source":"iana"},"image/pwg-raster":{"source":"iana"},"image/sgi":{"source":"apache","extensions":["sgi"]},"image/svg+xml":{"source":"iana","compressible":true,"extensions":["svg","svgz"]},"image/t38":{"source":"iana"},"image/tiff":{"source":"iana","compressible":false,"extensions":["tiff","tif"]},"image/tiff-fx":{"source":"iana"},"image/vnd.adobe.photoshop":{"source":"iana","compressible":true,"extensions":["psd"]},"image/vnd.airzip.accelerator.azv":{"source":"iana"},"image/vnd.cns.inf2":{"source":"iana"},"image/vnd.dece.graphic":{"source":"iana","extensions":["uvi","uvvi","uvg","uvvg"]},"image/vnd.djvu":{"source":"iana","extensions":["djvu","djv"]},"image/vnd.dvb.subtitle":{"source":"iana","extensions":["sub"]},"image/vnd.dwg":{"source":"iana","extensions":["dwg"]},"image/vnd.dxf":{"source":"iana","extensions":["dxf"]},"image/vnd.fastbidsheet":{"source":"iana","extensions":["fbs"]},"image/vnd.fpx":{"source":"iana","extensions":["fpx"]},"image/vnd.fst":{"source":"iana","extensions":["fst"]},"image/vnd.fujixerox.edmics-mmr":{"source":"iana","extensions":["mmr"]},"image/vnd.fujixerox.edmics-rlc":{"source":"iana","extensions":["rlc"]},"image/vnd.globalgraphics.pgb":{"source":"iana"},"image/vnd.microsoft.icon":{"source":"iana"},"image/vnd.mix":{"source":"iana"},"image/vnd.mozilla.apng":{"source":"iana"},"image/vnd.ms-modi":{"source":"iana","extensions":["mdi"]},"image/vnd.ms-photo":{"source":"apache","extensions":["wdp"]},"image/vnd.net-fpx":{"source":"iana","extensions":["npx"]},"image/vnd.radiance":{"source":"iana"},"image/vnd.sealed.png":{"source":"iana"},"image/vnd.sealedmedia.softseal.gif":{"source":"iana"},"image/vnd.sealedmedia.softseal.jpg":{"source":"iana"},"image/vnd.svf":{"source":"iana"},"image/vnd.tencent.tap":{"source":"iana"},"image/vnd.valve.source.texture":{"source":"iana"},"image/vnd.wap.wbmp":{"source":"iana","extensions":["wbmp"]},"image/vnd.xiff":{"source":"iana","extensions":["xif"]},"image/vnd.zbrush.pcx":{"source":"iana"},"image/webp":{"source":"apache","extensions":["webp"]},"image/wmf":{"source":"iana"},"image/x-3ds":{"source":"apache","extensions":["3ds"]},"image/x-cmu-raster":{"source":"apache","extensions":["ras"]},"image/x-cmx":{"source":"apache","extensions":["cmx"]},"image/x-freehand":{"source":"apache","extensions":["fh","fhc","fh4","fh5","fh7"]},"image/x-icon":{"source":"apache","compressible":true,"extensions":["ico"]},"image/x-jng":{"source":"nginx","extensions":["jng"]},"image/x-mrsid-image":{"source":"apache","extensions":["sid"]},"image/x-ms-bmp":{"source":"nginx","compressible":true,"extensions":["bmp"]},"image/x-pcx":{"source":"apache","extensions":["pcx"]},"image/x-pict":{"source":"apache","extensions":["pic","pct"]},"image/x-portable-anymap":{"source":"apache","extensions":["pnm"]},"image/x-portable-bitmap":{"source":"apache","extensions":["pbm"]},"image/x-portable-graymap":{"source":"apache","extensions":["pgm"]},"image/x-portable-pixmap":{"source":"apache","extensions":["ppm"]},"image/x-rgb":{"source":"apache","extensions":["rgb"]},"image/x-tga":{"source":"apache","extensions":["tga"]},"image/x-xbitmap":{"source":"apache","extensions":["xbm"]},"image/x-xcf":{"compressible":false},"image/x-xpixmap":{"source":"apache","extensions":["xpm"]},"image/x-xwindowdump":{"source":"apache","extensions":["xwd"]},"message/cpim":{"source":"iana"},"message/delivery-status":{"source":"iana"},"message/disposition-notification":{"source":"iana"},"message/external-body":{"source":"iana"},"message/feedback-report":{"source":"iana"},"message/global":{"source":"iana"},"message/global-delivery-status":{"source":"iana"},"message/global-disposition-notification":{"source":"iana"},"message/global-headers":{"source":"iana"},"message/http":{"source":"iana","compressible":false},"message/imdn+xml":{"source":"iana","compressible":true},"message/news":{"source":"iana"},"message/partial":{"source":"iana","compressible":false},"message/rfc822":{"source":"iana","compressible":true,"extensions":["eml","mime"]},"message/s-http":{"source":"iana"},"message/sip":{"source":"iana"},"message/sipfrag":{"source":"iana"},"message/tracking-status":{"source":"iana"},"message/vnd.si.simp":{"source":"iana"},"message/vnd.wfa.wsc":{"source":"iana"},"model/3mf":{"source":"iana"},"model/gltf+json":{"source":"iana","compressible":true,"extensions":["gltf"]},"model/gltf-binary":{"compressible":true,"extensions":["glb"]},"model/iges":{"source":"iana","compressible":false,"extensions":["igs","iges"]},"model/mesh":{"source":"iana","compressible":false,"extensions":["msh","mesh","silo"]},"model/vnd.collada+xml":{"source":"iana","extensions":["dae"]},"model/vnd.dwf":{"source":"iana","extensions":["dwf"]},"model/vnd.flatland.3dml":{"source":"iana"},"model/vnd.gdl":{"source":"iana","extensions":["gdl"]},"model/vnd.gs-gdl":{"source":"apache"},"model/vnd.gs.gdl":{"source":"iana"},"model/vnd.gtw":{"source":"iana","extensions":["gtw"]},"model/vnd.moml+xml":{"source":"iana"},"model/vnd.mts":{"source":"iana","extensions":["mts"]},"model/vnd.opengex":{"source":"iana"},"model/vnd.parasolid.transmit.binary":{"source":"iana"},"model/vnd.parasolid.transmit.text":{"source":"iana"},"model/vnd.rosette.annotated-data-model":{"source":"iana"},"model/vnd.valve.source.compiled-map":{"source":"iana"},"model/vnd.vtu":{"source":"iana","extensions":["vtu"]},"model/vrml":{"source":"iana","compressible":false,"extensions":["wrl","vrml"]},"model/x3d+binary":{"source":"apache","compressible":false,"extensions":["x3db","x3dbz"]},"model/x3d+fastinfoset":{"source":"iana"},"model/x3d+vrml":{"source":"apache","compressible":false,"extensions":["x3dv","x3dvz"]},"model/x3d+xml":{"source":"iana","compressible":true,"extensions":["x3d","x3dz"]},"model/x3d-vrml":{"source":"iana"},"multipart/alternative":{"source":"iana","compressible":false},"multipart/appledouble":{"source":"iana"},"multipart/byteranges":{"source":"iana"},"multipart/digest":{"source":"iana"},"multipart/encrypted":{"source":"iana","compressible":false},"multipart/form-data":{"source":"iana","compressible":false},"multipart/header-set":{"source":"iana"},"multipart/mixed":{"source":"iana","compressible":false},"multipart/parallel":{"source":"iana"},"multipart/related":{"source":"iana","compressible":false},"multipart/report":{"source":"iana"},"multipart/signed":{"source":"iana","compressible":false},"multipart/vnd.bint.med-plus":{"source":"iana"},"multipart/voice-message":{"source":"iana"},"multipart/x-mixed-replace":{"source":"iana"},"text/1d-interleaved-parityfec":{"source":"iana"},"text/cache-manifest":{"source":"iana","compressible":true,"extensions":["appcache","manifest"]},"text/calendar":{"source":"iana","extensions":["ics","ifb"]},"text/calender":{"compressible":true},"text/cmd":{"compressible":true},"text/coffeescript":{"extensions":["coffee","litcoffee"]},"text/css":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["css"]},"text/csv":{"source":"iana","compressible":true,"extensions":["csv"]},"text/csv-schema":{"source":"iana"},"text/directory":{"source":"iana"},"text/dns":{"source":"iana"},"text/ecmascript":{"source":"iana"},"text/encaprtp":{"source":"iana"},"text/enriched":{"source":"iana"},"text/fwdred":{"source":"iana"},"text/grammar-ref-list":{"source":"iana"},"text/hjson":{"extensions":["hjson"]},"text/html":{"source":"iana","compressible":true,"extensions":["html","htm","shtml"]},"text/jade":{"extensions":["jade"]},"text/javascript":{"source":"iana","compressible":true},"text/jcr-cnd":{"source":"iana"},"text/jsx":{"compressible":true,"extensions":["jsx"]},"text/less":{"extensions":["less"]},"text/markdown":{"source":"iana","compressible":true,"extensions":["markdown","md"]},"text/mathml":{"source":"nginx","extensions":["mml"]},"text/mizar":{"source":"iana"},"text/n3":{"source":"iana","compressible":true,"extensions":["n3"]},"text/parameters":{"source":"iana"},"text/parityfec":{"source":"iana"},"text/plain":{"source":"iana","compressible":true,"extensions":["txt","text","conf","def","list","log","in","ini"]},"text/provenance-notation":{"source":"iana"},"text/prs.fallenstein.rst":{"source":"iana"},"text/prs.lines.tag":{"source":"iana","extensions":["dsc"]},"text/prs.prop.logic":{"source":"iana"},"text/raptorfec":{"source":"iana"},"text/red":{"source":"iana"},"text/rfc822-headers":{"source":"iana"},"text/richtext":{"source":"iana","compressible":true,"extensions":["rtx"]},"text/rtf":{"source":"iana","compressible":true,"extensions":["rtf"]},"text/rtp-enc-aescm128":{"source":"iana"},"text/rtploopback":{"source":"iana"},"text/rtx":{"source":"iana"},"text/sgml":{"source":"iana","extensions":["sgml","sgm"]},"text/slim":{"extensions":["slim","slm"]},"text/strings":{"source":"iana"},"text/stylus":{"extensions":["stylus","styl"]},"text/t140":{"source":"iana"},"text/tab-separated-values":{"source":"iana","compressible":true,"extensions":["tsv"]},"text/troff":{"source":"iana","extensions":["t","tr","roff","man","me","ms"]},"text/turtle":{"source":"iana","extensions":["ttl"]},"text/ulpfec":{"source":"iana"},"text/uri-list":{"source":"iana","compressible":true,"extensions":["uri","uris","urls"]},"text/vcard":{"source":"iana","compressible":true,"extensions":["vcard"]},"text/vnd.a":{"source":"iana"},"text/vnd.abc":{"source":"iana"},"text/vnd.ascii-art":{"source":"iana"},"text/vnd.curl":{"source":"iana","extensions":["curl"]},"text/vnd.curl.dcurl":{"source":"apache","extensions":["dcurl"]},"text/vnd.curl.mcurl":{"source":"apache","extensions":["mcurl"]},"text/vnd.curl.scurl":{"source":"apache","extensions":["scurl"]},"text/vnd.debian.copyright":{"source":"iana"},"text/vnd.dmclientscript":{"source":"iana"},"text/vnd.dvb.subtitle":{"source":"iana","extensions":["sub"]},"text/vnd.esmertec.theme-descriptor":{"source":"iana"},"text/vnd.fly":{"source":"iana","extensions":["fly"]},"text/vnd.fmi.flexstor":{"source":"iana","extensions":["flx"]},"text/vnd.graphviz":{"source":"iana","extensions":["gv"]},"text/vnd.in3d.3dml":{"source":"iana","extensions":["3dml"]},"text/vnd.in3d.spot":{"source":"iana","extensions":["spot"]},"text/vnd.iptc.newsml":{"source":"iana"},"text/vnd.iptc.nitf":{"source":"iana"},"text/vnd.latex-z":{"source":"iana"},"text/vnd.motorola.reflex":{"source":"iana"},"text/vnd.ms-mediapackage":{"source":"iana"},"text/vnd.net2phone.commcenter.command":{"source":"iana"},"text/vnd.radisys.msml-basic-layout":{"source":"iana"},"text/vnd.si.uricatalogue":{"source":"iana"},"text/vnd.sun.j2me.app-descriptor":{"source":"iana","extensions":["jad"]},"text/vnd.trolltech.linguist":{"source":"iana"},"text/vnd.wap.si":{"source":"iana"},"text/vnd.wap.sl":{"source":"iana"},"text/vnd.wap.wml":{"source":"iana","extensions":["wml"]},"text/vnd.wap.wmlscript":{"source":"iana","extensions":["wmls"]},"text/vtt":{"charset":"UTF-8","compressible":true,"extensions":["vtt"]},"text/x-asm":{"source":"apache","extensions":["s","asm"]},"text/x-c":{"source":"apache","extensions":["c","cc","cxx","cpp","h","hh","dic"]},"text/x-component":{"source":"nginx","extensions":["htc"]},"text/x-fortran":{"source":"apache","extensions":["f","for","f77","f90"]},"text/x-gwt-rpc":{"compressible":true},"text/x-handlebars-template":{"extensions":["hbs"]},"text/x-java-source":{"source":"apache","extensions":["java"]},"text/x-jquery-tmpl":{"compressible":true},"text/x-lua":{"extensions":["lua"]},"text/x-markdown":{"compressible":true,"extensions":["mkd"]},"text/x-nfo":{"source":"apache","extensions":["nfo"]},"text/x-opml":{"source":"apache","extensions":["opml"]},"text/x-org":{"compressible":true,"extensions":["org"]},"text/x-pascal":{"source":"apache","extensions":["p","pas"]},"text/x-processing":{"compressible":true,"extensions":["pde"]},"text/x-sass":{"extensions":["sass"]},"text/x-scss":{"extensions":["scss"]},"text/x-setext":{"source":"apache","extensions":["etx"]},"text/x-sfv":{"source":"apache","extensions":["sfv"]},"text/x-suse-ymp":{"compressible":true,"extensions":["ymp"]},"text/x-uuencode":{"source":"apache","extensions":["uu"]},"text/x-vcalendar":{"source":"apache","extensions":["vcs"]},"text/x-vcard":{"source":"apache","extensions":["vcf"]},"text/xml":{"source":"iana","compressible":true,"extensions":["xml"]},"text/xml-external-parsed-entity":{"source":"iana"},"text/yaml":{"extensions":["yaml","yml"]},"video/1d-interleaved-parityfec":{"source":"iana"},"video/3gpp":{"source":"iana","extensions":["3gp","3gpp"]},"video/3gpp-tt":{"source":"iana"},"video/3gpp2":{"source":"iana","extensions":["3g2"]},"video/bmpeg":{"source":"iana"},"video/bt656":{"source":"iana"},"video/celb":{"source":"iana"},"video/dv":{"source":"iana"},"video/encaprtp":{"source":"iana"},"video/h261":{"source":"iana","extensions":["h261"]},"video/h263":{"source":"iana","extensions":["h263"]},"video/h263-1998":{"source":"iana"},"video/h263-2000":{"source":"iana"},"video/h264":{"source":"iana","extensions":["h264"]},"video/h264-rcdo":{"source":"iana"},"video/h264-svc":{"source":"iana"},"video/h265":{"source":"iana"},"video/iso.segment":{"source":"iana"},"video/jpeg":{"source":"iana","extensions":["jpgv"]},"video/jpeg2000":{"source":"iana"},"video/jpm":{"source":"apache","extensions":["jpm","jpgm"]},"video/mj2":{"source":"iana","extensions":["mj2","mjp2"]},"video/mp1s":{"source":"iana"},"video/mp2p":{"source":"iana"},"video/mp2t":{"source":"iana","extensions":["ts"]},"video/mp4":{"source":"iana","compressible":false,"extensions":["mp4","mp4v","mpg4"]},"video/mp4v-es":{"source":"iana"},"video/mpeg":{"source":"iana","compressible":false,"extensions":["mpeg","mpg","mpe","m1v","m2v"]},"video/mpeg4-generic":{"source":"iana"},"video/mpv":{"source":"iana"},"video/nv":{"source":"iana"},"video/ogg":{"source":"iana","compressible":false,"extensions":["ogv"]},"video/parityfec":{"source":"iana"},"video/pointer":{"source":"iana"},"video/quicktime":{"source":"iana","compressible":false,"extensions":["qt","mov"]},"video/raptorfec":{"source":"iana"},"video/raw":{"source":"iana"},"video/rtp-enc-aescm128":{"source":"iana"},"video/rtploopback":{"source":"iana"},"video/rtx":{"source":"iana"},"video/smpte292m":{"source":"iana"},"video/ulpfec":{"source":"iana"},"video/vc1":{"source":"iana"},"video/vnd.cctv":{"source":"iana"},"video/vnd.dece.hd":{"source":"iana","extensions":["uvh","uvvh"]},"video/vnd.dece.mobile":{"source":"iana","extensions":["uvm","uvvm"]},"video/vnd.dece.mp4":{"source":"iana"},"video/vnd.dece.pd":{"source":"iana","extensions":["uvp","uvvp"]},"video/vnd.dece.sd":{"source":"iana","extensions":["uvs","uvvs"]},"video/vnd.dece.video":{"source":"iana","extensions":["uvv","uvvv"]},"video/vnd.directv.mpeg":{"source":"iana"},"video/vnd.directv.mpeg-tts":{"source":"iana"},"video/vnd.dlna.mpeg-tts":{"source":"iana"},"video/vnd.dvb.file":{"source":"iana","extensions":["dvb"]},"video/vnd.fvt":{"source":"iana","extensions":["fvt"]},"video/vnd.hns.video":{"source":"iana"},"video/vnd.iptvforum.1dparityfec-1010":{"source":"iana"},"video/vnd.iptvforum.1dparityfec-2005":{"source":"iana"},"video/vnd.iptvforum.2dparityfec-1010":{"source":"iana"},"video/vnd.iptvforum.2dparityfec-2005":{"source":"iana"},"video/vnd.iptvforum.ttsavc":{"source":"iana"},"video/vnd.iptvforum.ttsmpeg2":{"source":"iana"},"video/vnd.motorola.video":{"source":"iana"},"video/vnd.motorola.videop":{"source":"iana"},"video/vnd.mpegurl":{"source":"iana","extensions":["mxu","m4u"]},"video/vnd.ms-playready.media.pyv":{"source":"iana","extensions":["pyv"]},"video/vnd.nokia.interleaved-multimedia":{"source":"iana"},"video/vnd.nokia.videovoip":{"source":"iana"},"video/vnd.objectvideo":{"source":"iana"},"video/vnd.radgamettools.bink":{"source":"iana"},"video/vnd.radgamettools.smacker":{"source":"iana"},"video/vnd.sealed.mpeg1":{"source":"iana"},"video/vnd.sealed.mpeg4":{"source":"iana"},"video/vnd.sealed.swf":{"source":"iana"},"video/vnd.sealedmedia.softseal.mov":{"source":"iana"},"video/vnd.uvvu.mp4":{"source":"iana","extensions":["uvu","uvvu"]},"video/vnd.vivo":{"source":"iana","extensions":["viv"]},"video/vp8":{"source":"iana"},"video/webm":{"source":"apache","compressible":false,"extensions":["webm"]},"video/x-f4v":{"source":"apache","extensions":["f4v"]},"video/x-fli":{"source":"apache","extensions":["fli"]},"video/x-flv":{"source":"apache","compressible":false,"extensions":["flv"]},"video/x-m4v":{"source":"apache","extensions":["m4v"]},"video/x-matroska":{"source":"apache","compressible":false,"extensions":["mkv","mk3d","mks"]},"video/x-mng":{"source":"apache","extensions":["mng"]},"video/x-ms-asf":{"source":"apache","extensions":["asf","asx"]},"video/x-ms-vob":{"source":"apache","extensions":["vob"]},"video/x-ms-wm":{"source":"apache","extensions":["wm"]},"video/x-ms-wmv":{"source":"apache","compressible":false,"extensions":["wmv"]},"video/x-ms-wmx":{"source":"apache","extensions":["wmx"]},"video/x-ms-wvx":{"source":"apache","extensions":["wvx"]},"video/x-msvideo":{"source":"apache","extensions":["avi"]},"video/x-sgi-movie":{"source":"apache","extensions":["movie"]},"video/x-smv":{"source":"apache","extensions":["smv"]},"x-conference/x-cooltalk":{"source":"apache","extensions":["ice"]},"x-shader/x-fragment":{"compressible":true},"x-shader/x-vertex":{"compressible":true}}
 
 /***/ }),
-/* 530 */
+/* 528 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -89452,12 +89338,12 @@ var substr = 'ab'.substr(-1) === 'b'
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
-/* 531 */
+/* 529 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var util = __webpack_require__(8)
 var Stream = __webpack_require__(18)
-var StringDecoder = __webpack_require__(57).StringDecoder
+var StringDecoder = __webpack_require__(56).StringDecoder
 
 module.exports = StringStream
 module.exports.AlignedStringDecoder = AlignedStringDecoder
@@ -89561,17 +89447,17 @@ function alignedWrite(buffer) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 532 */
+/* 530 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = ForeverAgent
 ForeverAgent.SSL = ForeverAgentSSL
 
 var util = __webpack_require__(8)
-  , Agent = __webpack_require__(48).Agent
+  , Agent = __webpack_require__(47).Agent
   , net = __webpack_require__(35)
   , tls = __webpack_require__(35)
-  , AgentSSL = __webpack_require__(80).Agent
+  , AgentSSL = __webpack_require__(79).Agent
   
 function getConnectionName(host, port) {  
   var name = ''
@@ -89705,7 +89591,7 @@ function createConnectionSSL (port, host, options) {
 
 
 /***/ }),
-/* 533 */
+/* 531 */
 /***/ (function(module, exports) {
 
 /* eslint-env browser */
@@ -89713,7 +89599,7 @@ module.exports = typeof self == 'object' ? self.FormData : window.FormData;
 
 
 /***/ }),
-/* 534 */
+/* 532 */
 /***/ (function(module, exports) {
 
 module.exports      = isTypedArray
@@ -89760,7 +89646,7 @@ function isLooseTypedArray(arr) {
 
 
 /***/ }),
-/* 535 */
+/* 533 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -89847,14 +89733,14 @@ module.exports = getProxyFromURI
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
-/* 536 */
+/* 534 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var qs = __webpack_require__(261)
-var querystring = __webpack_require__(39)
+var querystring = __webpack_require__(40)
 
 function Querystring (request) {
   this.request = request
@@ -89904,7 +89790,7 @@ exports.Querystring = Querystring
 
 
 /***/ }),
-/* 537 */
+/* 535 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -90121,7 +90007,7 @@ module.exports = function (object, opts) {
 
 
 /***/ }),
-/* 538 */
+/* 536 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -90302,16 +90188,16 @@ module.exports = function (str, opts) {
 
 
 /***/ }),
-/* 539 */
+/* 537 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var fs = __webpack_require__(35)
-var qs = __webpack_require__(39)
-var validate = __webpack_require__(540)
-var extend = __webpack_require__(68)
+var qs = __webpack_require__(40)
+var validate = __webpack_require__(538)
+var extend = __webpack_require__(67)
 
 function Har (request) {
   this.request = request
@@ -90514,12 +90400,12 @@ exports.Har = Har
 
 
 /***/ }),
-/* 540 */
+/* 538 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Ajv = __webpack_require__(541)
-var HARError = __webpack_require__(573)
-var schemas = __webpack_require__(574)
+var Ajv = __webpack_require__(539)
+var HARError = __webpack_require__(571)
+var schemas = __webpack_require__(572)
 
 var ajv
 
@@ -90615,22 +90501,22 @@ exports.timings = function (data) {
 
 
 /***/ }),
-/* 541 */
+/* 539 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var compileSchema = __webpack_require__(542)
-  , resolve = __webpack_require__(86)
-  , Cache = __webpack_require__(545)
+var compileSchema = __webpack_require__(540)
+  , resolve = __webpack_require__(85)
+  , Cache = __webpack_require__(543)
   , SchemaObject = __webpack_require__(264)
   , stableStringify = __webpack_require__(265)
-  , formats = __webpack_require__(546)
-  , rules = __webpack_require__(547)
-  , $dataMetaSchema = __webpack_require__(566)
-  , patternGroups = __webpack_require__(567)
-  , util = __webpack_require__(38)
+  , formats = __webpack_require__(544)
+  , rules = __webpack_require__(545)
+  , $dataMetaSchema = __webpack_require__(564)
+  , patternGroups = __webpack_require__(565)
+  , util = __webpack_require__(39)
   , co = __webpack_require__(267);
 
 module.exports = Ajv;
@@ -90648,13 +90534,13 @@ Ajv.prototype.errorsText = errorsText;
 Ajv.prototype._addSchema = _addSchema;
 Ajv.prototype._compile = _compile;
 
-Ajv.prototype.compileAsync = __webpack_require__(568);
-var customKeyword = __webpack_require__(569);
+Ajv.prototype.compileAsync = __webpack_require__(566);
+var customKeyword = __webpack_require__(567);
 Ajv.prototype.addKeyword = customKeyword.add;
 Ajv.prototype.getKeyword = customKeyword.get;
 Ajv.prototype.removeKeyword = customKeyword.remove;
 
-var errorClasses = __webpack_require__(88);
+var errorClasses = __webpack_require__(87);
 Ajv.ValidationError = errorClasses.Validation;
 Ajv.MissingRefError = errorClasses.MissingRef;
 Ajv.$dataMetaSchema = $dataMetaSchema;
@@ -91066,11 +90952,11 @@ function addFormat(name, format) {
 function addDraft6MetaSchema(self) {
   var $dataSchema;
   if (self._opts.$data) {
-    $dataSchema = __webpack_require__(571);
+    $dataSchema = __webpack_require__(569);
     self.addMetaSchema($dataSchema, $dataSchema.$id, true);
   }
   if (self._opts.meta === false) return;
-  var metaSchema = __webpack_require__(572);
+  var metaSchema = __webpack_require__(570);
   if (self._opts.$data) metaSchema = $dataMetaSchema(metaSchema, META_SUPPORT_DATA);
   self.addMetaSchema(metaSchema, META_SCHEMA_ID, true);
   self._refs['http://json-schema.org/schema'] = META_SCHEMA_ID;
@@ -91124,15 +91010,15 @@ function noop() {}
 
 
 /***/ }),
-/* 542 */
+/* 540 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var resolve = __webpack_require__(86)
-  , util = __webpack_require__(38)
-  , errorClasses = __webpack_require__(88)
+var resolve = __webpack_require__(85)
+  , util = __webpack_require__(39)
+  , errorClasses = __webpack_require__(87)
   , stableStringify = __webpack_require__(265);
 
 var validateGenerator = __webpack_require__(266);
@@ -91143,7 +91029,7 @@ var validateGenerator = __webpack_require__(266);
 
 var co = __webpack_require__(267);
 var ucs2length = util.ucs2length;
-var equal = __webpack_require__(87);
+var equal = __webpack_require__(86);
 
 // this error is thrown by async schemas to return validation errors via exception
 var ValidationError = errorClasses.Validation;
@@ -91511,7 +91397,7 @@ function vars(arr, statement) {
 
 
 /***/ }),
-/* 543 */
+/* 541 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -91538,7 +91424,7 @@ module.exports = function ucs2length(str) {
 
 
 /***/ }),
-/* 544 */
+/* 542 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -91626,7 +91512,7 @@ function escapeJsonPtr(str) {
 
 
 /***/ }),
-/* 545 */
+/* 543 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -91659,13 +91545,13 @@ Cache.prototype.clear = function Cache_clear() {
 
 
 /***/ }),
-/* 546 */
+/* 544 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var util = __webpack_require__(38);
+var util = __webpack_require__(39);
 
 var DATE = /^\d\d\d\d-(\d\d)-(\d\d)$/;
 var DAYS = [0,31,29,31,30,31,30,31,31,30,31,30,31];
@@ -91801,14 +91687,14 @@ function regex(str) {
 
 
 /***/ }),
-/* 547 */
+/* 545 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var ruleModules = __webpack_require__(548)
-  , toHash = __webpack_require__(38).toHash;
+var ruleModules = __webpack_require__(546)
+  , toHash = __webpack_require__(39).toHash;
 
 module.exports = function rules() {
   var RULES = [
@@ -91866,7 +91752,7 @@ module.exports = function rules() {
 
 
 /***/ }),
-/* 548 */
+/* 546 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -91874,15 +91760,15 @@ module.exports = function rules() {
 
 //all requires must be explicit because browserify won't work with dynamic requires
 module.exports = {
-  '$ref': __webpack_require__(549),
-  allOf: __webpack_require__(550),
-  anyOf: __webpack_require__(551),
-  const: __webpack_require__(552),
-  contains: __webpack_require__(553),
-  dependencies: __webpack_require__(554),
-  'enum': __webpack_require__(555),
-  format: __webpack_require__(556),
-  items: __webpack_require__(557),
+  '$ref': __webpack_require__(547),
+  allOf: __webpack_require__(548),
+  anyOf: __webpack_require__(549),
+  const: __webpack_require__(550),
+  contains: __webpack_require__(551),
+  dependencies: __webpack_require__(552),
+  'enum': __webpack_require__(553),
+  format: __webpack_require__(554),
+  items: __webpack_require__(555),
   maximum: __webpack_require__(268),
   minimum: __webpack_require__(268),
   maxItems: __webpack_require__(269),
@@ -91891,20 +91777,20 @@ module.exports = {
   minLength: __webpack_require__(270),
   maxProperties: __webpack_require__(271),
   minProperties: __webpack_require__(271),
-  multipleOf: __webpack_require__(558),
-  not: __webpack_require__(559),
-  oneOf: __webpack_require__(560),
-  pattern: __webpack_require__(561),
-  properties: __webpack_require__(562),
-  propertyNames: __webpack_require__(563),
-  required: __webpack_require__(564),
-  uniqueItems: __webpack_require__(565),
+  multipleOf: __webpack_require__(556),
+  not: __webpack_require__(557),
+  oneOf: __webpack_require__(558),
+  pattern: __webpack_require__(559),
+  properties: __webpack_require__(560),
+  propertyNames: __webpack_require__(561),
+  required: __webpack_require__(562),
+  uniqueItems: __webpack_require__(563),
   validate: __webpack_require__(266)
 };
 
 
 /***/ }),
-/* 549 */
+/* 547 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -92034,7 +91920,7 @@ module.exports = function generate_ref(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 550 */
+/* 548 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -92084,7 +91970,7 @@ module.exports = function generate_allOf(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 551 */
+/* 549 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -92164,7 +92050,7 @@ module.exports = function generate_anyOf(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 552 */
+/* 550 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -92226,7 +92112,7 @@ module.exports = function generate_const(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 553 */
+/* 551 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -92314,7 +92200,7 @@ module.exports = function generate_contains(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 554 */
+/* 552 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -92488,7 +92374,7 @@ module.exports = function generate_dependencies(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 555 */
+/* 553 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -92560,7 +92446,7 @@ module.exports = function generate_enum(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 556 */
+/* 554 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -92716,7 +92602,7 @@ module.exports = function generate_format(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 557 */
+/* 555 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -92863,7 +92749,7 @@ module.exports = function generate_items(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 558 */
+/* 556 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -92946,7 +92832,7 @@ module.exports = function generate_multipleOf(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 559 */
+/* 557 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -93036,7 +92922,7 @@ module.exports = function generate_not(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 560 */
+/* 558 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -93113,7 +92999,7 @@ module.exports = function generate_oneOf(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 561 */
+/* 559 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -93194,7 +93080,7 @@ module.exports = function generate_pattern(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 562 */
+/* 560 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -93669,7 +93555,7 @@ module.exports = function generate_properties(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 563 */
+/* 561 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -93757,7 +93643,7 @@ module.exports = function generate_propertyNames(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 564 */
+/* 562 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -94032,7 +93918,7 @@ module.exports = function generate_required(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 565 */
+/* 563 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -94110,7 +93996,7 @@ module.exports = function generate_uniqueItems(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 566 */
+/* 564 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -94166,7 +94052,7 @@ module.exports = function (metaSchema, keywordsJsonPointers) {
 
 
 /***/ }),
-/* 567 */
+/* 565 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -94209,13 +94095,13 @@ module.exports = function (ajv) {
 
 
 /***/ }),
-/* 568 */
+/* 566 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var MissingRefError = __webpack_require__(88).MissingRef;
+var MissingRefError = __webpack_require__(87).MissingRef;
 
 module.exports = compileAsync;
 
@@ -94306,14 +94192,14 @@ function compileAsync(schema, meta, callback) {
 
 
 /***/ }),
-/* 569 */
+/* 567 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var IDENTIFIER = /^[a-z_$][a-z0-9_$-]*$/i;
-var customRuleCode = __webpack_require__(570);
+var customRuleCode = __webpack_require__(568);
 
 module.exports = {
   add: addKeyword,
@@ -94448,7 +94334,7 @@ function removeKeyword(keyword) {
 
 
 /***/ }),
-/* 570 */
+/* 568 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -94681,19 +94567,19 @@ module.exports = function generate_custom(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 571 */
+/* 569 */
 /***/ (function(module, exports) {
 
 module.exports = {"$schema":"http://json-schema.org/draft-06/schema#","$id":"https://raw.githubusercontent.com/epoberezkin/ajv/master/lib/refs/$data.json#","description":"Meta-schema for $data reference (JSON-schema extension proposal)","type":"object","required":["$data"],"properties":{"$data":{"type":"string","anyOf":[{"format":"relative-json-pointer"},{"format":"json-pointer"}]}},"additionalProperties":false}
 
 /***/ }),
-/* 572 */
+/* 570 */
 /***/ (function(module, exports) {
 
 module.exports = {"$schema":"http://json-schema.org/draft-06/schema#","$id":"http://json-schema.org/draft-06/schema#","title":"Core schema meta-schema","definitions":{"schemaArray":{"type":"array","minItems":1,"items":{"$ref":"#"}},"nonNegativeInteger":{"type":"integer","minimum":0},"nonNegativeIntegerDefault0":{"allOf":[{"$ref":"#/definitions/nonNegativeInteger"},{"default":0}]},"simpleTypes":{"enum":["array","boolean","integer","null","number","object","string"]},"stringArray":{"type":"array","items":{"type":"string"},"uniqueItems":true,"default":[]}},"type":["object","boolean"],"properties":{"$id":{"type":"string","format":"uri-reference"},"$schema":{"type":"string","format":"uri"},"$ref":{"type":"string","format":"uri-reference"},"title":{"type":"string"},"description":{"type":"string"},"default":{},"examples":{"type":"array","items":{}},"multipleOf":{"type":"number","exclusiveMinimum":0},"maximum":{"type":"number"},"exclusiveMaximum":{"type":"number"},"minimum":{"type":"number"},"exclusiveMinimum":{"type":"number"},"maxLength":{"$ref":"#/definitions/nonNegativeInteger"},"minLength":{"$ref":"#/definitions/nonNegativeIntegerDefault0"},"pattern":{"type":"string","format":"regex"},"additionalItems":{"$ref":"#"},"items":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/schemaArray"}],"default":{}},"maxItems":{"$ref":"#/definitions/nonNegativeInteger"},"minItems":{"$ref":"#/definitions/nonNegativeIntegerDefault0"},"uniqueItems":{"type":"boolean","default":false},"contains":{"$ref":"#"},"maxProperties":{"$ref":"#/definitions/nonNegativeInteger"},"minProperties":{"$ref":"#/definitions/nonNegativeIntegerDefault0"},"required":{"$ref":"#/definitions/stringArray"},"additionalProperties":{"$ref":"#"},"definitions":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"properties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"patternProperties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"dependencies":{"type":"object","additionalProperties":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/stringArray"}]}},"propertyNames":{"$ref":"#"},"const":{},"enum":{"type":"array","minItems":1,"uniqueItems":true},"type":{"anyOf":[{"$ref":"#/definitions/simpleTypes"},{"type":"array","items":{"$ref":"#/definitions/simpleTypes"},"minItems":1,"uniqueItems":true}]},"format":{"type":"string"},"allOf":{"$ref":"#/definitions/schemaArray"},"anyOf":{"$ref":"#/definitions/schemaArray"},"oneOf":{"$ref":"#/definitions/schemaArray"},"not":{"$ref":"#"}},"default":{}}
 
 /***/ }),
-/* 573 */
+/* 571 */
 /***/ (function(module, exports) {
 
 function HARError (errors) {
@@ -94716,152 +94602,152 @@ module.exports = HARError
 
 
 /***/ }),
-/* 574 */
+/* 572 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = {
-  afterRequest: __webpack_require__(575),
-  beforeRequest: __webpack_require__(576),
-  browser: __webpack_require__(577),
-  cache: __webpack_require__(578),
-  content: __webpack_require__(579),
-  cookie: __webpack_require__(580),
-  creator: __webpack_require__(581),
-  entry: __webpack_require__(582),
-  har: __webpack_require__(583),
-  header: __webpack_require__(584),
-  log: __webpack_require__(585),
-  page: __webpack_require__(586),
-  pageTimings: __webpack_require__(587),
-  postData: __webpack_require__(588),
-  query: __webpack_require__(589),
-  request: __webpack_require__(590),
-  response: __webpack_require__(591),
-  timings: __webpack_require__(592)
+  afterRequest: __webpack_require__(573),
+  beforeRequest: __webpack_require__(574),
+  browser: __webpack_require__(575),
+  cache: __webpack_require__(576),
+  content: __webpack_require__(577),
+  cookie: __webpack_require__(578),
+  creator: __webpack_require__(579),
+  entry: __webpack_require__(580),
+  har: __webpack_require__(581),
+  header: __webpack_require__(582),
+  log: __webpack_require__(583),
+  page: __webpack_require__(584),
+  pageTimings: __webpack_require__(585),
+  postData: __webpack_require__(586),
+  query: __webpack_require__(587),
+  request: __webpack_require__(588),
+  response: __webpack_require__(589),
+  timings: __webpack_require__(590)
 }
 
 
 /***/ }),
-/* 575 */
+/* 573 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"afterRequest.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["lastAccess","eTag","hitCount"],"properties":{"expires":{"type":"string","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))?"},"lastAccess":{"type":"string","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))?"},"eTag":{"type":"string"},"hitCount":{"type":"integer"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 576 */
+/* 574 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"beforeRequest.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["lastAccess","eTag","hitCount"],"properties":{"expires":{"type":"string","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))?"},"lastAccess":{"type":"string","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))?"},"eTag":{"type":"string"},"hitCount":{"type":"integer"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 577 */
+/* 575 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"browser.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","version"],"properties":{"name":{"type":"string"},"version":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 578 */
+/* 576 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"cache.json#","$schema":"http://json-schema.org/draft-06/schema#","properties":{"beforeRequest":{"oneOf":[{"type":"null"},{"$ref":"beforeRequest.json#"}]},"afterRequest":{"oneOf":[{"type":"null"},{"$ref":"afterRequest.json#"}]},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 579 */
+/* 577 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"content.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["size","mimeType"],"properties":{"size":{"type":"integer"},"compression":{"type":"integer"},"mimeType":{"type":"string"},"text":{"type":"string"},"encoding":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 580 */
+/* 578 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"cookie.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","value"],"properties":{"name":{"type":"string"},"value":{"type":"string"},"path":{"type":"string"},"domain":{"type":"string"},"expires":{"type":["string","null"],"format":"date-time"},"httpOnly":{"type":"boolean"},"secure":{"type":"boolean"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 581 */
+/* 579 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"creator.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","version"],"properties":{"name":{"type":"string"},"version":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 582 */
+/* 580 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"entry.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["startedDateTime","time","request","response","cache","timings"],"properties":{"pageref":{"type":"string"},"startedDateTime":{"type":"string","format":"date-time","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))"},"time":{"type":"number","min":0},"request":{"$ref":"request.json#"},"response":{"$ref":"response.json#"},"cache":{"$ref":"cache.json#"},"timings":{"$ref":"timings.json#"},"serverIPAddress":{"type":"string","oneOf":[{"format":"ipv4"},{"format":"ipv6"}]},"connection":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 583 */
+/* 581 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"har.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["log"],"properties":{"log":{"$ref":"log.json#"}}}
 
 /***/ }),
-/* 584 */
+/* 582 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"header.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","value"],"properties":{"name":{"type":"string"},"value":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 585 */
+/* 583 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"log.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["version","creator","entries"],"properties":{"version":{"type":"string"},"creator":{"$ref":"creator.json#"},"browser":{"$ref":"browser.json#"},"pages":{"type":"array","items":{"$ref":"page.json#"}},"entries":{"type":"array","items":{"$ref":"entry.json#"}},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 586 */
+/* 584 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"page.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["startedDateTime","id","title","pageTimings"],"properties":{"startedDateTime":{"type":"string","format":"date-time","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))"},"id":{"type":"string","unique":true},"title":{"type":"string"},"pageTimings":{"$ref":"pageTimings.json#"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 587 */
+/* 585 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"pageTimings.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","properties":{"onContentLoad":{"type":"number","min":-1},"onLoad":{"type":"number","min":-1},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 588 */
+/* 586 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"postData.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["mimeType"],"properties":{"mimeType":{"type":"string"},"text":{"type":"string"},"params":{"type":"array","required":["name"],"properties":{"name":{"type":"string"},"value":{"type":"string"},"fileName":{"type":"string"},"contentType":{"type":"string"},"comment":{"type":"string"}}},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 589 */
+/* 587 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"query.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","value"],"properties":{"name":{"type":"string"},"value":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 590 */
+/* 588 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"request.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["method","url","httpVersion","cookies","headers","queryString","headersSize","bodySize"],"properties":{"method":{"type":"string"},"url":{"type":"string","format":"uri"},"httpVersion":{"type":"string"},"cookies":{"type":"array","items":{"$ref":"cookie.json#"}},"headers":{"type":"array","items":{"$ref":"header.json#"}},"queryString":{"type":"array","items":{"$ref":"query.json#"}},"postData":{"$ref":"postData.json#"},"headersSize":{"type":"integer"},"bodySize":{"type":"integer"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 591 */
+/* 589 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"response.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["status","statusText","httpVersion","cookies","headers","content","redirectURL","headersSize","bodySize"],"properties":{"status":{"type":"integer"},"statusText":{"type":"string"},"httpVersion":{"type":"string"},"cookies":{"type":"array","items":{"$ref":"cookie.json#"}},"headers":{"type":"array","items":{"$ref":"header.json#"}},"content":{"$ref":"content.json#"},"redirectURL":{"type":"string"},"headersSize":{"type":"integer"},"bodySize":{"type":"integer"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 592 */
+/* 590 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"timings.json#","$schema":"http://json-schema.org/draft-06/schema#","required":["send","wait","receive"],"properties":{"dns":{"type":"number","min":-1},"connect":{"type":"number","min":-1},"blocked":{"type":"number","min":-1},"send":{"type":"number","min":-1},"wait":{"type":"number","min":-1},"receive":{"type":"number","min":-1},"ssl":{"type":"number","min":-1},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 593 */
+/* 591 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var caseless = __webpack_require__(85)
-var uuid = __webpack_require__(89)
-var helpers = __webpack_require__(70)
+var caseless = __webpack_require__(84)
+var uuid = __webpack_require__(88)
+var helpers = __webpack_require__(69)
 
 var md5 = helpers.md5
 var toBase64 = helpers.toBase64
@@ -95027,7 +94913,7 @@ exports.Auth = Auth
 
 
 /***/ }),
-/* 594 */
+/* 592 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var rng = __webpack_require__(272);
@@ -95133,7 +95019,7 @@ module.exports = v1;
 
 
 /***/ }),
-/* 595 */
+/* 593 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var rng = __webpack_require__(272);
@@ -95168,7 +95054,7 @@ module.exports = v4;
 
 
 /***/ }),
-/* 596 */
+/* 594 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -95176,11 +95062,11 @@ module.exports = v4;
 
 var url = __webpack_require__(21)
 var qs = __webpack_require__(261)
-var caseless = __webpack_require__(85)
-var uuid = __webpack_require__(89)
-var oauth = __webpack_require__(597)
+var caseless = __webpack_require__(84)
+var uuid = __webpack_require__(88)
+var oauth = __webpack_require__(595)
 var crypto = __webpack_require__(11)
-var Buffer = __webpack_require__(47).Buffer
+var Buffer = __webpack_require__(4).Buffer
 
 function OAuth (request) {
   this.request = request
@@ -95323,11 +95209,11 @@ exports.OAuth = OAuth
 
 
 /***/ }),
-/* 597 */
+/* 595 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var crypto = __webpack_require__(11)
-  , qs = __webpack_require__(39)
+  , qs = __webpack_require__(40)
   ;
 
 function sha1 (key, body) {
@@ -95465,16 +95351,16 @@ exports.generateBase = generateBase
 
 
 /***/ }),
-/* 598 */
+/* 596 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var uuid = __webpack_require__(89)
-var CombinedStream = __webpack_require__(599)
+var uuid = __webpack_require__(88)
+var CombinedStream = __webpack_require__(597)
 var isstream = __webpack_require__(260)
-var Buffer = __webpack_require__(47).Buffer
+var Buffer = __webpack_require__(4).Buffer
 
 function Multipart (request) {
   this.request = request
@@ -95584,12 +95470,12 @@ exports.Multipart = Multipart
 
 
 /***/ }),
-/* 599 */
+/* 597 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var util = __webpack_require__(8);
 var Stream = __webpack_require__(18).Stream;
-var DelayedStream = __webpack_require__(600);
+var DelayedStream = __webpack_require__(598);
 
 module.exports = CombinedStream;
 function CombinedStream() {
@@ -95779,7 +95665,7 @@ CombinedStream.prototype._emitError = function(err) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 600 */
+/* 598 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Stream = __webpack_require__(18).Stream;
@@ -95892,7 +95778,7 @@ DelayedStream.prototype._checkIfMaxDataSizeExceeded = function() {
 
 
 /***/ }),
-/* 601 */
+/* 599 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -96053,14 +95939,14 @@ exports.Redirect = Redirect
 
 
 /***/ }),
-/* 602 */
+/* 600 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var url = __webpack_require__(21)
-var tunnel = __webpack_require__(603)
+var tunnel = __webpack_require__(601)
 
 var defaultProxyHeaderWhiteList = [
   'accept',
@@ -96235,7 +96121,7 @@ exports.Tunnel = Tunnel
 
 
 /***/ }),
-/* 603 */
+/* 601 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -96243,12 +96129,12 @@ exports.Tunnel = Tunnel
 
 var net = __webpack_require__(35)
   , tls = __webpack_require__(35)
-  , http = __webpack_require__(48)
-  , https = __webpack_require__(80)
-  , events = __webpack_require__(55)
+  , http = __webpack_require__(47)
+  , https = __webpack_require__(79)
+  , events = __webpack_require__(54)
   , assert = __webpack_require__(31)
   , util = __webpack_require__(8)
-  , Buffer = __webpack_require__(47).Buffer
+  , Buffer = __webpack_require__(4).Buffer
   ;
 
 exports.httpOverHttp = httpOverHttp
@@ -96487,7 +96373,7 @@ exports.debug = debug // for test
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
-/* 604 */
+/* 602 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.12.2
@@ -96529,7 +96415,7 @@ exports.debug = debug // for test
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
-/* 605 */
+/* 603 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -96546,8 +96432,8 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(25);
-var keys_1 = __webpack_require__(90);
-var Request = __webpack_require__(209);
+var keys_1 = __webpack_require__(89);
+var Request = __webpack_require__(208);
 var timeout = null;
 var InputField = /** @class */ (function (_super) {
     __extends(InputField, _super);
@@ -96618,7 +96504,7 @@ exports.InputField = InputField;
 
 
 /***/ }),
-/* 606 */
+/* 604 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -96681,7 +96567,7 @@ exports.WeatherCardBig = WeatherCardBig;
 
 
 /***/ }),
-/* 607 */
+/* 605 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -96721,7 +96607,7 @@ exports.Spinner = Spinner;
 
 
 /***/ }),
-/* 608 */
+/* 606 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -96738,7 +96624,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(25);
-var chart_js_1 = __webpack_require__(609);
+var chart_js_1 = __webpack_require__(607);
 var LineChart = /** @class */ (function (_super) {
     __extends(LineChart, _super);
     function LineChart() {
@@ -96844,18 +96730,18 @@ exports.LineChart = LineChart;
 
 
 /***/ }),
-/* 609 */
+/* 607 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
  * @namespace Chart
  */
-var Chart = __webpack_require__(610)();
+var Chart = __webpack_require__(608)();
 
-Chart.helpers = __webpack_require__(4);
+Chart.helpers = __webpack_require__(5);
 
 // @todo dispatch these helpers into appropriated helpers/helpers.* file and write unit tests!
-__webpack_require__(614)(Chart);
+__webpack_require__(612)(Chart);
 
 Chart.defaults = __webpack_require__(7);
 Chart.Element = __webpack_require__(20);
@@ -96863,47 +96749,47 @@ Chart.elements = __webpack_require__(29);
 Chart.Interaction = __webpack_require__(275);
 Chart.platform = __webpack_require__(276);
 
+__webpack_require__(623)(Chart);
+__webpack_require__(624)(Chart);
 __webpack_require__(625)(Chart);
 __webpack_require__(626)(Chart);
 __webpack_require__(627)(Chart);
 __webpack_require__(628)(Chart);
 __webpack_require__(629)(Chart);
 __webpack_require__(630)(Chart);
+
 __webpack_require__(631)(Chart);
 __webpack_require__(632)(Chart);
-
 __webpack_require__(633)(Chart);
 __webpack_require__(634)(Chart);
 __webpack_require__(635)(Chart);
 __webpack_require__(636)(Chart);
-__webpack_require__(637)(Chart);
-__webpack_require__(638)(Chart);
 
 // Controllers must be loaded after elements
 // See Chart.core.datasetController.dataElementType
+__webpack_require__(638)(Chart);
+__webpack_require__(639)(Chart);
 __webpack_require__(640)(Chart);
 __webpack_require__(641)(Chart);
 __webpack_require__(642)(Chart);
 __webpack_require__(643)(Chart);
 __webpack_require__(644)(Chart);
+
 __webpack_require__(645)(Chart);
 __webpack_require__(646)(Chart);
-
 __webpack_require__(647)(Chart);
 __webpack_require__(648)(Chart);
 __webpack_require__(649)(Chart);
 __webpack_require__(650)(Chart);
 __webpack_require__(651)(Chart);
-__webpack_require__(652)(Chart);
-__webpack_require__(653)(Chart);
 
 // Loading built-it plugins
 var plugins = [];
 
 plugins.push(
-	__webpack_require__(654)(Chart),
-	__webpack_require__(655)(Chart),
-	__webpack_require__(656)(Chart)
+	__webpack_require__(652)(Chart),
+	__webpack_require__(653)(Chart),
+	__webpack_require__(654)(Chart)
 );
 
 Chart.plugins.register(plugins);
@@ -96928,7 +96814,7 @@ Chart.canvasHelpers = Chart.helpers.canvas;
 
 
 /***/ }),
-/* 610 */
+/* 608 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -96984,13 +96870,13 @@ module.exports = function() {
 
 
 /***/ }),
-/* 611 */
+/* 609 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var helpers = __webpack_require__(67);
+var helpers = __webpack_require__(66);
 
 /**
  * Easing functions adapted from Robert Penner's easing equations.
@@ -97241,13 +97127,13 @@ helpers.easingEffects = effects;
 
 
 /***/ }),
-/* 612 */
+/* 610 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var helpers = __webpack_require__(67);
+var helpers = __webpack_require__(66);
 
 /**
  * @namespace Chart.helpers.canvas
@@ -97462,13 +97348,13 @@ helpers.drawRoundedRectangle = function(ctx) {
 
 
 /***/ }),
-/* 613 */
+/* 611 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var helpers = __webpack_require__(67);
+var helpers = __webpack_require__(66);
 
 /**
  * @alias Chart.helpers.options
@@ -97565,7 +97451,7 @@ module.exports = {
 
 
 /***/ }),
-/* 614 */
+/* 612 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -97575,7 +97461,7 @@ module.exports = {
 
 var color = __webpack_require__(274);
 var defaults = __webpack_require__(7);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 module.exports = function(Chart) {
 
@@ -98175,10 +98061,10 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 615 */
+/* 613 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var conversions = __webpack_require__(616);
+var conversions = __webpack_require__(614);
 
 var convert = function() {
    return new Converter();
@@ -98272,7 +98158,7 @@ Converter.prototype.getValues = function(space) {
 module.exports = convert;
 
 /***/ }),
-/* 616 */
+/* 614 */
 /***/ (function(module, exports) {
 
 /* MIT license */
@@ -98976,11 +98862,11 @@ for (var key in cssKeywords) {
 
 
 /***/ }),
-/* 617 */
+/* 615 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* MIT license */
-var colorNames = __webpack_require__(618);
+var colorNames = __webpack_require__(616);
 
 module.exports = {
    getRgba: getRgba,
@@ -99203,7 +99089,7 @@ for (var name in colorNames) {
 
 
 /***/ }),
-/* 618 */
+/* 616 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99362,7 +99248,7 @@ module.exports = {
 
 
 /***/ }),
-/* 619 */
+/* 617 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99370,7 +99256,7 @@ module.exports = {
 
 var defaults = __webpack_require__(7);
 var Element = __webpack_require__(20);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 defaults._set('global', {
 	elements: {
@@ -99476,7 +99362,7 @@ module.exports = Element.extend({
 
 
 /***/ }),
-/* 620 */
+/* 618 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99484,7 +99370,7 @@ module.exports = Element.extend({
 
 var defaults = __webpack_require__(7);
 var Element = __webpack_require__(20);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 var globalDefaults = defaults.global;
 
@@ -99574,7 +99460,7 @@ module.exports = Element.extend({
 
 
 /***/ }),
-/* 621 */
+/* 619 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99582,7 +99468,7 @@ module.exports = Element.extend({
 
 var defaults = __webpack_require__(7);
 var Element = __webpack_require__(20);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 var defaultColor = defaults.global.defaultColor;
 
@@ -99687,7 +99573,7 @@ module.exports = Element.extend({
 
 
 /***/ }),
-/* 622 */
+/* 620 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99911,7 +99797,7 @@ module.exports = Element.extend({
 
 
 /***/ }),
-/* 623 */
+/* 621 */
 /***/ (function(module, exports) {
 
 /**
@@ -99932,7 +99818,7 @@ module.exports = {
 
 
 /***/ }),
-/* 624 */
+/* 622 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99942,7 +99828,7 @@ module.exports = {
 
 
 
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 var EXPANDO_KEY = '$chartjs';
 var CSS_PREFIX = 'chartjs-';
@@ -100396,7 +100282,7 @@ helpers.removeEvent = removeEventListener;
 
 
 /***/ }),
-/* 625 */
+/* 623 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100404,7 +100290,7 @@ helpers.removeEvent = removeEventListener;
 
 var defaults = __webpack_require__(7);
 var Element = __webpack_require__(20);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 defaults._set('global', {
 	plugins: {}
@@ -100798,7 +100684,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 626 */
+/* 624 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100807,7 +100693,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(7);
 var Element = __webpack_require__(20);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 defaults._set('global', {
 	animation: {
@@ -100977,14 +100863,14 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 627 */
+/* 625 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var defaults = __webpack_require__(7);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 var Interaction = __webpack_require__(275);
 var platform = __webpack_require__(276);
 
@@ -101888,13 +101774,13 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 628 */
+/* 626 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 module.exports = function(Chart) {
 
@@ -102225,13 +102111,13 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 629 */
+/* 627 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 module.exports = function(Chart) {
 
@@ -102654,14 +102540,14 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 630 */
+/* 628 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var defaults = __webpack_require__(7);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 module.exports = function(Chart) {
 
@@ -102706,7 +102592,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 631 */
+/* 629 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -102714,8 +102600,8 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(7);
 var Element = __webpack_require__(20);
-var helpers = __webpack_require__(4);
-var Ticks = __webpack_require__(53);
+var helpers = __webpack_require__(5);
+var Ticks = __webpack_require__(52);
 
 defaults._set('scale', {
 	display: true,
@@ -103644,7 +103530,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 632 */
+/* 630 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -103652,7 +103538,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(7);
 var Element = __webpack_require__(20);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 defaults._set('global', {
 	tooltips: {
@@ -104599,14 +104485,14 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 633 */
+/* 631 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var helpers = __webpack_require__(4);
-var Ticks = __webpack_require__(53);
+var helpers = __webpack_require__(5);
+var Ticks = __webpack_require__(52);
 
 module.exports = function(Chart) {
 
@@ -104738,7 +104624,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 634 */
+/* 632 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -104878,15 +104764,15 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 635 */
+/* 633 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var defaults = __webpack_require__(7);
-var helpers = __webpack_require__(4);
-var Ticks = __webpack_require__(53);
+var helpers = __webpack_require__(5);
+var Ticks = __webpack_require__(52);
 
 module.exports = function(Chart) {
 
@@ -105077,14 +104963,14 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 636 */
+/* 634 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var helpers = __webpack_require__(4);
-var Ticks = __webpack_require__(53);
+var helpers = __webpack_require__(5);
+var Ticks = __webpack_require__(52);
 
 module.exports = function(Chart) {
 
@@ -105328,15 +105214,15 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 637 */
+/* 635 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var defaults = __webpack_require__(7);
-var helpers = __webpack_require__(4);
-var Ticks = __webpack_require__(53);
+var helpers = __webpack_require__(5);
+var Ticks = __webpack_require__(52);
 
 module.exports = function(Chart) {
 
@@ -105865,7 +105751,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 638 */
+/* 636 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -105876,7 +105762,7 @@ var moment = __webpack_require__(1);
 moment = typeof moment === 'function' ? moment : window.moment;
 
 var defaults = __webpack_require__(7);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 // Integer constants are from the ES6 spec.
 var MIN_INTEGER = Number.MIN_SAFE_INTEGER || -9007199254740991;
@@ -106628,7 +106514,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 639 */
+/* 637 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -106877,10 +106763,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 639;
+webpackContext.id = 637;
 
 /***/ }),
-/* 640 */
+/* 638 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -106888,7 +106774,7 @@ webpackContext.id = 639;
 
 var defaults = __webpack_require__(7);
 var elements = __webpack_require__(29);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 defaults._set('bar', {
 	hover: {
@@ -107308,7 +107194,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 641 */
+/* 639 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -107316,7 +107202,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(7);
 var elements = __webpack_require__(29);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 defaults._set('bubble', {
 	hover: {
@@ -107495,7 +107381,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 642 */
+/* 640 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -107503,7 +107389,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(7);
 var elements = __webpack_require__(29);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 defaults._set('doughnut', {
 	animation: {
@@ -107801,7 +107687,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 643 */
+/* 641 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -107809,7 +107695,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(7);
 var elements = __webpack_require__(29);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 defaults._set('line', {
 	showLines: true,
@@ -108141,7 +108027,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 644 */
+/* 642 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108149,7 +108035,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(7);
 var elements = __webpack_require__(29);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 defaults._set('polarArea', {
 	scale: {
@@ -108370,7 +108256,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 645 */
+/* 643 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108378,7 +108264,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(7);
 var elements = __webpack_require__(29);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 defaults._set('radar', {
 	scale: {
@@ -108545,7 +108431,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 646 */
+/* 644 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108594,7 +108480,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 647 */
+/* 645 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108612,7 +108498,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 648 */
+/* 646 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108629,7 +108515,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 649 */
+/* 647 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108647,7 +108533,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 650 */
+/* 648 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108665,7 +108551,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 651 */
+/* 649 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108683,7 +108569,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 652 */
+/* 650 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108701,7 +108587,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 653 */
+/* 651 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108716,7 +108602,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 654 */
+/* 652 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108730,7 +108616,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(7);
 var elements = __webpack_require__(29);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 defaults._set('global', {
 	plugins: {
@@ -109044,7 +108930,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 655 */
+/* 653 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -109052,7 +108938,7 @@ module.exports = function() {
 
 var defaults = __webpack_require__(7);
 var Element = __webpack_require__(20);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 defaults._set('global', {
 	legend: {
@@ -109618,7 +109504,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 656 */
+/* 654 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -109626,7 +109512,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(7);
 var Element = __webpack_require__(20);
-var helpers = __webpack_require__(4);
+var helpers = __webpack_require__(5);
 
 defaults._set('global', {
 	title: {
@@ -109868,7 +109754,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 657 */
+/* 655 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -109886,7 +109772,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(25);
 var Moment = __webpack_require__(0);
-var weatherCard_component_1 = __webpack_require__(658);
+var weatherCard_component_1 = __webpack_require__(656);
 var currentDay = '';
 var worstForecastedWeather = '01d';
 var daysCount = 0;
@@ -109936,7 +109822,7 @@ exports.DailyWeather = DailyWeather;
 
 
 /***/ }),
-/* 658 */
+/* 656 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
