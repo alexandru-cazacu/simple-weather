@@ -1,7 +1,6 @@
 package simple_weather_server;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,7 +11,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.util.EntityUtils;
-import simple_weather_server.Schemas.*;
+import simple_weather_server.schemas.*;
 
 /**
  *
@@ -52,20 +51,11 @@ public class Main {
                 // Creates JSON object as WeatherContainer.
                 Gson gson = new Gson();
 
-                JsonElement json = gson.fromJson(body, JsonElement.class);
-                String result = gson.toJson(json);
+                WeatherContainer json = gson.fromJson(body, WeatherContainer.class);
 
-                System.out.println(json);
-
-//                JSONObject obj = new JSONObject(" .... ");
-//                String pageName = obj.getJSONObject("pageInfo").getString("pageName");
-//
-//                JSONArray arr = obj.getJSONArray("posts");
-//                for (int i = 0; i < arr.length(); i++) {
-//                    String post_id = arr.getJSONObject(i).getString("post_id");
-//                    ......
-//                }
-//                System.out.println();
+                if (json.getCity() != null) {
+                    System.out.println("--- Returned forecast for " + json.getCity().getName());
+                }
             }
         }
     }

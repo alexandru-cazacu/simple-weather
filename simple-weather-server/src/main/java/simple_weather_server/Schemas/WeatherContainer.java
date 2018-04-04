@@ -1,41 +1,27 @@
 
-package simple_weather_server.Schemas;
+package simple_weather_server.schemas;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class WeatherContainer {
 
-    @SerializedName("cod")
+    @SerializedName("city")
     @Expose
-    private String cod;
-    @SerializedName("message")
-    @Expose
-    private Double message;
+    private City city;
     @SerializedName("cnt")
     @Expose
     private Integer cnt;
     @SerializedName("list")
     @Expose
-    private java.util.List<simple_weather_server.Schemas.List> list = null;
-    @SerializedName("city")
-    @Expose
-    private City city;
+    private java.util.List<simple_weather_server.schemas.List> list = null;
 
-    public String getCod() {
-        return cod;
+    public City getCity() {
+        return city;
     }
 
-    public void setCod(String cod) {
-        this.cod = cod;
-    }
-
-    public Double getMessage() {
-        return message;
-    }
-
-    public void setMessage(Double message) {
-        this.message = message;
+    public void setCity(City city) {
+        this.city = city;
     }
 
     public Integer getCnt() {
@@ -46,20 +32,12 @@ public class WeatherContainer {
         this.cnt = cnt;
     }
 
-    public java.util.List<simple_weather_server.Schemas.List> getList() {
+    public java.util.List<simple_weather_server.schemas.List> getList() {
         return list;
     }
 
-    public void setList(java.util.List<simple_weather_server.Schemas.List> list) {
+    public void setList(java.util.List<simple_weather_server.schemas.List> list) {
         this.list = list;
-    }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
     }
 
 }

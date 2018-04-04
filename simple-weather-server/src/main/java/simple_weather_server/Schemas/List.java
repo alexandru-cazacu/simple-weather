@@ -1,5 +1,5 @@
 
-package simple_weather_server.Schemas;
+package simple_weather_server.schemas;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -24,6 +24,9 @@ public class List {
     @SerializedName("rain")
     @Expose
     private Rain rain;
+    @SerializedName("snow")
+    @Expose
+    private Snow snow;
     @SerializedName("sys")
     @Expose
     private Sys sys;
@@ -77,6 +80,14 @@ public class List {
 
     public void setRain(Rain rain) {
         this.rain = rain;
+    }
+
+    public Snow getSnow() {
+        return snow;
+    }
+
+    public void setSnow(Snow snow) {
+        this.snow = snow;
     }
 
     public Sys getSys() {

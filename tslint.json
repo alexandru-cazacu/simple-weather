@@ -1,7 +1,0 @@
-{
-    "enable": true,
-    "rules": {
-        "no-unused-variable": false,
-        "no-unused-expression": true
-    }
-}
